@@ -11,4 +11,10 @@ This code is currently in development. Please check with Havala if you want to c
 
 ### Version 0.1 
 Date: 20210621
+
 initial mapper and species properties for CRACMM
+
+### Version 0.11
+Date: 20210702
+
+Added IVOCOXY to mapper; updated representative compounds for IVOCP6ARO, SVOCN1, and SVOCP0 in SPECIATE.
