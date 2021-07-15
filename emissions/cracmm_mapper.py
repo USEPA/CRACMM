@@ -3,6 +3,7 @@
 Created on Wed May 26 17:07:35 2021
 
 @author: phavala
+contributors: Havala Pye, Karl Seltzer USEPA
 """
 
 import rdkit
@@ -21,7 +22,7 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   kOH and C* may not be used if the compound can be mapped without it. 
   RACM2 reference: https://ars.els-cdn.com/content/image/1-s2.0-S1352231012011065-mmc1.pdf
   '''
-  # CRACMMv0.1 
+  # CRACMMv0.11
   
   # Prep inputs
   m       = Chem.MolFromSmiles(smiles)
@@ -133,6 +134,8 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   elif ( nCdblC==1 ):                      mechspecies = 'OLI'  # internal alkene (7.1e-11)
 
   # IVOC species binned (new to v0.1)
+  elif ( log10cstar < 6.5 and nO/nC >= 0.1 ):  
+                                     mechspecies = 'IVOCOXY' # Oxygenated IVOCs
   elif ( log10cstar < 3.5 ):         mechspecies = 'IVOCP3' # C* bin centered on 1000 ug/m3
   elif ( log10cstar < 4.5 ):         mechspecies = 'IVOCP4' # C* bin centered on 10^4
   elif ( log10cstar < 5.5 ):         mechspecies = 'IVOCP5' # C* bin centered on 10^5
