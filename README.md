@@ -9,6 +9,9 @@ This code is currently in development. Please check with Havala if you want to c
 
 ## Version history
 
+### Current version
+not yet numbered
+
 ### Version 0.1 
 Date: 20210621
 
