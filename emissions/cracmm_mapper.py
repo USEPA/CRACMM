@@ -33,6 +33,7 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   nC      = smiles.count('C')-smiles.count('CL')
   nO      = smiles.count('O')
   nN      = smiles.count('N')
+  nSi     = smiles.count('SI')
   nH      = 0
   for atom in m.GetAtoms():
       nH += atom.GetTotalNumHs()
