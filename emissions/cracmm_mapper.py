@@ -74,7 +74,6 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   elif ( smiles == 'C(CO)O' or smiles == 'OCCO'): 
                                     mechspecies = 'ETEG'  # ethylene glycol  
   elif ( smiles == "CC" ):          mechspecies = 'ETH'   # ethane  
-
   elif ( smiles == 'C=O'):          mechspecies = 'HCHO'  # formaldehyde  
   elif ( smiles == 'CC(=C)C=C' ):   mechspecies = 'ISO'   # isoprene (canonical SMILES)  
   elif ( smiles == 'CO'):           mechspecies = 'MOH'   # methanol   
