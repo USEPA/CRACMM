@@ -9,7 +9,13 @@ This code is currently in development. Please check with Havala if you want to c
 
 ### Version history
 
-### Current version: 0.2
+### Current version: 0.21
+Date: 20210805
+
+Mineral oil surrogate changed from decane to linoleic acid (mapping changed from HC8 to ROCP1). 8 new SPECIATE species added.
+
+
+### Version: 0.2
 Date: 20210716
 
 * PAH eliminated. The most abundant species that was in PAH fit better in the existing oxygenated aromatics. When PAHs were defined with O:C=0, very little mass was left. 
