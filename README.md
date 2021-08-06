@@ -10,6 +10,10 @@ This code is currently in development. Please check with Havala if you want to c
 ### Version history
 
 ### Current version: 0.21
+Date: 20210806
+
+Updated Misc Silanes surrogate and removed non-ROC species from mech4import.
+
 Date: 20210805
 
 Mineral oil surrogate changed from decane to linoleic acid (mapping changed from HC8 to ROCP1). 8 new SPECIATE species added.
