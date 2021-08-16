@@ -10,6 +10,10 @@ This code is currently in development. Please check with Havala if you want to c
 ### Version history
 
 ### Current version: 0.21
+Date: 20210812
+
+Updated carbons (Speciation Tool input) for missing species.
+
 Date: 20210806
 
 Updated Misc Silanes surrogate and removed non-ROC species from mech4import.
