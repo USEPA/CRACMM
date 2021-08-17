@@ -1,0 +1,280 @@
+!SPECIES,Files -->,"NR.nml, GC.nml, AE.nml",,,,,,,,,,,,,NR.nml,,GC.nml,,AE.nml,AERO_DATA.F,,,,,,,,,,SOA_DEFN.F,,,,,,,hlconst.F,
+,bulkname (aerosol components only),MOLWT,IC,IC_FAC,BC,BC_FAC,DRYDEP SURR,FAC,WET-SCAV SURR,FAC,TRNS,DDEP,WDEP,CONC,NR2AE SURR,NR2AQ SURR,GC2AE SURR,GC2AQ SURR,AE2AQ SURR,Min_Concs,Density,no_M2Wet,Tracer,Charge,Visidx,Visidx_Large,OM,OptSurr,korg,PM Name,Vapor Name,Rxn Cntr,Alpha,Cstar,Enthalpy,Nonvolatile,Henry's Law,Dissociation
+NH3,,17,,-1,,-1,VD_NH3,1,NH3,1,Yes,Yes,Yes,Yes,NH3,NH3,,,,,,,,,,,,,,,,,,,,,6.10E+01,4.20E+03
+HCL,,36,,-1,,-1,VD_HCL,1,HCL,1,Yes,Yes,Yes,Yes,HCL,HCL,,,,,,,,,,,,,,,,,,,,,1.90E+01,6.00E+02
+SVALK1,,225,,-1,,-1,VD_SVALK1,1,SVALK1,1,Yes,Yes,Yes,Yes,SVALK1,,,,,,,,,,,,,,,,,,,,,,6.20E+08,6.00E+03
+SVALK2,,205.1,,-1,,-1,VD_SVALK2,1,SVALK2,1,Yes,Yes,Yes,Yes,SVALK2,,,,,,,,,,,,,,,,,,,,,,4.50E+06,6.00E+03
+SVXYL1,,174,,-1,,-1,VD_SVXYL1,1,SVXYL1,1,Yes,Yes,Yes,Yes,SVXYL1,,,,,,,,,,,,,,,,,,,,,,6.20E+07,6.00E+03
+SVXYL2,,185,,-1,,-1,VD_SVXYL2,1,SVXYL2,1,Yes,Yes,Yes,Yes,SVXYL2,,,,,,,,,,,,,,,,,,,,,,4.00E+06,6.00E+03
+SVTOL1,,163,,-1,,-1,VD_SVTOL1,1,SVTOL1,1,Yes,Yes,Yes,Yes,SVTOL1,,,,,,,,,,,,,,,,,,,,,,4.20E+07,6.00E+03
+SVTOL2,,175,,-1,,-1,VD_SVTOL2,1,SVTOL2,1,Yes,Yes,Yes,Yes,SVTOL2,,,,,,,,,,,,,,,,,,,,,,7.30E+06,6.00E+03
+SVBNZ1,,161,,-1,,-1,VD_SVBNZ1,1,SVBNZ1,1,Yes,Yes,Yes,Yes,SVBNZ1,,,,,,,,,,,,,,,,,,,,,,2.10E+08,6.00E+03
+SVBNZ2,,134,,-1,,-1,VD_SVBNZ2,1,SVBNZ2,1,Yes,Yes,Yes,Yes,SVBNZ2,,,,,,,,,,,,,,,,,,,,,,2.00E+06,6.00E+03
+SVPAH1,,195.6,,-1,,-1,VD_SVPAH1,1,SVPAH1,1,Yes,Yes,Yes,Yes,SVPAH1,,,,,,,,,,,,,,,,,,,,,,5.10E+07,6.00E+03
+SVPAH2,,178.7,,-1,,-1,VD_SVPAH2,1,SVPAH2,1,Yes,Yes,Yes,Yes,SVPAH2,,,,,,,,,,,,,,,,,,,,,,7.20E+05,6.00E+03
+SVTRP1,,177,,-1,,-1,VD_SVTRP1,1,SVTRP1,1,Yes,Yes,Yes,Yes,SVTRP1,,,,,,,,,,,,,,,,,,,,,,9.90E+08,6.00E+03
+SVTRP2,,198,,-1,,-1,VD_SVTRP2,1,SVTRP2,1,Yes,Yes,Yes,Yes,SVTRP2,,,,,,,,,,,,,,,,,,,,,,1.40E+08,6.00E+03
+SVISO1,,132,,-1,,-1,VD_SVISO1,1,SVISO1,1,Yes,Yes,Yes,Yes,SVISO1,,,,,,,,,,,,,,,,,,,,,,4.30E+07,6.00E+03
+SVISO2,,133,,-1,,-1,VD_SVISO2,1,SVISO2,1,Yes,Yes,Yes,Yes,SVISO2,,,,,,,,,,,,,,,,,,,,,,3.70E+09,6.00E+03
+SVSQT,,273,,-1,,-1,VD_SVSQT,1,SVSQT,1,Yes,Yes,Yes,Yes,SVSQT,,,,,,,,,,,,,,,,,,,,,,6.20E+08,6.00E+03
+LVPCSOG,,170,,-1,,-1,VD_LVPCSOG,1,ADIPIC_ACID,1,Yes,,,Yes,LVPCSOG,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+O3,,48,,-1,,-1,VD_O3,1,O3,1,Yes,Yes,Yes,Yes,,,,O3,,,,,,,,,,,,,,,,,,,1.14E-02,2.30E+03
+O3P,,16,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+O1D,,16,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+H2O2,,34,,-1,,-1,VD_H2O2,1,H2O2,1,Yes,Yes,Yes,Yes,,,,H2O2,,,,,,,,,,,,,,,,,,,1.10E+05,7.40E+03
+HO,,17,,-1,,-1,,-1,,-1,,,,Yes,,,OH,HO,,,,,,,,,,,,,,,,,,,,
+NO2,,46,,-1,,-1,VD_NO2,1,NO2,1,Yes,Yes,Yes,Yes,,,NO2,,,,,,,,,,,,,,,,,,,,1.20E-02,2.50E+03
+NO,,30,,-1,,-1,VD_NO,1,NO,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.90E-03,1.40E+03
+NO3,,62,,-1,,-1,VD_NO3,1,NO3,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,6.00E-01,0.00E+00
+HONO,,47,,-1,,-1,VD_HONO,1,HNO2,1,Yes,Yes,Yes,Yes,,,HONO,,,,,,,,,,,,,,,,,,,,5.00E+01,4.90E+03
+HNO3,,63,,-1,,-1,VD_HNO3,1,HNO3,1,Yes,Yes,Yes,Yes,,,HNO3,HNO3,,,,,,,,,,,,,,,,,,,2.10E+05,8.70E+03
+HNO4,,79,,-1,,-1,,-1,HNO4,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.20E+04,6.90E+03
+HO2,,33,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+HCHO,,30,,-1,,-1,VD_HCHO,1,FORMALDEHYDE,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,3.20E+03,6.80E+03
+CO,,28,,-1,,-1,VD_CO,1,CO,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,9.90E-04,1.30E+03
+ACD,,44,,-1,,-1,VD_ALD,1,ACETALDEHYDE,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.40E+01,5.60E+03
+MO2,,47,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ALD,,58,,-1,,-1,VD_GEN_ALD,1,GENERIC_ALDEHYDE,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.20E+03,0.00E+00
+ETHP,,61,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ACT,,58,,-1,,-1,,-1,ACETONE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,3.00E+01,4.60E+03
+ACO3,,75,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+UALD,,84,,-1,,-1,VD_GEN_ALD,1,GENERIC_ALDEHYDE,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.20E+03,0.00E+00
+KET,,86,,-1,,-1,,-1,DIETHYLKETONE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+01,9.20E+03
+MEK,,72,,-1,,-1,,-1,MEK,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+01,5.00E+03
+HKET,,74,,-1,,-1,,-1,HYDROXY-ACETONE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+04,0.00E+00
+MACR,,70,,-1,,-1,,-1,METHACROLEIN,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,6.50E+00,0.00E+00
+MACP,,101,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XO2,,1,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+MVK,,70,,-1,,-1,,-1,MVK,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.10E+01,0.00E+00
+GLY,,58,,-1,,-1,,-1,GLYOXAL,1,Yes,,Yes,Yes,,,,GLY,,,,,,,,,,,,,,,,,,,3.60E+05,0.00E+00
+MGLY,,72,,-1,,-1,,-1,METHYL_GLYOXAL,1,Yes,,Yes,Yes,,,,MGLY,,,,,,,,,,,,,,,,,,,3.20E+04,0.00E+00
+DCB1,,91,,-1,,-1,,-1,METHACROLEIN,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,6.50E+00,0.00E+00
+DCB2,,110,,-1,,-1,,-1,METHACROLEIN,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,6.50E+00,0.00E+00
+BALD,,106,,-1,,-1,,-1,BENZALDEHYDE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,3.90E+01,4.80E+03
+CHO,,139,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+OP1,,48,,-1,,-1,VD_OP,1,METHYLHYDROPEROX,1,Yes,Yes,Yes,Yes,,,,MHP,,,,,,,,,,,,,,,,,,,3.10E+02,5.20E+03
+OP2,,62,,-1,,-1,VD_OP,1,METHYLHYDROPEROX,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,3.10E+02,5.20E+03
+PAA,,76,,-1,,-1,VD_PAA,1,PEROXYACETIC_ACI,1,Yes,Yes,Yes,Yes,,,,PAA,,,,,,,,,,,,,,,,,,,8.40E+02,5.30E+03
+ONIT,,119,,-1,,-1,VD_PAN,1,MPAN,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.70E+00,0.00E+00
+PAN,,121,,-1,,-1,VD_PAN,1,PAN,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.80E+00,6.50E+03
+N2O5,,108,,-1,,-1,VD_N2O5,1,N2O5,1,Yes,Yes,Yes,Yes,,,N2O5,N2O5,,,,,,,,,,,,,,,,,,,1.00E+30,0.00E+00
+SO2,,64,,-1,,-1,VD_SO2,1,SO2,1,Yes,Yes,Yes,Yes,,,,SO2,,,,,,,,,,,,,,,,,,,1.40E+00,2.90E+03
+SULF,,98,,-1,,-1,VD_SULF,1,H2SO4,1,Yes,Yes,Yes,Yes,,,SULF,H2SO4,,,,,,,,,,,,,,,,,,,1.00E+30,0.00E+00
+SULRXN,,98,,-1,,-1,,-1,,-1,,,,   ,,,SULPRD,,,,,,,,,,,,,,,,,,,,,
+ETH,,30,,-1,,-1,,-1,ETHANE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.90E-03,2.30E+03
+HC3,,44,,-1,,-1,,-1,PROPANE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.50E-03,2.70E+03
+HC3P,,75,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+HC5,,72,,-1,,-1,,-1,PENTANE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,8.10E-04,0.00E+00
+HC5P,,103,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+HC8,,114,,-1,,-1,,-1,OCTANE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.90E-03,7.80E+03
+HC8P,,145,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ETE,,28,,-1,,-1,,-1,ETHENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.70E-03,0.00E+00
+ETEP,,77,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+OLT,,42,,-1,,-1,,-1,ETHENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.70E-03,0.00E+00
+OLTP,,91,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+OLI,,68,,-1,,-1,,-1,ETHENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.70E-03,0.00E+00
+OLIP,,117,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+DIEN,,54,,-1,,-1,,-1,13-BUTADIENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.40E-02,0.00E+00
+ACE,,26,,-1,,-1,,-1,ACETYLENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.10E-02,1.80E+03
+ORA1,,46,,-1,,-1,VD_ORA,1,FORMIC_ACID,1,Yes,Yes,Yes,Yes,,,,FOA,,,,,,,,,,,,,,,,,,,8.90E+03,6.10E+03
+BENZENE,,78,,-1,,-1,,-1,BENZENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.60E-01,4.10E+03
+BENP,,127,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+EPX,,122.5,,-1,,-1,,-1,MEK,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+01,5.00E+03
+PHEN,,94,,-1,,-1,,-1,PHENOL,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,3.30E+03,3.60E+03
+BENZRO2,,127,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+TOL,,92,,-1,,-1,,-1,TOLUENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.50E-01,4.00E+03
+TR2,,109,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+TLP1,,91,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+CSL,,108,,-1,,-1,,-1,2-CRESOL,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,8.20E+02,0.00E+00
+TOLRO2,,141,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XYM,,106,,-1,,-1,,-1,M-XYLENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.43E-01,3.90E+03
+XY2,,124,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XYL1,,156,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XYLRO2,,155,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XYP,,106,,-1,,-1,,-1,P-XYLENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.35E-01,3.70E+03
+XYO,,106,,-1,,-1,,-1,O-XYLENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.90E-01,4.00E+03
+XYO2,,155,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ISO,,68,,-1,,-1,,-1,ISOPRENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.80E-02,0.00E+00
+ISOP,,117,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ISOPRXN,,68,,-1,,-1,,-1,,-1,,,,   ,,,ISOPRXN,,,,,,,,,,,,,,,,,,,,,
+API,,136,,-1,,-1,,-1,PINENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.90E-02,0.00E+00
+APIP,,185,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+TRPRXN,,136,,-1,,-1,,-1,,-1,,,,   ,,,TRPRXN,,,,,,,,,,,,,,,,,,,,,
+LIM,,136,,-1,,-1,,-1,PINENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.90E-02,0.00E+00
+LIMP,,185,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+RCO3,,90,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ACTP,,89,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+MEKP,,103,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+KETP,,117,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+MCP,,119,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+MVKP,,119,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+UALP,,133,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+DCB3,,84,,-1,,-1,,-1,METHACROLEIN,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,6.50E+00,0.00E+00
+BALP,,137,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ADDC,,125,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+MCT,,124,,-1,,-1,,-1,PYROCATECHOL,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,4.60E+03,0.00E+00
+MCTO,,123,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+MOH,,32,,-1,,-1,VD_METHANOL,1,METHANOL,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.20E+02,5.20E+03
+EOH,,46,,-1,,-1,,-1,ETHANOL,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.90E+02,6.60E+03
+ROH,,60,,-1,,-1,,-1,N-PROPANOL,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.10E+02,0.00E+00
+ETEG,,62,,-1,,-1,,-1,ETHYLENEGLYCOL,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.00E+06,0.00E+00
+ISHP,,118,,-1,,-1,VD_OP,1,METHACROLEIN,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,6.50E+00,0.00E+00
+IEPOX,,118.1,,-1,,-1,VD_OP,1.5,HYDROXY_PEROXIDE,1,Yes,Yes,Yes,Yes,,,IEPOX,,,,,,,,,,,,,,,,,,,,8.30E+04,7.40E+03
+MAHP,,102,,-1,,-1,VD_OP,1,METHACROLEIN,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,6.50E+00,0.00E+00
+ORA2,,60,,-1,,-1,VD_ORA,1,ACETIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.10E+03,6.30E+03
+ORAP,,109,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+PPN,,135,,-1,,-1,VD_PAN,1,PPN,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.90E+00,0.00E+00
+MPAN,,148,,-1,,-1,VD_PAN,1,MPAN,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,1.70E+00,0.00E+00
+NALD,,105,,-1,,-1,VD_PAN,1,2NITRO_1BUTNL,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,6.30E+03,9.60E+03
+ISON,,147,,-1,,-1,VD_PAN,1,2NITRO_1BUTNL,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,6.30E+03,9.60E+03
+MCTP,,172,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+OLNN,,136,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+OLND,,136,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+ADCN,,156,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+TOLP,,141,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+PER1,,141,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XYLP,,155,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+PER2,,157,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+XYOP,,155,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+BAL1,,121,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+BAL2,,105,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+TOLNRXN,,141,,-1,,-1,,-1,,-1,,,,   ,,,TOLNRXN,,,,,,,,,,,,,,,,,,,,,
+TOLHRXN,,141,,-1,,-1,,-1,,-1,,,,   ,,,TOLHRXN,,,,,,,,,,,,,,,,,,,,,
+XYLNRXN,,155,,-1,,-1,,-1,,-1,,,,   ,,,XYLNRXN,,,,,,,,,,,,,,,,,,,,,
+XYLHRXN,,155,,-1,,-1,,-1,,-1,,,,   ,,,XYLHRXN,,,,,,,,,,,,,,,,,,,,,
+BNZNRXN,,127,,-1,,-1,,-1,,-1,,,,   ,,,BNZNRXN,,,,,,,,,,,,,,,,,,,,,
+BNZHRXN,,127,,-1,,-1,,-1,,-1,,,,   ,,,BNZHRXN,,,,,,,,,,,,,,,,,,,,,
+SESQ,,204,,-1,,-1,,-1,PINENE,1,Yes,,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.90E-02,0.00E+00
+SESQRXN,,204,,-1,,-1,,-1,,-1,,,,   ,,,SESQRXN,,,,,,,,,,,,,,,,,,,,,
+NAPH,,128.2,,-1,,-1,,-1,O-XYLENE,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,1.90E-01,4.00E+03
+PAHRO2,,187.2,,-1,,-1,,-1,,-1,,,,Yes,,,,,,,,,,,,,,,,,,,,,,,,
+PAHNRXN,,187.2,,-1,,-1,,-1,,-1,,,,   ,,,PAHNRXN,,,,,,,,,,,,,,,,,,,,,
+PAHHRXN,,187.2,,-1,,-1,,-1,,-1,,,,   ,,,PAHHRXN,,,,,,,,,,,,,,,,,,,,,
+SOAALK,,112,,-1,,-1,,-1,DECANE,1,Yes,,,Yes,,,,,,,,,,,,,,,,,,,,,,,1.40E-04,0.00E+00
+ALKRXN,,112,,-1,,-1,,-1,,-1,,,,   ,,,ALKRXN,,,,,,,,,,,,,,,,,,,,,
+VLVPO1,,218,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VLVPO1,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VSVPO1,,230,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VSVPO1,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VSVPO2,,241,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VSVPO2,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VSVPO3,,253,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VSVPO3,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VIVPO1,,266,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VIVPO1,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VLVOO1,,136,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VLVOO1,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VLVOO2,,136,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VLVOO2,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VSVOO1,,135,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VSVOO1,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VSVOO2,,135,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VSVOO2,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+VSVOO3,,134,,-1,,-1,VD_ORA,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,VSVOO3,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+PCVOC,,170,,-1,,-1,VD_GEN_ALD,1,GENERIC_ALDEHYDE,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,4.20E+03,0.00E+00
+PCSOARXN,,170,,-1,,-1,,-1,,-1,,,,   ,,,PCSOARXN,,,,,,,,,,,,,,,,,,,,,
+IVOCP3,,296.6,,-1,,-1,VD_VIVPO1,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+IVOCP4,,254.5,,-1,,-1,VD_VIVPO1,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+IVOCP5,,219.4,,-1,,-1,VD_VIVPO1,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+IVOCP6,,184.4,,-1,,-1,VD_VIVPO1,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+IVOCP5ARO,,197.3,,-1,,-1,VD_VIVPO1,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+IVOCP6ARO,,162.3,,-1,,-1,VD_VIVPO1,1,ADIPIC_ACID,1,Yes,Yes,Yes,Yes,,,,,,,,,,,,,,,,,,,,,,,2.00E+08,0.00E+00
+ASO4J,ASO4,96,,-1,,-1,VMASSJ,1,SO4_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SO4_ACCUM, cm_so4,1800, F,F,-2,2.2,4.8,F,SOLUTE,0,,,,,,,,,
+ASO4I,ASO4,96,,-1,,-1,VMASSI,1,SO4_AITKEN,1,Yes,Yes,Yes,Yes,,,,,SO4_AITKEN, cm_so4,1800, F,F,-2,2.2,4.8,F,SOLUTE,0,,,,,,,,,
+ANH4J,ANH4,18,,-1,,-1,VMASSJ,1,NH4_ACCUM,1,Yes,Yes,Yes,Yes,,,,,NH4_ACCUM, cm_set,1800, F,F,1,0,0,F,SOLUTE,0,,,,,,,,,
+ANH4I,ANH4,18,,-1,,-1,VMASSI,1,NH4_AITKEN,1,Yes,Yes,Yes,Yes,,,,,NH4_AITKEN, cm_set,1800, F,F,1,0,0,F,SOLUTE,0,,,,,,,,,
+ANO3J,ANO3,62,,-1,,-1,VMASSJ,1,NO3_ACCUM,1,Yes,Yes,Yes,Yes,,,,,NO3_ACCUM, cm_set,1800, F,F,-1,2.4,5.1,F,SOLUTE,0,,,,,,,,,
+ANO3I,ANO3,62,,-1,,-1,VMASSI,1,NO3_AITKEN,1,Yes,Yes,Yes,Yes,,,,,NO3_AITKEN, cm_set,1800, F,F,-1,2.4,5.1,F,SOLUTE,0,,,,,,,,,
+AALK1J,AALK1,225,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.07,AALK1,SVALK1  ,ALKRXN  ,0.0334,0.1472,53000,F,,
+AALK2J,AALK2,205.1,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.06,AALK2,SVALK2  ,ALKRXN  ,0.2164,51.8775,53000,F,,
+AXYL1J,AXYL1,174,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1480, T,F,0,2.8,6.1,T,DUST  ,0.17,AXYL1,SVXYL1  ,XYLNRXN ,0.031,1.314,32000,F,,
+AXYL2J,AXYL2,185,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1480, T,F,0,2.8,6.1,T,DUST  ,0.11,AXYL2,SVXYL2  ,XYLNRXN ,0.09,34.483,32000,F,,
+AXYL3J,AXYL3,218,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1330, F,F,0,2.8,6.1,T,DUST  ,0.15,AXYL3,        ,XYLNRXN ,0.36,1E-10,1,T,,
+ATOL1J,ATOL1,163,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1240, T,F,0,2.8,6.1,T,DUST  ,0.15,ATOL1,SVTOL1  ,TOLNRXN ,0.058,2.326,18000,F,,
+ATOL2J,ATOL2,175,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1240, T,F,0,2.8,6.1,T,DUST  ,0.1,ATOL2,SVTOL2  ,TOLNRXN ,0.113,21.277,18000,F,,
+ATOL3J,ATOL3,194,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1450, F,F,0,2.8,6.1,T,DUST  ,0.2,ATOL3,        ,TOLNRXN ,0.3,1E-10,1,T,,
+ABNZ1J,ABNZ1,161,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.19,ABNZ1,SVBNZ1  ,BNZNRXN ,0.072,0.302,18000,F,,
+ABNZ2J,ABNZ2,134,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.15,ABNZ2,SVBNZ2  ,BNZNRXN ,0.888,111.11,18000,F,,
+ABNZ3J,ABNZ3,180,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.23,ABNZ3,        ,BNZNRXN ,0.37,1E-10,1,T,,
+APAH1J,APAH1,195.6,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1480, T,F,0,2.8,6.1,T,DUST  ,0.08,APAH1,SVPAH1  ,PAHNRXN ,0.21,1.6598,18000,F,,
+APAH2J,APAH2,178.7,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1480, T,F,0,2.8,6.1,T,DUST  ,0.06,APAH2,SVPAH2  ,PAHNRXN ,1.07,264.6675,18000,F,,
+APAH3J,APAH3,212.2,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1550, F,F,0,2.8,6.1,T,DUST  ,0.09,APAH3,        ,PAHNRXN ,0.73,1E-10,1,T,,
+ATRP1J,ATRP1,177,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.1,ATRP1,SVTRP1  ,TRPRXN  ,0.1393,14.792,40000,F,,
+ATRP2J,ATRP2,198,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.1,ATRP2,SVTRP2  ,TRPRXN  ,0.4542,133.7297,40000,F,,
+AISO1J,AISO1,132,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.14,AISO1,SVISO1  ,ISOPRXN ,0.232,116.01,40000,F,,
+AISO2J,AISO2,133,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.15,AISO2,SVISO2  ,ISOPRXN ,0.0288,0.617,40000,F,,
+ASQTJ,ASQT,273,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.07,ASQT,SVSQT   ,SESQRXN ,1.537,24.984,40000,F,,
+AORGCJ,AORGC,177,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,AORGC_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.12,AORGC,        ,        ,0,1E-10,1,T,,
+AECJ,AEC,12,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,EC_ACCUM, cm_set,2200, F,F,0,10,10,F,SOOT  ,0,,,,,,,,,
+AECI,AEC,12,,-1,,-1,VMASSI,1,PRI_AITKEN,1,Yes,Yes,Yes,Yes,,,,,EC_AITKEN, cm_set,2200, F,F,0,10,10,F,SOOT  ,0,,,,,,,,,
+AOTHRJ,AOTHR,200,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,PRI_ACCUM, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+AOTHRI,AOTHR,200,,-1,,-1,VMASSI,1,PRI_AITKEN,1,Yes,,,Yes,,,,,PRI_AITKEN, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+AFEJ,AFE,55.8,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,FE_ACCUM, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+AALJ,AAL,27,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,PRI_ACCUM, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+ASIJ,ASI,28.1,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,PRI_ACCUM, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+ATIJ,ATI,47.9,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,PRI_ACCUM, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+ACAJ,ACA,40.1,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,CA_ACCUM, cm_set,2200, F,F,2,1,1,F,DUST  ,0,,,,,,,,,
+AMGJ,AMG,24.3,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,MG_ACCUM, cm_set,2200, F,F,2,1,1,F,DUST  ,0,,,,,,,,,
+AKJ,AK,39.1,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,K_ACCUM, cm_set,2200, F,F,1,1,1,F,DUST  ,0,,,,,,,,,
+AMNJ,AMN,54.9,,-1,,-1,VMASSJ,1,PRI_ACCUM,1,Yes,Yes,Yes,Yes,,,,,MN_ACCUM, cm_set,2200, F,F,0,1,1,F,DUST  ,0,,,,,,,,,
+ACORS,ACORS,100,,-1,,-1,VMASSC,1,PRI_COARSE,1,Yes,Yes,Yes,Yes,,,,,ANTH_COARSE, cm_cor,2200, F,F,0,0.6,0.6,F,DUST  ,0,,,,,,,,,
+ASOIL,ASOIL,100,,-1,,-1,VMASSC,1,PRI_COARSE,1,Yes,Yes,Yes,Yes,,,,,SOIL_COARSE, cm_set,2600, F,F,0,0.6,0.6,F,DUST  ,0,,,,,,,,,
+NUMATKN,,1,,-1,,-1,VNUMATKN,1,NUM_AITKEN,1,Yes,,,Yes,,,,,NUM_AITKEN,,,,,,,,,,,,,,,,,,,
+NUMACC,,1,,-1,,-1,VNUMACC,1,NUM_ACCUM,1,Yes,,,Yes,,,,,NUM_ACCUM,,,,,,,,,,,,,,,,,,,
+NUMCOR,,1,,-1,,-1,VNUMCOR,1,NUM_COARSE,1,Yes,,,Yes,,,,,NUM_COARSE,,,,,,,,,,,,,,,,,,,
+SRFATKN,,1,,-1,,-1,VSRFATKN,1,SRF_AITKEN,1,Yes,,,Yes,,,,,SRF_AITKEN,,,,,,,,,,,,,,,,,,,
+SRFACC,,1,,-1,,-1,VSRFACC,1,SRF_ACCUM,1,Yes,,,Yes,,,,,SRF_ACCUM,,,,,,,,,,,,,,,,,,,
+SRFCOR,,1,,-1,,-1,VSRFCOR,1,SRF_COARSE,1,Yes,,,Yes,,,,,SRF_COARSE,,,,,,,,,,,,,,,,,,,
+AH2OJ,AH2O,18,,-1,,-1,VMASSJ,1,H2O_ACCUM,1,Yes,,,Yes,,,,,H2O_ACCUM, cm_set,1000, T,F,0,0,0,F,WATER ,0,,,,,,,,,
+AH2OI,AH2O,18,,-1,,-1,VMASSI,1,H2O_AITKEN,1,Yes,,,Yes,,,,,H2O_AITKEN, cm_set,1000, T,F,0,0,0,F,WATER ,0,,,,,,,,,
+AH3OPJ,AH3OP,19,,-1,,-1,VMASSJ,1,,-1,Yes,,,Yes,,,,,, cm_set,1000, T,T,0,0,0,F,WATER ,0,,,,,,,,,
+AH3OPI,AH3OP,19,,-1,,-1,VMASSI,1,,-1,Yes,,,Yes,,,,,, cm_set,1000, T,T,0,0,0,F,WATER ,0,,,,,,,,,
+ANAJ,ANA,23,,-1,,-1,VMASSJ,1,NA_ACCUM,1,Yes,Yes,Yes,Yes,,,,,NA_ACCUM, cm_set,2200, F,F,1,1.7,1.7,F,SOLUTE,0,,,,,,,,,
+ANAI,ANA,23,,-1,,-1,VMASSI,1,NA_AITKEN,1,Yes,Yes,Yes,Yes,,,,,NA_AITKEN, cm_set,2200, F,F,1,1.7,1.7,F,SOLUTE,0,,,,,,,,,
+ACLJ,ACL,35.5,,-1,,-1,VMASSJ,1,CL_ACCUM,1,Yes,Yes,Yes,Yes,,,,,CL_ACCUM, cm_set,2200, F,F,-1,1.7,1.7,F,SOLUTE,0,,,,,,,,,
+ACLI,ACL,35.5,,-1,,-1,VMASSI,1,CL_AITKEN,1,Yes,Yes,Yes,Yes,,,,,CL_AITKEN, cm_set,2200, F,F,-1,1.7,1.7,F,SOLUTE,0,,,,,,,,,
+ASEACAT,ASEACAT,23.75,,-1,,-1,VMASSC,1,PRI_COARSE,1,Yes,Yes,Yes,Yes,,,,,SEAS_COARSE, cm_cor,2200, F,F,1,1.7,1.7,F,SOLUTE,0,,,,,,,,,
+ACLK,ACL,35.5,,-1,,-1,VMASSC,1,CL_COARSE,1,Yes,Yes,Yes,Yes,,,,,CL_COARSE, cm_set,2200, F,F,-1,1.7,1.7,F,SOLUTE,0,,,,,,,,,
+ASO4K,ASO4,96,,-1,,-1,VMASSC,1,SO4_COARSE,1,Yes,Yes,Yes,Yes,,,,,SO4_COARSE, cm_so4,1800, F,F,-2,2.2,4.8,F,SOLUTE,0,,,,,,,,,
+ANH4K,ANH4,18,,-1,,-1,VMASSC,1,NH4_COARSE,1,Yes,Yes,Yes,Yes,,,,,NH4_COARSE, cm_set,1800, F,F,1,0,0,F,SOLUTE,0,,,,,,,,,
+ANO3K,ANO3,62,,-1,,-1,VMASSC,1,NO3_COARSE,1,Yes,Yes,Yes,Yes,,,,,NO3_COARSE, cm_set,1800, F,F,-1,2.4,5.1,F,SOLUTE,0,,,,,,,,,
+AH2OK,AH2O,18,,-1,,-1,VMASSC,1,H2O_COARSE,1,Yes,,,Yes,,,,,H2O_COARSE, cm_set,1000, T,F,0,0,0,F,WATER ,0,,,,,,,,,
+AH3OPK,AH3OP,19,,-1,,-1,VMASSC,1,,-1,Yes,,,Yes,,,,,, cm_set,1000, T,T,0,0,0,F,WATER ,0,,,,,,,,,
+AISO3J,AISO3,168.2,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.21,AISO3,        ,        ,0,1E-10,1,T,,
+AOLGAJ,AOLGA,206,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.18,AOLGA,        ,        ,0,1E-10,1,T,,
+AOLGBJ,AOLGB,248,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.13,AOLGB,        ,        ,0,1E-10,1,T,,
+APOCI,APOC,220,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0,APOC,        ,        ,0,1E-10,1,T,,
+APOCJ,APOC,220,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0,APOC,        ,        ,0,1E-10,1,T,,
+APNCOMI,APNCOM,220,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0,APNCOM,        ,        ,0,1E-10,1,T,,
+APNCOMJ,APNCOM,220,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0,APNCOM,        ,        ,0,1E-10,1,T,,
+APCSOJ,APCSO,170,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,SOA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.12,APCSO,LVPCSOG ,PCSOARXN,1,0.00001,40000,F,,
+ALVPO1I,ALVPO1,218,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.05,ALVPO1,VLVPO1  ,        ,0,0.1,96000,F,,
+ASVPO1I,ASVPO1,230,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.05,ASVPO1,VSVPO1  ,        ,0,1,85000,F,,
+ASVPO2I,ASVPO2,241,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.04,ASVPO2,VSVPO2  ,        ,0,10,74000,F,,
+ALVPO1J,ALVPO1,218,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.05,ALVPO1,VLVPO1  ,        ,0,0.1,96000,F,,
+ASVPO1J,ASVPO1,230,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.05,ASVPO1,VSVPO1  ,        ,0,1,85000,F,,
+ASVPO2J,ASVPO2,241,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.04,ASVPO2,VSVPO2  ,        ,0,10,74000,F,,
+ASVPO3J,ASVPO3,253,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.03,ASVPO3,VSVPO3  ,        ,0,100,63000,F,,
+AIVPO1J,AIVPO1,266,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.03,AIVPO1,VIVPO1  ,        ,0,1000,52000,F,,
+ALVOO1I,ALVOO1,136,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.15,ALVOO1,VLVOO1  ,        ,0,0.01,107000,F,,
+ALVOO2I,ALVOO2,136,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.13,ALVOO2,VLVOO2  ,        ,0,0.1,96000,F,,
+ASVOO1I,ASVOO1,135,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.11,ASVOO1,VSVOO1  ,        ,0,1,85000,F,,
+ASVOO2I,ASVOO2,135,,-1,,-1,VMASSI,1,ORG_AITKEN,1,Yes,Yes,Yes,Yes,,,,,POA_AITKEN, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.09,ASVOO2,VSVOO2  ,        ,0,10,74000,F,,
+ALVOO1J,ALVOO1,136,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.15,ALVOO1,VLVOO1  ,        ,0,0.01,107000,F,,
+ALVOO2J,ALVOO2,136,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.13,ALVOO2,VLVOO2  ,        ,0,0.1,96000,F,,
+ASVOO1J,ASVOO1,135,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.11,ASVOO1,VSVOO1  ,        ,0,1,85000,F,,
+ASVOO2J,ASVOO2,135,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.09,ASVOO2,VSVOO2  ,        ,0,10,74000,F,,
+ASVOO3J,ASVOO3,134,,-1,,-1,VMASSJ,1,ORG_ACCUM,1,Yes,Yes,Yes,Yes,,,,,POA_ACCUM, cm_set,1400, T,F,0,4,6.1,T,DUST  ,0.08,ASVOO3,VSVOO3  ,        ,0,100,63000,F,,
+AAVB1,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.2,AAVB1,SVAVB1  ,        ,0,0.01,18000,F,,
+AAVB2,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.15,AAVB2,SVAVB2  ,        ,0,1,18000,F,,
+AAVB3,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.14,AAVB3,SVAVB3  ,        ,0,10,18000,F,,
+AAVB4,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.12,AAVB4,SVAVB4  ,        ,0,100,18000,F,,
+ADIM,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.13,ADIM,        ,        ,0,1E-10,1,T,,
+AGLY,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.13,AGLY,        ,        ,0,1E-10,1,T,,
+AIEOS,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.3,AIEOS,        ,        ,0,1E-10,1,T,,
+AIETET,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.15,AIETET,        ,        ,0,1E-10,1,T,,
+AIMGA,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.18,AIMGA,        ,        ,0,1E-10,1,T,,
+AIMOS,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.36,AIMOS,        ,        ,0,1E-10,1,T,,
+AISOPNN,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.32,AISOPNN,ISOPNN  ,        ,0,8.9,40000,F,,
+AMT1,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.08,AMT1,SVMT1   ,TRPRXN  ,0.04,0.01,102000,F,,
+AMT2,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.08,AMT2,SVMT2   ,TRPRXN  ,0.032,0.1,91000,F,,
+AMT3,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.09,AMT3,SVMT3   ,TRPRXN  ,0.032,1,80000,F,,
+AMT4,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.07,AMT4,SVMT4   ,TRPRXN  ,0.103,10,69000,F,,
+AMT5,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.07,AMT5,SVMT5   ,TRPRXN  ,0.143,100,58000,F,,
+AMT6,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.05,AMT6,SVMT6   ,TRPRXN  ,0.285,1000,47000,F,,
+AMT7,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.06,AMT7,SVMT7   ,TRPRXN  ,0.16,10000,36000,F,,
+AMTHYD,,,,,,,,,,,,,,,,,,,, cm_set,1400, F,F,0,2.8,6.1,T,DUST  ,0.07,AMTHYD,        ,        ,0,1E-10,1,T,,
+AMTNO3,,,,,,,,,,,,,,,,,,,, cm_set,1400, T,F,0,2.8,6.1,T,DUST  ,0.11,AMTNO3,MTNO3   ,        ,0,12,40000,F,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Not in AE.nml/GC.nml, but in AERO_DATA.F/SOA_DEFN.F",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
