@@ -9,15 +9,15 @@ This code is currently in development. Please check with Havala if you want to c
 
 ### Repo contents
 
-####emissions
+#### emissions
 Contains python code to map individual species to CRACMM model species. The mapper requires use of the python RDKit (see environment.yml file for anaconda installation).
 
 Contains inputs to Speciation Tool and SMOKE as well as the SPECIATEv5.2x developmental version of the species properties table.
 
-####chemistry
+#### chemistry
 CRACMM mechanism files. (placeholder)
 
-####metadata
+#### metadata
 Metadata for CRACMM species (Henry's law coefficients, molecular weights, etc). (placeholder)
 
 ### Version history
