@@ -7,6 +7,19 @@ Havala Pye, pye.havala@epa.gov
 ### Disclaimer and Terms of use
 This code is currently in development. Please check with Havala if you want to confirm this is the latest version. Information should be considered preliminary and is not ready for distribution or publication. To request addition to the repo (close collaborators only for now), send a github username to Havala.
 
+### Repo contents
+
+####emissions
+Contains python code to map individual species to CRACMM model species. The mapper requires use of the python RDKit (see environment.yml file for anaconda installation).
+
+Contains inputs to Speciation Tool and SMOKE as well as the SPECIATEv5.2x developmental version of the species properties table.
+
+####chemistry
+CRACMM mechanism files. (placeholder)
+
+####metadata
+Metadata for CRACMM species (Henry's law coefficients, molecular weights, etc). (placeholder)
+
 ### Version history
 
 ### Current version: 0.21
