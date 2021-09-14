@@ -10,7 +10,7 @@ This code is currently in development. Please check with Havala if you want to c
 ### Repo contents
 
 #### emissions
-Contains python code to map individual species to CRACMM model species. The mapper requires use of the python RDKit (see environment.yml file for anaconda installation).
+Contains python code to map individual species to CRACMM model species. The mapper requires use of the python RDKit (see environment.yml file for anaconda setup).
 
 Contains inputs to Speciation Tool and SMOKE as well as the SPECIATEv5.2x developmental version of the species properties table.
 
@@ -22,7 +22,12 @@ Metadata for CRACMM species (Henry's law coefficients, molecular weights, etc). 
 
 ### Version history
 
-### Current version: 0.21
+#### Version: 0.22
+Renamed XYOP to XYE to avoid overlap with name of exisiting peroxy radical.
+
+#### Version: 0.21
+Known issues: XYOP emitted species name overlaps with a peroxy radical in RACM2. In future versions, XYOP will be named XYE as it's major contributorys are o-xylene and ethylbenzne.
+
 Date: 20210812
 
 Updated carbons (Speciation Tool input) for missing species.
@@ -36,7 +41,7 @@ Date: 20210805
 Mineral oil surrogate changed from decane to linoleic acid (mapping changed from HC8 to ROCP1). 8 new SPECIATE species added.
 
 
-### Version: 0.2
+#### Version: 0.2
 Date: 20210716
 
 * PAH eliminated. The most abundant species that was in PAH fit better in the existing oxygenated aromatics. When PAHs were defined with O:C=0, very little mass was left. 
@@ -53,12 +58,12 @@ Date: 20210716
 * Some representative compounds (SPECIATE) have been updated: OC, NCOM, POC, PNCOM.
 
 
-### Version 0.11
+#### Version 0.11
 Date: 20210702
 
 Added IVOCOXY to mapper; updated representative compounds for IVOCP6ARO, SVOCN1, and SVOCP0 in SPECIATE.
 
-### Version 0.1 
+#### Version 0.1 
 Date: 20210621
 
 initial mapper and species properties for CRACMM

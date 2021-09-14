@@ -130,8 +130,8 @@ def get_cracmm_roc(smiles,koh,log10cstar):
     elif ( nC==6 and nalcohol>=1 ):    mechspecies = 'PHEN' # phenol
     elif ( log10cstar < 5.5 ):         mechspecies = 'ROCP5ARO' # C* bin centered on 10^5 (v0.1)
     elif ( log10cstar < 6.5 ):         mechspecies = 'ROCP6ARO' # C* bin centered on 10^6 (v0.1)
-    elif ( koh<=(1.02*1.43e-11) ):     mechspecies = 'XYOP'      # o-,p-xylene and less reactive aromatics (v0.1)
-    else:                              mechspecies = 'XYM'       # m-xylene and more reactive aromatics (v0.1)
+    elif ( koh<=(1.02*1.43e-11) ):     mechspecies = 'XYE'      # o-,p-xylene and less reactive aromatics like ethylbenzene (v0.1)
+    else:                              mechspecies = 'XYM'      # m-xylene and more reactive aromatics (v0.1)
 
   # Species with double bonds, not aromatic
   elif ( nCdblC>=1 and log10cstar < 5.5 ): mechspecies = 'ROCP5ARO' # C* bin centered on 10^5 (v0.1)
