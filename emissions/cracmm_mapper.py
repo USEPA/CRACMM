@@ -87,7 +87,7 @@ def get_cracmm_roc(smiles,koh,log10cstar):
                                                                                                       
   # Explicit toxics added (new to v0.1)                                 
   elif ( nC==7 and nH==8 and nO==0 and nN==0 and nbenzene==1): 
-                                    mechspecies = 'TOLUENE'  # toluene explicit
+                                    mechspecies = 'TOL'      # toluene explicit
   elif ( smiles == 'C=CC=C' ):      mechspecies = 'BDE13'    # 1,3 butadiene   
   elif ( smiles == 'C=CC=O' or smiles == 'O=CC=C'):      
                                     mechspecies = 'ACRO' # acrolein                                  

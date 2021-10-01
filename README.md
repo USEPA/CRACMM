@@ -22,6 +22,9 @@ Metadata for CRACMM species (Henry's law coefficients, molecular weights, etc). 
 
 ### Version history
 
+### Unstamped version pending
+Renamed toluene surrogate (explicit) to TOL
+
 #### Version: 0.22
 Renamed XYOP to XYE to avoid overlap with name of exisiting peroxy radical.
 
