@@ -22,14 +22,22 @@ Metadata for CRACMM species (Henry's law coefficients, molecular weights, etc). 
 
 ### Version history
 
-### Unstamped version pending
+#### Version 0.24 
 Renamed toluene surrogate (explicit) to TOL
+Added flowchart
+
+#### Skip v0.23
 
 #### Version: 0.22
 Renamed XYOP to XYE to avoid overlap with name of exisiting peroxy radical.
 
 #### Version: 0.21
-Known issues: XYOP emitted species name overlaps with a peroxy radical in RACM2. In future versions, XYOP will be named XYE as it's major contributorys are o-xylene and ethylbenzne.
+
+This version used to create initial SMOKE inputs.
+
+Known issues: 
+- XYOP emitted species name overlaps with a peroxy radical in RACM2. XYOP renamed to XYE (major contributorys are o-xylene and ethylbenzne).
+- TOLUENE named to TOL in later versions.
 
 Date: 20210812
 
