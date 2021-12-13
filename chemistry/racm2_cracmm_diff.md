@@ -1,3 +1,4 @@
+'''diff
 0a1,2
 + !! CRACMM version 1.0 mechanism developed 2021 by USEPA
 + !! CRACMM builds upon RACM2 and RACM
@@ -1532,3 +1533,4 @@
 +       + 0.2266 * ACD + 0.2266 * ALD
 +       + 0.2266 * MO2 + 0.2266 * ETHP
 +       + 0.2266 * HC3P + 0.2266 * MEKP # 4.69e-11;
+'''
