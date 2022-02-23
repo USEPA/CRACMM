@@ -192,8 +192,8 @@ Information is based on the mech.def file.
 | R177   | ETEP + NO ----> HO2 + NO2 +    1.600\*HCHO +    0.200\*ALD  |   9.0000E-12 |   9.0000E-12 |
 | R178   | OLTP + NO ---->   0.780\*HO2 +    0.970\*NO2 +    0.780\*HCHO +    0.012\*ACD +    0.440\*ALD +    0.060\*ACT +    0.130\*MEK +    0.030\*ONIT  |   4.0000E-12 |   4.0000E-12 |
 | R179   | OLIP + NO ---->   0.830\*HO2 +    0.950\*NO2 +    0.810\*ACD +    0.680\*ALD +    0.200\*ACT +    0.090\*KET +    0.020\*HKET +    0.050\*ONIT  |   4.0000E-12 |   4.0000E-12 |
-| ROCARO33   | BENP + NO ---->   0.000\*ONIT +    0.001\*VROCP4OXY2 +    0.001\*VROCP1OXY3 +    0.998\*NO2 +    0.998\*HO2 +    0.000\*BALD +    0.998\*GLY +    0.499\*FURANONE +    0.249\*DCB2 +    0.249\*DCB3  |   2.70E-12e<sup>   360.00/T</sup> |   9.0313E-12 |
-| ROCARO43   | TOLP + NO ---->   0.000\*ONIT +    0.001\*VROCP4OXY2 +    0.001\*VROCP1OXY3 +    0.998\*NO2 +    0.998\*HO2 +    0.085\*BALD +    0.548\*GLY +    0.365\*MGLY +    0.365\*FURANONE +    0.548\*DCB1  |   2.70E-12e<sup>   360.00/T</sup> |   9.0313E-12 |
+| ROCARO33   | BENP + NO ---->   0.000\*ONIT +    0.001\*VROCP4OXY2 +    0.001\*VROCN1OXY6 +    0.998\*NO2 +    0.998\*HO2 +    0.000\*BALD +    0.998\*GLY +    0.499\*FURANONE +    0.249\*DCB2 +    0.249\*DCB3  |   2.70E-12e<sup>   360.00/T</sup> |   9.0313E-12 |
+| ROCARO43   | TOLP + NO ---->   0.000\*ONIT +    0.001\*VROCP4OXY2 +    0.001\*VROCN1OXY6 +    0.998\*NO2 +    0.998\*HO2 +    0.085\*BALD +    0.548\*GLY +    0.365\*MGLY +    0.365\*FURANONE +    0.548\*DCB1  |   2.70E-12e<sup>   360.00/T</sup> |   9.0313E-12 |
 | ROCARO53   | XYMP + NO ---->   0.000\*ONIT +    0.001\*VROCP3OXY2 +    0.001\*VROCP0OXY4 +    0.998\*NO2 +    0.998\*HO2 +    0.048\*BALD +    0.703\*GLY +    0.247\*MGLY +    0.351\*FURANONE +    0.598\*DCB2  |   2.70E-12e<sup>   360.00/T</sup> |   9.0313E-12 |
 | ROCARO63   | XYEP + NO ---->   0.000\*ONIT +    0.001\*VROCP3OXY2 +    0.001\*VROCP0OXY4 +    0.998\*NO2 +    0.998\*HO2 +    0.085\*BALD +    0.548\*GLY +    0.365\*MGLY +    0.456\*FURANONE +    0.456\*DCB2  |   2.70E-12e<sup>   360.00/T</sup> |   9.0313E-12 |
 | R188   | ISOP + NO ---->   0.880\*HO2 +    0.880\*NO2 +    0.200\*HCHO +    0.280\*MACR +    0.440\*MVK +    0.120\*ISON +    0.021\*GLY +    0.029\*HKET +    0.027\*ALD  |   2.43E-12e<sup>   360.00/T</sup> |   8.1282E-12 |
@@ -235,8 +235,8 @@ Information is based on the mech.def file.
 | R217   | ETEP + HO2 ----> OP2  |   1.90E-13e<sup>  1300.00/T</sup> |   1.4872E-11 |
 | R218   | OLTP + HO2 ----> OP2  |   1.66E-13e<sup>  1300.00/T</sup> |   1.2994E-11 |
 | R219   | OLIP + HO2 ----> OP2  |   1.66E-13e<sup>  1300.00/T</sup> |   1.2994E-11 |
-| ROCARO32   | BENP + HO2 ---->   0.602\*OP2 +    0.398\*VROCP1OXY3  |   2.91E-13e<sup>  1300.00/T</sup> |   2.2778E-11 |
-| ROCARO42   | TOLP + HO2 ---->   0.720\*OP2 +    0.281\*VROCP1OXY3  |   2.91E-13e<sup>  1300.00/T</sup> |   2.2778E-11 |
+| ROCARO32   | BENP + HO2 ---->   0.602\*OP2 +    0.398\*VROCN1OXY6  |   2.91E-13e<sup>  1300.00/T</sup> |   2.2778E-11 |
+| ROCARO42   | TOLP + HO2 ---->   0.720\*OP2 +    0.281\*VROCN1OXY6  |   2.91E-13e<sup>  1300.00/T</sup> |   2.2778E-11 |
 | ROCARO52   | XYMP + HO2 ---->   0.048\*OP2 +    0.675\*OP3 +    0.277\*VROCP0OXY4  |   2.91E-13e<sup>  1300.00/T</sup> |   2.2778E-11 |
 | ROCARO62   | XYEP + HO2 ---->   0.085\*OP2 +    0.634\*OP3 +    0.281\*VROCP0OXY4  |   2.91E-13e<sup>  1300.00/T</sup> |   2.2778E-11 |
 | R228   | ISOP + HO2 ----> ISHP  |   2.05E-13e<sup>  1300.00/T</sup> |   1.6046E-11 |
