@@ -116,12 +116,12 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   elif ( nbenzene > 1 and nO/nC == 0 ):mechspecies = 'NAPH' # Naphthalene-like, PAH with 2 rings
 
   # SVOC species binned
-  elif ( log10cstar < -1.5 ):        mechspecies = 'ROCN2' # C* bin centered on 0.01 ug/m3 
-  elif ( log10cstar < -0.5 ):        mechspecies = 'ROCN1' # C* bin centered on 0.1 ug/m3
-  elif ( log10cstar < 0.5 ):         mechspecies = 'ROCP0' # C* bin centered on 1
-  elif ( log10cstar < 1.5 ):         mechspecies = 'ROCP1' # C* bin centered on 10^1
-  elif ( log10cstar < 2.5 ):         mechspecies = 'ROCP2' # C* bin centered on 10^2
-    
+  elif ( log10cstar < -1.5 ):        mechspecies = 'ROCN2ALK' # C* bin centered on 0.01 ug/m3 
+  elif ( log10cstar < -0.5 ):        mechspecies = 'ROCN1ALK' # C* bin centered on 0.1 ug/m3
+  elif ( log10cstar < 0.5 ):         mechspecies = 'ROCP0ALK' # C* bin centered on 1
+  elif ( log10cstar < 1.5 ):         mechspecies = 'ROCP1ALK' # C* bin centered on 10^1
+  elif ( log10cstar < 2.5 ):         mechspecies = 'ROCP2ALK' # C* bin centered on 10^2
+
   # Single-ring aromatics
   elif ( nbenzene > 0 ): # Single-ring aromatics
     if ( naldehyde > 0 ):              mechspecies = 'BALD' # Benzaldehyde and arom. aldehydes
@@ -166,7 +166,7 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   # HC Series, koh in cm3/s, 298 K, 1 atm
   elif ( koh < 3.4E-12 ):                     mechspecies = 'HC3' # slow "alkanes"
   elif ( koh >= 3.4E-12 and koh <= 6.8E-12 ): mechspecies = 'HC5' # medium "alkanes"   
-  elif ( koh > 6.8E-12 ):                     mechspecies = 'HC8' # fast "alkanes"
+  elif ( koh > 6.8E-12 ):                     mechspecies = 'HC10' # fast "alkanes"
   
   else: mechspecies = 'UNKCRACMM' # Species is unknown to CRACMM
     

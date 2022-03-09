@@ -22,6 +22,13 @@ Metadata for CRACMM species (Henry's law coefficients, molecular weights, etc). 
 
 ### Version history
 
+#### Version 0.3
+Renamed HC8 to HC10
+
+Renamed ROCN/P series to ROCN/PALK
+
+Synced with latest CMAQ version of chemistry and metadata
+
 #### Version 0.24 
 Renamed toluene surrogate (explicit) to TOL
 Added flowchart
