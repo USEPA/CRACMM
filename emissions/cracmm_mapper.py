@@ -148,10 +148,10 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   # IVOC species binned (new to v0.1)
   elif ( ( log10cstar < 6.5 and nO/nC >= 0.1 ) or nSi > 0 ):  
                                      mechspecies = 'ROCIOXY' # Oxygenated IVOCs and any silanes/siloxanes
-  elif ( log10cstar < 3.5 ):         mechspecies = 'ROCP3' # C* bin centered on 1000 ug/m3
-  elif ( log10cstar < 4.5 ):         mechspecies = 'ROCP4' # C* bin centered on 10^4
-  elif ( log10cstar < 5.5 ):         mechspecies = 'ROCP5' # C* bin centered on 10^5
-  elif ( log10cstar < 6.5 ):         mechspecies = 'ROCP6' # C* bin centered on 10^6
+  elif ( log10cstar < 3.5 ):         mechspecies = 'ROCP3ALK' # C* bin centered on 1000 ug/m3
+  elif ( log10cstar < 4.5 ):         mechspecies = 'ROCP4ALK' # C* bin centered on 10^4
+  elif ( log10cstar < 5.5 ):         mechspecies = 'ROCP5ALK' # C* bin centered on 10^5
+  elif ( log10cstar < 6.5 ):         mechspecies = 'ROCP6ALK' # C* bin centered on 10^6
 
   # Oxygenated species without double bonds (mapped in order of decreasing koh)
   elif ( naldehyde>=1 and nketone>=1 ):mechspecies = 'MGLY' # methylglyoxal and similar like C4H6O2 (1.5e-11)
