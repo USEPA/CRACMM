@@ -12,3 +12,4 @@
 
 - SMOKEInputs: Speciation profiles interms of CRACMM species for use with SMOKE (these are output by Speciation Tool).
 
+- BiogenicMappings: MEGAN and BEIS biogenic species mapped to CRACMM
