@@ -7,21 +7,6 @@ Havala Pye, pye.havala@epa.gov
 ### Disclaimer and Terms of use
 This code is currently in development. Please check with Havala if you want to confirm this is the latest version. Information should be considered preliminary and is not ready for distribution or publication. To request addition to the repo (close collaborators only for now), send a github username to Havala.
 
-### Repo contents
-
-#### emissions
-Contains python code to map individual species to CRACMM model species. The mapper requires use of the python RDKit (see environment.yml file for anaconda setup). The mapper workflow is displayed graphically in the pdf file.
-
-Contains inputs to Speciation Tool and SMOKE as well as the SPECIATEv5.2x developmental version of the species properties table.
-
-Contains mapping of BEIS and MEGAN biogenic species to CRACMM.
-
-#### chemistry
-CRACMMv1 chemical mechanism available in github markdown and formatted for CMAQ.
-
-#### metadata
-Metadata for CRACMM species available in github markdown and in namelists formatted for CMAQ.
-
 ### Version history
 
 #### Version 1.0
