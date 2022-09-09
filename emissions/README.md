@@ -6,7 +6,7 @@
 
 - [CRACMM mapper in python](cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see environment.yml file for anaconda setup). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration. OH rate constants can be estimated with [OPERA algorithms](https://github.com/kmansouri/OPERA). Saturation concentrations can be calculated from vapor pressures obtained via OPERA or other sources. OPERA algorithms can be run for any organic species with a SMILES in the [EPA Chemical Transformation Simulator](https://qed.epa.gov/cts/pchemprop/input/) and OPERA predictions are precalculated for species in the the [EPA Chemicals Dashboard](https://comptox.epa.gov/dashboard/). 
 
-- [SPECIATE Inputs](SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. SPECIATEv5.2 will contain the representative compounds when released in 2022.
+- [SPECIATE Inputs](SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last column indicates the CRACMM species where the emitted species should map (organic only).
 
 - [Speciation Tool Inputs](SpeciationToolInputs): inputs to [Speciation Tool](https://github.com/CMASCenter/Speciation-Tool) that create SMOKE-ready mechanism species for profiles.
 
