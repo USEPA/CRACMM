@@ -10,7 +10,7 @@ CRACMM workflows require that each species in CRACMM has a representative struct
 
 #### CMAQ-ready files
 
-These files are used directly by CMAQv5.4 and contain information about molecular weights and representative structures. See [CMAQ documentation](www.github.com/USEPA/CMAQ) for futher information.
+These files are used directly by CMAQv5.4 and contain information about molecular weights and representative structures. See [CMAQ documentation](https://github.com/USEPA/CMAQ) for futher information.
 
 - [Aerosol species](AE_cracmm1_aq.nml)
 - [Gas phase species](GC_cracmm1_aq.nml)
