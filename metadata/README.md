@@ -6,15 +6,23 @@ CRACMM workflows require that each species in CRACMM has a representative struct
 
 - [CRACMM species in markdown](cracmm1_aq_species_table.md)
 - [Properties of species emitted in CRACMM](CRACMM2017_emiss_properties.csv) based on 2017 U.S. anthropogenic and biomass burning emissions as used by Pye et al. 2022
+- [Metadata file in csv](cracmm1_aq_metadata.csv) describing species and their properties in CMAQv5.4. Properties include:
+  * Species name
+  * Description
+  * Phase (G=gas, P=particle, GP=gas and particle)
+  * Stable ("Yes" indicates species with sufficient lifetime to warrant transport in the host model)
+  * Molecular weight (g/mol)
+  * Representative (compound that best represents the species)
+  * SMILES (for representative compound structure)
+  * Henry's Law Coefficient for wet removal processes (M/atm)
+  * Enthalpy of solvation used to adjust the Henry's Law Coefficient for temperature (K)
+  * Density of species in the particulate phase (kg m<sup>-3</sup>})
+  * Hygroscopicity parameter, &kappa, for organic aerosol species (water uptake on inorganic species should be calculated with a thermodynamic model such as E-AIM, ISORROPIA, or similar)
+  * Saturation concentration (&mu;g m<sup>-3</sup>)
+  * Enthalpy of vaporization used to adjust the saturation concentration for temperature (J/mol)
+  * Organic matter to organic carbon ratio for organic aerosol (g/g)
 
 
-#### CMAQ-ready files
-
-These files are used directly by CMAQv5.4 and contain information about molecular weights and representative structures. See [CMAQ documentation](https://github.com/USEPA/CMAQ) for futher information.
-
-- [Aerosol species](AE_cracmm1_aq.nml)
-- [Gas phase species](GC_cracmm1_aq.nml)
-- [Non-reactive species](NR_cracmm1_aq.nml) (HCl and NH3)
 
 
 
