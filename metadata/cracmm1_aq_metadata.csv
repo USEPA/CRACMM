@@ -121,7 +121,7 @@ NH3,Ammonia,G,Yes,17.0,E,Ammonia,N,61.0,4200.0,NA,NA,NA,NA,NA
 NO,Nitric oxide ,G,Yes,30.0,E,Nitric oxide,[N]=O,0.0019,1400.0,NA,NA,NA,NA,NA
 NO2,Nitrogen dioxide ,G,Yes,46.0,E,Nitrogen dioxide,N(=O)[O],0.012,2500.0,NA,NA,NA,NA,NA
 NO3,Nitrogen trioxide,G,Yes,62.0,E,Nitrate radical,[O]N(=O)=O,0.6,0.0,NA,NA,NA,NA,NA
-NUM,Number of particles,P,Yes,1.0,L,Aitken number,NA,NA,NA,NA,NA,NA,NA,NA
+NUM,Number of particles,P,Yes,1.0,L,Number of particles,NA,NA,NA,NA,NA,NA,NA,NA
 O1D,Excited state oxygen atom; O(1D) ,G,No,16.0,E,Excited oxygen,[O],NA,NA,NA,NA,NA,NA,NA
 O3,Ozone,G,Yes,48.0,E,Ozone,[O-][O+]=O,0.0114,2300.0,NA,NA,NA,NA,NA
 O3P,Ground state oxygen atom; O(3P),G,No,16.0,E,Ground state oxygen,[O],NA,NA,NA,NA,NA,NA,NA
@@ -194,7 +194,7 @@ SESQNRO2,Peroxy radicals from SESQ reaction with nitrate radicals,G,No,298.4,L,[
 SESQRO2,Peroxy radicals from SESQ reaction with OH,G,No,253.4,L,{5-hydroxy-4;11;11-trimethyl-8-methylidenebicyclo[7.2.0]undecan-4-yl}peroxy,[O]OC1(C)CCC2C(CC2(C)C)C(=C)CCC1O,NA,NA,NA,NA,NA,NA,NA
 SLOWROC,Slowly reacting ROC with kOH< 3.5x10-13 cm3 s-1 ,G,Yes,75.4,L,Hydrogen cyanide,C#N,1.95,0.0,NA,NA,NA,NA,NA
 SO2,Sulfur dioxide ,G,Yes,64.0,E,Sulfur dioxide,O=S=O,1.4,2900.0,NA,NA,NA,NA,NA
-SRF,Surface area of particles,P,Yes,1.0,L,Surface area of Aitken,NA,NA,NA,NA,NA,NA,NA,NA
+SRF,Surface area of particles,P,Yes,1.0,L,Surface area of particles,NA,NA,NA,NA,NA,NA,NA,NA
 SULF,Sulfuric acid,G,Yes,98.0,E,Sulfuric acid,OS(=O)(=O)O,1e+30,0.0,NA,NA,NA,NA,NA
 SULRXN,Precursor of Aerosol Sulfate (tracking species) ,G,No,98.0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 TOL,Toluene ,G,Yes,92.14,E,Toluene,CC1=CC=CC=C1,0.15,0.0,NA,NA,NA,NA,NA

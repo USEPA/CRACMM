@@ -124,7 +124,7 @@ NH3|Ammonia|G|17.0|E|Ammonia|[N](https://comptox.epa.gov/dashboard/chemical/deta
 NO|Nitric oxide |G|30.0|E|Nitric oxide|[\[N\]=O](https://comptox.epa.gov/dashboard/chemical/details/DTXSID1020938)
 NO2|Nitrogen dioxide |G|46.0|E|Nitrogen dioxide|[N\(=O\)\[O\]](https://comptox.epa.gov/dashboard/chemical/details/DTXSID7020974)
 NO3|Nitrogen trioxide|G|62.0|E|Nitrate radical|\[O\]N\(=O\)=O
-NUM|Number of particles|P|1.0|L|Aitken number|
+NUM|Number of particles|P|1.0|L|Number of particles|
 O1D|Excited state oxygen atom, O(1D) |G|16.0|E|Excited oxygen|[\[O\]](https://comptox.epa.gov/dashboard/chemical/details/DTXSID00170378)
 O3|Ozone|G|48.0|E|Ozone|[\[O-\]\[O+\]=O](https://comptox.epa.gov/dashboard/chemical/details/DTXSID0021098)
 O3P|Ground state oxygen atom, O(3P)|G|16.0|E|Ground state oxygen|[\[O\]](https://comptox.epa.gov/dashboard/chemical/details/DTXSID00170378)
@@ -197,7 +197,7 @@ SESQNRO2|Peroxy radicals from SESQ reaction with nitrate radicals|G|298.4|L|[4,1
 SESQRO2|Peroxy radicals from SESQ reaction with OH|G|253.4|L|{5-hydroxy-4,11,11-trimethyl-8-methylidenebicyclo[7.2.0]undecan-4-yl}peroxy|\[O\]OC1\(C\)CCC2C\(CC2\(C\)C\)C\(=C\)CCC1O
 SLOWROC|Slowly reacting ROC with k<sub>OH</sub>< 3.5x10<sup>-13</sup> cm<sup>3</sup> s<sup>-1</sup> |G|75.4|L|Hydrogen cyanide|[C#N](https://comptox.epa.gov/dashboard/chemical/details/DTXSID9024148)
 SO2|Sulfur dioxide |G|64.0|E|Sulfur dioxide|[O=S=O](https://comptox.epa.gov/dashboard/chemical/details/DTXSID6029672)
-SRF|Surface area of particles|P|1.0|L|Surface area of Aitken|
+SRF|Surface area of particles|P|1.0|L|Surface area of particles|
 SULF|Sulfuric acid|G|98.0|E|Sulfuric acid|[OS\(=O\)\(=O\)O](https://comptox.epa.gov/dashboard/chemical/details/DTXSID5029683)
 SULRXN|Precursor of Aerosol Sulfate (tracking species) |G|98.0||NA|
 TOL|Toluene |G|92.14|E|Toluene|[CC1=CC=CC=C1](https://comptox.epa.gov/dashboard/chemical/details/DTXSID7021360)
