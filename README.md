@@ -8,6 +8,14 @@ Havala Pye, pye.havala@epa.gov
 
 The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al. in prep.). CRACMM is available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) starting with version 5.4 (2022 release). In CMAQ, CRACMM is available as CRACMM1 and CRACMM1AMORE. The two mechanisms are identical in their representation of emissions and chemistry except for the isoprene system. CRACMM1 isoprene chemistry is the same as in RACM2. CRACMM1AMORE isoprene chemistry is based on the Columbia University [Atmospheric Chemistry Model Reduction (AMORE)](https://cfpub.epa.gov/ncer_abstracts/index.cfm/fuseaction/display.abstractDetail/abstract_id/11084) algorithm (Wiser et al. in prep.).
 
+### Purpose and Organization of the CRACMM Github Repository
+
+The official versiond of CRACMM1 and CRACMM1AMORE reside in CMAQv5.4 in the [US EPA Github repository](https://github.com/USEPA/CMAQ). This repository brings together CRACMM metadata from across CMAQ and provides additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
+ * [Chemistry](chemistry): the mechanism in CMAQ-ready and markdown formats
+ * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM
+ * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc)
+ * [Utilities](utilities): python code to assemble metadata from CMAQ code and routines for screening level predictions of organic aerosol and ozone formation potential
+
 ### References
 
 Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Piletic, I. R., D’Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Initial evaluation of the CRACMMv1.0 chemical mechanism: Surface ozone predictions across the Northeast US summer 2018 in CMAQ, in preparation for Atmospheric Chemistry and Physics.
