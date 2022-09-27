@@ -8,7 +8,7 @@ Information is based on the mech.def file.
 * For rate constants with the form A<_Reference_>, k equals A times a reference that represents photolysis rate, a heteorogeneous rate constant, rate constant for the given reaction or an operator. A equals one if not given.
 
 * In the mechanism definition file, the rate is formatted as
- * A~<_HETEOROGENEOUS_>
+ * A~<_HETEROGENEOUS_>
  * A*K<_REACTION_>
  * A/<_PHOTOLYSIS_>
  * A?<_OPERATOR_>
