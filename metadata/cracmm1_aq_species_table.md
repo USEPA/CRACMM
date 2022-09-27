@@ -1,6 +1,6 @@
 Gas (G) and particle (P) species from the namelists. SMILES link to representative structures in the EPA Chemicals Dashboard (if available).
 
- Species | Description | Phase | Molecular Weight (g/mol) | Explicit/Lumped | Representative Structure | SMILES 
+ <sub>Species</sub> | <sub>Description</sub> | <sub>Phase</sub> | <sub>Molecular Weight (g/mol)</sub> | <sub>Explicit/ Lumped</sub> | <sub>Representative Structure</sub> | <sub>SMILES</sub> 
  ----- | ----- | ----- | ----- | ----- | ----- | ----- 
 AAL|Aluminum ion|P|27.0|E|Aluminum ion|[\[Al+3\]](https://comptox.epa.gov/dashboard/chemical/details/DTXSID70912343)
 ACA|Calcium ion|P|40.1|E|Calcium ion|[\[Ca++\]](https://comptox.epa.gov/dashboard/chemical/details/DTXSID7037638)
