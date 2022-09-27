@@ -13,7 +13,7 @@ The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a 
 The official version of CRACMM1 and CRACMM1AMORE reside in CMAQv5.4 in the [US EPA Github repository](https://github.com/USEPA/CMAQ) (v5.4 coming fall 2022). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
  * [Chemistry](chemistry): the mechanism in CMAQ-ready and markdown formats
  * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM
- * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc)
+ * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
  * [Utilities](utilities): python code to assemble metadata from CMAQ code and routines for screening level predictions of organic aerosol and ozone formation potential
 
 ### References
@@ -42,12 +42,12 @@ Wiser, F. W., Place, B. K., Siddhartha, S., Pye, H. O. T., Westervelt, D. M., He
 #### Skip v0.23
 
 #### Version: 0.22
-- Renamed XYOP to XYE to avoid overlap with name of exisiting peroxy radical.
+- Renamed XYOP to XYE to avoid overlap with name of existing peroxy radical.
 
 #### Version: 0.21
 - This version used to create initial SMOKE inputs.
 - Known issues: 
-  - XYOP emitted species name overlaps with a peroxy radical in RACM2. XYOP renamed to XYE (major contributorys are o-xylene and ethylbenzne).
+  - XYOP emitted species name overlaps with a peroxy radical in RACM2. XYOP renamed to XYE (major contributors are o-xylene and ethylbenzne).
   - TOLUENE named to TOL in later versions.
 - Date: 20210812. Updated carbons (Speciation Tool input) for missing species.
 - Date: 20210806. Updated Misc Silanes surrogate and removed non-ROC species from mech4import.
