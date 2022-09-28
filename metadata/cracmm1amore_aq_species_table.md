@@ -90,6 +90,9 @@ HOM|Highly oxygenated molecules from terpenes|GP|250.0|L|6,7-dihydroperoxy-3,3,6
 HONO|Nitrous acid |G|47.0|E|Nitrous acid|[N\(=O\)O](https://comptox.epa.gov/dashboard/chemical/details/DTXSID7064813)
 IEPOX|isoprene epoxydiols |G|118.1|E|Isoprene epoxydiol|OCC1OC1\(C\)CO
 IEPOXP|IEPOX intermediate (tracking species)|G|118.1||NA|
+INO2|Isoprene nitrate-derived peroxy radicals|G|162.1|L|[(2E)-3-methyl-4-(nitrooxy)but-2-en-1-yl]peroxy|C/C\(=C\CO\[O\]\)CON\(=O\)=O
+IPC|Isoprene-derived hydroperoxyenals (HPALD)|G|116.1|L|(2Z)-4-hydroperoxy-2-methylbut-2-enal|C/C\(C=O\)=C/COO
+IPN|Isoprene-derived peroxy nitrates|G|163.0|L|(2E)-3-methyl-4-(nitrooxy)but-2-ene-1-peroxol|C/C\(=C\COO\)CON\(=O\)=O
 ISHP|Beta-hydroxy hydroperoxides from ISOP+HO2|G|118.0|L|2-hydroperoxy-2-methylbut-3-en-1-ol|C=CC\(OO\)\(CO\)C
 ISO|Isoprene |G|68.1|E|Isoprene|[CC\(=C\)C=C](https://comptox.epa.gov/dashboard/chemical/details/DTXSID2020761)
 ISON|Beta-hydroxyalkylnitrates from ISOP+NO alkylnitrates from ISO+NO3|G|147.0|L|2-methyl-2-(nitrooxy)but-3-en-1-ol|OCC\(C\)\(C=C\)ON\(=O\)=O

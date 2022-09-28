@@ -215,9 +215,9 @@ dfmarkdown.SMILES.loc[dfmarkdown.DTXSID.str.len()>5]='['+ dfmarkdown.SMILES.loc[
     '(https://comptox.epa.gov/dashboard/chemical/details/'+  \
     dfmarkdown.DTXSID.loc[dfmarkdown.DTXSID.str.len()>5]+')'
 dfmarkdown=dfmarkdown.drop(['DTXSID'],axis=1)
-headerline = ' Species | Description | Phase | Molecular Weight (g/mol) | Explicit/Lumped | Representative Structure | SMILES '
+headerline = ' <sub>Species</sub> | <sub>Description</sub> | <sub>Phase</sub> | <sub>Molecular Weight (g/mol)</sub> | <sub>Explicit/ Lumped</sub> | <sub>Representative Structure</sub> | <sub>SMILES</sub> '
 firstmarkdownline = "Gas (G) and particle (P) species from the namelists. SMILES link to representative structures in the EPA Chemicals Dashboard (if available)."
-lastmarkdownline = "Note that for each aerosol mass species, a letter will be appended to the name to designate the size, or mode, of the aerosol being represented: I = Aitken mode, J = Accumulation mode, K = Coarse mode. "
+secondmarkdownline = "Note that for each particulate species in CMAQ, a letter will be appended to the name to designate the size, or mode, of the aerosol being represented: I = Aitken mode, J = Accumulation mode, K = Coarse mode. "
 dfmarkdown['Representative']=dfgc.Representative.str.replace(";",",")
 dfmarkdown['Description']=dfmarkdown.Description.str.replace(';',',')
 dfmarkdown['Description']=dfmarkdown.Description.str.replace('ug/m3','&#956;g m<sup>-3</sup>')
@@ -245,6 +245,9 @@ mdfile= open(filename,'w')
 mdfile.write(firstmarkdownline)
 mdfile.write('\n')
 mdfile.write('\n')
+mdfile.write(secondmarkdownline)
+mdfile.write('\n')
+mdfile.write('\n')
 mdfile.write(headerline)
 mdfile.write('\n')
 mdfile.write(' ----- | ----- | ----- | ----- | ----- | ----- | ----- ')
@@ -253,7 +256,7 @@ mdfile.close()
 dfmarkdown.to_csv(filename,index=False,header=False,sep='|',mode='a')
 mdfile= open(filename,'a')
 mdfile.write('\n')
-mdfile.write(lastmarkdownline)
+#mdfile.write(lastmarkdownline)
 mdfile.close()
 
 ############# Metadata CSV
