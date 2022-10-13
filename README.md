@@ -6,7 +6,7 @@ Havala Pye, pye.havala@epa.gov
 
 ### Description
 
-The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al. in prep.). CRACMM is available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) starting with version 5.4 (2022 release). In CMAQ, CRACMM is available as CRACMM1 and CRACMM1AMORE. The two mechanisms are identical in their representation of emissions and chemistry except for the isoprene system. CRACMM1 isoprene chemistry is the same as in RACM2. CRACMM1AMORE isoprene chemistry is based on the Columbia University [Atmospheric Chemistry Model Reduction (AMORE)](https://cfpub.epa.gov/ncer_abstracts/index.cfm/fuseaction/display.abstractDetail/abstract_id/11084) algorithm (Wiser et al. in prep.). For more information about the plans for CRACMM, see the [EPA fact sheet on the CMAQ website](https://www.epa.gov/cmaq/cmaq-fact-sheets).
+The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al., 2022). CRACMM is available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) starting with version 5.4 (2022 release). In CMAQ, CRACMM is available as CRACMM1 and CRACMM1AMORE. The two mechanisms are identical in their representation of emissions and chemistry except for the isoprene system. CRACMM1 isoprene chemistry is the same as in RACM2. CRACMM1AMORE isoprene chemistry is based on the Columbia University [Atmospheric Chemistry Model Reduction (AMORE)](https://cfpub.epa.gov/ncer_abstracts/index.cfm/fuseaction/display.abstractDetail/abstract_id/11084) algorithm (Wiser et al., 2022). For more information about the plans for CRACMM, see the [EPA fact sheet on the CMAQ website](https://www.epa.gov/cmaq/cmaq-fact-sheets).
 
 ### Purpose and Organization of the CRACMM Github Repository
 
@@ -18,11 +18,11 @@ The official version of CRACMM1 and CRACMM1AMORE reside in CMAQv5.4 in the [US E
 
 ### References
 
-Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Piletic, I. R., D’Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Initial evaluation of the CRACMMv1.0 chemical mechanism: Surface ozone predictions across the Northeast US summer 2018 in CMAQ, in preparation for Atmospheric Chemistry and Physics.
+Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Allen, C., Piletic, I., D'Ambro, E., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R., Coggon, M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Initial evaluation of the CRACMMv1.0 chemical mechanism: Surface ozone predictions across the Northeast US summer 2018 in CMAQ, in preparation for Atmospheric Chemistry and Physics.
 
-Pye, H., B. Place, B. Murphy, K. Seltzer, C. Allen, I. Piletic, E. D'Ambro, R. Schwantes, M. Coggon, S. Farrell, E. Saunders, L. Xu, G. Sarwar, W. Hutzell, K. Foley, G. Pouliot and W. Stockwell, Linking Gas, Particulate, and Toxic Endpoints to Air Emissions In The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) version 1.0, in preparation for Atmospheric Chemistry and Physics.
+Pye, H. O. T., Place, B. K., Murphy, B. N., Seltzer, K. M., D'Ambro, E. L., Allen, C., Piletic, I. R., Farrell, S., Schwantes, R. H., Coggon, M. M., Saunders, E., Xu, L., Sarwar, G., Hutzell, W. T., Foley, K. M., Pouliot, G., Bash, J., and Stockwell, W. R.: Linking gas, particulate, and toxic endpoints to air emissions in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) version 1.0, Atmos. Chem. Phys. Discuss. [preprint], https://doi.org/10.5194/acp-2022-695, in review, 2022.
 
-Wiser, F. W., Place, B. K., Siddhartha, S., Pye, H. O. T., Westervelt, D. M., Henze, D. K., Fiore, A. M., and McNeill, V. F.: AMORE-Isoprene v1.0: A new reduced mechanism for gas-phase isoprene oxidation, in preparation for Geoscientific Model Development.
+Wiser, F., Place, B., Sen, S., Pye, H. O. T., Yang, B., Westervelt, D. M., Henze, D. K., Fiore, A. M., and McNeill, V. F.: AMORE-Isoprene v1.0: A new reduced mechanism for gas-phase isoprene oxidation, Geosci. Model Dev. Discuss. [preprint], https://doi.org/10.5194/gmd-2022-240, in review, 2022.
 
 ### Version history
 
