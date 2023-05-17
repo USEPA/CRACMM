@@ -1,6 +1,6 @@
 ### SMOKE Inputs
 
-Full SMOKE-ready inputs for the [2016v3 EPA emisisons platform](https://www.epa.gov/air-emissions-modeling/2016v3-platform) and [EQUATES project](https://www.epa.gov/cmaq/equates) are coming soon.
+Full SMOKE-ready inputs for the [2016v3 EPA emisisons platform](https://www.epa.gov/air-emissions-modeling/2016v3-platform) and [EQUATES project](https://www.epa.gov/cmaq/equates) (Foley et al., 2023) are coming soon.
 
 This folder contains example speciation profiles for VOC and PM in terms of CRACMM species for use with SMOKE (these are output by Speciation Tool). SMOKE Inputs include [gspro files](https://www.cmascenter.org/smoke/documentation/2.1/html/ch08s05s02.html) which give the mass fraction of total VOC (or TOG, total organic gas) and/or PM that is each mechanism species for different sectors. 
   For gspro files based on SPECIATE v5.2, a [gscnv file](https://www.cmascenter.org/smoke/documentation/2.1/html/ch08s05.html#sect_input_gscnv) that converts VOC (which is inventoried by EPA in the NEI) to total organic gas (TOG) is also available.  VOC in the NEI is defined by the [code of federal regulation 51.100(s)](https://www.govinfo.gov/content/pkg/CFR-2019-title40-vol2/xml/CFR-2019-title40-vol2-part51.xml#seqnum51.100) and excludes species with negligible photochemical reactivity such as ethane which are needed for photochemical modeling. [Gsref files](https://www.cmascenter.org/smoke/documentation/2.5/html/ch08s05s04.html) are mechanism independent and map sources to profiles and are provided as well.
@@ -9,3 +9,8 @@ This folder contains example speciation profiles for VOC and PM in terms of CRAC
   - Files labeled HTAP provide speciation for HTAP sectors (aircraft, ships, energy, industry, transport, residential, agriculture) based on U.S. 2018 emission speciation.
   - "criteria" files obtain all HAP species from speciation of total VOC (this is the general assumption for point sources)
   - "integrate" files obtain naphthalene, benzene, acetaldehyde, formaldehyde, and methanol from the NEI and other HAPs are from speciation of the remaining non-HAP VOC/TOG (this is the general assumption for area sources)
+
+### References
+
+Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
+

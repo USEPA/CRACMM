@@ -1,6 +1,6 @@
 ### CRACMM Emissions
 
-CMAQ-ready emissions, meteorology, and other input files are available to run CRACMM across the contiguous U.S. for 2018 at 12km horizontal resolution via:
+CMAQ-ready emissions, meteorology, and other input files following EQUATES methods (Foley et al., 2023) are available to run CRACMM across the contiguous U.S. for 2018 at 12km horizontal resolution via:
 
 US EPA, 2023, "CMAQ Model Version 5.4 CRACMM Input Data -- 1/1/2018 - 12/31/2018 12km CONUS", [https://doi.org/10.15139/S3/9AV907](https://doi.org/10.15139/S3/9AV907), UNC Dataverse, V1.
 
@@ -64,4 +64,6 @@ Emissions of the following CRACMM1 species cannot be estimated from RACM2 inputs
 CRACMM1 cannot be easily mapped to Carbon Bond.
 
 ### References
+Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
+
 Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407–3420, [https://doi.org/10.5194/gmd-14-3407-2021](https://doi.org/10.5194/gmd-14-3407-2021), 2021.
