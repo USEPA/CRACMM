@@ -47,7 +47,7 @@ Wiser, F., Place, B. K., Sen, S., Pye, H. O. T., Yang, B., Westervelt, D. M., He
 #### Version: 0.21
 - This version used to create initial SMOKE inputs.
 - Known issues: 
-  - XYOP emitted species name overlaps with a peroxy radical in RACM2. XYOP renamed to XYE (major contributors are o-xylene and ethylbenzne).
+  - XYOP emitted species name overlaps with a peroxy radical in RACM2. XYOP renamed to XYE (major contributors are o-xylene and ethylbenzene).
   - TOLUENE named to TOL in later versions.
 - Date: 20210812. Updated carbons (Speciation Tool input) for missing species.
 - Date: 20210806. Updated Misc Silanes surrogate and removed non-ROC species from mech4import.
