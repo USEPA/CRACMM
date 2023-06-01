@@ -1,6 +1,6 @@
 ### CRACMM v1.0 Chemistry
 
-The gas and heterogeneous chemistry kinetic reactions are described in files provided here. Absorptive partitioning in CMAQ assumes equilibirum. Note that markdown files round coefficients to the thousandths place for brevity and the true mechanism is represented in the mech.def files.
+The gas and heterogeneous chemistry kinetic reactions are described in files provided here. Absorptive partitioning in CMAQ assumes equilibrium. Note that markdown files round coefficients to the thousandths place for brevity and the true mechanism is represented in the mech.def files.
 
 Box model inputs developed by Place et al. (2023) are provided for the F0AM model (Wolfe et al., 2016) which can be obtained from [https://github.com/AirChem/F0AM](https://github.com/AirChem/F0AM).
 
