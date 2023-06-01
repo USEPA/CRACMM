@@ -1,5 +1,5 @@
 function K = CRACMM1_AQ_K(Met,Jmethod)
-% Calculate heteorogeneous and other rate constants for use with the cracmm1_aq chemical mechanism.
+% Calculate heterogeneous and other rate constants for use with the cracmm1_aq chemical mechanism.
 % Met: structure containing required meteorological constraints. Required vars depend on Jmethod.
 %       Met.T: temperature, T
 %       Met.P: pressure, mbar
