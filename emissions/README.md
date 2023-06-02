@@ -1,8 +1,15 @@
 ### CRACMM Emissions
 
+CMAQ-ready emissions, meteorology, and other input files following EQUATES methods (Foley et al., 2023) are available to run CRACMM across the contiguous U.S. for 2018 at 12km horizontal resolution via:
+
+US EPA, 2023, "CMAQ Model Version 5.4 CRACMM Input Data -- 1/1/2018 - 12/31/2018 12km CONUS", [https://doi.org/10.15139/S3/9AV907](https://doi.org/10.15139/S3/9AV907), UNC Dataverse, V1.
+
+
+Additional files supporting CRACMM emissions are available within this directory. EPA's SPECIATE to SMOKE Tool, [S2S-Tool](https://github.com/USEPA/S2S-Tool), also supports CRACMM speciation and can generate SMOKE-ready speciation files (gspro files). When running CMAQ, the user is encouraged to check the main log file and the log file from one individual processor for diagnostic information from DESID (Murphy et al., 2021) that could indicate any mismatches in species naming conventions.
+
 #### Directory contents
 
-- [CRACMM species mapping flowchart in PDF](cracmm_mapping_flowchart_v1.pdf): PDF of how individual species map to CRACMM. This information is also available in the supporting information of Pye et al. (in prep for submission to Atmos Chem Phys).
+- [CRACMM species mapping flowchart in PDF](cracmm_mapping_flowchart_v1.pdf): PDF of how individual species map to CRACMM. This information is also available in the supporting information of Pye et al. (2023).
 
 - [CRACMM mapper in python](cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see environment.yml file for anaconda setup). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration. OH rate constants can be estimated with [OPERA algorithms](https://github.com/kmansouri/OPERA). Saturation concentrations can be calculated from vapor pressures obtained via OPERA or other sources. OPERA algorithms can be run for any organic species with a SMILES in the [EPA Chemical Transformation Simulator](https://qed.epa.gov/cts/pchemprop/input/) and OPERA predictions are precalculated for species in the [EPA Chemicals Dashboard](https://comptox.epa.gov/dashboard/). 
 
@@ -10,15 +17,9 @@
 
 - [Speciation Tool Inputs](SpeciationToolInputs): inputs to [Speciation Tool](https://github.com/CMASCenter/Speciation-Tool) that create SMOKE-ready mechanism species for profiles.
 
-- [SMOKE Inputs](SMOKEInputs): Speciation profiles for VOC and PM in terms of CRACMM species for use with SMOKE (these are output by Speciation Tool). SMOKE Inputs include [gspro files](https://www.cmascenter.org/smoke/documentation/2.1/html/ch08s05s02.html) which give the mass fraction of total VOC (or TOG, total organic gas) and/or PM that is each mechanism species for different sectors. 
-  For gspro files based on SPECIATE v5.2, a [gscnv file](https://www.cmascenter.org/smoke/documentation/2.1/html/ch08s05.html#sect_input_gscnv) that converts VOC (which is inventoried by EPA in the NEI) to total organic gas (TOG) is also available.  VOC in the NEI is defined by the [code of federal regulation 51.100(s)](https://www.govinfo.gov/content/pkg/CFR-2019-title40-vol2/xml/CFR-2019-title40-vol2-part51.xml#seqnum51.100) and excludes species with negligible photochemical reactivity such as ethane which are needed for photochemical modeling. [Gsref files](https://www.cmascenter.org/smoke/documentation/2.5/html/ch08s05s04.html) are mechanism independent and map sources to profiles and are provided as well.
-  - Files labeled v0_21_Spec_5_2 are based on an interim version of CRACMM (v0.21) and an interim version of SPECIATE v5.2. Several CRACMM species were renamed in the final v1.0. See notes regarding version compatibility below.
-  - Files labeled v1_Spec_5_2 match CRACMMv1.0 and interim SPECIATE v5.2. CRACMMv1 is implemented in CMAQv5.4.
-  - Files labeled HTAP provide speciation for HTAP sectors (aircraft, ships, energy, industry, transport, residential, agriculture) based on U.S. 2018 emission speciation.
-  - "criteria" files obtain all HAP species from speciation of total VOC (this is the general assumption for point sources)
-  - "integrate" files obtain naphthalene, benzene, acetaldehyde, formaldehyde, and methanol from the NEI and other HAPs are from speciation of the remaining non-HAP VOC/TOG (this is the general assumption for area sources)
+- [SMOKE Inputs](SMOKEInputs): Example input files.
 
-- [Biogenic Species Mappings](BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM.
+- [Biogenic Species Mappings](BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
 
 #### Version compatibility
 
@@ -61,3 +62,8 @@ Emissions of the following CRACMM1 species cannot be estimated from RACM2 inputs
 | XYP      | XYE |
 
 CRACMM1 cannot be easily mapped to Carbon Bond.
+
+### References
+Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
+
+Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407–3420, [https://doi.org/10.5194/gmd-14-3407-2021](https://doi.org/10.5194/gmd-14-3407-2021), 2021.
