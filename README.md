@@ -12,11 +12,13 @@ The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a 
 
 The official version of CRACMM1 and CRACMM1AMORE reside in CMAQv5.4 in the [US EPA Github repository](https://github.com/USEPA/CMAQ) (v5.4). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
  * [Chemistry](chemistry): the mechanism in CMAQ-ready and markdown formats
- * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM
+ * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM (informed by Foley et al. 2023)
  * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
  * [Utilities](utilities): python code to assemble metadata from CMAQ code and routines for screening level predictions of organic aerosol and ozone formation potential
 
 ### References
+
+Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
 
 Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Allen, C., Piletic, I. R., D'Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R. H., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Sensitivity of Northeast U.S. surface ozone predictions to the representation of atmospheric chemistry in CRACMMv1.0, EGUsphere [preprint], [https://doi.org/10.5194/egusphere-2023-288](https://doi.org/10.5194/egusphere-2023-288), 2023.
 
