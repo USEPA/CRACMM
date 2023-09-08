@@ -29,7 +29,7 @@ def get_cracmm_roc(smiles,koh,log10cstar):
   smiles  = smiles.upper()
 
   # Count C=C and atoms
-  nCdblC  = smiles.count('=C')
+  nCdblC  = smiles.count('=C')-smiles.count('O=C')
   nC      = smiles.count('C')-smiles.count('CL')
   nO      = smiles.count('O')
   nN      = smiles.count('N')
