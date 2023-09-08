@@ -147,7 +147,7 @@ def get_cracmm_roc(smiles,koh,log10cstar):
 
   # IVOC species binned (new to v0.1)
   elif ( ( log10cstar < 6.5 and nO/nC >= 0.1 ) or nSi > 0 ):  
-                                     mechspecies = 'ROCIOXY' # Oxygenated IVOCs and any silanes/siloxanes
+                                     mechspecies = 'VROCIOXY' # Oxygenated IVOCs and any silanes/siloxanes
   elif ( log10cstar < 3.5 ):         mechspecies = 'ROCP3ALK' # C* bin centered on 1000 ug/m3
   elif ( log10cstar < 4.5 ):         mechspecies = 'ROCP4ALK' # C* bin centered on 10^4
   elif ( log10cstar < 5.5 ):         mechspecies = 'ROCP5ALK' # C* bin centered on 10^5
