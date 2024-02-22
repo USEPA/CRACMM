@@ -6,11 +6,11 @@ Havala Pye, pye.havala@epa.gov
 
 ### Description
 
-The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al., 2023; Place et al., 2023). CRACMM is available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) starting with version 5.4 (2022 release). In CMAQ, CRACMM is available as CRACMM1 and CRACMM1AMORE. The two mechanisms are identical in their representation of emissions and chemistry except for the isoprene system. CRACMM1 isoprene chemistry is the same as in RACM2. CRACMM1AMORE isoprene chemistry is based on the Columbia University [Atmospheric Chemistry Model Reduction (AMORE)](https://cfpub.epa.gov/ncer_abstracts/index.cfm/fuseaction/display.abstractDetail/abstract_id/11084) algorithm (Wiser et al., 2023). For more information about the plans for CRACMM, see the [EPA fact sheet on the CMAQ website](https://www.epa.gov/cmaq/cmaq-fact-sheets).
+The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al., 2023; Place et al., 2023). CRACMM is available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) starting with version 5.4 (2022 release). In CMAQ, CRACMM was initially released as CRACMM1 and CRACMM1AMORE which only differ in the representation of isoprene chemistry (see Wiser et al., 2023). For more information about the plans for CRACMM, see the [EPA fact sheet on the CMAQ website](https://www.epa.gov/cmaq/cmaq-fact-sheets). The main repository branch on github will continually evolve and periodically tagged to reflect official release versions. To obtain frozen versions of CRACMM, select the appropriate branch on github and/or tag. 
 
 ### Purpose and Organization of the CRACMM Github Repository
 
-The official version of CRACMM1 and CRACMM1AMORE reside in CMAQv5.4 in the [US EPA Github repository](https://github.com/USEPA/CMAQ) (v5.4). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
+The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github repository](https://github.com/USEPA/CMAQ). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
  * [Chemistry](chemistry): the mechanism in CMAQ-ready and markdown formats
  * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM (informed by Foley et al., 2023)
  * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
@@ -18,18 +18,24 @@ The official version of CRACMM1 and CRACMM1AMORE reside in CMAQv5.4 in the [US E
 
 ### References
 
+#### Version 1 Development and Application
 Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
 
-Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Allen, C., Piletic, I. R., D'Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R. H., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Sensitivity of Northeast U.S. surface ozone predictions to the representation of atmospheric chemistry in CRACMMv1.0, EGUsphere [preprint], [https://doi.org/10.5194/egusphere-2023-288](https://doi.org/10.5194/egusphere-2023-288), 2023.
+Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Allen, C., Piletic, I. R., D'Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R. H., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Sensitivity of northeastern US surface ozone predictions to the representation of atmospheric chemistry in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMMv1.0), Atmos. Chem. Phys., 23, 9173–9190, https://doi.org/10.5194/acp-23-9173-2023, 2023.
 
 Pye, H. O. T., Place, B. K., Murphy, B. N., Seltzer, K. M., D'Ambro, E. L., Allen, C., Piletic, I. R., Farrell, S., Schwantes, R. H., Coggon, M. M., Saunders, E., Xu, L., Sarwar, G., Hutzell, W. T., Foley, K. M., Pouliot, G., Bash, J., and Stockwell, W. R.: Linking gas, particulate, and toxic endpoints to air emissions in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM), Atmos. Chem. Phys., 23, 5043–5099, [https://doi.org/10.5194/acp-23-5043-2023](https://doi.org/10.5194/acp-23-5043-2023), 2023.
+
+Vannucci, P. F., Foley, K., Murphy, B. N., Hogrefe, C., Cohen, R. C., and Pye, H. O. T.: Temperature-Dependent Composition of Summertime PM<sub>2.5</sub> in Observations and Model Predictions across the Eastern U.S, ACS Earth Space Chem., [https://doi.org/10.1021/acsearthspacechem.3c00333], 2024.
 
 Wiser, F., Place, B. K., Sen, S., Pye, H. O. T., Yang, B., Westervelt, D. M., Henze, D. K., Fiore, A. M., and McNeill, V. F.: AMORE-Isoprene v1.0: a new reduced mechanism for gas-phase isoprene oxidation, Geosci. Model Dev., 16, 1801–1821, [https://doi.org/10.5194/gmd-16-1801-2023](https://doi.org/10.5194/gmd-16-1801-2023), 2023.
 
 ### Version history
 
-#### Version 1.0
-- Final version for release in CMAQv5.4
+#### Version 2.0-alpha (in progress February 2024)
+- Collecting updates leading to CRACMM2 
+
+#### Version 1.0 (October 2022)
+- Final version for release in CMAQv5.4 
 - ROCALK names updated
 
 #### Version 0.3
