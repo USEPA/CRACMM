@@ -6,7 +6,7 @@ Created on Mon Sep 12 16:46:56 2022
 
 Updates:
 20240209 Nash Skipper:
-- Remove depracated method pd.DataFrame.append and replace it with pd.concat
+- Remove deprecated method pd.DataFrame.append and replace it with pd.concat
 - Explicitly set regex=False in pd.Series.str.replace; the default of regex
     has changed from True to False in more recent versions of pandas
 - Create output directory if it does not exist
