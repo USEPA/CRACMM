@@ -88,7 +88,7 @@ def get_cracmm_roc(smiles_input,koh,log10cstar):
     # Explicit species
     elif ( smiles == 'CC=O' ):        mechspecies = 'ACD'   # acetaldehyde
     elif ( smiles == 'C#C' ):         mechspecies = 'ACE'   # acetylene
-    elif ( smiles == 'CC(C)=O' ):     mechspecies = 'ACT'
+    elif ( smiles == 'CC(C)=O' ):     mechspecies = 'ACT'   # acetone
     elif ( nC==6 and nH==6 and nO==0 and nbenzene==1 ):
                                       mechspecies = 'BEN'   # benzene
     elif ( smiles == 'C'  ):          mechspecies = 'ECH4'  # methane
@@ -177,7 +177,7 @@ def get_cracmm_roc(smiles_input,koh,log10cstar):
         elif ( nC==6 and nalcohol>=1 ):      mechspecies = 'PHEN'     # phenol
         elif ( log10cstar < 5.5 ):           mechspecies = 'ROCP5ARO' # C* bin centered on 10^5 (v0.1)
         elif ( log10cstar < 6.5 ):           mechspecies = 'ROCP6ARO' # C* bin centered on 10^6 (v0.1)
-        # this should be updated for CRACMM2
+        # any single-ring aromatics that have not been mapped by rules above
         else:                                mechspecies = 'XYL'      # xylenes and other aromatics (CRACMM2)
     
     # Species with double bonds, not aromatic
