@@ -4378,9 +4378,9 @@ fHO2(i)=fHO2(i)+  1.3700;fHCHO(i)=fHCHO(i)+  1.6800;fBALD(i)=fBALD(i)+  1.0000;f
 
 % 531, <ROCARO76>
 i=i+1;
-Rnames{ 531} = 'STYP + ACO3 = HO2 + HCHO +  0.70000*MO2 +  0.30000*ORA2 ';
+Rnames{ 531} = 'STYP + ACO3 = HO2 + HCHO + BALD +  0.70000*MO2 +  0.30000*ORA2 ';
 k(:,i) = (  2.5000E-13 ); 
 Gstr{i,   1}='STYP';Gstr{i,   2}='ACO3';
 fSTYP(i)=fSTYP(i)-1.0;fACO3(i)=fACO3(i)-1.0;
-fHO2(i)=fHO2(i)+  1.0000;fHCHO(i)=fHCHO(i)+  1.0000;fMO2(i)=fMO2(i)+  0.7000;fORA2(i)=fORA2(i)+  0.3000;
+fHO2(i)=fHO2(i)+  1.0000;fHCHO(i)=fHCHO(i)+  1.0000;fBALD(i)=fBALD(i)+  1.0000;fMO2(i)=fMO2(i)+  0.7000;fORA2(i)=fORA2(i)+  0.3000;
 
