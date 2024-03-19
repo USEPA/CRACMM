@@ -5,7 +5,7 @@ Created on Wed May 26 17:07:35 2021
 @author: phavala
 contributors: Havala Pye, Karl Seltzer USEPA, Nash Skipper
 
-20240223 - Nash Skipper - updates for CRACMM2
+Nash Skipper - updates for CRACMM2
     1. Standardize input SMILES string to rdkit canonical SMILES.
     2. Use canonical SMILES for explicit species mapping. This eliminates the need to account
        for different valid SMILES for the same species.
@@ -18,6 +18,7 @@ contributors: Havala Pye, Karl Seltzer USEPA, Nash Skipper
        the position of the double bond in the SMILES string.
     7. Update ROC[N|P]#ALK species mapping to include mapping to ROC[N|P]#OXY# species based on 
        O:C ratio.
+    8. Add V or A to the start of ROC* species to indicate gas or particle phase.
 
 """
 
@@ -26,20 +27,24 @@ from rdkit import Chem
 from rdkit.Chem import Fragments
 from rdkit.Chem import rdMolDescriptors
 
-def get_cracmm_roc(smiles_input,koh,log10cstar):
+def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     '''
     Function maps input reactive organic carbon (ROC) species to cracmm ROC species.
     Uses functional group and molecule info from RDKit http://www.rdkit.org/
     Function inputs, for ONE compound (make loop outside this function):
         smiles string (should be canonical for explicit species, some alt added) 
         kOH (in cm3/molec-s)
-        log10(Cstar in micrograms/m3) 
+        log10(Cstar in micrograms/m3)
+        phase (optional; default value is None; options are 'gas', 'particle', or None)
+              This is only used to label species that can exist in both gas and particle phases.
+              It does not do any calculations on what phase the species should be in. Semivolatile
+              partitioning should be calculated external to this function.
     kOH and C* may not be used if the compound can be mapped without it. 
     RACM2 reference: https://ars.els-cdn.com/content/image/1-s2.0-S1352231012011065-mmc1.pdf
     '''
     
     # CRACMM2
-
+    
     # Prep inputs
     smiles       = Chem.CanonSmiles(smiles_input) # standardize input SMILES string
     m            = Chem.MolFromSmiles(smiles)
@@ -175,14 +180,14 @@ def get_cracmm_roc(smiles_input,koh,log10cstar):
         elif ( nC>=7 and nalcohol>=2 ):      mechspecies = 'MCT'      # methylcatechol
         elif ( nC>=7 and nalcohol>=1 ):      mechspecies = 'CSL'      # cresol
         elif ( nC==6 and nalcohol>=1 ):      mechspecies = 'PHEN'     # phenol
-        elif ( log10cstar < 5.5 ):           mechspecies = 'ROCP5ARO' # C* bin centered on 10^5 (v0.1)
-        elif ( log10cstar < 6.5 ):           mechspecies = 'ROCP6ARO' # C* bin centered on 10^6 (v0.1)
+        elif ( log10cstar < 5.5 ):           mechspecies = 'VROCP5ARO' # C* bin centered on 10^5 (v0.1)
+        elif ( log10cstar < 6.5 ):           mechspecies = 'VROCP6ARO' # C* bin centered on 10^6 (v0.1)
         # any single-ring aromatics that have not been mapped by rules above
         else:                                mechspecies = 'XYL'      # xylenes and other aromatics (CRACMM2)
     
     # Species with double bonds, not aromatic
-    elif ( nCdblC>=1 and log10cstar < 5.5 ): mechspecies = 'ROCP5ARO' # C* bin centered on 10^5 (v0.1)
-    elif ( nCdblC>=1 and log10cstar < 6.5 ): mechspecies = 'ROCP6ARO' # C* bin centered on 10^6 (v0.1) 
+    elif ( nCdblC>=1 and log10cstar < 5.5 ): mechspecies = 'VROCP5ARO' # C* bin centered on 10^5 (v0.1)
+    elif ( nCdblC>=1 and log10cstar < 6.5 ): mechspecies = 'VROCP6ARO' # C* bin centered on 10^6 (v0.1) 
     elif ( nCdblC>=2 ):                      mechspecies = 'FURAN'    # some additional dienes (nC>=4 gauranteed)
     elif ( nCdblC==1 and ncarbonyl>=2 ):     mechspecies = 'DCB1'     # unsaturated dicarbonyls
     elif ( nCdblC==1 and nC==4 and naldehyde==1 ): 
@@ -208,21 +213,22 @@ def get_cracmm_roc(smiles_input,koh,log10cstar):
             mechspecies = 'ROCP3OXY2'
         else:
             mechspecies = 'ROCP3ALK'
+    # gas phase only for C* bins above 1000 ug/m3 so it can only be VROC (not AROC)
     elif ( log10cstar < 4.5 ): # C* bin centered on 10^4
         if OtoC > 0.1:
-            mechspecies = 'ROCP4OXY2'
+            mechspecies = 'VROCP4OXY2'
         else:
-            mechspecies = 'ROCP4ALK'
+            mechspecies = 'VROCP4ALK'
     elif ( log10cstar < 5.5 ): # C* bin centered on 10^5
         if OtoC > 0.05:
-            mechspecies = 'ROCP5OXY1'
+            mechspecies = 'VROCP5OXY1'
         else:
-            mechspecies = 'ROCP5ALK'
+            mechspecies = 'VROCP5ALK'
     elif ( log10cstar < 6.5 ): # C* bin centered on 10^6
         if OtoC > 0.05:
-            mechspecies = 'ROCP6OXY1'
+            mechspecies = 'VROCP6OXY1'
         else:
-            mechspecies = 'ROCP6ALK'
+            mechspecies = 'VROCP6ALK'
     
     # Oxygenated species without double bonds (mapped in order of decreasing koh)
     elif ( naldehyde>=1 and nketone>=1 ):mechspecies = 'MGLY' # methylglyoxal and similar like C4H6O2 (1.5e-11)
@@ -240,6 +246,21 @@ def get_cracmm_roc(smiles_input,koh,log10cstar):
     elif ( koh > 6.8E-12 ):                     mechspecies = 'HC10' # fast "alkanes"
 
     else: mechspecies = 'UNKCRACMM' # Species is unknown to CRACMM
-
+    
+    # append V or A to ROC* species to indicate gas (V) or particle (A)
+    # except log10(C*)>3 are only in gas phase and already have the V added above
+    if mechspecies[:3]=='ROC':
+        # only 'gas', 'particle', or None allowed; otherwise exit with error
+        try:
+            assert phase in ['gas', 'particle', None]
+        except AssertionError as e:
+            err_msg = f'Invalid phase option {phase} supplied. Valid options are "gas", "particle", or None.'
+            raise Exception(err_msg).with_traceback(e.__traceback__)
+        if phase=='particle':
+            append = 'A'
+        else:
+            append = 'V' # assumes gas if phase=None was supplied
+        mechspecies = append + mechspecies
+        
     return mechspecies
     # end of function
