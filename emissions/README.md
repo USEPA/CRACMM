@@ -15,10 +15,6 @@ Additional files supporting CRACMM emissions are available within this directory
 
 - [SPECIATE Inputs](SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last column indicates the CRACMM species where the emitted species should map (organic only).
 
-- [Speciation Tool Inputs](SpeciationToolInputs): inputs to [Speciation Tool](https://github.com/CMASCenter/Speciation-Tool) that create SMOKE-ready mechanism species for profiles.
-
-- [SMOKE Inputs](SMOKEInputs): Example input files.
-
 - [Biogenic Species Mappings](BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
 
 #### Version compatibility
