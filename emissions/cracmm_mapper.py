@@ -19,9 +19,11 @@ Nash Skipper - updates for CRACMM2
     7. Update ROC[N|P]#ALK species mapping to include mapping to ROC[N|P]#OXY# species based on 
        O:C ratio.
     8. Add V or A to the start of ROC* species to indicate gas or particle phase.
+    9. Add warning if input was not mapped to a CRACMM species (mapped to UNKCRACMM).
 
 """
 
+import warnings
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import Fragments
@@ -89,6 +91,8 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     # Mapper is for ROC only and not elemental carbon
     if   ( nC <= 0 ):                 mechspecies = 'UNKCRACMM'
     elif ( smiles == '[C]' ):         mechspecies = 'UNKCRACMM'
+    # Map CO to UNKCRACMM; CO will be mapped to SLOWROC if not handled explicitly
+    elif ( smiles == 'C#[O+]' ):      mechspecies = 'UNKCRACMM'
 
     # Explicit species
     elif ( smiles == 'CC=O' ):        mechspecies = 'ACD'   # acetaldehyde
@@ -261,6 +265,14 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
         else:
             append = 'V' # assumes gas if phase=None was supplied
         mechspecies = append + mechspecies
-        
+    
+    # warning if species was not mapped
+    if mechspecies == 'UNKCRACMM':
+        unkcracmm_msg = (
+            f'Species with SMILES {smiles_input} is unknown in CRACMM'
+            + ' and has been mapped to UNKCRACMM.'
+        )
+        warnings.warn(unkcracmm_msg)
+    
     return mechspecies
     # end of function
