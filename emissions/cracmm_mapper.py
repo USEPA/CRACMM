@@ -48,6 +48,12 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     # CRACMM2
     
     # Prep inputs
+    if smiles_input == '-':
+        unksmiles_msg = (
+            f'SMILES {smiles_input} not recognized. Mapping to UNKSMILES.'
+        )
+        warnings.warn(unksmiles_msg)
+        return 'UNKSMILES'
     smiles       = Chem.CanonSmiles(smiles_input) # standardize input SMILES string
     m            = Chem.MolFromSmiles(smiles)
     smiles_upper = smiles_input.upper()
