@@ -19,6 +19,20 @@ Additional files supporting CRACMM emissions are available within this directory
 
 #### Version compatibility
 
+##### CRACMM version 2
+Emission inputs that have been previously prepared for CRACMM1 can be used for CRACMM2 with some updates to emission mappings for aromatic species. The following emission mappings are recommended based on the total mass of emissions of ethylbenzene and styrene across all emission sectors:
+- emission species `XYE`: 70% `XYL`; 30% `EBZ`
+- emission species `XYM`: 93% `XYL`; 7% `STY`
+
+This can be implemented in the DESID control file (`CMAQ_Control_DESID_cracmm2.nml`) by adding the following lines:
+```
+   'EVERYWHERE', 'ALL'         ,'XYE'    ,'XYL'         ,'GAS'  ,0.70,'UNIT','a',
+   'EVERYWHERE', 'ALL'         ,'XYE'    ,'EBZ'         ,'GAS'  ,0.30,'UNIT','a',
+   'EVERYWHERE', 'ALL'         ,'XYM'    ,'XYL'         ,'GAS'  ,0.93,'UNIT','a',
+   'EVERYWHERE', 'ALL'         ,'XYM'    ,'STY'         ,'GAS'  ,0.07,'UNIT','a',
+```
+
+##### CRACMM version 1
 The following species names were updated between CRACMM v0.21 and v1.0. Species are fully compatible across CRACMM versions with renaming.
 
 | Version 0.21  | Version 1 |
