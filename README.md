@@ -6,7 +6,7 @@ Havala Pye, pye.havala@epa.gov
 
 ### Description
 
-The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al., 2023; Place et al., 2023). CRACMM is available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) starting with version 5.4 (2022 release). In CMAQ, CRACMM was initially released as CRACMM1 and CRACMM1AMORE which only differ in the representation of isoprene chemistry (see Wiser et al., 2023). For more information about the plans for CRACMM, see the [EPA fact sheet on the CMAQ website](https://www.epa.gov/cmaq/cmaq-fact-sheets). The main repository branch on github will continually evolve and periodically tagged to reflect official release versions. To obtain frozen versions of CRACMM, select the appropriate branch on github and/or tag. 
+The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (Pye et al., 2023; Place et al., 2023). CRACMM has been available in the EPA [Community Multiscale Air Quality (CMAQ) modeling system](https://github.com/USEPA/CMAQ) since version 5.4 (2022 release) and will continue to be updated (see the [EPA fact sheet on the CMAQ website](https://www.epa.gov/cmaq/cracmm)). In CMAQ, CRACMM was initially released with two representations of isoprene chemistry (see Wiser et al., 2023) that were merged together in CRACMM2 (Skipper et al., 2024). The main repository branch on github will evolve (see [Version History](#version-history)) and be periodically tagged to reflect official release versions. To obtain frozen versions of CRACMM, select the appropriate branch or tag on github. 
 
 ### Purpose and Organization of the CRACMM Github Repository
 
@@ -18,8 +18,11 @@ The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github rep
 
 ### References
 
+#### Version 2 Development and Application
+
+Skipper, T. N., D'Ambro, E. L., Wiser, F. C., McNeill, V. F., Schwantes, R. H., Henderson, B. H., Piletic, I. R., Baublitz, C. B., Bash, J. O., Whitehill, A. R., Valin, L. C., Mouat, A. P., Kaiser, J., Wolfe, G. M., St. Clair, J. M., Hanisco, T. F., Fried, A., Place, B. K., and Pye, H. O. T.: Role of chemical production and depositional losses on formaldehyde in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM), EGUsphere [preprint], [https://doi.org/10.5194/egusphere-2024-1680](https://doi.org/10.5194/egusphere-2024-1680), 2024.
+
 #### Version 1 Development and Application
-Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
 
 Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Allen, C., Piletic, I. R., D'Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R. H., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Sensitivity of northeastern US surface ozone predictions to the representation of atmospheric chemistry in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMMv1.0), Atmos. Chem. Phys., 23, 9173–9190, https://doi.org/10.5194/acp-23-9173-2023, 2023.
 
