@@ -1,4 +1,4 @@
-### CRACMM v1.0 Chemistry
+### CRACMM Chemistry
 
 The gas and heterogeneous chemistry kinetic reactions are described in files provided here. Absorptive partitioning in CMAQ assumes equilibrium. Note that markdown files round coefficients to the thousandths place for brevity and the true mechanism is represented in the mech.def files.
 
@@ -22,4 +22,4 @@ Box model inputs are provided for the F0AM model (Wolfe et al., 2016). The offic
 
 Wolfe, G. M., Marvin, M. R., Roberts, S. J., Travis, K. R., and Liao, J.: The Framework for 0-D Atmospheric Modeling (F0AM) v3.1, Geosci. Model Dev., 9, 3309–3319, [https://doi.org/10.5194/gmd-9-3309-2016](https://doi.org/10.5194/gmd-9-3309-2016), 2016.
 
-See also the [CRACMM reference list](../references).
+See also the [CRACMM reference list](../#references).
