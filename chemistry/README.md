@@ -16,6 +16,7 @@ Box model inputs are provided for the F0AM model (Wolfe et al., 2016). The offic
  - CRACMM2 mechanism
    * [CRACMM2 in markdown](cracmm2/mech_cracmm2.md)
    * [CMAQ-ready CRACMM2 mechanism definition file](cracmm2/mech_cracmm2.def)
+   * [F0AM chemistry files for CRACMM2 mechanism](cracmm2/F0AM) as implemented by Skipper et al. (2024).
    * [Documentation by reaction](cracmm2/tbd) indicating the mechanism version where reaction was introduced (reaction_family), the publication documenting the reaction (publication_string and publication_doi), and the data underlying the reaction (underlying_data_publication, underlying_data_publication_doi) as well as additional notes
 
 ### References:
