@@ -98,7 +98,10 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     if   ( nC <= 0 ):                 mechspecies = 'UNKCRACMM'
     elif ( smiles == '[C]' ):         mechspecies = 'UNKCRACMM'
     # Map CO to UNKCRACMM; CO will be mapped to SLOWROC if not handled explicitly
-    elif ( smiles == 'C#[O+]' ):      mechspecies = 'UNKCRACMM'
+    elif ( smiles == 'C#[O+]' or smiles == '[C-]#[O+]' ):
+                                      mechspecies = 'UNKCRACMM'
+    # The same applies to CO2
+    elif ( smiles = 'O=C=O' ):        mechspecies = 'UNKCRACMM'
 
     # Explicit species
     elif ( smiles == 'CC=O' ):        mechspecies = 'ACD'   # acetaldehyde
