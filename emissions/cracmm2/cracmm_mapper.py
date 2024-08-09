@@ -20,10 +20,6 @@ Nash Skipper - updates for CRACMM2
        O:C ratio.
     8. Add V or A to the start of ROC* species to indicate gas or particle phase.
     9. Add warning if input was not mapped to a CRACMM species (mapped to UNKCRACMM).
-Havala Pye - additional robustness updates for CRACMM2 (8/8/2024)
-    1. Use Tanimoto similarity index with Morgan Fingerprints instead of string matching 
-       to identify explicit compounds.
-    2. Correct carbon monoxide smiles (not actually mapped as it is not ROC).
 
 """
 
@@ -51,17 +47,6 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     '''
     
     # CRACMM2
-    
-    # Tanimoto similarity function using Morgan fingerprints for 2 input smiles
-    def tanimoto( query_smiles, ref_smiles):
-        # Prepare fingerprints
-        query_mol = rdkit.Chem.MolFromSmiles(query_smiles)
-        query_fp = AllChem.GetMorganFingerprintAsBitVect(query_mol, 2, nBits=2048)
-        ref_mol = rdkit.Chem.MolFromSmiles(ref_smiles)
-        ref_fp = AllChem.GetMorganFingerprintAsBitVect(ref_mol, 2, nBits=2048)
-        # calculate similarity (input order doesn't matter)
-        similarity = rdkit.DataStructs.TanimotoSimilarity(query_fp, ref_fp)                           
-        return similarity
 
     # Prep inputs
     if smiles_input == '-':
@@ -114,32 +99,35 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     if   ( nC <= 0 ):                 mechspecies = 'UNKCRACMM'
     elif ( smiles == '[C]' ):         mechspecies = 'UNKCRACMM'
     
-    # Map CO, CO2 to UNKCRACMM as mapper only works for ROC species
-    elif ( tanimoto( smiles, '[C-]#[O+]') == 1 ):  mechspecies = 'UNKCRACMM' # CO
-    elif ( tanimoto( smiles, 'O=C=O') == 1 ):      mechspecies = 'UNKCRACMM' # CO2
+    # Map CO to UNKCRACMM; CO will be mapped to SLOWROC if not handled explicitly
+    elif ( smiles == 'C#[O+]' or smiles == '[C-]#[O+]' ):       # second SMILES is correct for CO, leave other 
+                                      mechspecies = 'UNKCRACMM'
+    # The same applies to CO2
+    elif ( smiles == 'O=C=O' ):       mechspecies = 'UNKCRACMM'
 
-    # Explicit species, starting 8/8/2024: map based on similarity (HOTP)
-    elif ( tanimoto( smiles, 'CC=O') == 1 ):        mechspecies = 'ACD'   # acetaldehyde
-    elif ( tanimoto( smiles, 'C#C') == 1 ):         mechspecies = 'ACE'   # acetylene
-    elif ( tanimoto( smiles, 'CC(C)=O') == 1 ):     mechspecies = 'ACT'   # acetone
-    elif ( tanimoto( smiles, 'C1=CC=CC=C1') == 1 ): mechspecies = 'BEN'   # benzene
-    elif ( tanimoto( smiles, 'C') == 1  ):          mechspecies = 'ECH4'  # methane
-    elif ( tanimoto( smiles, 'CCO') == 1 ):         mechspecies = 'EOH'   # ethanol
-    elif ( tanimoto( smiles, 'C=C') == 1 ):         mechspecies = 'ETE'   # ethene aka ethylene
-    elif ( tanimoto( smiles, 'OCCO') == 1 ):        mechspecies = 'ETEG'  # ethylene glycol
-    elif ( tanimoto( smiles, 'CC') == 1 ):          mechspecies = 'ETH'   # ethane
-    elif ( tanimoto( smiles, 'C=O') == 1 ):         mechspecies = 'HCHO'  # formaldehyde
-    elif ( tanimoto( smiles, 'C=CC(=C)C') == 1 ):   mechspecies = 'ISO'   # isoprene (output of Chem.CanonSmiles)
-    elif ( tanimoto( smiles, 'CO') == 1 ):          mechspecies = 'MOH'   # methanol
-    elif ( tanimoto( smiles, 'O=CO') == 1 ):        mechspecies = 'ORA1'  # formic acid
-    elif ( tanimoto( smiles, 'COO') == 1 ):         mechspecies = 'OP1'   # methyl hydrogen peroxide
-    elif ( tanimoto( smiles, 'C=Cc1ccccc1') == 1 ): mechspecies = 'STY'   # styrene (added in CRACMM2)
-    elif ( tanimoto( smiles, 'CCc1ccccc1') == 1 ):  mechspecies = 'EBZ'   # ethylbenzene (added in CRACMM2)
-    elif ( tanimoto( smiles, 'CCC(C)=O') == 1 ):    mechspecies = 'MEK'   # methyl ethyl ketone
-    elif ( tanimoto( smiles, 'C=CC(C)=O') == 1 ):   mechspecies = 'MVK'   # methly vinyl ketone
-    elif ( tanimoto( smiles, 'Cc1ccccc1') == 1 ):   mechspecies = 'TOL'   # toluene
-    elif ( tanimoto( smiles, 'C=CC=C') == 1 ):      mechspecies = 'BDE13' # 1,3 butadiene   
-    elif ( tanimoto( smiles, 'C=CC=O') == 1 ):      mechspecies = 'ACRO'  # acrolein
+     # Explicit species
+    elif ( smiles == 'CC=O' ):        mechspecies = 'ACD'   # acetaldehyde
+    elif ( smiles == 'C#C' ):         mechspecies = 'ACE'   # acetylene
+    elif ( smiles == 'CC(C)=O' ):     mechspecies = 'ACT'   # acetone
+    elif ( nC==6 and nH==6 and nO==0 and nbenzene==1 ):
+                                      mechspecies = 'BEN'   # benzene
+    elif ( smiles == 'C'  ):          mechspecies = 'ECH4'  # methane
+    elif ( smiles == 'CCO'):          mechspecies = 'EOH'   # ethanol
+    elif ( smiles == 'C=C'):          mechspecies = 'ETE'   # ethene aka ethylene
+    elif ( smiles == 'OCCO'):         mechspecies = 'ETEG'  # ethylene glycol
+    elif ( smiles == 'CC' ):          mechspecies = 'ETH'   # ethane
+    elif ( smiles == 'C=O'):          mechspecies = 'HCHO'  # formaldehyde
+    elif ( smiles == 'C=CC(=C)C' ):   mechspecies = 'ISO'   # isoprene (output of Chem.CanonSmiles)
+    elif ( smiles == 'CO'):           mechspecies = 'MOH'   # methanol
+    elif ( smiles == 'O=CO'):         mechspecies = 'ORA1'  # formic acid
+    elif ( smiles == 'COO'):          mechspecies = 'OP1'   # methyl hydrogen peroxide
+    elif ( smiles == 'C=Cc1ccccc1'):  mechspecies = 'STY'   # styrene (added in CRACMM2)
+    elif ( smiles == 'CCc1ccccc1'):   mechspecies = 'EBZ'   # ethylbenzene (added in CRACMM2)
+    elif ( smiles == 'CCC(C)=O' ):    mechspecies = 'MEK'   # methyl ethyl ketone
+    elif ( smiles == 'C=CC(C)=O' ):   mechspecies = 'MVK'   # methly vinyl ketone
+    elif ( smiles == 'Cc1ccccc1' ):   mechspecies = 'TOL'   # toluene
+    elif ( smiles == 'C=CC=C' ):      mechspecies = 'BDE13' # 1,3 butadiene   
+    elif ( smiles == 'C=CC=O' ):      mechspecies = 'ACRO'  # acrolein
 
     # Glyoxal and glycoaldehyde (here due to solubility alt mappings: ACD, ETEG)
     elif ( nC==2 and nO==2 and naldehyde>=1 ):     
