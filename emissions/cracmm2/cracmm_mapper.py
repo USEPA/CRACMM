@@ -28,6 +28,7 @@ import rdkit
 from rdkit import Chem
 from rdkit.Chem import Fragments
 from rdkit.Chem import rdMolDescriptors
+from rdkit.Chem import AllChem
 
 def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     '''
@@ -46,7 +47,7 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     '''
     
     # CRACMM2
-    
+
     # Prep inputs
     if smiles_input == '-':
         unksmiles_msg = (
@@ -97,10 +98,13 @@ def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     # Mapper is for ROC only and not elemental carbon
     if   ( nC <= 0 ):                 mechspecies = 'UNKCRACMM'
     elif ( smiles == '[C]' ):         mechspecies = 'UNKCRACMM'
+    
     # Map CO to UNKCRACMM; CO will be mapped to SLOWROC if not handled explicitly
-    elif ( smiles == 'C#[O+]' ):      mechspecies = 'UNKCRACMM'
+    elif ( smiles == '[C-]#[O+]' ):   mechspecies = 'UNKCRACMM'
+    # The same applies to CO2
+    elif ( smiles == 'O=C=O' ):       mechspecies = 'UNKCRACMM'
 
-    # Explicit species
+     # Explicit species
     elif ( smiles == 'CC=O' ):        mechspecies = 'ACD'   # acetaldehyde
     elif ( smiles == 'C#C' ):         mechspecies = 'ACE'   # acetylene
     elif ( smiles == 'CC(C)=O' ):     mechspecies = 'ACT'   # acetone

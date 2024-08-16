@@ -9,11 +9,15 @@ Additional files supporting CRACMM emissions are available within this directory
 
 #### Directory contents
 
-- [CRACMM species mapping flowchart in PDF](cracmm_mapping_flowchart_v1.pdf): PDF of how individual species map to CRACMM. This information is also available in the supporting information of Pye et al. (2023).
+For [CRACMM1](cracmm1) and [CRACMM2](cracmm2), the following are provided:
 
-- [CRACMM mapper in python](cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see environment.yml file for anaconda setup). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration. OH rate constants can be estimated with [OPERA algorithms](https://github.com/kmansouri/OPERA). Saturation concentrations can be calculated from vapor pressures obtained via OPERA or other sources. OPERA algorithms can be run for any organic species with a SMILES in the [EPA Chemical Transformation Simulator](https://qed.epa.gov/cts/pchemprop/input/) and OPERA predictions are precalculated for species in the [EPA Chemicals Dashboard](https://comptox.epa.gov/dashboard/). 
+- CRACMM species mapping flowchart in PDF: PDF of how individual species map to CRACMM. 
 
-- [SPECIATE Inputs](SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last column indicates the CRACMM species where the emitted species should map (organic only).
+- CRACMM mapper in python (cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see the [python notebook](smiles2cracmm.ipynb) for an example of how to run the mapper). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration. OH rate constants can be estimated with [OPERA algorithms](https://github.com/kmansouri/OPERA). Saturation concentrations can be calculated from vapor pressures obtained via OPERA or other sources. OPERA algorithms can be run for any organic species with a SMILES in the [EPA Chemical Transformation Simulator](https://qed.epa.gov/cts/pchemprop/input/) and OPERA predictions are precalculated for species in the [EPA Chemicals Dashboard](https://comptox.epa.gov/dashboard/). 
+
+The following contain species mapped to CRACMM1 and CRACMM2:
+
+- [SPECIATE Inputs](SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last two columns indicates the CRACMM1-2 species where the emitted species should map (organic only).
 
 - [Biogenic Species Mappings](BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
 
