@@ -11,7 +11,7 @@ The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a 
 ### Purpose and Organization of the CRACMM Github Repository
 
 The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github repository](https://github.com/USEPA/CMAQ). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
- * [Chemistry](chemistry): the mechanism in CMAQ-ready and markdown formats
+ * [Chemistry](chemistry): the mechanism in CMAQ-ready, F0AM box model, and markdown formats
  * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM (informed by Foley et al., 2023)
  * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
  * [Utilities](utilities): python code to assemble metadata from CMAQ code and routines for screening level predictions of organic aerosol and ozone formation potential
