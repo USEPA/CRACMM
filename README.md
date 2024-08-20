@@ -15,6 +15,7 @@ The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github rep
  * [Emissions](emissions): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM (informed by Foley et al., 2023)
  * [Metadata](metadata): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
  * [Utilities](utilities): python code to assemble metadata from CMAQ code and routines for screening level predictions of organic aerosol and ozone formation potential
+ * [Logos](logos): CRACMM logos designed by Chelsea Thompson at NOAA
 
 ### References
 
