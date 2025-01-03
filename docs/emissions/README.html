@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emissions &mdash; CRACMM 3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=110ea713"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Metadata" href="../metadata/README.html" />
+    <link rel="prev" title="Chemistry" href="../chemistry/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CRACMM
+              <img src="../_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Emissions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#directory-contents">Directory contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-compatibility">Version compatibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cracmm-version-2">CRACMM version 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cracmm-version-1">CRACMM version 1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Support utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python Modules (Custom)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cracmm_mapper.html">CRACMM2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../soa_yields.html">SOA Yields</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python Modules (Default)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">cracmm_sphinx</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">License Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Emissions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/emissions/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="emissions">
+<h1>Emissions<a class="headerlink" href="#emissions" title="Link to this heading"></a></h1>
+<p>CMAQ-ready emissions, meteorology, and other input files following EQUATES methods (Foley et al., 2023) are available to run CRACMM across the contiguous U.S. for 2018 at 12km horizontal resolution via:</p>
+<p>US EPA, 2023, “CMAQ Model Version 5.4 CRACMM Input Data – 1/1/2018 - 12/31/2018 12km CONUS”, <a class="reference external" href="https://doi.org/10.15139/S3/9AV907">https://doi.org/10.15139/S3/9AV907</a>, UNC Dataverse, V1.</p>
+<p>Additional files supporting CRACMM emissions are available within this directory. EPA’s SPECIATE to SMOKE Tool, <a class="reference external" href="https://github.com/USEPA/S2S-Tool">S2S-Tool</a>, also supports CRACMM speciation and can generate SMOKE-ready speciation files (gspro files). When running CMAQ, the user is encouraged to check the main log file and the log file from one individual processor for diagnostic information from DESID (Murphy et al., 2021) that could indicate any mismatches in species naming conventions.</p>
+<section id="directory-contents">
+<h2>Directory contents<a class="headerlink" href="#directory-contents" title="Link to this heading"></a></h2>
+<p>For <a class="reference internal" href="#cracmm1"><span class="xref myst">CRACMM1</span></a> and <a class="reference internal" href="../emissions.cracmm2.html#module-emissions.cracmm2" title="emissions.cracmm2"><span class="xref myst py py-mod">CRACMM2</span></a>, the following are provided:</p>
+<ul class="simple">
+<li><p>CRACMM species mapping flowchart in PDF: PDF of how individual species map to CRACMM.</p></li>
+<li><p>CRACMM mapper in python (cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see the <a class="reference internal" href="smiles2cracmm.html"><span class="std std-doc">python notebook</span></a> for an example of how to run the mapper). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration. OH rate constants can be estimated with <a class="reference external" href="https://github.com/kmansouri/OPERA">OPERA algorithms</a>. Saturation concentrations can be calculated from vapor pressures obtained via OPERA or other sources. OPERA algorithms can be run for any organic species with a SMILES in the <a class="reference external" href="https://qed.epa.gov/cts/pchemprop/input/">EPA Chemical Transformation Simulator</a> and OPERA predictions are precalculated for species in the <a class="reference external" href="https://comptox.epa.gov/dashboard/">EPA Chemicals Dashboard</a>.</p></li>
+</ul>
+<p>The following contain species mapped to CRACMM1 and CRACMM2:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#SPECIATEInputs"><span class="xref myst">SPECIATE Inputs</span></a>: Speciation table for interim <a class="reference external" href="https://www.epa.gov/air-emissions-modeling/speciate">SPECIATE</a> v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last two columns indicates the CRACMM1-2 species where the emitted species should map (organic only).</p></li>
+<li><p><a class="reference internal" href="#BiogenicMappings"><span class="xref myst">Biogenic Species Mappings</span></a>: <a class="reference external" href="https://bai.ess.uci.edu/megan">MEGAN</a> and <a class="reference external" href="https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis">BEIS</a> biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the <a class="reference external" href="https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog">CMAQ repository</a>.</p></li>
+</ul>
+</section>
+<section id="version-compatibility">
+<h2>Version compatibility<a class="headerlink" href="#version-compatibility" title="Link to this heading"></a></h2>
+<section id="cracmm-version-2">
+<h3>CRACMM version 2<a class="headerlink" href="#cracmm-version-2" title="Link to this heading"></a></h3>
+<p>Emission inputs that have been previously prepared for CRACMM1 can be used for CRACMM2 with some updates to emission mappings for aromatic species. The following emission mappings are recommended based on the total mass of emissions of ethylbenzene and styrene across all emission sectors:</p>
+<ul class="simple">
+<li><p>emission species <code class="docutils literal notranslate"><span class="pre">XYE</span></code>: 70% <code class="docutils literal notranslate"><span class="pre">XYL</span></code>; 30% <code class="docutils literal notranslate"><span class="pre">EBZ</span></code></p></li>
+<li><p>emission species <code class="docutils literal notranslate"><span class="pre">XYM</span></code>: 93% <code class="docutils literal notranslate"><span class="pre">XYL</span></code>; 7% <code class="docutils literal notranslate"><span class="pre">STY</span></code></p></li>
+</ul>
+<p>This can be implemented in the DESID control file (<code class="docutils literal notranslate"><span class="pre">CMAQ_Control_DESID_cracmm2.nml</span></code>) by adding the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="s1">&#39;EVERYWHERE&#39;</span><span class="p">,</span> <span class="s1">&#39;ALL&#39;</span>         <span class="p">,</span><span class="s1">&#39;XYE&#39;</span>    <span class="p">,</span><span class="s1">&#39;XYL&#39;</span>         <span class="p">,</span><span class="s1">&#39;GAS&#39;</span>  <span class="p">,</span><span class="mf">0.70</span><span class="p">,</span><span class="s1">&#39;UNIT&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;EVERYWHERE&#39;</span><span class="p">,</span> <span class="s1">&#39;ALL&#39;</span>         <span class="p">,</span><span class="s1">&#39;XYE&#39;</span>    <span class="p">,</span><span class="s1">&#39;EBZ&#39;</span>         <span class="p">,</span><span class="s1">&#39;GAS&#39;</span>  <span class="p">,</span><span class="mf">0.30</span><span class="p">,</span><span class="s1">&#39;UNIT&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;EVERYWHERE&#39;</span><span class="p">,</span> <span class="s1">&#39;ALL&#39;</span>         <span class="p">,</span><span class="s1">&#39;XYM&#39;</span>    <span class="p">,</span><span class="s1">&#39;XYL&#39;</span>         <span class="p">,</span><span class="s1">&#39;GAS&#39;</span>  <span class="p">,</span><span class="mf">0.93</span><span class="p">,</span><span class="s1">&#39;UNIT&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+   <span class="s1">&#39;EVERYWHERE&#39;</span><span class="p">,</span> <span class="s1">&#39;ALL&#39;</span>         <span class="p">,</span><span class="s1">&#39;XYM&#39;</span>    <span class="p">,</span><span class="s1">&#39;STY&#39;</span>         <span class="p">,</span><span class="s1">&#39;GAS&#39;</span>  <span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="s1">&#39;UNIT&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</section>
+<section id="cracmm-version-1">
+<h3>CRACMM version 1<a class="headerlink" href="#cracmm-version-1" title="Link to this heading"></a></h3>
+<p>The following species names were updated between CRACMM v0.21 and v1.0. Species are fully compatible across CRACMM versions with renaming.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version 0.21</p></th>
+<th class="head"><p>Version 1</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HC8</p></td>
+<td><p>HC10</p></td>
+</tr>
+<tr class="row-odd"><td><p>TOLUENE</p></td>
+<td><p>TOL</p></td>
+</tr>
+<tr class="row-even"><td><p>XYOP</p></td>
+<td><p>XYE</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROCIOXY</p></td>
+<td><p>VROCIOXY</p></td>
+</tr>
+</tbody>
+</table>
+<p>CRACMM1 species that inherit their name from RACM2 are conceptualized as the same species (e.g. XYM is m-xylene in both). For species that differ between the mechanisms, mapping can occur between CRACMM1 and RACM2 emissions. However, the mapping will result in changes to the meaning of some species and approximations in the chemistry.</p>
+<p>The following CRACMM1 species can be mapped to the equivalent RACM2 species if CRACMM1 inputs are to be used in RACM2:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>CRACMM1 Species</p></th>
+<th class="head"><p>RACM2 Species</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ACRO</p></td>
+<td><p>MACR</p></td>
+</tr>
+<tr class="row-odd"><td><p>BDE13</p></td>
+<td><p>DIEN</p></td>
+</tr>
+<tr class="row-even"><td><p>BEN</p></td>
+<td><p>BENZENE</p></td>
+</tr>
+<tr class="row-odd"><td><p>FURAN</p></td>
+<td><p>HC8</p></td>
+</tr>
+<tr class="row-even"><td><p>HC10</p></td>
+<td><p>HC8</p></td>
+</tr>
+<tr class="row-odd"><td><p>NAPH</p></td>
+<td><p>NAPH*</p></td>
+</tr>
+<tr class="row-even"><td><p>PROG</p></td>
+<td><p>HC8</p></td>
+</tr>
+<tr class="row-odd"><td><p>XYE</p></td>
+<td><p>Split between XYO and XYP</p></td>
+</tr>
+<tr class="row-even"><td><p>VROCIOXY</p></td>
+<td><p>not applicable</p></td>
+</tr>
+<tr class="row-odd"><td><p>SLOWROC</p></td>
+<td><p>not applicable</p></td>
+</tr>
+</tbody>
+</table>
+<p>*NAPH exists in the RACM2_AE6 implementation in CMAQ. If NAPH is not available, use XYM to represent the NAPH emitted mass.</p>
+<p>Emissions of the following CRACMM1 species cannot be estimated from RACM2 inputs as they are aggregated with other species in RACM2: ACRO, FURAN, PROG, VROCIOXY, or SLOWROC. The following RACM2 species can be mapped to CRACMM1 species to use RACM2 emissions for CRACMM1.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>RACM2 Species</p></th>
+<th class="head"><p>CRACMM1 Species</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DIEN</p></td>
+<td><p>BDE13</p></td>
+</tr>
+<tr class="row-odd"><td><p>BENZENE</p></td>
+<td><p>BEN</p></td>
+</tr>
+<tr class="row-even"><td><p>HC8</p></td>
+<td><p>HC10</p></td>
+</tr>
+<tr class="row-odd"><td><p>XYO</p></td>
+<td><p>XYE</p></td>
+</tr>
+<tr class="row-even"><td><p>XYP</p></td>
+<td><p>XYE</p></td>
+</tr>
+</tbody>
+</table>
+<p>CRACMM1 cannot be easily mapped to Carbon Bond.</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, <a class="reference external" href="https://doi.org/10.1016/j.dib.2023.109022">https://doi.org/10.1016/j.dib.2023.109022</a>, 2023.</p>
+<p>Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407–3420, <a class="reference external" href="https://doi.org/10.5194/gmd-14-3407-2021">https://doi.org/10.5194/gmd-14-3407-2021</a>, 2021.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../chemistry/README.html" class="btn btn-neutral float-left" title="Chemistry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../metadata/README.html" class="btn btn-neutral float-right" title="Metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, The CRACMM Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

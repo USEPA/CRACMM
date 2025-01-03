@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find CRACMM species based on SMILES &mdash; CRACMM 3.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=110ea713"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Map BEIS and MEGAN species to CRACMM" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html" />
+    <link rel="prev" title="utilities package" href="../utilities.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CRACMM
+              <img src="../_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Emissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Support utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python Modules (Custom)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cracmm_mapper.html">CRACMM2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../soa_yields.html">SOA Yields</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python Modules (Default)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">cracmm_sphinx</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Find CRACMM species based on SMILES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-rdkit-if-not-already-installed">Install rdkit if not already installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#option-1-interactively-enter-species-properties">Option 1: Interactively enter species properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#option-2-same-as-option-1-but-not-interactive">Option 2: Same as option 1 but not interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#option-3-run-multiple-species-in-batch">Option 3: Run multiple species in batch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-pandas-dataframe-with-species-properties">Create a pandas DataFrame with species properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-column-for-cracmm-species-from-cracmm-mapper">Add column for CRACMM species from cracmm_mapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">License Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Find CRACMM species based on SMILES</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/emissions/smiles2cracmm.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="find-cracmm-species-based-on-smiles">
+<h1>Find CRACMM species based on SMILES<a class="headerlink" href="#find-cracmm-species-based-on-smiles" title="Link to this heading"></a></h1>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Nash Skipper
+date: 2024-02-14
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>This notebook provides examples of how to use the cracmm_mapper tool.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">cracmm_mapper</span> <span class="kn">import</span> <span class="n">get_cracmm_roc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cracmm_mapper</span> <span class="kn">import</span> <span class="n">get_cracmm_roc</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;cracmm_mapper&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="install-rdkit-if-not-already-installed">
+<h2>Install rdkit if not already installed<a class="headerlink" href="#install-rdkit-if-not-already-installed" title="Link to this heading"></a></h2>
+<p>The cracmm_mapper function depends on <a class="reference external" href="https://www.rdkit.org/">rdkit</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m pip install --user rdkit</span>
+
+<span class="c1"># to install in the current kernel:</span>
+<span class="c1"># %pip install rdkit</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-1-interactively-enter-species-properties">
+<h2>Option 1: Interactively enter species properties<a class="headerlink" href="#option-1-interactively-enter-species-properties" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter SMILES:  &#39;</span><span class="p">))</span>
+<span class="n">kOH</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter kOH (cm3 molecules-1 s-1):  &#39;</span><span class="p">))</span>
+<span class="n">log10Cstar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter log10Cstar (Cstar in ug/m3):  &#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CRACMM species:  </span><span class="si">{</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span><span class="w"> </span><span class="n">kOH</span><span class="p">,</span><span class="w"> </span><span class="n">log10Cstar</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRACMM species:  STY
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-2-same-as-option-1-but-not-interactive">
+<h2>Option 2: Same as option 1 but not interactive<a class="headerlink" href="#option-2-same-as-option-1-but-not-interactive" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="s1">&#39;C=CC1=CC=CC=C1&#39;</span>
+<span class="n">kOH</span> <span class="o">=</span> <span class="mf">5.79e-11</span>      <span class="c1"># [cm3/(molecule*s)]</span>
+<span class="n">log10Cstar</span> <span class="o">=</span> <span class="mf">7.55</span>   <span class="c1"># [Cstar in ug/m3]</span>
+<span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">kOH</span><span class="p">,</span> <span class="n">log10Cstar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;STY&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-3-run-multiple-species-in-batch">
+<h2>Option 3: Run multiple species in batch<a class="headerlink" href="#option-3-run-multiple-species-in-batch" title="Link to this heading"></a></h2>
+<section id="create-a-pandas-dataframe-with-species-properties">
+<h3>Create a pandas DataFrame with species properties<a class="headerlink" href="#create-a-pandas-dataframe-with-species-properties" title="Link to this heading"></a></h3>
+<p>This is a simple example for demonstration. A more typical application would be to have a csv or excel file containing the SMILES string, kOH, and log10(Cstar) which can be used to create the DataFrame instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;species&#39;</span><span class="p">:</span>    <span class="p">[</span><span class="s1">&#39;styrene&#39;</span><span class="p">,</span> <span class="s1">&#39;cyclohexane&#39;</span><span class="p">,</span> <span class="s1">&#39;glyoxal&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;SMILES&#39;</span><span class="p">:</span>     <span class="p">[</span><span class="s1">&#39;C=CC1=CC=CC=C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1CCCCC1&#39;</span><span class="p">,</span> <span class="s1">&#39;O=CC=O&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;koh&#39;</span><span class="p">:</span>        <span class="p">[</span><span class="mf">5.79e-11</span><span class="p">,</span> <span class="mf">7.48e-12</span><span class="p">,</span> <span class="mf">1.14e-11</span><span class="p">],</span> <span class="c1"># [cm3/(molecule*s)]</span>
+    <span class="s1">&#39;log10cstar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">7.55</span><span class="p">,</span> <span class="mf">8.64</span><span class="p">,</span> <span class="mf">8.90</span><span class="p">]</span> <span class="c1"># [Cstar in ug/m3]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>SMILES</th>
+      <th>koh</th>
+      <th>log10cstar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>styrene</td>
+      <td>C=CC1=CC=CC=C1</td>
+      <td>5.790000e-11</td>
+      <td>7.55</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cyclohexane</td>
+      <td>C1CCCCC1</td>
+      <td>7.480000e-12</td>
+      <td>8.64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>glyoxal</td>
+      <td>O=CC=O</td>
+      <td>1.140000e-11</td>
+      <td>8.90</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="add-column-for-cracmm-species-from-cracmm-mapper">
+<h3>Add column for CRACMM species from cracmm_mapper<a class="headerlink" href="#add-column-for-cracmm-species-from-cracmm-mapper" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CRACMM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;koh&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;log10cstar&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>SMILES</th>
+      <th>koh</th>
+      <th>log10cstar</th>
+      <th>CRACMM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>styrene</td>
+      <td>C=CC1=CC=CC=C1</td>
+      <td>5.790000e-11</td>
+      <td>7.55</td>
+      <td>STY</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cyclohexane</td>
+      <td>C1CCCCC1</td>
+      <td>7.480000e-12</td>
+      <td>8.64</td>
+      <td>HC10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>glyoxal</td>
+      <td>O=CC=O</td>
+      <td>1.140000e-11</td>
+      <td>8.90</td>
+      <td>GLY</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../utilities.html" class="btn btn-neutral float-left" title="utilities package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html" class="btn btn-neutral float-right" title="Map BEIS and MEGAN species to CRACMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, The CRACMM Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

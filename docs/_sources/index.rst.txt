@@ -1,0 +1,54 @@
+.. CRACMM documentation master file, created by
+   sphinx-quickstart on Wed Dec 18 11:28:58 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+CRACMM documentation
+====================
+
+Add your content using ``reStructuredText`` syntax. See the
+`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
+documentation for details.
+
+
+.. toctree::
+   :maxdepth: 2
+   
+   README.md
+
+.. toctree::
+   :maxdepth: 3 
+   :caption: Contents
+
+   chemistry/README.md
+   emissions/README.md
+   metadata/README.md
+   utilities/README.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Python Modules (Custom)
+
+   cracmm_mapper
+   soa_yields
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Python Modules (Default)
+   
+   modules
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Jupyter Notebooks
+
+   emissions/smiles2cracmm
+   utilities/BEISMEGAN_biogenicmapping2cracmm
+   utilities/markdown_metadata
+   utilities/SPECIATE_map2cracmm
+
+.. toctree::
+   :maxdepth: 2
+   :caption: License Information
+
+   license.md

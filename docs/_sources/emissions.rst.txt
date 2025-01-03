@@ -1,0 +1,18 @@
+emissions package
+=================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   emissions.cracmm2
+
+Module contents
+---------------
+
+.. automodule:: emissions
+   :members:
+   :undoc-members:
+   :show-inheritance:

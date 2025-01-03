@@ -1,0 +1,139 @@
+Traceback (most recent call last):
+  File "/home/mpye/docs_env/lib64/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/mpye/docs_env/lib64/python3.11/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mpye/docs_env/lib64/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/mpye/docs_env/lib64/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/mpye/docs_env/lib64/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/mpye/docs_env/lib64/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+smiles_k = 'Smiles Notation'
+koh_k    = 'ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA'
+cstar_k  = 'log10Cstar_ugm3'
+df['CRACMM2'] = df.apply(lambda x: cracmm2.get_cracmm_roc(x[smiles_k], x[koh_k], x[cstar_k]), axis=1)
+
+# check if any species mappings changed
+df_checkmatch = df.eval(f'match = {orig_map_colname}==CRACMM2')
+show_cols = ['SPECIES_NAME',orig_map_colname,'CRACMM2']
+if len(df_checkmatch[df_checkmatch.match==False])>0:
+    print(f'the species mappings below changed from {orig_map_colname}')
+    display(df_checkmatch[show_cols][df_checkmatch.match==False])
+else:
+    print(f'all species matched {orig_map_colname} mapping')
+
+# save output
+df = df.drop(columns=[orig_map_colname, cstar_k])
+df.to_csv(outputdir+'SPECIATEv5.2x_fromCRACMM.csv', **csvout_kw)
+------------------
+
+----- stdout -----
+the species mappings below changed from CRACMM2alpha
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mPermissionError[0m                           Traceback (most recent call last)
+Cell [0;32mIn[8], line 17[0m
+[1;32m     15[0m [38;5;66;03m# save output[39;00m
+[1;32m     16[0m df [38;5;241m=[39m df[38;5;241m.[39mdrop(columns[38;5;241m=[39m[orig_map_colname, cstar_k])
+[0;32m---> 17[0m [43mdf[49m[38;5;241;43m.[39;49m[43mto_csv[49m[43m([49m[43moutputdir[49m[38;5;241;43m+[39;49m[38;5;124;43m'[39;49m[38;5;124;43mSPECIATEv5.2x_fromCRACMM.csv[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcsvout_kw[49m[43m)[49m
+
+File [0;32m~/docs_env/lib64/python3.11/site-packages/pandas/util/_decorators.py:333[0m, in [0;36mdeprecate_nonkeyword_arguments.<locals>.decorate.<locals>.wrapper[0;34m(*args, **kwargs)[0m
+[1;32m    327[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m num_allow_args:
+[1;32m    328[0m     warnings[38;5;241m.[39mwarn(
+[1;32m    329[0m         msg[38;5;241m.[39mformat(arguments[38;5;241m=[39m_format_argument_list(allow_args)),
+[1;32m    330[0m         [38;5;167;01mFutureWarning[39;00m,
+[1;32m    331[0m         stacklevel[38;5;241m=[39mfind_stack_level(),
+[1;32m    332[0m     )
+[0;32m--> 333[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m~/docs_env/lib64/python3.11/site-packages/pandas/core/generic.py:3967[0m, in [0;36mNDFrame.to_csv[0;34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)[0m
+[1;32m   3956[0m df [38;5;241m=[39m [38;5;28mself[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m([38;5;28mself[39m, ABCDataFrame) [38;5;28;01melse[39;00m [38;5;28mself[39m[38;5;241m.[39mto_frame()
+[1;32m   3958[0m formatter [38;5;241m=[39m DataFrameFormatter(
+[1;32m   3959[0m     frame[38;5;241m=[39mdf,
+[1;32m   3960[0m     header[38;5;241m=[39mheader,
+[0;32m   (...)[0m
+[1;32m   3964[0m     decimal[38;5;241m=[39mdecimal,
+[1;32m   3965[0m )
+[0;32m-> 3967[0m [38;5;28;01mreturn[39;00m [43mDataFrameRenderer[49m[43m([49m[43mformatter[49m[43m)[49m[38;5;241;43m.[39;49m[43mto_csv[49m[43m([49m
+[1;32m   3968[0m [43m    [49m[43mpath_or_buf[49m[43m,[49m
+[1;32m   3969[0m [43m    [49m[43mlineterminator[49m[38;5;241;43m=[39;49m[43mlineterminator[49m[43m,[49m
+[1;32m   3970[0m [43m    [49m[43msep[49m[38;5;241;43m=[39;49m[43msep[49m[43m,[49m
+[1;32m   3971[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
+[1;32m   3972[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[1;32m   3973[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[43mcompression[49m[43m,[49m
+[1;32m   3974[0m [43m    [49m[43mquoting[49m[38;5;241;43m=[39;49m[43mquoting[49m[43m,[49m
+[1;32m   3975[0m [43m    [49m[43mcolumns[49m[38;5;241;43m=[39;49m[43mcolumns[49m[43m,[49m
+[1;32m   3976[0m [43m    [49m[43mindex_label[49m[38;5;241;43m=[39;49m[43mindex_label[49m[43m,[49m
+[1;32m   3977[0m [43m    [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
+[1;32m   3978[0m [43m    [49m[43mchunksize[49m[38;5;241;43m=[39;49m[43mchunksize[49m[43m,[49m
+[1;32m   3979[0m [43m    [49m[43mquotechar[49m[38;5;241;43m=[39;49m[43mquotechar[49m[43m,[49m
+[1;32m   3980[0m [43m    [49m[43mdate_format[49m[38;5;241;43m=[39;49m[43mdate_format[49m[43m,[49m
+[1;32m   3981[0m [43m    [49m[43mdoublequote[49m[38;5;241;43m=[39;49m[43mdoublequote[49m[43m,[49m
+[1;32m   3982[0m [43m    [49m[43mescapechar[49m[38;5;241;43m=[39;49m[43mescapechar[49m[43m,[49m
+[1;32m   3983[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
+[1;32m   3984[0m [43m[49m[43m)[49m
+
+File [0;32m~/docs_env/lib64/python3.11/site-packages/pandas/io/formats/format.py:1014[0m, in [0;36mDataFrameRenderer.to_csv[0;34m(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)[0m
+[1;32m    993[0m     created_buffer [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+[1;32m    995[0m csv_formatter [38;5;241m=[39m CSVFormatter(
+[1;32m    996[0m     path_or_buf[38;5;241m=[39mpath_or_buf,
+[1;32m    997[0m     lineterminator[38;5;241m=[39mlineterminator,
+[0;32m   (...)[0m
+[1;32m   1012[0m     formatter[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mfmt,
+[1;32m   1013[0m )
+[0;32m-> 1014[0m [43mcsv_formatter[49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[43m)[49m
+[1;32m   1016[0m [38;5;28;01mif[39;00m created_buffer:
+[1;32m   1017[0m     [38;5;28;01massert[39;00m [38;5;28misinstance[39m(path_or_buf, StringIO)
+
+File [0;32m~/docs_env/lib64/python3.11/site-packages/pandas/io/formats/csvs.py:251[0m, in [0;36mCSVFormatter.save[0;34m(self)[0m
+[1;32m    247[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
+[1;32m    248[0m [38;5;124;03mCreate the writer & save.[39;00m
+[1;32m    249[0m [38;5;124;03m"""[39;00m
+[1;32m    250[0m [38;5;66;03m# apply compression and byte/text conversion[39;00m
+[0;32m--> 251[0m [38;5;28;01mwith[39;00m [43mget_handle[49m[43m([49m
+[1;32m    252[0m [43m    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfilepath_or_buffer[49m[43m,[49m
+[1;32m    253[0m [43m    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[1;32m    254[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
+[1;32m    255[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43merrors[49m[43m,[49m
+[1;32m    256[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcompression[49m[43m,[49m
+[1;32m    257[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mstorage_options[49m[43m,[49m
+[1;32m    258[0m [43m[49m[43m)[49m [38;5;28;01mas[39;00m handles:
+[1;32m    259[0m     [38;5;66;03m# Note: self.encoding is irrelevant here[39;00m
+[1;32m    260[0m     [38;5;28mself[39m[38;5;241m.[39mwriter [38;5;241m=[39m csvlib[38;5;241m.[39mwriter(
+[1;32m    261[0m         handles[38;5;241m.[39mhandle,
+[1;32m    262[0m         lineterminator[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mlineterminator,
+[0;32m   (...)[0m
+[1;32m    267[0m         quotechar[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mquotechar,
+[1;32m    268[0m     )
+[1;32m    270[0m     [38;5;28mself[39m[38;5;241m.[39m_save()
+
+File [0;32m~/docs_env/lib64/python3.11/site-packages/pandas/io/common.py:873[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[1;32m    868[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
+[1;32m    869[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
+[1;32m    870[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
+[1;32m    871[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
+[1;32m    872[0m         [38;5;66;03m# Encoding[39;00m
+[0;32m--> 873[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m
+[1;32m    874[0m [43m            [49m[43mhandle[49m[43m,[49m
+[1;32m    875[0m [43m            [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[1;32m    876[0m [43m            [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
+[1;32m    877[0m [43m            [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[1;32m    878[0m [43m            [49m[43mnewline[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m    879[0m [43m        [49m[43m)[49m
+[1;32m    880[0m     [38;5;28;01melse[39;00m:
+[1;32m    881[0m         [38;5;66;03m# Binary mode[39;00m
+[1;32m    882[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
+
+[0;31mPermissionError[0m: [Errno 13] Permission denied: '/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/SPECIATEv5.2x_fromCRACMM.csv'
+

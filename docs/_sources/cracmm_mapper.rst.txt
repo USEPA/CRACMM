@@ -1,0 +1,6 @@
+CRACMM2
+=======
+
+.. automodule:: emissions.cracmm2.cracmm_mapper
+
+.. autofunction:: emissions.cracmm2.cracmm_mapper.get_cracmm_roc
