@@ -32,18 +32,17 @@ from rdkit.Chem import AllChem
 
 def get_cracmm_roc(smiles_input,koh,log10cstar,phase=None):
     '''
-    Function maps input reactive organic carbon (ROC) species to cracmm ROC species.
-    Uses functional group and molecule info from RDKit http://www.rdkit.org/
-    Function inputs, for ONE compound (make loop outside this function):
-        smiles string (should be canonical for explicit species, some alt added) 
-        kOH (in cm3/molec-s)
-        log10(Cstar in micrograms/m3)
-        phase (optional; default value is None; options are 'gas', 'particle', or None)
-              This is only used to label species that can exist in both gas and particle phases.
-              It does not do any calculations on what phase the species should be in. Semivolatile
-              partitioning should be calculated external to this function.
-    kOH and C* may not be used if the compound can be mapped without it. 
-    RACM2 reference: https://ars.els-cdn.com/content/image/1-s2.0-S1352231012011065-mmc1.pdf
+    This function is part of CRACMM
+    
+    :param smiles_input: smiles string
+    :type smiles_input: string
+    :param koh: kOH
+    :type koh: float
+    :param log10cstar:
+    :type log10cstar: float
+    :param phase: This is used to label species that can exist in both gas and particle phases.
+    :type phase: Default is None, other options are "gas" and "particle"
+    :returns: mechspecies (string) 
     '''
     
     # CRACMM2
