@@ -44,33 +44,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Support utilities</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Python Modules (Custom)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../cracmm_mapper.html">CRACMM2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../soa_yields.html">SOA Yields</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Python Modules (Default)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">cracmm_sphinx</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../emissions/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">License Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
 </ul>
 
@@ -410,14 +401,14 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;gas and particle molecular weights match&lt;&lt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3358809/2471386039.py:229: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_32466/2471386039.py:229: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
 
 
   dfmarkdown.SMILES.fillna(&#39;&#39;,inplace=True)
-/tmp/ipykernel_3358809/2471386039.py:234: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
+/tmp/ipykernel_32466/2471386039.py:234: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
 You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
 A typical example is when you are setting values in a column of a DataFrame, like:
 

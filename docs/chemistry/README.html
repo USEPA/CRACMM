@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Emissions" href="../emissions/README.html" />
-    <link rel="prev" title="Overview" href="../README.html" /> 
+    <link rel="prev" title="CRACMM Documentation" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,36 +44,32 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Overview</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Chemistry</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#references">References:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cracmm1-mechanism">CRACMM1 mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cracmm1amore-mechanism">CRACMM1AMORE mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cracmm2-mechanism">CRACMM2 mechanism</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references">References:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Support utilities</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Python Modules (Custom)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../cracmm_mapper.html">CRACMM2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../soa_yields.html">SOA Yields</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Python Modules (Default)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../modules.html">cracmm_sphinx</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Jupyter Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../emissions/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">License Information</span></p>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
 </ul>
 
@@ -105,33 +101,34 @@
 <h1>Chemistry<a class="headerlink" href="#chemistry" title="Link to this heading"></a></h1>
 <p>The gas and heterogeneous chemistry kinetic reactions are described in files provided here. Absorptive partitioning in CMAQ assumes equilibrium. Note that markdown files round coefficients to the thousandths place for brevity and the true mechanism is represented in the mech.def files.</p>
 <p>Box model inputs are provided for the F0AM model (Wolfe et al., 2016). The offical F0AM release, <a class="reference external" href="https://github.com/AirChem/F0AM">https://github.com/AirChem/F0AM</a>, includes some version(s) of CRACMM.</p>
+<section id="cracmm1-mechanism">
+<h2>CRACMM1 mechanism<a class="headerlink" href="#cracmm1-mechanism" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>CRACMM1 mechanism</p>
-<ul>
 <li><p><a class="reference internal" href="cracmm1/mech_cracmm1_aq.html"><span class="std std-doc">CRACMM1 in markdown</span></a></p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/a205f72908e6fb40385835d1666aeb8d/mech_cracmm1_aq.def"><span class="xref download myst">CMAQ-ready CRACMM1 mechanism definition file</span></a></p></li>
 <li><p><a class="reference internal" href="#cracmm1/F0AM"><span class="xref myst">F0AM chemistry files for CRACMM1 mechanism</span></a> as implemented by Place et al. (2023).</p></li>
 </ul>
-</li>
-<li><p>CRACMM1AMORE mechanism</p>
-<ul>
+</section>
+<section id="cracmm1amore-mechanism">
+<h2>CRACMM1AMORE mechanism<a class="headerlink" href="#cracmm1amore-mechanism" title="Link to this heading"></a></h2>
+<ul class="simple">
 <li><p><a class="reference internal" href="cracmm1amore/mech_cracmm1amore_aq.html"><span class="std std-doc">CRACMM1AMORE in markdown</span></a></p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/92248ed82712568b3e37ead16af0f1ce/mech_cracmm1amore_aq.def"><span class="xref download myst">CMAQ-ready CRACMM1AMORE mechanism definition file</span></a></p></li>
 </ul>
-</li>
-<li><p>CRACMM2 mechanism</p>
-<ul>
+</section>
+<section id="cracmm2-mechanism">
+<h2>CRACMM2 mechanism<a class="headerlink" href="#cracmm2-mechanism" title="Link to this heading"></a></h2>
+<ul class="simple">
 <li><p><a class="reference internal" href="cracmm2/mech_cracmm2.html"><span class="std std-doc">CRACMM2 in markdown</span></a></p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/b6469b6dd88d404df5b7b9831bec5c46/mech_cracmm2.def"><span class="xref download myst">CMAQ-ready CRACMM2 mechanism definition file</span></a></p></li>
 <li><p><a class="reference internal" href="#cracmm2/F0AM"><span class="xref myst">F0AM chemistry files for CRACMM2 mechanism</span></a> as implemented by Skipper et al. (2024).</p></li>
 <li><p><a class="reference download internal" download="" href="../_downloads/92af2434f46c72a40ee16d921cad406d/cracmm2_rxn_metadata.csv"><span class="xref download myst">Documentation by reaction</span></a> indicating the mechanism version where reaction was introduced (reaction_family), the publication documenting the reaction (publication_string and publication_doi), and the data underlying the reaction (underlying_data_publication, underlying_data_publication_doi) as well as additional notes</p></li>
 </ul>
-</li>
-</ul>
 <section id="references">
-<h2>References:<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<h3>References:<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
 <p>Wolfe, G. M., Marvin, M. R., Roberts, S. J., Travis, K. R., and Liao, J.: The Framework for 0-D Atmospheric Modeling (F0AM) v3.1, Geosci. Model Dev., 9, 3309–3319, <a class="reference external" href="https://doi.org/10.5194/gmd-9-3309-2016">https://doi.org/10.5194/gmd-9-3309-2016</a>, 2016.</p>
 <p>See also the <a class="reference internal" href="#../#references"><span class="xref myst">CRACMM reference list</span></a>.</p>
+</section>
 </section>
 </section>
 
@@ -139,7 +136,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../README.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="CRACMM Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../emissions/README.html" class="btn btn-neutral float-right" title="Emissions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
