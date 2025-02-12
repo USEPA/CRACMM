@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; CRACMM 3.0 documentation</title>
+  <title>Markdown Metadata &mdash; CRACMM 3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -46,15 +46,18 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index_duplicate.html">CRACMM Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Support utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Python utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../emissions/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Markdown Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
@@ -79,7 +82,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">Markdown Metadata</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/utilities/markdown_metadata.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,7 +92,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="cell docutils container">
+  <section id="markdown-metadata">
+<h1>Markdown Metadata<a class="headerlink" href="#markdown-metadata" title="Link to this heading"></a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Created on Mon Sep 12 16:46:56 2022</span>
@@ -401,49 +406,21 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;gas and particle molecular weights match&lt;&lt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_32466/2471386039.py:229: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  dfmarkdown.SMILES.fillna(&#39;&#39;,inplace=True)
-/tmp/ipykernel_32466/2471386039.py:234: FutureWarning: ChainedAssignmentError: behaviour will change in pandas 3.0!
-You are setting values through chained assignment. Currently this works in certain cases, but when using Copy-on-Write (which will become the default behaviour in pandas 3.0) this will never work to update the original DataFrame or Series, because the intermediate object on which we are setting values will behave as a copy.
-A typical example is when you are setting values in a column of a DataFrame, like:
-
-df[&quot;col&quot;][row_indexer] = value
-
-Use `df.loc[row_indexer, &quot;col&quot;] = values` instead, to perform the assignment in a single step and ensure this keeps updating the original `df`.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2287545/2471386039.py:287: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  dfmetadata.aerokappa[dfmetadata.aerokappa&lt;=0]=&#39;NA&#39;
+/tmp/ipykernel_2287545/2471386039.py:288: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
 
-  dfmarkdown.SMILES.loc[dfmarkdown.DTXSID.str.len()&gt;5]=&#39;[&#39;+ dfmarkdown.SMILES.loc[dfmarkdown.DTXSID.str.len()&gt;5] + &#39;]&#39;+  \
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">264</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span> <span class="n">mdfile</span> <span class="o">=</span> <span class="n">mech</span><span class="o">+</span><span class="s1">&#39;_species_table.md&#39;</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">outputfiledir</span><span class="p">,</span> <span class="n">mdfile</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">264</span> <span class="n">mdfile</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span> <span class="n">mdfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">firstmarkdownline</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">266</span> <span class="n">mdfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/IPython/core/interactiveshell.py:324,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">317</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">320</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">321</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">324</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;/work/MOD3DEV/tskipper/cracmm_hcho/python_RHEL8/mcm_cracmm_speciation/cracmm2_metadata/code/../output/cracmm2_species_table.md&#39;
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  dfmetadata.DTXSID[dfmetadata.DTXSID==&#39;&#39;]=&#39;NA&#39;
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 
 
            </div>

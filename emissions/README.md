@@ -5,11 +5,11 @@ CMAQ-ready emissions, meteorology, and other input files following EQUATES metho
 US EPA, 2023, "CMAQ Model Version 5.4 CRACMM Input Data -- 1/1/2018 - 12/31/2018 12km CONUS", [https://doi.org/10.15139/S3/9AV907](https://doi.org/10.15139/S3/9AV907), UNC Dataverse, V1.
 
 
-Additional files supporting CRACMM emissions are available within this directory. EPA's SPECIATE to SMOKE Tool, [S2S-Tool](https://github.com/USEPA/S2S-Tool), also supports CRACMM speciation and can generate SMOKE-ready speciation files (gspro files). When running CMAQ, the user is encouraged to check the main log file and the log file from one individual processor for diagnostic information from DESID (Murphy et al., 2021) that could indicate any mismatches in species naming conventions.
+Additional files supporting CRACMM emissions are available within this directory. EPA's SPECIATE to SMOKE Tool, [S2S-Tool](https://github.com/USEPA/S2S-Tool), also supports CRACMM speciation and can generate [SMOKE-ready](https://www.epa.gov/air-emissions-modeling/2016v3-platform) speciation files (gspro files). When running CMAQ, the user is encouraged to check the main log file and the log file from one individual processor for diagnostic information from DESID (Murphy et al., 2021) that could indicate any mismatches in species naming conventions.
 
 ## Directory contents
 
-For [CRACMM1](cracmm1) and [CRACMM2](cracmm2), the following are provided:
+For [CRACMM1](https://github.com/USEPA/CRACMM/tree/main/emissions/cracmm1) and [CRACMM2](https://github.com/USEPA/CRACMM/tree/main/emissions/cracmm2), the following are provided:
 
 - CRACMM species mapping flowchart in PDF: PDF of how individual species map to CRACMM. 
 
@@ -17,9 +17,9 @@ For [CRACMM1](cracmm1) and [CRACMM2](cracmm2), the following are provided:
 
 The following contain species mapped to CRACMM1 and CRACMM2:
 
-- [SPECIATE Inputs](SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last two columns indicates the CRACMM1-2 species where the emitted species should map (organic only).
+- [SPECIATE Inputs](https://github.com/USEPA/CRACMM/tree/main/emissions/SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last two columns indicates the CRACMM1-2 species where the emitted species should map (organic only).
 
-- [Biogenic Species Mappings](BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
+- [Biogenic Species Mappings](https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
 
 ## Version compatibility
 
@@ -75,9 +75,9 @@ Emissions of the following CRACMM1 species cannot be estimated from RACM2 inputs
 | XYO      | XYE |
 | XYP      | XYE |
 
-CRACMM1 cannot be easily mapped to Carbon Bond.
+CRACMM1 cannot be easily mapped to Carbon Bond.  
 
-#### References
+**References**  
 Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
 
 Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407–3420, [https://doi.org/10.5194/gmd-14-3407-2021](https://doi.org/10.5194/gmd-14-3407-2021), 2021.

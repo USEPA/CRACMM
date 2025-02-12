@@ -1,4 +1,4 @@
-# Support utilities
+# Python utilities
 
 Code to create species markdown file for CMAQ in [python](markdown_metadata.py) and [python jupyter notebook](markdown_metadata.ipynb):
 Requires as input the CMAQ-ready species namelists, species description file, AERO_DATA.F, SOA_DEFN.F, and hlconst.F.
@@ -11,3 +11,19 @@ Described by Pye et al. 2023
 
  * [Python code to estimate ozone MIR](mir_estimates.py):
 Developed by Karl Seltzer as described by Pye et al. 2023
+
+ * [CRACMM Mapper Version 1](cracmm_mapper_v1.py)
+
+ * [CRACMM Mapper Version 2](cracmm_mapper_v2.py)
+
+ * [Markdown Metadata](markdown_metadata.py)
+
+ ## Tutorial Jupyter Notebooks
+ * [Map BEIS and MEGAN species to CRACMM](BEISMEGAN_biogenicmapping2cracmm.ipynb)
+
+ * [Markdown Metadata](markdown_metadata.ipynb)
+
+ * [Smiles to CRACMM](smiles2cracmm.ipynb)
+
+ * [Map Speciate species to CRACMM](SPECIATE_map2cracmm.ipynb)
+

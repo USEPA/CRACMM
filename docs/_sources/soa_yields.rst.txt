@@ -1,8 +1,0 @@
-SOA Yields
-----------
-
-.. automodule:: utilities.soa_yields
-
-.. autofunction:: utilities.soa_yields.dfappend_soayield
-
-.. autofunction:: utilities.soa_yields.get_soayield
