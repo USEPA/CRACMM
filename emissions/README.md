@@ -2,7 +2,7 @@
 
 Additional files documenting and supporting CRACMM emissions are described here. 
 
-## Emission mapping for organic species
+## Emission mapping
 
 Individual organic species may be represented explicitly in CRACMM or lumped with other species of similar properties. To ensure reproducibility and transparency in emission mapping, the mapping of individual organic species (e.g., benzene) to emitted CRACMM species (e.g., BEN) should be performed using the "CRACMM mapper" code. The mapper uses cheminformatics and properties of the individual emitted species to classify them into CRACMM species. To assist with mapper input, the [EPA Chemicals Dashboard](https://comptox.epa.gov/dashboard/) can provide SMILES, OH rate constants, vapor pressures, and molecular weights for a large set of curated species. Using the batch search at the [EPA Chemicals Dashboard](https://comptox.epa.gov/dashboard/), input by “Chemical Name” (e.g., benzene), then select SMILES (under Structures) and OPERA Model Predictions and Average Mass (under Intrinsic and Predicted Properties) as Export Options. OPERA algorithms to predict properties can also be run for any organic species with a SMILES in the [EPA Chemical Transformation Simulator](https://qed.epa.gov/cts/pchemprop/input/).
 
