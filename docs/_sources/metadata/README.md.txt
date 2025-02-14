@@ -23,7 +23,7 @@ CRACMM workflows require that each species in CRACMM has a representative struct
   * Saturation concentration (&mu;g m<sup>-3</sup>)
   * Enthalpy of vaporization used to adjust the saturation concentration for temperature (J/mol)
   * Organic matter to organic carbon ratio for organic aerosol (g/g)
-- [Properties of species emitted in CRACMM1](cracmm1/CRACMM1_2017_emiss_properties.csv) based on 2017 U.S. anthropogenic and biomass burning emissions as used by Pye et al. 2023
+- [Properties of species emitted in CRACMM1](cracmm1/CRACMM1_2017_emiss_properties.csv) based on 2017 U.S. anthropogenic and biomass burning emissions as used by [Pye et al. 2023](https://doi.org/10.5194/acp-23-5043-2023)
 
 
 

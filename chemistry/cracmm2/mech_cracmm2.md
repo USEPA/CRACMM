@@ -1,3 +1,5 @@
+# CRACMM2 Mechanism
+
 Information is based on the mech.def file.
 * Fall-off or pressure dependent reaction rate constants (M equals air number density):
  * For rate constants with k<sub>o</sub>, k<sub>i</sub>, n, F values: k = [ k<sub>o</sub>M/(1+k<sub>o</sub>M/k<sub>i</sub>)]F<sup>G</sup>, where G=(1+(log<sub>10</sub>(k<sub>o</sub>M/k<sub>i</sub>)/n)<sup>2</sup>))<sup>-1</sup> 

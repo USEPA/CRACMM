@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; CRACMM 3.0 documentation</title>
+  <title>CRACMM2 Mechanism &mdash; CRACMM 2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -14,7 +14,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=110ea713"></script>
+      <script src="../../_static/documentation_options.js?v=60dbed4a"></script>
       <script src="../../_static/doctools.js?v=9bcbadda"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -44,7 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index_duplicate.html">CRACMM Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index_duplicate.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Chemistry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../metadata/README.html">Metadata</a></li>
@@ -80,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">CRACMM2 Mechanism</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/chemistry/cracmm2/mech_cracmm2.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,7 +90,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p>Information is based on the mech.def file.</p>
+  <section id="cracmm2-mechanism">
+<h1>CRACMM2 Mechanism<a class="headerlink" href="#cracmm2-mechanism" title="Link to this heading"></a></h1>
+<p>Information is based on the mech.def file.</p>
 <ul class="simple">
 <li><p>Fall-off or pressure dependent reaction rate constants (M equals air number density):</p></li>
 <li><p>For rate constants with k<sub>o</sub>, k<sub>i</sub>, n, F values: k = [ k<sub>o</sub>M/(1+k<sub>o</sub>M/k<sub>i</sub>)]F<sup>G</sup>, where G=(1+(log<sub>10</sub>(k<sub>o</sub>M/k<sub>i</sub>)/n)<sup>2</sup>))<sup>-1</sup></p></li>
@@ -2775,6 +2777,7 @@
 <sup>2</sup>Heterogeneous Reaction; depends on predicted concentrations<br />
 <sup>4</sup>Set to zero if sun is below the horizon. SEAWATER equals fraction of ocean plus surf zones not covered by seaice. P equals air pressure in atmospheres.<br />
 <sup>8</sup>Rate constant scaled as reverse equilibrium to constant for listed reaction</p>
+</section>
 
 
            </div>
@@ -2784,7 +2787,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, The CRACMM Team.</p>
+    <p>&#169; Copyright 2019, U.S. Federal Government.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
