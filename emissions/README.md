@@ -10,7 +10,7 @@ For [CRACMM1](https://github.com/USEPA/CRACMM/tree/main/emissions/cracmm1) and [
 
 - CRACMM species mapping flowchart in PDF: PDF of how individual species map to CRACMM. 
 
-- CRACMM mapper in python (cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see the [python notebook](smiles2cracmm.ipynb) for an example of how to run the mapper). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration (C* = Vapor pressure x Molecular Weight / (R x 298 K) with unit conversions as appropriate).
+- CRACMM mapper, available in [python utilities](../utilities/README.md#python-modules): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see the [python notebook](../utilities/smiles2cracmm.ipynb) for an example of how to run the mapper). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration (C* = Vapor pressure x Molecular Weight / (R x 298 K) with unit conversions as appropriate).
 
 The following contain species mapped to CRACMM1 and CRACMM2:
 
@@ -48,7 +48,7 @@ This can be implemented in the DESID control file (`CMAQ_Control_DESID_cracmm2.n
    'EVERYWHERE', 'ALL'         ,'XYM'    ,'XYL'         ,'GAS'  ,0.93,'UNIT','a',
    'EVERYWHERE', 'ALL'         ,'XYM'    ,'STY'         ,'GAS'  ,0.07,'UNIT','a',
 ```
-In some cases, CRACMM1 emissions may not contain a prepended A (for aerosol) of V (for vapor) indicator. The user can indicate phase in CMAQ by mapping the emitted species to the model species with A or V in DESID (Murphy et al., 2021). If lacking other information, all ROC species with C* 1000 GREEK MU g/m<sup>3</sup> and above (ROC-P3, P4, P5, P6) can reasonably be assigned "V" and those below (ROC-P2, P1, P1, N1, N2) can be assigned "A". 
+In some cases, CRACMM1 emissions may not contain a prepended A (for aerosol) of V (for vapor) indicator. The user can indicate phase in CMAQ by mapping the emitted species to the model species with A or V in DESID (Murphy et al., 2021). If lacking other information, all ROC species with C* 1000 μg/m<sup>3</sup> and above (ROC-P3, P4, P5, P6) can reasonably be assigned "V" and those below (ROC-P2, P1, P1, N1, N2) can be assigned "A". 
 
 ### CRACMM version 1
 The following species names were updated between CRACMM v0.21 and v1.0. Species are fully compatible across CRACMM versions with renaming.
@@ -97,3 +97,5 @@ Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W.
 Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407–3420, [https://doi.org/10.5194/gmd-14-3407-2021](https://doi.org/10.5194/gmd-14-3407-2021), 2021.
 
 Wong, D. C., Willison, J., Pleim, J. E., Sarwar, G., Beidler, J., Bullock, R., Herwehe, J. A., Gilliam, R., Kang, D., Hogrefe, C., Pouliot, G., and Foroutan, H.: Development of the MPAS-CMAQ coupled system (V1.0) for multiscale global air quality modeling, Geosci. Model Dev., 17, 7855–7866, [https://doi.org/10.5194/gmd-17-7855-2024](https://doi.org/10.5194/gmd-17-7855-2024), 2024.
+
+See also the [CRACMM reference list](../additional_info.md#references).

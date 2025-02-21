@@ -1,29 +1,24 @@
-# Python utilities
+# Python Utilities
 
-Code to create species markdown file for CMAQ in [python](markdown_metadata.py) and [python jupyter notebook](markdown_metadata.ipynb):
-Requires as input the CMAQ-ready species namelists, species description file, AERO_DATA.F, SOA_DEFN.F, and hlconst.F.
+## Python Modules
 
-## Screening level estimation of organic aerosol and ozone formation
-The following python code allows for estimation of the organic aerosol and ozone formation potential of reactive organic carbon (ROC) species. In both cases, an example function is first given illustrating how the main function can be called. The user will need to supply their own ROC inputs (SMILES, OH rate constant in cm<sup>3</sup> molec<sup>-1</sup> s<sup>-1</sup>, and vapor pressure in mmHg).
+ * CRACMM1 Reactive Emission Compounds (ROC) Emission Mapper [[Download]](cracmm1_mapper.py): Maps individual emitted ROC species to CRACMM species. See [Emissions page](../emissions/README.md) for more information.
 
- * [Python code to estimate SOA yields](soa_yields.py):
-Described by [Pye et al. 2023](https://doi.org/10.5194/acp-23-5043-2023)
+ * CRACMM2 ROC Emission Mapper [[Download]](cracmm2_mapper.py): Maps individual emitted ROC species to CRACMM species. See [Emissions page](../emissions/README.md) for more information.
 
- * [Python code to estimate ozone MIR](mir_estimates.py):
-Developed by Karl Seltzer as described [by Pye et al. 2023](https://doi.org/10.5194/acp-23-5043-2023)
+ * Python code to estimate SOA yields [[Download]](soa_yields.py):
+Performs a screening level estimation of the organic aerosol formation potential of ROC species. The user will need to supply their own ROC inputs (SMILES, OH rate constant in cm3 molec-1 s-1, and vapor pressure in mmHg). Method is described by [Pye et al. 2023](https://doi.org/10.5194/acp-23-5043-2023)
 
- * [CRACMM Mapper Version 1](cracmm_mapper_v1.py)
+ * Python code to estimate ozone MIR [[Download]](mir_estimates.py):
+Performs a screening level estimation of the ozone formation potential (Maximum Incremental Reactivity, MIR) of ROC species. The user will need to supply their own ROC inputs (SMILES, OH rate constant in cm3 molec-1 s-1, and vapor pressure in mmHg). Method is described by [Pye et al. 2023](https://doi.org/10.5194/acp-23-5043-2023)
 
- * [CRACMM Mapper Version 2](cracmm_mapper_v2.py)
+ ## Tutorials (Jupyter Notebooks)
 
- * [Markdown Metadata](markdown_metadata.py)
+ * [Assemble CRACMM Species Metadata from CMAQ](markdown_metadata.ipynb): Creates species markdown files from CMAQ. Requires as input the CMAQ-ready species namelists, species description file, AERO_DATA.F, SOA_DEFN.F, and hlconst.F.
 
- ## Tutorial Jupyter Notebooks
- * [Map BEIS and MEGAN species to CRACMM](BEISMEGAN_biogenicmapping2cracmm.ipynb)
+ * [Map BEIS and MEGAN species to CRACMM](BEISMEGAN_biogenicmapping2cracmm.ipynb): Maps individual ROC species from biogenic sources to CRACMM mechanism species.
 
- * [Markdown Metadata](markdown_metadata.ipynb)
+ * [Find CRACMM species based on CRACMM](smiles2cracmm.ipynb): Demonstrates CRACMM emission mapper.
 
- * [Smiles to CRACMM](smiles2cracmm.ipynb)
-
- * [Map Speciate species to CRACMM](SPECIATE_map2cracmm.ipynb)
+ * [Map SPECIATE species to CRACMM](SPECIATE_map2cracmm.ipynb): Maps a database of speciated emissions (SPECIATEv5.2) to CRACMM species.
 

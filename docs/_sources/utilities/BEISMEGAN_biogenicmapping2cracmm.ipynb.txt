@@ -53,18 +53,19 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "id": "f83cc394-9140-4266-8347-cfd84cf04bdd",
    "metadata": {},
    "outputs": [],
    "source": [
     "# set location of mapper downloaded from https://github.com/USEPA/CRACMM/\n",
-    "import sys\n",
-    "utildir = '/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/'   \n",
-    "sys.path.append(utildir)\n",
+    "# import sys\n",
+    "# utildir = '/path/to/cracmm/utilities/directory'   \n",
+    "# sys.path.append(utildir)\n",
     "\n",
     "# Import the python utilities\n",
-    "import cracmm_mapper as cracmm2   # includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)"
+    "import cracmm1_mapper as cracmm1   # includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 1)\n",
+    "import cracmm2_mapper as cracmm2   # includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)"
    ]
   },
   {

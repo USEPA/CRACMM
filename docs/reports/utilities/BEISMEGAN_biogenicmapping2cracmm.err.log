@@ -47,9 +47,9 @@ dfbeis.to_csv(outputdir+'bvoc_beis_tocracmm.csv', **csvout_kw)
 ----- stdout -----
 the species mappings below changed from CRACMM2alpha
 ----- stderr -----
-/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
   warnings.warn(unkcracmm_msg)
-/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
   warnings.warn(unkcracmm_msg)
 ------------------
 

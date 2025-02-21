@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Map BEIS and MEGAN species to CRACMM" href="BEISMEGAN_biogenicmapping2cracmm.html" />
-    <link rel="prev" title="Python utilities" href="README.html" /> 
+    <link rel="next" title="Map SPECIATE species to CRACMM" href="SPECIATE_map2cracmm.html" />
+    <link rel="prev" title="Map BEIS and MEGAN species to CRACMM" href="BEISMEGAN_biogenicmapping2cracmm.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,10 +51,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Python utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Python Utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Find CRACMM species based on SMILES</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-rdkit-if-not-already-installed">Install rdkit if not already installed</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#option-1-interactively-enter-species-properties">Option 1: Interactively enter species properties</a></li>
@@ -66,8 +68,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Markdown Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
@@ -76,6 +76,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/">CMAQ Documentation</a></li>
 </ul>
 
         </div>
@@ -114,18 +120,15 @@ date: 2024-02-14
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">cracmm_mapper</span> <span class="kn">import</span> <span class="n">get_cracmm_roc</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">cracmm_mapper</span> <span class="kn">import</span> <span class="n">get_cracmm_roc</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;cracmm_mapper&#39;
+<span class="c1"># set location of mapper downloaded from https://github.com/USEPA/CRACMM/</span>
+<span class="c1"># import sys</span>
+<span class="c1"># utildir = &#39;/path/to/cracmm/utilities/directory&#39;   </span>
+<span class="c1"># sys.path.append(utildir)</span>
+
+<span class="c1"># Import the python utilities</span>
+<span class="kn">import</span> <span class="nn">cracmm1_mapper</span> <span class="k">as</span> <span class="nn">cracmm1</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 1)</span>
+<span class="kn">import</span> <span class="nn">cracmm2_mapper</span> <span class="k">as</span> <span class="nn">cracmm2</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)</span>
 </pre></div>
 </div>
 </div>
@@ -148,15 +151,25 @@ date: 2024-02-14
 <h2>Option 1: Interactively enter species properties<a class="headerlink" href="#option-1-interactively-enter-species-properties" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter SMILES:  &#39;</span><span class="p">))</span>
-<span class="n">kOH</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter kOH (cm3 molecules-1 s-1):  &#39;</span><span class="p">))</span>
-<span class="n">log10Cstar</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;enter log10Cstar (Cstar in ug/m3):  &#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#The current values of &quot;smiles&quot;, &quot;kOH&quot;, and &quot;log10Cstar&quot; are example user inputs.</span>
+<span class="c1">#For true interactive behavior, replace the variable values with the commented </span>
+<span class="c1">#code on the same line.</span>
+<span class="n">smiles</span> <span class="o">=</span> <span class="s1">&#39;C=CC1=CC=CC=C1&#39;</span>   <span class="c1">#str(input(&#39;enter SMILES:  &#39;))</span>
+<span class="n">kOH</span> <span class="o">=</span> <span class="mf">5.79e-11</span>  <span class="c1">#float(input(&#39;enter kOH (cm3 molecules-1 s-1):  &#39;))</span>
+<span class="n">log10Cstar</span> <span class="o">=</span> <span class="mf">7.55</span>   <span class="c1">#float(input(&#39;enter log10Cstar (Cstar in ug/m3):  &#39;))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CRACMM species:  </span><span class="si">{</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span><span class="w"> </span><span class="n">kOH</span><span class="p">,</span><span class="w"> </span><span class="n">log10Cstar</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRACMM species:  STY
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">kOH</span> <span class="o">=</span> <span class="mf">5.79e-11</span>  <span class="c1">#float(input(&#39;enter kOH (cm3 molecules-1 s-1):  &#39;))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">log10Cstar</span> <span class="o">=</span> <span class="mf">7.55</span>   <span class="c1">#float(input(&#39;enter log10Cstar (Cstar in ug/m3):  &#39;))</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CRACMM species:  </span><span class="si">{</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span><span class="w"> </span><span class="n">kOH</span><span class="p">,</span><span class="w"> </span><span class="n">log10Cstar</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;get_cracmm_roc&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -322,8 +335,8 @@ date: 2024-02-14
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="README.html" class="btn btn-neutral float-left" title="Python utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="BEISMEGAN_biogenicmapping2cracmm.html" class="btn btn-neutral float-right" title="Map BEIS and MEGAN species to CRACMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="BEISMEGAN_biogenicmapping2cracmm.html" class="btn btn-neutral float-left" title="Map BEIS and MEGAN species to CRACMM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SPECIATE_map2cracmm.html" class="btn btn-neutral float-right" title="Map SPECIATE species to CRACMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

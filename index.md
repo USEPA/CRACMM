@@ -8,11 +8,11 @@ Havala Pye, pye.havala@epa.gov
 ## Purpose and Organization of the CRACMM Github Repository
 
 The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github repository](https://github.com/USEPA/CMAQ). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
- * [Chemistry](chemistry/README.md): the mechanism in CMAQ-ready, F0AM box model, and markdown formats
- * [Emissions](emissions/README.md): inputs and outputs to emission mapping tools and code to perform mapping of individual species to CRACMM (informed by [Foley et al., 2023](https://doi.org/10.1016/j.dib.2023.109022))
+ * [Chemistry](chemistry/README.md): the mechanism in CMAQ-ready format, F0AM box model format, and markdown format
+ * [Emissions](emissions/README.md): Descriptions of tools and methods to perform mapping of individual species to CRACMM.
  * [Metadata](metadata/README.md): information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
  * [Logos](logos/logos.md): view and download CRACMM logos in PNG and PDF formats
- * [Utilities](utilities/README.md): python code to assemble metadata from CMAQ code and routines for screening level predictions of organic aerosol and ozone formation potential
+ * [Python Utilities](utilities/README.md): Descriptions of Python modules and jupyter notebook tutorials.
 
 * [Open source license](license.md)
 
@@ -35,9 +35,9 @@ The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github rep
    :caption: Tutorials
    :hidden:
 
-   utilities/smiles2cracmm
-   utilities/BEISMEGAN_biogenicmapping2cracmm
    utilities/markdown_metadata
+   utilities/BEISMEGAN_biogenicmapping2cracmm
+   utilities/smiles2cracmm
    utilities/SPECIATE_map2cracmm
 
 .. toctree::
@@ -47,4 +47,14 @@ The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github rep
 
    additional_info.md
    license.md
+
+.. toctree::
+   :maxdepth: 1
+   :caption: External Links
+   :hidden:
+
+   CRACMM GitHub <https://github.com/USEPA/CRACMM>
+   EPA CRACMM Fact Sheet <https://www.epa.gov/cmaq/cracmm>
+   CMAQ Documentation <https://jbrunto.github.io/CMAQ_Docs_v55/>
+
    ```

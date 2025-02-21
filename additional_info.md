@@ -1,7 +1,7 @@
 # Version history
 
 ## Version 2.0 (October 2024)
-- CRACMM2 releaced in CMAQv5.5
+- CRACMM2 released in CMAQv5.5
 
 ## Version 2.0-alpha (in progress February 2024)
 - Collecting updates leading to CRACMM2 

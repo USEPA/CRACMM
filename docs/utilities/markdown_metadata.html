@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Markdown Metadata &mdash; CRACMM 2.0 documentation</title>
+  <title>Assemble CRACMM species metadata from CMAQ &mdash; CRACMM 2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Map SPECIATE species to CRACMM" href="SPECIATE_map2cracmm.html" />
-    <link rel="prev" title="Map BEIS and MEGAN species to CRACMM" href="BEISMEGAN_biogenicmapping2cracmm.html" /> 
+    <link rel="next" title="Map BEIS and MEGAN species to CRACMM" href="BEISMEGAN_biogenicmapping2cracmm.html" />
+    <link rel="prev" title="Python Utilities" href="README.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,13 +51,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Python utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Python Utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Assemble CRACMM species metadata from CMAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notebook-description">Notebook Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-notebook">Download Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmaq-input-files">CMAQ input files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mechanisms-supported">Mechanisms supported</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-history">Version history</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-libraries-paths-and-function-to-prepare-metadata">Setup libraries, paths, and function to prepare metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-metadata-for-mechanism">Prepare metadata for mechanism</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#save-to-markdown-file">Save to Markdown File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-to-csv-file">Save to csv file</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Markdown Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
@@ -66,6 +81,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/">CMAQ Documentation</a></li>
 </ul>
 
         </div>
@@ -82,7 +103,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Markdown Metadata</li>
+      <li class="breadcrumb-item active">Assemble CRACMM species metadata from CMAQ</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/utilities/markdown_metadata.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,52 +113,117 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="markdown-metadata">
-<h1>Markdown Metadata<a class="headerlink" href="#markdown-metadata" title="Link to this heading"></a></h1>
+  <section id="assemble-cracmm-species-metadata-from-cmaq">
+<h1>Assemble CRACMM species metadata from CMAQ<a class="headerlink" href="#assemble-cracmm-species-metadata-from-cmaq" title="Link to this heading"></a></h1>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Havala O.T. Pye (pye.havala@epa.gov)
+date: created 2022-09-12
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="notebook-description">
+<h2>Notebook Description<a class="headerlink" href="#notebook-description" title="Link to this heading"></a></h2>
+<p>This notebook collects data across the CMAQ model to create a table of species information in both csv and markdown formats. The csv version contains additional data not easily displayed in markdown. Output from this notebook is stored at <a class="reference external" href="https://github.com/USEPA/CRACMM">https://github.com/USEPA/CRACMM</a>.</p>
+<section id="download-notebook">
+<h3>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h3>
+<p>Click <a class="reference internal" href="#../docs/_downloads/jupyter_notebooks/copy_of_markdown_metdata.ipynb"><span class="xref myst">here</span></a> to download this tutorial as a Jupyter Notebook file.</p>
+<p>Click here to download this tutorial as a Jupyter Notebook file.
+:::
+.. replace:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">download</span><span class="p">:</span> <span class="n">here</span> <span class="o">&lt;</span><span class="n">markdown_metadata</span><span class="o">.</span><span class="n">ipynb</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>::</p>
+</section>
+<section id="cmaq-input-files">
+<h3>CMAQ input files<a class="headerlink" href="#cmaq-input-files" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>AE_{mech}.nml</p></li>
+<li><p>GC_{mech}.nml</p></li>
+<li><p>NR_{mech}.nml</p></li>
+<li><p>AERO_DATA.F</p></li>
+<li><p>SOA_DEFN.F</p></li>
+<li><p>hlconst.F</p></li>
+<li><p>{mech}_speciesdescription.csv</p></li>
+</ul>
+</section>
+<section id="mechanisms-supported">
+<h3>Mechanisms supported<a class="headerlink" href="#mechanisms-supported" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>cracmm1_aq</p></li>
+<li><p>cracmm1amore_aq</p></li>
+<li><p>cracmm2</p></li>
+</ul>
+</section>
+<section id="version-history">
+<h3>Version history<a class="headerlink" href="#version-history" title="Link to this heading"></a></h3>
+<p>Created on Mon Sep 12 16:46:56 2022</p>
+<p>&#64;author: phavala (Havala Pye)</p>
+<p>Updates:</p>
+<p>20240209 Nash Skipper:</p>
+<ul class="simple">
+<li><p>Remove depracated method pd.DataFrame.append and replace it with pd.concat</p></li>
+<li><p>Explicitly set regex=False in pd.Series.str.replace; the default of regex
+has changed from True to False in more recent versions of pandas</p></li>
+<li><p>Create output directory if it does not exist</p></li>
+<li><p>Print warning for missing species descriptions
+20240328 Nash Skipper:</p></li>
+<li><p>Output DTXSID to metadata csv file</p></li>
+<li><p>Fix error in initial pd.concat implementation that resulted in no metadata
+being saved from hlconst, AERO_DEFN, and SOA_DEFN</p></li>
+</ul>
+<p>20250218 Havala Pye:</p>
+<ul class="simple">
+<li><p>Jupyter notbook organization for display on github pages</p></li>
+</ul>
+</section>
+</section>
+<section id="setup-libraries-paths-and-function-to-prepare-metadata">
+<h2>Setup libraries, paths, and function to prepare metadata<a class="headerlink" href="#setup-libraries-paths-and-function-to-prepare-metadata" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Created on Mon Sep 12 16:46:56 2022</span>
-
-<span class="sd">@author: phavala</span>
-
-<span class="sd">Updates:</span>
-<span class="sd">20240209 Nash Skipper:</span>
-<span class="sd">- Remove depracated method pd.DataFrame.append and replace it with pd.concat</span>
-<span class="sd">- Explicitly set regex=False in pd.Series.str.replace; the default of regex</span>
-<span class="sd">    has changed from True to False in more recent versions of pandas</span>
-<span class="sd">- Create output directory if it does not exist</span>
-<span class="sd">- Print warning for missing species descriptions</span>
-<span class="sd">20240328 Nash Skipper:</span>
-<span class="sd">- Output DTXSID to metadata csv file</span>
-<span class="sd">- Fix error in initial pd.concat implementation that resulted in no metadata</span>
-<span class="sd">    being saved from hlconst, AERO_DEFN, and SOA_DEFN</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="c1"># THIS SCRIPT DOES NOT REQUIRE MAIN_CRACMM to be run</span>
-
-<span class="c1"># Creates metadata csv and markdown file for github</span>
-<span class="c1"># adapted from AppendixAB_andMD.py from Pye et al. ACPD</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set current working directory where this file resides </span>
+<span class="c1"># This code expects *.nml and files from CMAQ to be present in ./input and will output in ./output</span>
+<span class="n">workdir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/has/2023cracmm_ages/structurecuration/&#39;</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">workdir</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+<span class="n">inputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">)</span>
+<span class="n">outputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/jupyter_out&#39;</span> <span class="c1"># Delete &quot;jupyter_out&quot; and use: os.path.join(os.getcwd(), &#39;output&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">outputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/jupyter_out&#39;</span> <span class="c1"># Delete &quot;jupyter_out&quot; and use: os.path.join(os.getcwd(), &#39;output&#39;)</span>
 
+<span class="ne">NameError</span>: name &#39;__file__&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to prepare dataframe with metadata</span>
 <span class="k">def</span> <span class="nf">prep_metadata</span><span class="p">(</span><span class="n">mech</span><span class="p">):</span>
     
     <span class="c1"># uses CMAQ files: AE.nml, GC.nml, NR.nml. AERO_DATA.F, SOA_DEFN.F, hlconst.F, {mech}_speciesdescription.csv</span>
     <span class="c1"># mech input string should be cracmm1_aq or cracmm1amore_aq for CMAQv5.4</span>
     <span class="c1">#                             cracmm1_aq, cracmm1amore_aq, or cracmm2 for CMAQv5.5</span>
-
-    <span class="c1">## Manual selections ###########################################</span>
-    <span class="c1"># Set current working directory where this file resides </span>
-    <span class="c1"># This python code expects *.nml and files from CMAQ to be present in ../input and will output in ../output</span>
-    <span class="n">codedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">codedir</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-    <span class="n">inputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">)</span>
 
     <span class="c1">###########################################</span>
     <span class="c1"># Prep Gases</span>
@@ -306,16 +392,32 @@
     <span class="n">dfgc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfgc</span><span class="p">[</span><span class="s1">&#39;St&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Stable&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;No&#39;</span>
 
     <span class="k">return</span> <span class="n">dfgc</span>
-
-
-<span class="n">codedir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/tskipper/cracmm_hcho/python_RHEL8/mcm_cracmm_speciation/cracmm2_metadata/code&#39;</span>
-<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">codedir</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-
-<span class="n">mech</span><span class="o">=</span><span class="s1">&#39;cracmm2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-metadata-for-mechanism">
+<h2>Prepare metadata for mechanism<a class="headerlink" href="#prepare-metadata-for-mechanism" title="Link to this heading"></a></h2>
+<p>Warnings will print if molecular weights differ across gas and particle phases. Paired gas-particle species are identified by a prepended A and V.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mech</span><span class="o">=</span><span class="s1">&#39;cracmm2&#39;</span>
 <span class="n">dfgc</span><span class="o">=</span><span class="n">prep_metadata</span><span class="p">(</span><span class="n">mech</span><span class="p">)</span>
-
-<span class="c1">###########################################</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;gas and particle molecular weights match&lt;&lt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="save-to-markdown-file">
+<h3>Save to Markdown File<a class="headerlink" href="#save-to-markdown-file" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########################################</span>
 <span class="c1"># Write out Markdown for CMAQ github</span>
 <span class="c1">###########################################</span>
 <span class="n">dfmarkdown</span> <span class="o">=</span> <span class="n">dfgc</span><span class="p">[[</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span><span class="s1">&#39;Phase&#39;</span><span class="p">,</span><span class="s1">&#39;Molecular Weight (g/mol)&#39;</span><span class="p">,</span><span class="s1">&#39;Explicit/Lumped&#39;</span><span class="p">,</span><span class="s1">&#39;Representative&#39;</span><span class="p">,</span><span class="s1">&#39;DTXSID&#39;</span><span class="p">,</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -325,14 +427,15 @@
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="s1">&#39;\(&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="s1">&#39;\)&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">SMILES</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">#for i in range(len(dfmarkdown)):</span>
-<span class="c1">#  if len(dfmarkdown.DTXSID.iloc[i])&gt;5 :</span>
-<span class="c1">#      dfmarkdown.SMILES.iloc[i]=&#39;[&#39;+ dfmarkdown.SMILES.iloc[i] + &#39;](https://comptox.epa.gov/dashboard/chemical/details/&#39; + dfmarkdown.DTXSID.iloc[i] + &#39;)&#39;</span>
-<span class="c1">#smilestolink = dfmarkdown.DTXSID.str.len()&gt;5</span>
-<span class="n">dfmarkdown</span><span class="o">.</span><span class="n">SMILES</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;[&#39;</span><span class="o">+</span> <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">SMILES</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="o">+</span>  \
-    <span class="s1">&#39;(https://comptox.epa.gov/dashboard/chemical/details/&#39;</span><span class="o">+</span>  \
-    <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;)&#39;</span>
+
+<span class="c1"># Hyperlink SMILES to DTXSID entry in dashboard</span>
+<span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILESfmt&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s1">&#39;[&#39;</span><span class="o">+</span> <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">SMILES</span> <span class="o">+</span> <span class="s1">&#39;](https://comptox.epa.gov/dashboard/chemical/details/&#39;</span><span class="o">+</span> <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> 
+<span class="n">maskval</span> <span class="o">=</span> <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">&gt;</span><span class="mi">5</span>
+<span class="n">dfmarkdown</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">maskval</span><span class="p">,</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">maskval</span><span class="p">,</span><span class="s1">&#39;SMILESfmt&#39;</span><span class="p">]</span>
 <span class="n">dfmarkdown</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;DTXSID&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dfmarkdown</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;SMILESfmt&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># assemble and format table header</span>
 <span class="n">headerline</span> <span class="o">=</span> <span class="s1">&#39; &lt;sub&gt;Species&lt;/sub&gt; | &lt;sub&gt;Description&lt;/sub&gt; | &lt;sub&gt;Phase&lt;/sub&gt; | &lt;sub&gt;Molecular Weight (g/mol)&lt;/sub&gt; | &lt;sub&gt;Explicit/ Lumped&lt;/sub&gt; | &lt;sub&gt;Representative Structure&lt;/sub&gt; | &lt;sub&gt;SMILES&lt;/sub&gt; &#39;</span>
 <span class="n">firstmarkdownline</span> <span class="o">=</span> <span class="s2">&quot;Gas (G) and particle (P) species from the namelists. SMILES link to representative structures in the EPA Chemicals Dashboard (if available).&quot;</span>
 <span class="n">secondmarkdownline</span> <span class="o">=</span> <span class="s2">&quot;Note that for each particulate species in CMAQ, a letter will be appended to the name to designate the size, or mode, of the aerosol being represented: I = Aitken mode, J = Accumulation mode, K = Coarse mode. Prepending of a species with a V or A in CMAQ or the chemical mechanism files indicates the species resides in the gas or particulate phase. &quot;</span>
@@ -356,7 +459,7 @@
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;10+4&#39;</span><span class="p">,</span><span class="s1">&#39;10&lt;sup&gt;+4&lt;/sup&gt;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;10+5&#39;</span><span class="p">,</span><span class="s1">&#39;10&lt;sup&gt;+5&lt;/sup&gt;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;10+6&#39;</span><span class="p">,</span><span class="s1">&#39;10&lt;sup&gt;+6&lt;/sup&gt;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">outputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">)</span>
+
 <span class="n">mdfile</span> <span class="o">=</span> <span class="n">mech</span><span class="o">+</span><span class="s1">&#39;_species_table.md&#39;</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">outputfiledir</span><span class="p">,</span> <span class="n">mdfile</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
@@ -374,16 +477,23 @@
 <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="c1">#mdfile.write(lastmarkdownline)</span>
 <span class="n">mdfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c1">############# Metadata CSV</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="save-to-csv-file">
+<h3>Save to csv file<a class="headerlink" href="#save-to-csv-file" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">############# Metadata CSV</span>
 <span class="n">dfmetadata</span><span class="o">=</span><span class="n">dfgc</span><span class="p">[[</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span><span class="s1">&#39;Phase&#39;</span><span class="p">,</span><span class="s1">&#39;Stable&#39;</span><span class="p">,</span><span class="s1">&#39;Molecular Weight (g/mol)&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;Explicit/Lumped&#39;</span><span class="p">,</span><span class="s1">&#39;Representative&#39;</span><span class="p">,</span><span class="s1">&#39;SMILES&#39;</span><span class="p">,</span><span class="s1">&#39;DTXSID&#39;</span><span class="p">,</span><span class="s1">&#39;henryMatm&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;henryenthalpyK&#39;</span><span class="p">,</span><span class="s1">&#39;aerodensity&#39;</span><span class="p">,</span><span class="s1">&#39;aerokappa&#39;</span><span class="p">,</span><span class="s1">&#39;oacstar&#39;</span><span class="p">,</span><span class="s1">&#39;oaenthalpy&#39;</span><span class="p">,</span>
                  <span class="s1">&#39;oaomoc&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">dfmetadata</span><span class="o">.</span><span class="n">aerokappa</span><span class="p">[</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">aerokappa</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;NA&#39;</span>
-<span class="n">dfmetadata</span><span class="o">.</span><span class="n">DTXSID</span><span class="p">[</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;NA&#39;</span>
+<span class="n">dfmetadata</span><span class="p">[</span><span class="s1">&#39;aerokappa&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">aerokappa</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">aerokappa</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span><span class="p">)</span>
+<span class="n">dfmetadata</span><span class="p">[</span><span class="s1">&#39;DTXSID&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">DTXSID</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">DTXSID</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;NA&#39;</span> <span class="p">)</span>
 <span class="n">dfmetadata</span><span class="o">=</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;henryMatm&#39;</span><span class="p">:</span><span class="s1">&#39;H Law (M/atm)&#39;</span><span class="p">})</span>
 <span class="n">dfmetadata</span><span class="o">=</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;henryenthalpyK&#39;</span><span class="p">:</span><span class="s1">&#39;Enthalpy of solution (K)&#39;</span><span class="p">})</span>
 <span class="n">dfmetadata</span><span class="o">=</span><span class="n">dfmetadata</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;aerodensity&#39;</span><span class="p">:</span><span class="s1">&#39;Aerosol density (kg/m3)&#39;</span><span class="p">})</span>
@@ -396,38 +506,21 @@
 
 <span class="n">metafile</span> <span class="o">=</span> <span class="n">mech</span><span class="o">+</span><span class="s1">&#39;_metadata.csv&#39;</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">outputfiledir</span><span class="p">,</span> <span class="n">metafile</span><span class="p">)</span>
-<span class="c1">#metafile= open(filename,&#39;w&#39;)</span>
 <span class="n">dfmetadata</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="c1">#mdfile.close()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt;gas and particle molecular weights match&lt;&lt;
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2287545/2471386039.py:287: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  dfmetadata.aerokappa[dfmetadata.aerokappa&lt;=0]=&#39;NA&#39;
-/tmp/ipykernel_2287545/2471386039.py:288: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  dfmetadata.DTXSID[dfmetadata.DTXSID==&#39;&#39;]=&#39;NA&#39;
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="BEISMEGAN_biogenicmapping2cracmm.html" class="btn btn-neutral float-left" title="Map BEIS and MEGAN species to CRACMM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="SPECIATE_map2cracmm.html" class="btn btn-neutral float-right" title="Map SPECIATE species to CRACMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="README.html" class="btn btn-neutral float-left" title="Python Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="BEISMEGAN_biogenicmapping2cracmm.html" class="btn btn-neutral float-right" title="Map BEIS and MEGAN species to CRACMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -64,13 +64,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Python utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Python Utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../utilities/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../utilities/markdown_metadata.html">Markdown Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
@@ -79,6 +79,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/">CMAQ Documentation</a></li>
 </ul>
 
         </div>
@@ -114,7 +120,7 @@
 <p>For <a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/emissions/cracmm1">CRACMM1</a> and <a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/emissions/cracmm2">CRACMM2</a>, the following are provided:</p>
 <ul class="simple">
 <li><p>CRACMM species mapping flowchart in PDF: PDF of how individual species map to CRACMM.</p></li>
-<li><p>CRACMM mapper in python (cracmm_mapper.py): python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see the <a class="reference internal" href="#smiles2cracmm.ipynb"><span class="xref myst">python notebook</span></a> for an example of how to run the mapper). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration (C* = Vapor pressure x Molecular Weight / (R x 298 K) with unit conversions as appropriate).</p></li>
+<li><p>CRACMM mapper, available in <a class="reference internal" href="../utilities/README.html#python-modules"><span class="std std-ref">python utilities</span></a>: python code to map individual species to CRACMM mechanism species. The mapper requires use of the python RDKit (see the <a class="reference internal" href="../utilities/smiles2cracmm.html"><span class="std std-doc">python notebook</span></a> for an example of how to run the mapper). The mapper workflow is displayed graphically in the pdf file. Inputs to the mapper are a SMILES string, OH rate constant, and saturation concentration (C* = Vapor pressure x Molecular Weight / (R x 298 K) with unit conversions as appropriate).</p></li>
 </ul>
 <p>The following contain species mapped to CRACMM1 and CRACMM2:</p>
 <ul class="simple">
@@ -158,7 +164,7 @@ US EPA, 2023, “CMAQ Model Version 5.4 CRACMM Input Data – 1/1/2018 - 12/31/2
    <span class="s1">&#39;EVERYWHERE&#39;</span><span class="p">,</span> <span class="s1">&#39;ALL&#39;</span>         <span class="p">,</span><span class="s1">&#39;XYM&#39;</span>    <span class="p">,</span><span class="s1">&#39;STY&#39;</span>         <span class="p">,</span><span class="s1">&#39;GAS&#39;</span>  <span class="p">,</span><span class="mf">0.07</span><span class="p">,</span><span class="s1">&#39;UNIT&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
-<p>In some cases, CRACMM1 emissions may not contain a prepended A (for aerosol) of V (for vapor) indicator. The user can indicate phase in CMAQ by mapping the emitted species to the model species with A or V in DESID (Murphy et al., 2021). If lacking other information, all ROC species with C* 1000 GREEK MU g/m<sup>3</sup> and above (ROC-P3, P4, P5, P6) can reasonably be assigned “V” and those below (ROC-P2, P1, P1, N1, N2) can be assigned “A”.</p>
+<p>In some cases, CRACMM1 emissions may not contain a prepended A (for aerosol) of V (for vapor) indicator. The user can indicate phase in CMAQ by mapping the emitted species to the model species with A or V in DESID (Murphy et al., 2021). If lacking other information, all ROC species with C* 1000 μg/m<sup>3</sup> and above (ROC-P3, P4, P5, P6) can reasonably be assigned “V” and those below (ROC-P2, P1, P1, N1, N2) can be assigned “A”.</p>
 </section>
 <section id="cracmm-version-1">
 <h3>CRACMM version 1<a class="headerlink" href="#cracmm-version-1" title="Link to this heading"></a></h3>
@@ -256,6 +262,7 @@ US EPA, 2023, “CMAQ Model Version 5.4 CRACMM Input Data – 1/1/2018 - 12/31/2
 Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, <a class="reference external" href="https://doi.org/10.1016/j.dib.2023.109022">https://doi.org/10.1016/j.dib.2023.109022</a>, 2023.</p>
 <p>Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407–3420, <a class="reference external" href="https://doi.org/10.5194/gmd-14-3407-2021">https://doi.org/10.5194/gmd-14-3407-2021</a>, 2021.</p>
 <p>Wong, D. C., Willison, J., Pleim, J. E., Sarwar, G., Beidler, J., Bullock, R., Herwehe, J. A., Gilliam, R., Kang, D., Hogrefe, C., Pouliot, G., and Foroutan, H.: Development of the MPAS-CMAQ coupled system (V1.0) for multiscale global air quality modeling, Geosci. Model Dev., 17, 7855–7866, <a class="reference external" href="https://doi.org/10.5194/gmd-17-7855-2024">https://doi.org/10.5194/gmd-17-7855-2024</a>, 2024.</p>
+<p>See also the <a class="reference internal" href="../additional_info.html#references"><span class="std std-ref">CRACMM reference list</span></a>.</p>
 </section>
 </section>
 </section>

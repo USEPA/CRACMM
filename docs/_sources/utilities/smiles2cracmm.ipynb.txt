@@ -17,13 +17,21 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "id": "84fc493b-a369-4729-8317-e9401f76a869",
    "metadata": {},
    "outputs": [],
    "source": [
     "import pandas as pd\n",
-    "from cracmm_mapper import get_cracmm_roc"
+    "\n",
+    "# set location of mapper downloaded from https://github.com/USEPA/CRACMM/\n",
+    "# import sys\n",
+    "# utildir = '/path/to/cracmm/utilities/directory'   \n",
+    "# sys.path.append(utildir)\n",
+    "\n",
+    "# Import the python utilities\n",
+    "import cracmm1_mapper as cracmm1   # includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 1)\n",
+    "import cracmm2_mapper as cracmm2   # includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)"
    ]
   },
   {
@@ -59,12 +67,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "id": "8640c681-e93b-425a-84d4-31ead81026e9",
    "metadata": {},
    "outputs": [
     {
-     "name": "stdin",
+     "name": "stdout",
      "output_type": "stream",
      "text": [
       "enter SMILES:   C=CC1=CC=CC=C1\n",
@@ -81,9 +89,12 @@
     }
    ],
    "source": [
-    "smiles = str(input('enter SMILES:  '))\n",
-    "kOH = float(input('enter kOH (cm3 molecules-1 s-1):  '))\n",
-    "log10Cstar = float(input('enter log10Cstar (Cstar in ug/m3):  '))\n",
+    "#The current values of \"smiles\", \"kOH\", and \"log10Cstar\" are example user inputs.\n",
+    "#For true interactive behavior, replace the variable values with the commented \n",
+    "#code on the same line.\n",
+    "smiles = 'C=CC1=CC=CC=C1'   #str(input('enter SMILES:  '))\n",
+    "kOH = 5.79e-11  #float(input('enter kOH (cm3 molecules-1 s-1):  '))\n",
+    "log10Cstar = 7.55   #float(input('enter log10Cstar (Cstar in ug/m3):  '))\n",
     "print(f'CRACMM species:  {get_cracmm_roc(smiles, kOH, log10Cstar)}')"
    ]
   },

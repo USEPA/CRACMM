@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Markdown Metadata" href="markdown_metadata.html" />
-    <link rel="prev" title="Find CRACMM species based on SMILES" href="smiles2cracmm.html" /> 
+    <link rel="next" title="Find CRACMM species based on SMILES" href="smiles2cracmm.html" />
+    <link rel="prev" title="Assemble CRACMM species metadata from CMAQ" href="markdown_metadata.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,18 +51,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Python utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Python Utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Map BEIS and MEGAN species to CRACMM</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#beis">BEIS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#megan">MEGAN</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Markdown Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
@@ -71,6 +71,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/">CMAQ Documentation</a></li>
 </ul>
 
         </div>
@@ -133,12 +139,13 @@ date: 2024-08-09
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set location of mapper downloaded from https://github.com/USEPA/CRACMM/</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">utildir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/&#39;</span>   
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">utildir</span><span class="p">)</span>
+<span class="c1"># import sys</span>
+<span class="c1"># utildir = &#39;/path/to/cracmm/utilities/directory&#39;   </span>
+<span class="c1"># sys.path.append(utildir)</span>
 
 <span class="c1"># Import the python utilities</span>
-<span class="kn">import</span> <span class="nn">cracmm_mapper</span> <span class="k">as</span> <span class="nn">cracmm2</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)</span>
+<span class="kn">import</span> <span class="nn">cracmm1_mapper</span> <span class="k">as</span> <span class="nn">cracmm1</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 1)</span>
+<span class="kn">import</span> <span class="nn">cracmm2_mapper</span> <span class="k">as</span> <span class="nn">cracmm2</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)</span>
 </pre></div>
 </div>
 </div>
@@ -199,9 +206,9 @@ date: 2024-08-09
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM2alpha
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
   warnings.warn(unkcracmm_msg)
-/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
   warnings.warn(unkcracmm_msg)
 </pre></div>
 </div>
@@ -671,8 +678,8 @@ date: 2024-08-09
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="smiles2cracmm.html" class="btn btn-neutral float-left" title="Find CRACMM species based on SMILES" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="markdown_metadata.html" class="btn btn-neutral float-right" title="Markdown Metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="markdown_metadata.html" class="btn btn-neutral float-left" title="Assemble CRACMM species metadata from CMAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smiles2cracmm.html" class="btn btn-neutral float-right" title="Find CRACMM species based on SMILES" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
