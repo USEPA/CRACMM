@@ -123,6 +123,7 @@ date: 2024-08-09
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
@@ -155,9 +156,9 @@ date: 2024-08-09
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datadir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/&#39;</span>    <span class="c1"># data files of mappings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datadir</span> <span class="o">=</span> <span class="s1">&#39;../emissions/SPECIATEInputs/&#39;</span>    <span class="c1"># data files of mappings</span>
 
-<span class="n">outputdir</span> <span class="o">=</span> <span class="n">datadir</span>
+<span class="n">outputdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;output/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -178,10 +179,10 @@ date: 2024-08-09
 <p>input SPECIATE file from https://github.com/USEPA/CRACMM/tree/main/emissions/SPECIATEInputs</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;SPECIATEv5.2x_fromCRACMM2alpha.csv&#39;</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;SPECIATEv5.2x_fromCRACMM.csv&#39;</span> 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="c1"># for checking if any species mapping changed</span>
-<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM2alpha&#39;</span>
+<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM1&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMM2</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -218,6 +219,7 @@ $$ T = 298 \text{ } K $$</p>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># check if any species mappings changed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">df_checkmatch</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMM2&#39;</span><span class="p">)</span>
 <span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
@@ -233,142 +235,81 @@ $$ T = 298 \text{ } K $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM2alpha
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;SPECIES_ID&#39;, &#39;CAS&#39;, &#39;CAS no hyphen&#39;, &#39;ALT_CAS&#39;, &#39;DSSTox_ID&#39;, &#39;SAROAD&#39;,
+       &#39;SRS ID&#39;, &#39;NonVOCTOG&#39;, &#39;PAMS&#39;, &#39;HAPS&#39;, &#39;SPECIES_NAME&#39;,
+       &#39;REPRESENTATIVE_COMPOUND_NAME&#39;, &#39;REPRESENTATIVE_COMPOUND_DSSTox_ID&#39;,
+       &#39;SYMBOL&#39;, &#39;SPEC_MW&#39;, &#39;NOTE&#39;, &#39;Molecular Formula&#39;,
+       &#39;OXYGEN_to_CARBON_RATIO&#39;, &#39;Smiles Notation&#39;, &#39;VP_Pascal_EPI&#39;,
+       &#39;VP_Pascal_UM&#39;, &#39;VP_Pascal_OPERA&#39;,
+       &#39;ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA&#39;,
+       &#39;HENRYS_LAW_ATM-M3/MOLE_OPERA&#39;,
+       &#39;OCTANOL_AIR_PARTITION_COEFF_LOGKOA_OPERA&#39;,
+       &#39;OCTANOL_WATER_PARTITION_LOGP_OPERA&#39;, &#39;Duplicate_ID&#39;, &#39;REPCMPSCORE&#39;,
+       &#39;CRACMM1&#39;, &#39;CRACMM1&#39;, &#39;log10Cstar_ugm3&#39;, &#39;CRACMM2&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># check if any species mappings changed</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">df_checkmatch</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMM2&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/frame.py:4943,</span> in <span class="ni">DataFrame.eval</span><span class="nt">(self, expr, inplace, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4941</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;level&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">4942</span> <span class="n">index_resolvers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_index_resolvers</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">4943</span> <span class="n">column_resolvers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cleaned_column_resolvers</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">4944</span> <span class="n">resolvers</span> <span class="o">=</span> <span class="n">column_resolvers</span><span class="p">,</span> <span class="n">index_resolvers</span>
+<span class="g g-Whitespace">   </span><span class="mi">4945</span> <span class="k">if</span> <span class="s2">&quot;target&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>SPECIES_NAME</th>
-      <th>CRACMM2alpha</th>
-      <th>CRACMM2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>856</th>
-      <td>Carbon monoxide</td>
-      <td>SLOWROC</td>
-      <td>UNKCRACMM</td>
-    </tr>
-    <tr>
-      <th>857</th>
-      <td>Carbon dioxide</td>
-      <td>SLOWROC</td>
-      <td>UNKCRACMM</td>
-    </tr>
-  </tbody>
-</table>
-</div></div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># save output</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">orig_map_colname</span><span class="p">,</span> <span class="n">cstar_k</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputdir</span><span class="o">+</span><span class="s1">&#39;SPECIATEv5.2x_fromCRACMM.csv&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">csvout_kw</span><span class="p">)</span>
+<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/generic.py:659,</span> in <span class="ni">NDFrame._get_cleaned_column_resolvers</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span>     <span class="k">return</span> <span class="p">{</span><span class="n">clean_column_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">):</span> <span class="bp">self</span><span class="p">}</span>
+<span class="ne">--&gt; </span><span class="mi">659</span> <span class="k">return</span> <span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">clean_column_name</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">Series</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>         <span class="n">v</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="p">)</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="nn">    663     for k, v</span> in <span class="ni">zip(self.columns, self._iter_column_arrays</span><span class="nt">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="p">}</span>
 
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/util/_decorators.py:333,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">333</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/generic.py:660,</span> in <span class="ni">&lt;dictcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span>     <span class="k">return</span> <span class="p">{</span><span class="n">clean_column_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">):</span> <span class="bp">self</span><span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span> <span class="k">return</span> <span class="p">{</span>
+<span class="ne">--&gt; </span><span class="mi">660</span>     <span class="n">clean_column_name</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">Series</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>         <span class="n">v</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="p">)</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="nn">    663     for k, v</span> in <span class="ni">zip(self.columns, self._iter_column_arrays</span><span class="nt">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">665</span> <span class="p">}</span>
 
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/generic.py:3967,</span> in <span class="ni">NDFrame.to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3956</span> <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">3958</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">DataFrameFormatter</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3959</span>     <span class="n">frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3960</span>     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3964</span>     <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3965</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3967</span> <span class="k">return</span> <span class="n">DataFrameRenderer</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3968</span>     <span class="n">path_or_buf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3969</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3970</span>     <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3971</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3972</span>     <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3973</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3974</span>     <span class="n">quoting</span><span class="o">=</span><span class="n">quoting</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3975</span>     <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3976</span>     <span class="n">index_label</span><span class="o">=</span><span class="n">index_label</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3977</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3978</span>     <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3979</span>     <span class="n">quotechar</span><span class="o">=</span><span class="n">quotechar</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3980</span>     <span class="n">date_format</span><span class="o">=</span><span class="n">date_format</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3981</span>     <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3982</span>     <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3983</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3984</span> <span class="p">)</span>
+<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/series.py:493,</span> in <span class="ni">Series.__init__</span><span class="nt">(self, data, index, dtype, name, copy, fastpath)</span>
+<span class="g g-Whitespace">    </span><span class="mi">490</span>     <span class="n">index</span> <span class="o">=</span> <span class="n">ensure_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>     <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">default_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/io/formats/format.py:1014,</span> in <span class="ni">DataFrameRenderer.to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">993</span>     <span class="n">created_buffer</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">995</span> <span class="n">csv_formatter</span> <span class="o">=</span> <span class="n">CSVFormatter</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">996</span>     <span class="n">path_or_buf</span><span class="o">=</span><span class="n">path_or_buf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">997</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1014</span> <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1016</span> <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1017</span>     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">StringIO</span><span class="p">)</span>
+<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/generic.py:516,</span> in <span class="ni">NDFrame._validate_dtype</span><span class="nt">(cls, dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;validate the passed dtype&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">516</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="n">pandas_dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span>     <span class="c1"># a compound dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">519</span>     <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;V&quot;</span><span class="p">:</span>
 
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/io/formats/csvs.py:251,</span> in <span class="ni">CSVFormatter.save</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span><span class="sd"> Create the writer &amp; save.</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="c1"># apply compression and byte/text conversion</span>
-<span class="ne">--&gt; </span><span class="mi">251</span> <span class="k">with</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="bp">self</span><span class="o">.</span><span class="n">filepath_or_buffer</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">259</span>     <span class="c1"># Note: self.encoding is irrelevant here</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">csvlib</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="n">handles</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span>         <span class="n">lineterminator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineterminator</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span>         <span class="n">quotechar</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">quotechar</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/dtypes/common.py:1666,</span> in <span class="ni">pandas_dtype</span><span class="nt">(dtype)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="k">return</span> <span class="n">npdtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">1665</span> <span class="k">elif</span> <span class="n">npdtype</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;O&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1666</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dtype &#39;</span><span class="si">{</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&#39; not understood&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span> <span class="k">return</span> <span class="n">npdtype</span>
 
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/SPECIATEv5.2x_fromCRACMM.csv&#39;
+<span class="ne">TypeError</span>: dtype &#39;CRACMM1    object
+<span class="n">CRACMM1</span>    <span class="nb">object</span>
+<span class="ne">dtype</span>: object&#39; not understood
 </pre></div>
 </div>
 </div>

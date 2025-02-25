@@ -25,14 +25,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "id": "a65b1911-c6f4-4000-8ce9-b3ee223045de",
    "metadata": {},
    "outputs": [],
    "source": [
     "import numpy as np\n",
     "import pandas as pd\n",
-    "import warnings"
+    "import warnings\n",
+    "import os"
    ]
   },
   {
@@ -69,14 +70,14 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "id": "df86d78d-fb71-4b0a-af22-6bc0666e3d90",
    "metadata": {},
    "outputs": [],
    "source": [
-    "datadir = '/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/'    # data files of mappings\n",
+    "datadir = '../emissions/SPECIATEInputs/'    # data files of mappings\n",
     "\n",
-    "outputdir = datadir"
+    "outputdir = os.path.join(os.getcwd(), 'output/')"
    ]
   },
   {
@@ -104,15 +105,15 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "id": "701463bf-9f0e-4455-8586-ef6e13072fd2",
    "metadata": {},
    "outputs": [],
    "source": [
-    "filename = datadir + 'SPECIATEv5.2x_fromCRACMM2alpha.csv' \n",
+    "filename = datadir + 'SPECIATEv5.2x_fromCRACMM.csv' \n",
     "df = pd.read_csv(filename)\n",
     "# for checking if any species mapping changed\n",
-    "orig_map_colname = 'CRACMM2alpha'\n",
+    "orig_map_colname = 'CRACMM1'\n",
     "df = df.rename(columns=dict(CRACMM2=orig_map_colname))"
    ]
   },
@@ -156,7 +157,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": null,
    "id": "6658a911-385c-44cd-b207-444874af434f",
    "metadata": {},
    "outputs": [
@@ -227,6 +228,7 @@
     "df['CRACMM2'] = df.apply(lambda x: cracmm2.get_cracmm_roc(x[smiles_k], x[koh_k], x[cstar_k]), axis=1)\n",
     "\n",
     "# check if any species mappings changed\n",
+    "print(df.keys())\n",
     "df_checkmatch = df.eval(f'match = {orig_map_colname}==CRACMM2')\n",
     "show_cols = ['SPECIES_NAME',orig_map_colname,'CRACMM2']\n",
     "if len(df_checkmatch[df_checkmatch.match==False])>0:\n",

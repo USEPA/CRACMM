@@ -28,12 +28,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "id": "84fc493b-a369-4729-8317-e9401f76a869",
    "metadata": {},
    "outputs": [],
    "source": [
-    "import pandas as pd"
+    "import pandas as pd\n",
+    "import os"
    ]
   },
   {
@@ -70,15 +71,13 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "id": "193f4b5f-54b3-4a84-ab36-9b99c6281f54",
    "metadata": {},
    "outputs": [],
    "source": [
-    "# datadir = '/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/'    # data files of mappings\n",
-    "datadir = '/work/MOD3DEV/has/2023cracmm_ages/structurecuration/data/'    # data files of mappings\n",
-    "\n",
-    "outputdir = '/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/'"
+    "datadir = '../emissions/BiogenicMappings/'    # data files of mappings\n",
+    "outputdir = os.path.join(os.getcwd(), 'output/')"
    ]
   },
   {
@@ -104,7 +103,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "id": "c1dd4414-363a-40c2-b575-a8560231b230",
    "metadata": {},
    "outputs": [
@@ -179,21 +178,21 @@
     }
    ],
    "source": [
-    "filename = datadir + 'bvoc_beis_tocracmm2alpha.csv' \n",
+    "filename = datadir + 'bvoc_beis_tocracmm.csv' \n",
     "dfbeis = pd.read_csv(filename)\n",
     "# for checking if any species mapping changed\n",
-    "orig_map_colname = 'CRACMM2alpha'\n",
-    "dfbeis = dfbeis.rename(columns=dict(CRACMM2=orig_map_colname))\n",
+    "orig_map_colname = 'CRACMM1' # an existing version in file to compare to, options: CRACMM1, CRACMM2\n",
+    "dfbeis = dfbeis.rename(columns=dict(CRACMMorig=orig_map_colname))\n",
     "\n",
     "# run cracmm2 mapper\n",
     "smiles_k = 'SMILES'\n",
     "koh_k    = 'ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA_PRED'\n",
     "cstar_k  = 'log10Cstar_ugm3'\n",
-    "dfbeis['CRACMM2'] = dfbeis.apply(lambda x: cracmm2.get_cracmm_roc(x[smiles_k], x[koh_k], x[cstar_k]), axis=1)\n",
+    "dfbeis['CRACMMnew'] = dfbeis.apply(lambda x: cracmm2.get_cracmm_roc(x[smiles_k], x[koh_k], x[cstar_k]), axis=1)\n",
     "\n",
     "# check if any species mappings changed\n",
-    "dfbeis_checkmatch = dfbeis.eval(f'match = {orig_map_colname}==CRACMM2')\n",
-    "show_cols = ['SPECIES_NAME',orig_map_colname,'CRACMM2']\n",
+    "dfbeis_checkmatch = dfbeis.eval(f'match = {orig_map_colname}==CRACMMnew')\n",
+    "show_cols = ['SPECIES_NAME',orig_map_colname,'CRACMMnew']\n",
     "if len(dfbeis_checkmatch[dfbeis_checkmatch.match==False])>0:\n",
     "    print(f'the species mappings below changed from {orig_map_colname}')\n",
     "    display(dfbeis_checkmatch[show_cols][dfbeis_checkmatch.match==False])\n",
@@ -201,7 +200,7 @@
     "    print(f'all species matched {orig_map_colname} mapping')\n",
     "\n",
     "# save output\n",
-    "dfbeis = dfbeis.drop(columns=orig_map_colname)\n",
+    "#dfbeis = dfbeis.drop(columns=orig_map_colname)\n",
     "dfbeis.to_csv(outputdir+'bvoc_beis_tocracmm.csv', **csvout_kw)"
    ]
   },
@@ -216,7 +215,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": null,
    "id": "d69adc5d-bddb-478a-8af9-ad4dd4774dbe",
    "metadata": {},
    "outputs": [
@@ -572,21 +571,21 @@
     }
    ],
    "source": [
-    "filename = datadir + 'bvoc_megan_tocracmm2alpha.csv'\n",
+    "filename = datadir + 'bvoc_megan_tocracmm.csv'\n",
     "dfmegan = pd.read_csv(filename)\n",
     "# for checking if any species mapping changed\n",
-    "orig_map_colname = 'CRACMM2alpha'\n",
-    "dfmegan = dfmegan.rename(columns=dict(CRACMM2=orig_map_colname))\n",
+    "orig_map_colname = 'CRACMM1' # an existing version in file to compare to, options: CRACMM1, CRACMM2\n",
+    "dfmegan = dfmegan.rename(columns=dict(CRACMMorig=orig_map_colname))\n",
     "\n",
     "# run cracmm2 mapper\n",
     "smiles_k = 'SMILES'\n",
     "koh_k    = 'ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA_PRED'\n",
     "cstar_k  = 'log10Cstar_ugm3'\n",
-    "dfmegan['CRACMM2'] = dfmegan.apply(lambda x: cracmm2.get_cracmm_roc(x[smiles_k], x[koh_k], x[cstar_k]), axis=1)\n",
+    "dfmegan['CRACMMnew'] = dfmegan.apply(lambda x: cracmm2.get_cracmm_roc(x[smiles_k], x[koh_k], x[cstar_k]), axis=1)\n",
     "\n",
     "# check if any species mappings changed\n",
-    "dfmegan_checkmatch = dfmegan.eval(f'match = {orig_map_colname}==CRACMM2')\n",
-    "show_cols = ['REPRESENTATIVE_COMPOUND_NAME',orig_map_colname,'CRACMM2']\n",
+    "dfmegan_checkmatch = dfmegan.eval(f'match = {orig_map_colname}==CRACMMnew')\n",
+    "show_cols = ['REPRESENTATIVE_COMPOUND_NAME',orig_map_colname,'CRACMMnew']\n",
     "if len(dfmegan_checkmatch[dfmegan_checkmatch.match==False])>0:\n",
     "    print(f'the species mappings below changed from {orig_map_colname}')\n",
     "    display(dfmegan_checkmatch[show_cols][dfmegan_checkmatch.match==False])\n",
@@ -594,7 +593,7 @@
     "    print(f'all species matched {orig_map_colname} mapping')\n",
     "\n",
     "# save output\n",
-    "dfmegan = dfmegan.drop(columns=orig_map_colname)\n",
+    "#dfmegan = dfmegan.drop(columns=orig_map_colname)\n",
     "dfmegan.to_csv(outputdir+'bvoc_beis_tocracmm.csv', **csvout_kw)"
    ]
   },

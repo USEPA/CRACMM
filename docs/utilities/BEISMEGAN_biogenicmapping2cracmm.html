@@ -120,6 +120,7 @@ date: 2024-08-09
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
@@ -152,10 +153,8 @@ date: 2024-08-09
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># datadir = &#39;/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/&#39;    # data files of mappings</span>
-<span class="n">datadir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/has/2023cracmm_ages/structurecuration/data/&#39;</span>    <span class="c1"># data files of mappings</span>
-
-<span class="n">outputdir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datadir</span> <span class="o">=</span> <span class="s1">&#39;../emissions/BiogenicMappings/&#39;</span>    <span class="c1"># data files of mappings</span>
+<span class="n">outputdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;output/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -175,21 +174,21 @@ date: 2024-08-09
 <p>input beis mapping from https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;bvoc_beis_tocracmm2alpha.csv&#39;</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span> 
 <span class="n">dfbeis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="c1"># for checking if any species mapping changed</span>
-<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM2alpha&#39;</span>
-<span class="n">dfbeis</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMM2</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
+<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM1&#39;</span> <span class="c1"># an existing version in file to compare to, options: CRACMM1, CRACMM2</span>
+<span class="n">dfbeis</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMMorig</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
 
 <span class="c1"># run cracmm2 mapper</span>
 <span class="n">smiles_k</span> <span class="o">=</span> <span class="s1">&#39;SMILES&#39;</span>
 <span class="n">koh_k</span>    <span class="o">=</span> <span class="s1">&#39;ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA_PRED&#39;</span>
 <span class="n">cstar_k</span>  <span class="o">=</span> <span class="s1">&#39;log10Cstar_ugm3&#39;</span>
-<span class="n">dfbeis</span><span class="p">[</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dfbeis</span><span class="p">[</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># check if any species mappings changed</span>
-<span class="n">dfbeis_checkmatch</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMM2&#39;</span><span class="p">)</span>
-<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span>
+<span class="n">dfbeis_checkmatch</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMMnew&#39;</span><span class="p">)</span>
+<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfbeis_checkmatch</span><span class="p">[</span><span class="n">dfbeis_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the species mappings below changed from </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">dfbeis_checkmatch</span><span class="p">[</span><span class="n">show_cols</span><span class="p">][</span><span class="n">dfbeis_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span>
@@ -197,13 +196,13 @@ date: 2024-08-09
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;all species matched </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1"> mapping&#39;</span><span class="p">)</span>
 
 <span class="c1"># save output</span>
-<span class="n">dfbeis</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">)</span>
+<span class="c1">#dfbeis = dfbeis.drop(columns=orig_map_colname)</span>
 <span class="n">dfbeis</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputdir</span><span class="o">+</span><span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">csvout_kw</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM2alpha
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM1
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
@@ -231,11 +230,17 @@ date: 2024-08-09
     <tr style="text-align: right;">
       <th></th>
       <th>SPECIES_NAME</th>
-      <th>CRACMM2alpha</th>
-      <th>CRACMM2</th>
+      <th>CRACMM1</th>
+      <th>CRACMMnew</th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>1</th>
+      <td>nitric oxide</td>
+      <td>UNKKOH</td>
+      <td>UNKCRACMM</td>
+    </tr>
     <tr>
       <th>12</th>
       <td>para-cymene</td>
@@ -250,104 +255,7 @@ date: 2024-08-09
     </tr>
   </tbody>
 </table>
-</div></div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">24</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1"># save output</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">dfbeis</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputdir</span><span class="o">+</span><span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">csvout_kw</span><span class="p">)</span>
-
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/util/_decorators.py:333,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">333</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/core/generic.py:3967,</span> in <span class="ni">NDFrame.to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3956</span> <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">3958</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">DataFrameFormatter</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3959</span>     <span class="n">frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3960</span>     <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3964</span>     <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3965</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3967</span> <span class="k">return</span> <span class="n">DataFrameRenderer</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3968</span>     <span class="n">path_or_buf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3969</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3970</span>     <span class="n">sep</span><span class="o">=</span><span class="n">sep</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3971</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3972</span>     <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3973</span>     <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3974</span>     <span class="n">quoting</span><span class="o">=</span><span class="n">quoting</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3975</span>     <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3976</span>     <span class="n">index_label</span><span class="o">=</span><span class="n">index_label</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3977</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3978</span>     <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3979</span>     <span class="n">quotechar</span><span class="o">=</span><span class="n">quotechar</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3980</span>     <span class="n">date_format</span><span class="o">=</span><span class="n">date_format</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3981</span>     <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3982</span>     <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3983</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3984</span> <span class="p">)</span>
-
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/io/formats/format.py:1014,</span> in <span class="ni">DataFrameRenderer.to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">993</span>     <span class="n">created_buffer</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">995</span> <span class="n">csv_formatter</span> <span class="o">=</span> <span class="n">CSVFormatter</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">996</span>     <span class="n">path_or_buf</span><span class="o">=</span><span class="n">path_or_buf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">997</span>     <span class="n">lineterminator</span><span class="o">=</span><span class="n">lineterminator</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1014</span> <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1016</span> <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1017</span>     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_buf</span><span class="p">,</span> <span class="n">StringIO</span><span class="p">)</span>
-
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/io/formats/csvs.py:251,</span> in <span class="ni">CSVFormatter.save</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span><span class="sd"> Create the writer &amp; save.</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="c1"># apply compression and byte/text conversion</span>
-<span class="ne">--&gt; </span><span class="mi">251</span> <span class="k">with</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="bp">self</span><span class="o">.</span><span class="n">filepath_or_buffer</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">259</span>     <span class="c1"># Note: self.encoding is irrelevant here</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span>     <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">csvlib</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="n">handles</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span>         <span class="n">lineterminator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineterminator</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">267</span>         <span class="n">quotechar</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">quotechar</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">270</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
-
-<span class="nn">File ~/docs_env/lib64/python3.11/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;/work/MOD3DEV/tskipper/cracmm_hcho/cracmm2_spc_map/bvoc_beis_tocracmm.csv&#39;
-</pre></div>
-</div>
-</div>
+</div></div></div>
 </div>
 </section>
 <section id="megan">
@@ -355,21 +263,21 @@ date: 2024-08-09
 <p>input megan mapping from https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;bvoc_megan_tocracmm2alpha.csv&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;bvoc_megan_tocracmm.csv&#39;</span>
 <span class="n">dfmegan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="c1"># for checking if any species mapping changed</span>
-<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM2alpha&#39;</span>
-<span class="n">dfmegan</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMM2</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
+<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM1&#39;</span> <span class="c1"># an existing version in file to compare to, options: CRACMM1, CRACMM2</span>
+<span class="n">dfmegan</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMMorig</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
 
 <span class="c1"># run cracmm2 mapper</span>
 <span class="n">smiles_k</span> <span class="o">=</span> <span class="s1">&#39;SMILES&#39;</span>
 <span class="n">koh_k</span>    <span class="o">=</span> <span class="s1">&#39;ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA_PRED&#39;</span>
 <span class="n">cstar_k</span>  <span class="o">=</span> <span class="s1">&#39;log10Cstar_ugm3&#39;</span>
-<span class="n">dfmegan</span><span class="p">[</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dfmegan</span><span class="p">[</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># check if any species mappings changed</span>
-<span class="n">dfmegan_checkmatch</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMM2&#39;</span><span class="p">)</span>
-<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;REPRESENTATIVE_COMPOUND_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMM2&#39;</span><span class="p">]</span>
+<span class="n">dfmegan_checkmatch</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMMnew&#39;</span><span class="p">)</span>
+<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;REPRESENTATIVE_COMPOUND_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfmegan_checkmatch</span><span class="p">[</span><span class="n">dfmegan_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the species mappings below changed from </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">dfmegan_checkmatch</span><span class="p">[</span><span class="n">show_cols</span><span class="p">][</span><span class="n">dfmegan_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span>
@@ -377,22 +285,20 @@ date: 2024-08-09
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;all species matched </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1"> mapping&#39;</span><span class="p">)</span>
 
 <span class="c1"># save output</span>
-<span class="n">dfmegan</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">)</span>
+<span class="c1">#dfmegan = dfmegan.drop(columns=orig_map_colname)</span>
 <span class="n">dfmegan</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputdir</span><span class="o">+</span><span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">csvout_kw</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES S is unknown in CRACMM and has been mapped to UNKCRACMM.
-  warnings.warn(unkcracmm_msg)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM1
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM2alpha
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES S is unknown in CRACMM and has been mapped to UNKCRACMM.
   warnings.warn(unkcracmm_msg)
-/work/MOD3DEV/tskipper/cracmm_hcho/CRACMM_REPO/emissions/cracmm2/cracmm_mapper.py:285: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
+  warnings.warn(unkcracmm_msg)
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
   warnings.warn(unkcracmm_msg)
 </pre></div>
 </div>
@@ -415,16 +321,46 @@ date: 2024-08-09
     <tr style="text-align: right;">
       <th></th>
       <th>REPRESENTATIVE_COMPOUND_NAME</th>
-      <th>CRACMM2alpha</th>
-      <th>CRACMM2</th>
+      <th>CRACMM1</th>
+      <th>CRACMMnew</th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>23</th>
+      <td>1-Isopropyl-2-methylbenzene</td>
+      <td>XYE</td>
+      <td>XYL</td>
+    </tr>
     <tr>
       <th>24</th>
       <td>p-Cymene</td>
       <td>ROCP6ARO</td>
       <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>m-Cymene</td>
+      <td>XYE</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1-Methyl-4-(prop-1-en-2-yl)benzene</td>
+      <td>XYM</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>dl-Borneol</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Bornyl acetate</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
     </tr>
     <tr>
       <th>30</th>
@@ -437,6 +373,18 @@ date: 2024-08-09
       <td>beta-Ionone</td>
       <td>ROCP6ARO</td>
       <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>6,6-Dimethylbicyclo[3.1.1]heptane-2-carbaldehyde</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>1-Octanol</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
     </tr>
     <tr>
       <th>36</th>
@@ -465,7 +413,7 @@ date: 2024-08-09
     <tr>
       <th>67</th>
       <td>2-Ethylhexyl salicylate</td>
-      <td>ROCP2OXY2</td>
+      <td>ROCP2ALK</td>
       <td>VROCP2OXY2</td>
     </tr>
     <tr>
@@ -477,13 +425,13 @@ date: 2024-08-09
     <tr>
       <th>72</th>
       <td>(+)-Cedrol</td>
-      <td>ROCP5OXY1</td>
+      <td>ROCP5ALK</td>
       <td>VROCP5OXY1</td>
     </tr>
     <tr>
       <th>77</th>
       <td>3,3,5-Trimethylcyclohexyl salicylate</td>
-      <td>ROCP1OXY1</td>
+      <td>ROCP1ALK</td>
       <td>VROCP1OXY1</td>
     </tr>
     <tr>
@@ -497,6 +445,12 @@ date: 2024-08-09
       <td>(+)-Longicyclene</td>
       <td>ROCP4ALK</td>
       <td>VROCP4ALK</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Decanal</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
     </tr>
     <tr>
       <th>104</th>
@@ -517,6 +471,12 @@ date: 2024-08-09
       <td>VROCP6ARO</td>
     </tr>
     <tr>
+      <th>109</th>
+      <td>Nonanal</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
       <th>110</th>
       <td>2-Nonenal</td>
       <td>ROCP6ARO</td>
@@ -535,6 +495,12 @@ date: 2024-08-09
       <td>VROCP6ARO</td>
     </tr>
     <tr>
+      <th>128</th>
+      <td>Anisole</td>
+      <td>XYM</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
       <th>131</th>
       <td>Benzyl benzoate</td>
       <td>ROCP5ARO</td>
@@ -549,13 +515,13 @@ date: 2024-08-09
     <tr>
       <th>138</th>
       <td>Cinnamic acid</td>
-      <td>ROCP2OXY2</td>
+      <td>ROCP2ALK</td>
       <td>VROCP2OXY2</td>
     </tr>
     <tr>
       <th>139</th>
       <td>Coniferyl alcohol</td>
-      <td>ROCP1OXY3</td>
+      <td>ROCP1ALK</td>
       <td>VROCP1OXY3</td>
     </tr>
     <tr>
@@ -597,7 +563,7 @@ date: 2024-08-09
     <tr>
       <th>171</th>
       <td>(2E)-3-(4-Hydroxyphenyl)-2-propenoic acid</td>
-      <td>ROCP1OXY3</td>
+      <td>ROCP1ALK</td>
       <td>VROCP1OXY3</td>
     </tr>
     <tr>
@@ -605,6 +571,12 @@ date: 2024-08-09
       <td>Safrole</td>
       <td>ROCP5ARO</td>
       <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>m-Xylene</td>
+      <td>XYM</td>
+      <td>XYL</td>
     </tr>
     <tr>
       <th>181</th>
@@ -625,10 +597,22 @@ date: 2024-08-09
       <td>VROCP6ARO</td>
     </tr>
     <tr>
+      <th>195</th>
+      <td>Hydrogen sulfide</td>
+      <td>UNKKOH</td>
+      <td>UNKCRACMM</td>
+    </tr>
+    <tr>
       <th>196</th>
       <td>Indole</td>
       <td>ROCP5ARO</td>
       <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>3-Methylbut-3-en-1-ol</td>
+      <td>OLI</td>
+      <td>OLT</td>
     </tr>
     <tr>
       <th>207</th>
@@ -664,6 +648,12 @@ date: 2024-08-09
       <th>214</th>
       <td>Carbon monoxide</td>
       <td>SLOWROC</td>
+      <td>UNKCRACMM</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Nitric oxide</td>
+      <td>UNKKOH</td>
       <td>UNKCRACMM</td>
     </tr>
   </tbody>

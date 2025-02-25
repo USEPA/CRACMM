@@ -95,7 +95,7 @@
     "smiles = 'C=CC1=CC=CC=C1'   #str(input('enter SMILES:  '))\n",
     "kOH = 5.79e-11  #float(input('enter kOH (cm3 molecules-1 s-1):  '))\n",
     "log10Cstar = 7.55   #float(input('enter log10Cstar (Cstar in ug/m3):  '))\n",
-    "print(f'CRACMM species:  {get_cracmm_roc(smiles, kOH, log10Cstar)}')"
+    "print(f'CRACMM species:  {cracmm2.get_cracmm_roc(smiles, kOH, log10Cstar)}')"
    ]
   },
   {
@@ -108,7 +108,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "id": "578c4b9d-7bde-45cc-aaab-80cafc091028",
    "metadata": {},
    "outputs": [
@@ -127,7 +127,7 @@
     "smiles = 'C=CC1=CC=CC=C1'\n",
     "kOH = 5.79e-11      # [cm3/(molecule*s)]\n",
     "log10Cstar = 7.55   # [Cstar in ug/m3]\n",
-    "get_cracmm_roc(smiles, kOH, log10Cstar)"
+    "cracmm2.get_cracmm_roc(smiles, kOH, log10Cstar)"
    ]
   },
   {
@@ -240,7 +240,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "id": "66ed31a2-ab94-4bdf-bc24-6e065046e904",
    "metadata": {},
    "outputs": [
@@ -314,7 +314,7 @@
     }
    ],
    "source": [
-    "df['CRACMM'] = df.apply(lambda x: get_cracmm_roc(x['SMILES'], x['koh'], x['log10cstar']), axis='columns')\n",
+    "df['CRACMM'] = df.apply(lambda x: cracmm2.get_cracmm_roc(x['SMILES'], x['koh'], x['log10cstar']), axis='columns')\n",
     "df"
    ]
   },

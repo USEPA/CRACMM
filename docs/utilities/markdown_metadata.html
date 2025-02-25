@@ -193,25 +193,13 @@ being saved from hlconst, AERO_DEFN, and SOA_DEFN</p></li>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set current working directory where this file resides </span>
 <span class="c1"># This code expects *.nml and files from CMAQ to be present in ./input and will output in ./output</span>
+<span class="n">outputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;output&#39;</span><span class="p">)</span>
 <span class="n">workdir</span> <span class="o">=</span> <span class="s1">&#39;/work/MOD3DEV/has/2023cracmm_ages/structurecuration/&#39;</span>
 <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">workdir</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 <span class="n">inputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">)</span>
-<span class="n">outputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/jupyter_out&#39;</span> <span class="c1"># Delete &quot;jupyter_out&quot; and use: os.path.join(os.getcwd(), &#39;output&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;./output&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">outputfiledir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/jupyter_out&#39;</span> <span class="c1"># Delete &quot;jupyter_out&quot; and use: os.path.join(os.getcwd(), &#39;output&#39;)</span>
-
-<span class="ne">NameError</span>: name &#39;__file__&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -478,6 +466,17 @@ being saved from hlconst, AERO_DEFN, and SOA_DEFN</p></li>
 <span class="n">mdfile</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_525999/1051203239.py:10: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  dfmarkdown.SMILES.fillna(&#39;&#39;,inplace=True)
 </pre></div>
 </div>
 </div>
