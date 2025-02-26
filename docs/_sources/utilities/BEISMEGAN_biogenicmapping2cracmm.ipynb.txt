@@ -14,8 +14,11 @@
     "    updated: Nash Skipper\n",
     "    date: 2024-08-09\n",
     "---\n",
+    "## Notebook Description\n",
+    "This Notebook identifies the CRACMM species for each BEIS/MEGAN species using the mapper. The cracmm_mapper function depends on [rdkit](https://www.rdkit.org/).\n",
     "\n",
-    "Identify the CRACMM species for each BEIS/MEGAN species using the mapper. The cracmm_mapper function depends on [rdkit](https://www.rdkit.org/)."
+    "## Download Notebook\n",
+    "Click [here](https://github.com/USEPA/CRACMM/blob/main/utilities/BEISMEGAN_biogenicmapping2cracmm.ipynb) to access the Jupyter Notebook file directly in GitHub where it can be downloaded.  \n"
    ]
   },
   {
@@ -595,14 +598,6 @@
     "# save output\n",
     "#dfmegan = dfmegan.drop(columns=orig_map_colname)\n",
     "dfmegan.to_csv(outputdir+'bvoc_beis_tocracmm.csv', **csvout_kw)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "39e92aa6-0b47-40cc-93ad-165d122e64d9",
-   "metadata": {},
-   "source": [
-    "---"
    ]
   }
  ],

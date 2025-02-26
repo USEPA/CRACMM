@@ -17,6 +17,8 @@
       <script src="_static/documentation_options.js?v=60dbed4a"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -66,7 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">MIT License</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
@@ -97,7 +99,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="overview">
+  <section class="tex2jax_ignore mathjax_ignore" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
 <p>The Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM) is a description of atmospheric NO<sub>X</sub>-VOC-O<sub>3</sub>-aerosol chemistry and associated metadata (<a class="reference external" href="https://doi.org/10.5194/acp-23-5043-2023">Pye et al., 2023</a>; <a class="reference external" href="https://doi.org/10.5194/acp-23-9173-2023">Place et al., 2023</a>). CRACMM has been available in the EPA <a class="reference external" href="https://github.com/USEPA/CMAQ">Community Multiscale Air Quality (CMAQ) modeling system</a> since version 5.4 (2022 release) and will continue to be updated (see the <a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA fact sheet on the CMAQ website</a>). In CMAQ, CRACMM was initially released with two representations of isoprene chemistry (see <a class="reference external" href="https://doi.org/10.5194/gmd-16-1801-2023">Wiser et al., 2023</a>) that were merged together in CRACMM2 (<a class="reference external" href="https://doi.org/10.5194/acp-24-12903-2024">Skipper et al., 2024</a>). The main repository branch on github will evolve (see <a class="reference internal" href="additional_info.html#Version-history"><span class="std std-ref">Version History</span></a>) and be periodically tagged to reflect official release versions. To obtain frozen versions of CRACMM, select the appropriate branch or tag on github.</p>
 <section id="point-of-contact">
@@ -108,11 +110,11 @@
 <h2>Purpose and Organization of the CRACMM Github Repository<a class="headerlink" href="#purpose-and-organization-of-the-cracmm-github-repository" title="Link to this heading"></a></h2>
 <p>The official, frozen versions of CRACMM reside in CMAQ in the <a class="reference external" href="https://github.com/USEPA/CMAQ">US EPA Github repository</a>. Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="chemistry/README.html"><span class="std std-doc">Chemistry</span></a>: the mechanism in CMAQ-ready format, F0AM box model format, and markdown format</p></li>
+<li><p><a class="reference internal" href="chemistry/README.html"><span class="std std-doc">Chemistry</span></a>: The mechanism in CMAQ-ready format, F0AM box model format, and markdown format</p></li>
 <li><p><a class="reference internal" href="emissions/README.html"><span class="std std-doc">Emissions</span></a>: Descriptions of tools and methods to perform mapping of individual species to CRACMM.</p></li>
-<li><p><a class="reference internal" href="metadata/README.html"><span class="std std-doc">Metadata</span></a>: information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)</p></li>
-<li><p><a class="reference internal" href="logos/logos.html"><span class="std std-doc">Logos</span></a>: view and download CRACMM logos in PNG and PDF formats</p></li>
-<li><p><a class="reference internal" href="utilities/README.html"><span class="std std-doc">Python Utilities</span></a>: Descriptions of Python modules and jupyter notebook tutorials.</p></li>
+<li><p><a class="reference internal" href="metadata/README.html"><span class="std std-doc">Metadata</span></a>: Information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)</p></li>
+<li><p><a class="reference internal" href="logos/logos.html"><span class="std std-doc">Logos</span></a>: CRACMM logos in PNG and PDF formats</p></li>
+<li><p><a class="reference internal" href="utilities/README.html"><span class="std std-doc">Python Utilities</span></a>: Python modules and jupyter notebook tutorials.</p></li>
 <li><p><a class="reference internal" href="license.html"><span class="std std-doc">Open source license</span></a></p></li>
 </ul>
 <div class="toctree-wrapper compound">

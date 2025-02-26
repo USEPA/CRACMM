@@ -56,10 +56,10 @@
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Assemble CRACMM species metadata from CMAQ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#notebook-description">Notebook Description</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#download-notebook">Download Notebook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cmaq-input-files">CMAQ input files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mechanisms-supported">Mechanisms supported</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notebook-description">Notebook Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-notebook">Download Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cmaq-input-files">CMAQ input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mechanisms-supported">Mechanisms supported</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#version-history">Version history</a></li>
 </ul>
 </li>
@@ -82,7 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
@@ -113,7 +113,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="assemble-cracmm-species-metadata-from-cmaq">
+  <section class="tex2jax_ignore mathjax_ignore" id="assemble-cracmm-species-metadata-from-cmaq">
 <h1>Assemble CRACMM species metadata from CMAQ<a class="headerlink" href="#assemble-cracmm-species-metadata-from-cmaq" title="Link to this heading"></a></h1>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Havala O.T. Pye (pye.havala@epa.gov)
@@ -124,19 +124,13 @@ date: created 2022-09-12
 <section id="notebook-description">
 <h2>Notebook Description<a class="headerlink" href="#notebook-description" title="Link to this heading"></a></h2>
 <p>This notebook collects data across the CMAQ model to create a table of species information in both csv and markdown formats. The csv version contains additional data not easily displayed in markdown. Output from this notebook is stored at <a class="reference external" href="https://github.com/USEPA/CRACMM">https://github.com/USEPA/CRACMM</a>.</p>
+</section>
 <section id="download-notebook">
-<h3>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h3>
-<p>Click <a class="reference internal" href="#../docs/_downloads/jupyter_notebooks/copy_of_markdown_metdata.ipynb"><span class="xref myst">here</span></a> to download this tutorial as a Jupyter Notebook file.</p>
-<p>Click here to download this tutorial as a Jupyter Notebook file.
-:::
-.. replace:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">download</span><span class="p">:</span> <span class="n">here</span> <span class="o">&lt;</span><span class="n">markdown_metadata</span><span class="o">.</span><span class="n">ipynb</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>::</p>
+<h2>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h2>
+<p>Click <a class="reference external" href="https://github.com/USEPA/CRACMM/blob/main/utilities/markdown_metadata.ipynb">here</a> to download this tutorial as a Jupyter Notebook file.</p>
 </section>
 <section id="cmaq-input-files">
-<h3>CMAQ input files<a class="headerlink" href="#cmaq-input-files" title="Link to this heading"></a></h3>
+<h2>CMAQ input files<a class="headerlink" href="#cmaq-input-files" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>AE_{mech}.nml</p></li>
 <li><p>GC_{mech}.nml</p></li>
@@ -148,13 +142,12 @@ date: created 2022-09-12
 </ul>
 </section>
 <section id="mechanisms-supported">
-<h3>Mechanisms supported<a class="headerlink" href="#mechanisms-supported" title="Link to this heading"></a></h3>
+<h2>Mechanisms supported<a class="headerlink" href="#mechanisms-supported" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>cracmm1_aq</p></li>
 <li><p>cracmm1amore_aq</p></li>
 <li><p>cracmm2</p></li>
 </ul>
-</section>
 <section id="version-history">
 <h3>Version history<a class="headerlink" href="#version-history" title="Link to this heading"></a></h3>
 <p>Created on Mon Sep 12 16:46:56 2022</p>
@@ -414,7 +407,7 @@ being saved from hlconst, AERO_DEFN, and SOA_DEFN</p></li>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span><span class="s1">&#39;\]&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="s1">&#39;\(&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="s1">&#39;\)&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">dfmarkdown</span><span class="o">.</span><span class="n">SMILES</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
 <span class="c1"># Hyperlink SMILES to DTXSID entry in dashboard</span>
 <span class="n">dfmarkdown</span><span class="p">[</span><span class="s1">&#39;SMILESfmt&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s1">&#39;[&#39;</span><span class="o">+</span> <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">SMILES</span> <span class="o">+</span> <span class="s1">&#39;](https://comptox.epa.gov/dashboard/chemical/details/&#39;</span><span class="o">+</span> <span class="n">dfmarkdown</span><span class="o">.</span><span class="n">DTXSID</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span> 
@@ -466,17 +459,6 @@ being saved from hlconst, AERO_DEFN, and SOA_DEFN</p></li>
 <span class="n">mdfile</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">mdfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_525999/1051203239.py:10: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
-The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
-
-For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using &#39;df.method({col: value}, inplace=True)&#39; or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
-
-
-  dfmarkdown.SMILES.fillna(&#39;&#39;,inplace=True)
 </pre></div>
 </div>
 </div>

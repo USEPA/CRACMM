@@ -58,6 +58,9 @@
 <li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Find CRACMM species based on SMILES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notebook-description">Notebook Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-notebook">Download Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-rdkit-if-not-already-installed">Install rdkit if not already installed</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#option-1-interactively-enter-species-properties">Option 1: Interactively enter species properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#option-2-same-as-option-1-but-not-interactive">Option 2: Same as option 1 but not interactive</a></li>
@@ -77,7 +80,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">External Links</span></p>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
@@ -108,7 +111,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="find-cracmm-species-based-on-smiles">
+  <section class="tex2jax_ignore mathjax_ignore" id="find-cracmm-species-based-on-smiles">
 <h1>Find CRACMM species based on SMILES<a class="headerlink" href="#find-cracmm-species-based-on-smiles" title="Link to this heading"></a></h1>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Nash Skipper
@@ -116,7 +119,16 @@ date: 2024-02-14
 </pre></div>
 </div>
 <hr class="docutils" />
+<section id="notebook-description">
+<h2>Notebook Description<a class="headerlink" href="#notebook-description" title="Link to this heading"></a></h2>
 <p>This notebook provides examples of how to use the cracmm_mapper tool.</p>
+</section>
+<section id="download-notebook">
+<h2>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h2>
+<p>Click <a class="reference external" href="https://github.com/USEPA/CRACMM/blob/main/utilities/smiles2cracmm.ipynb">here</a> to access the Jupyter Notebook file directly in GitHub where it can be downloaded.</p>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -133,6 +145,7 @@ date: 2024-02-14
 </div>
 </div>
 </div>
+</section>
 <section id="install-rdkit-if-not-already-installed">
 <h2>Install rdkit if not already installed<a class="headerlink" href="#install-rdkit-if-not-already-installed" title="Link to this heading"></a></h2>
 <p>The cracmm_mapper function depends on <a class="reference external" href="https://www.rdkit.org/">rdkit</a>.</p>

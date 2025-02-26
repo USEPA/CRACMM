@@ -20,7 +20,7 @@ release = '2.0'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['myst_nb', 'sphinx.ext.autodoc']
-myst_enable_extensions = ['colon_fence']
+myst_enable_extensions = ['dollarmath']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
