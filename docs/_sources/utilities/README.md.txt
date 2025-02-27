@@ -2,7 +2,7 @@
 
 ## Python Modules
 
- * CRACMM1 Reactive Emission Compounds (ROC) Emission Mapper [[ cracmm1_mapper.py]](cracmm1_mapper.py): Maps individual emitted ROC species to CRACMM species. See [Emissions page](../emissions/README.md) for more information.
+ * CRACMM1 Reactive Emission Compounds (ROC) Emission Mapper [[cracmm1_mapper.py]](cracmm1_mapper.py): Maps individual emitted ROC species to CRACMM species. See [Emissions page](../emissions/README.md) for more information.
 
  * CRACMM2 ROC Emission Mapper [[cracmm2_mapper.py]](cracmm2_mapper.py): Maps individual emitted ROC species to CRACMM species. See [Emissions page](../emissions/README.md) for more information.
 

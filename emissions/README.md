@@ -16,7 +16,7 @@ The following contain species mapped to CRACMM1 and CRACMM2:
 
 - [SPECIATE Inputs](https://github.com/USEPA/CRACMM/tree/main/emissions/SPECIATEInputs): Speciation table for interim [SPECIATE](https://www.epa.gov/air-emissions-modeling/speciate) v5.2. Contains representative compound identifiers (DTXSID and name) for all species in SPECIATE. The last two columns indicates the CRACMM1-2 species where the emitted species should map (organic only).
 
-- [Biogenic Species Mappings](https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings): [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) biogenic species mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
+- [Biogenic Species Mappings](https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings): Biogenic species from [MEGAN](https://bai.ess.uci.edu/megan) and [BEIS](https://www.epa.gov/air-emissions-modeling/biogenic-emission-inventory-system-beis) mapped to CRACMM. Mapping files used for inline prediction of biogenic emissions in CMAQ are available in the [CMAQ repository](https://github.com/USEPA/CMAQ/tree/main/CCTM/src/biog).
 
 ## Resources available
 

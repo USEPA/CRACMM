@@ -20,7 +20,9 @@ release = '2.0'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['myst_nb', 'sphinx.ext.autodoc']
+
 myst_enable_extensions = ['dollarmath']
+myst_heading_anchors = 3    #resolves warnings regarding myst not finding target ID when linking to markdown heading. Liks still work without this however.
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
