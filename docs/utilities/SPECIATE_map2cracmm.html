@@ -66,10 +66,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#speciate-mapping">SPECIATE Mapping</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#calculate-c-from-vapor-pressure">Calculate C* from Vapor Pressure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-cracmm2-mapper">Run CRACMM2 Mapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-cracmm2-mapper-and-see-mapping-changes-from-cracmm1-to-cracmm2">Run CRACMM2 Mapper and see mapping changes from CRACMM1 to CRACMM2</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#which-species-mappings-changed-from-cracmm1-to-cracmm2-mapper">Which species mappings changed from CRACMM1 to CRACMM2 mapper?</a></li>
 </ul>
 </li>
 </ul>
@@ -82,9 +81,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM">CRACMM GitHub</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm">EPA CRACMM Fact Sheet</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/">CMAQ Documentation</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM" rel="noreferrer" target="_blank">CRACMM GitHub <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm" rel="noreferrer" target="_blank">EPA CRACMM Fact Sheet <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/" rel="noreferrer" target="_blank">CMAQ Documentation <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
 </ul>
 
         </div>
@@ -124,11 +123,11 @@ date: 2025-02-27
 <hr class="docutils" />
 <section id="notebook-description">
 <h2>Notebook Description<a class="headerlink" href="#notebook-description" title="Link to this heading"></a></h2>
-<p>This notebook identifies the CRACMM species for each SPECIATE species using the mapper. The cracmm_mapper function depends on <a class="reference external" href="https://www.rdkit.org/">rdkit</a>.</p>
+<p>This notebook identifies the CRACMM species for each SPECIATE species using the mapper. The cracmm_mapper function depends on <a class="reference external" href="https://www.rdkit.org/" rel="noreferrer" target="_blank">rdkit <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
 </section>
 <section id="download-notebook">
 <h2>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h2>
-<p>Click <a class="reference external" href="https://github.com/USEPA/CRACMM/blob/main/utilities/SPECIATE_map2cracmm.ipynb">here</a> to access the Jupyter Notebook file directly in GitHub where it can be downloaded.</p>
+<p>Click <a class="reference external" href="https://github.com/USEPA/CRACMM/blob/main/utilities/SPECIATE_map2cracmm.ipynb" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> to access the Jupyter Notebook file directly in GitHub where it can be downloaded.</p>
 </section>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
@@ -190,7 +189,7 @@ date: 2025-02-27
 </section>
 <section id="speciate-mapping">
 <h2>SPECIATE Mapping<a class="headerlink" href="#speciate-mapping" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/emissions/SPECIATEInputs">Input SPECIATE file</a></p>
+<p><a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/emissions/SPECIATEInputs" rel="noreferrer" target="_blank">Input SPECIATE file <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;SPECIATEv5.2x_fromCRACMM.csv&#39;</span> 
@@ -229,8 +228,8 @@ date: 2025-02-27
 </div>
 </div>
 </section>
-<section id="run-cracmm2-mapper">
-<h3>Run CRACMM2 Mapper<a class="headerlink" href="#run-cracmm2-mapper" title="Link to this heading"></a></h3>
+<section id="run-cracmm2-mapper-and-see-mapping-changes-from-cracmm1-to-cracmm2">
+<h3>Run CRACMM2 Mapper and see mapping changes from CRACMM1 to CRACMM2<a class="headerlink" href="#run-cracmm2-mapper-and-see-mapping-changes-from-cracmm1-to-cracmm2" title="Link to this heading"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles_k</span> <span class="o">=</span> <span class="s1">&#39;Smiles Notation&#39;</span>
@@ -240,12 +239,15 @@ date: 2025-02-27
 
 <span class="c1"># check if any species mappings changed</span>
 <span class="n">df_checkmatch</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMMnew&#39;</span><span class="p">)</span>
-<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
+<span class="n">display_changes</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;CRACMM1&#39;</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the species mappings below changed from </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="si">}</span><span class="s1"> changes&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">)</span><span class="si">}</span><span class="s1"> total species&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the species mappings below changed from CRACMM1&#39;</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">show_cols</span><span class="p">][</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;all species matched </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1"> mapping&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;all species matched CRACMM1 mapping&#39;</span><span class="p">)</span>
 
 <span class="c1"># save output</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">orig_map_colname</span><span class="p">,</span> <span class="n">cstar_k</span><span class="p">])</span>
@@ -254,7 +256,9 @@ date: 2025-02-27
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>there are 1382 changes
+out of 2890 total species
+the species mappings below changed from CRACMM1
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -8578,34 +8582,6 @@ date: 2025-02-27
 </div></div></div>
 </div>
 </section>
-</section>
-<section id="which-species-mappings-changed-from-cracmm1-to-cracmm2-mapper">
-<h2>Which species mappings changed from CRACMM1 to CRACMM2 mapper?<a class="headerlink" href="#which-species-mappings-changed-from-cracmm1-to-cracmm2-mapper" title="Link to this heading"></a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_changes</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;CRACMM1&#39;</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;there are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="si">}</span><span class="s1"> changes&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">)</span><span class="si">}</span><span class="s1"> total species&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">display_changes</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the species mappings below changed from CRACMM1&#39;</span><span class="p">)</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">df_checkmatch</span><span class="p">[</span><span class="n">show_cols</span><span class="p">][</span><span class="n">df_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;set display_changes to True to see them all&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;all species matched CRACMM1 mapping&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>there are 1382 changes
-out of 2890 total species
-set display_changes to True to see them all
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 

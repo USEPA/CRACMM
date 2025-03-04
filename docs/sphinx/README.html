@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python Utilities &mdash; CRACMM 2.0 documentation</title>
+  <title>Sphinx Usage in the CRACMM Repository &mdash; CRACMM 2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -19,9 +19,7 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assemble CRACMM species metadata from CMAQ" href="markdown_metadata.html" />
-    <link rel="prev" title="Logos" href="../logos/logos.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,24 +43,20 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../index_duplicate.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python Utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#python-modules">Python Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tutorials-jupyter-notebooks">Tutorials (Jupyter Notebooks)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Python Utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
@@ -92,9 +86,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Python Utilities</li>
+      <li class="breadcrumb-item active">Sphinx Usage in the CRACMM Repository</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/utilities/README.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/sphinx/README.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -102,37 +96,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="python-utilities">
-<h1>Python Utilities<a class="headerlink" href="#python-utilities" title="Link to this heading"></a></h1>
-<section id="python-modules">
-<h2>Python Modules<a class="headerlink" href="#python-modules" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>CRACMM1 Reactive Emission Compounds (ROC) Emission Mapper <a class="reference download internal" download="" href="../_downloads/a9634992afbe2a3f273bc34aa91a3843/cracmm1_mapper.py"><span class="xref download myst">[cracmm1_mapper.py]</span></a>: Maps individual emitted ROC species to CRACMM species. See <a class="reference internal" href="../emissions/README.html"><span class="std std-doc">Emissions page</span></a> for more information.</p></li>
-<li><p>CRACMM2 ROC Emission Mapper <a class="reference download internal" download="" href="../_downloads/1fe7707833079a1aee9ad545b600ce33/cracmm2_mapper.py"><span class="xref download myst">[cracmm2_mapper.py]</span></a>: Maps individual emitted ROC species to CRACMM species. See <a class="reference internal" href="../emissions/README.html"><span class="std std-doc">Emissions page</span></a> for more information.</p></li>
-<li><p>Python code to estimate SOA yields <a class="reference download internal" download="" href="../_downloads/3cac5b9afe8c88c61b30c1d8a8fa4704/soa_yields.py"><span class="xref download myst">[soa_yields.py]</span></a>:
-Performs a screening level estimation of the organic aerosol formation potential of ROC species. The user will need to supply their own ROC inputs (SMILES, OH rate constant in cm3 molec-1 s-1, and vapor pressure in mmHg). Method is described by <a class="reference external" href="https://doi.org/10.5194/acp-23-5043-2023" rel="noreferrer" target="_blank">Pye et al. 2023 <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p></li>
-<li><p>Python code to estimate ozone MIR <a class="reference download internal" download="" href="../_downloads/cc89c4ae527028bbe1b6551da59b0aa1/mir_estimates.py"><span class="xref download myst">[mir_estimates.py]</span></a>:
-Performs a screening level estimation of the ozone formation potential (Maximum Incremental Reactivity, MIR) of ROC species. The user will need to supply their own ROC inputs (SMILES, OH rate constant in cm3 molec-1 s-1, and vapor pressure in mmHg). Method is described by <a class="reference external" href="https://doi.org/10.5194/acp-23-5043-2023" rel="noreferrer" target="_blank">Pye et al. 2023 <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="sphinx-usage-in-the-cracmm-repository">
+<h1>Sphinx Usage in the CRACMM Repository<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository" title="Link to this heading"></a></h1>
+<section id="process-to-build-html">
+<h2>Process to Build HTML<a class="headerlink" href="#process-to-build-html" title="Link to this heading"></a></h2>
+<p>When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made, regardless of how small of a change it is. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:</p>
+<ol class="arabic simple">
+<li><p>In the remote USEPA/CRACMM repository on GitHub, make sure that the changes that have been made in the main branch are mirrored in the CRACMMdocs branch. This will result in the two branches being identical with the exception of the CRACMMdocs branch having additional directories called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, and additional files called <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p>Clone a copy of the CRACMM repository to your work directory on atmos, or, if you already have a local version, make sure that all branches are up to date with the remote repository on GitHub.</p></li>
+<li><p>Once in the your local directory containing the CRACMM repository, enter the commands <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">CRACMMdocs</span></code> and <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">sphinx</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code>
+chmod</p></li>
+</ol>
 </section>
-<section id="tutorials-jupyter-notebooks">
-<h2>Tutorials (Jupyter Notebooks)<a class="headerlink" href="#tutorials-jupyter-notebooks" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="markdown_metadata.html"><span class="std std-doc">Assemble CRACMM Species Metadata from CMAQ</span></a>: Creates species markdown files from CMAQ. Requires as input the CMAQ-ready species namelists, species description file, AERO_DATA.F, SOA_DEFN.F, and hlconst.F.</p></li>
-<li><p><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html"><span class="std std-doc">Map BEIS and MEGAN species to CRACMM</span></a>: Maps individual ROC species from biogenic sources to CRACMM mechanism species.</p></li>
-<li><p><a class="reference internal" href="smiles2cracmm.html"><span class="std std-doc">Find CRACMM species based on CRACMM</span></a>: Demonstrates CRACMM emission mapper.</p></li>
-<li><p><a class="reference internal" href="SPECIATE_map2cracmm.html"><span class="std std-doc">Map SPECIATE species to CRACMM</span></a>: Maps a database of speciated emissions (SPECIATEv5.2) to CRACMM species.</p></li>
-</ul>
+<section id="descriptions-of-important-sphinx-files">
+<h2>Descriptions of Important Sphinx Files<a class="headerlink" href="#descriptions-of-important-sphinx-files" title="Link to this heading"></a></h2>
+<section id="sphinx-run-build-csh">
+<h3>sphinx/run_build.csh<a class="headerlink" href="#sphinx-run-build-csh" title="Link to this heading"></a></h3>
+<section id="rm-r-docs">
+<h4>rm -r ../docs/*<a class="headerlink" href="#rm-r-docs" title="Link to this heading"></a></h4>
+<p>cleans out the directory where HTML documentation is stored to guarantee a fresh start on the HTML every time</p>
+</section>
+<section id="mkdir-static">
+<h4>mkdir ../_static<a class="headerlink" href="#mkdir-static" title="Link to this heading"></a></h4>
+<p>prevents a build warning related to there not being a “_static” directory when running the sphinx-build command. this does not affect the resulting HTML in any way, it simply removes the warning.</p>
+</section>
+<section id="mkdir-utilities-output">
+<h4>mkdir ../utilities/output<a class="headerlink" href="#mkdir-utilities-output" title="Link to this heading"></a></h4>
+<p>creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the sphinx-build command. The files put here are not needed and this directory is deleted after the sphinx-build command is completed.</p>
+</section>
+<section id="python3-duplicate-index-py">
+<h4>python3 duplicate_index.py<a class="headerlink" href="#python3-duplicate-index-py" title="Link to this heading"></a></h4>
+<p>makes a duplicate of index.md called index_duplicate.md. The duplicate that is created does not contain the toctree sphinx directives that are in the original file. index_duplicate.md is included in the main toctree of index.md, allowing the user to access a copy of the landing page from the left navbar.</p>
+</section>
+<section id="sphinx-build-docs">
+<h4>sphinx-build .. ../docs<a class="headerlink" href="#sphinx-build-docs" title="Link to this heading"></a></h4>
+<p>builds HTML files based on markdown files</p>
+</section>
+<section id="touch-docs-nojekyll">
+<h4>touch ../docs/.nojekyll<a class="headerlink" href="#touch-docs-nojekyll" title="Link to this heading"></a></h4>
+</section>
+<section id="rm-r-jupyter-execute">
+<h4>rm -r  jupyter_execute<a class="headerlink" href="#rm-r-jupyter-execute" title="Link to this heading"></a></h4>
+</section>
+<section id="id1">
+<h4>rm -r ../jupyter_execute<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+</section>
+<section id="rm-r-static">
+<h4>rm -r ../_static<a class="headerlink" href="#rm-r-static" title="Link to this heading"></a></h4>
+</section>
+<section id="rm-r-utilities-output">
+<h4>rm -r ../utilities/output<a class="headerlink" href="#rm-r-utilities-output" title="Link to this heading"></a></h4>
+</section>
+<section id="rm-index-duplicate-md">
+<h4>rm ../index_duplicate.md<a class="headerlink" href="#rm-index-duplicate-md" title="Link to this heading"></a></h4>
+</section>
+</section>
+<section id="conf-py">
+<h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading"></a></h3>
+</section>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../logos/logos.html" class="btn btn-neutral float-left" title="Logos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="markdown_metadata.html" class="btn btn-neutral float-right" title="Assemble CRACMM species metadata from CMAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

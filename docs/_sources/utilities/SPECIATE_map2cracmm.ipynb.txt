@@ -158,7 +158,7 @@
    "id": "12df431b-3eaa-4cf8-abc2-2305c54f54f0",
    "metadata": {},
    "source": [
-    "### Run CRACMM2 Mapper"
+    "### Run CRACMM2 Mapper and see mapping changes from CRACMM1 to CRACMM2"
    ]
   },
   {
@@ -235,55 +235,19 @@
     "\n",
     "# check if any species mappings changed\n",
     "df_checkmatch = df.eval(f'match = {orig_map_colname}==CRACMMnew')\n",
-    "show_cols = ['SPECIES_NAME',orig_map_colname,'CRACMMnew']\n",
-    "if len(df_checkmatch[df_checkmatch.match==False])>0:\n",
-    "    print(f'the species mappings below changed from {orig_map_colname}')\n",
-    "    display(df_checkmatch[show_cols][df_checkmatch.match==False])\n",
-    "else:\n",
-    "    print(f'all species matched {orig_map_colname} mapping')\n",
-    "\n",
-    "# save output\n",
-    "df = df.drop(columns=[orig_map_colname, cstar_k])\n",
-    "df.to_csv(outputdir+'SPECIATEv5.2x_fromCRACMM.csv', **csvout_kw)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "4150aad1-c8fd-48ed-8ce4-d9cf4b25ba60",
-   "metadata": {},
-   "source": [
-    "## Which species mappings changed from CRACMM1 to CRACMM2 mapper?"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "e45202a6-2795-4c30-80de-8220708e5276",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "there are 1382 changes\n",
-      "out of 2890 total species\n",
-      "set display_changes to True to see them all\n"
-     ]
-    }
-   ],
-   "source": [
-    "display_changes = False\n",
+    "display_changes = True\n",
     "show_cols = ['SPECIES_NAME','CRACMM1','CRACMMnew']\n",
     "if len(df_checkmatch[df_checkmatch.match==False])>0:\n",
     "    print(f'there are {len(df_checkmatch[df_checkmatch.match==False])} changes')\n",
     "    print(f'out of {len(df_checkmatch)} total species')\n",
-    "    if display_changes:\n",
-    "        print('the species mappings below changed from CRACMM1')\n",
-    "        display(df_checkmatch[show_cols][df_checkmatch.match==False])\n",
-    "    else:\n",
-    "        print('set display_changes to True to see them all')\n",
+    "    print('the species mappings below changed from CRACMM1')\n",
+    "    display(df_checkmatch[show_cols][df_checkmatch.match==False])\n",
     "else:\n",
-    "    print('all species matched CRACMM1 mapping')"
+    "    print('all species matched CRACMM1 mapping')\n",
+    "\n",
+    "# save output\n",
+    "df = df.drop(columns=[orig_map_colname, cstar_k])\n",
+    "df.to_csv(outputdir+'SPECIATEv5.2x_fromCRACMM.csv', **csvout_kw)"
    ]
   }
  ],
