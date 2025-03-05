@@ -100,14 +100,29 @@
 <h1>Sphinx Usage in the CRACMM Repository<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository" title="Link to this heading"></a></h1>
 <section id="process-to-build-html">
 <h2>Process to Build HTML<a class="headerlink" href="#process-to-build-html" title="Link to this heading"></a></h2>
-<p>When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made, regardless of how small of a change it is. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:</p>
+<p>When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below (skip to step 4 if you have already made changes to the repository and are ready to build HTML):</p>
 <ol class="arabic simple">
+<li><p>Make sure you have an environment correctly set up to run Sphinx on the CRACMM repository. If you do not or you are unsure, click <a class="reference internal" href="#sphinx-and-environment-setup">here</a> to learn how.</p></li>
+<li><p>Before making any changes to the latest version of CRACMM, fork the USEPA/CRACMM repository, or, if you already have a fork, sync it to the USEPA version.</p></li>
+<li><p>Make desired changes to any file(s) you want to make changes to on the main branch. You can do this either on GitHub or on a cloned version of the repository on atmos. Do not make changes to the CRACMMdocs branch.</p>
+<ul class="simple">
+<li><p>If you are making the changes directly on GitHub, continue the next steps on atmos either by running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;github</span> <span class="pre">repository</span> <span class="pre">ssh</span> <span class="pre">link&gt;</span></code> in your work directory on atmos, or, if you already have a CRACMM repository clone, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span></code> to include the changes you have just made to your remote fork of the CRACMM repository in your local clone of the repository.</p></li>
+</ul>
+</li>
+<li><p>Next, <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the root directory of the local CRACMM repository on atmos. Then, enter the commands <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">CRACMMdocs</span></code> followed by <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">sphinx</span></code>.</p></li>
+<li></li>
+<li><p>To generate the HTML, run the command <code class="docutils literal notranslate"><span class="pre">./run_build.csh</span></code>.</p>
+<ul class="simple">
+<li><p>This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click <a class="reference internal" href="#sphinx-run-build-csh">here</a>.</p></li>
+<li><p>If you have not run the <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> script before, you may need to change the file access permissions by entering the command <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">run_build.csh</span></code> in order to run it correctly.</p></li>
+</ul>
+</li>
+<li><p>You should now have your updated HTML in the docs folder of the repository!  push the new version of the CRACMMdocs branch with the updated HTML up to the remote CRACMM repository on GitHub using the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">CRACMMdocs</span></code>.</p></li>
 <li><p>In the remote USEPA/CRACMM repository on GitHub, make sure that the changes that have been made in the main branch are mirrored in the CRACMMdocs branch. This will result in the two branches being identical with the exception of the CRACMMdocs branch having additional directories called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, and additional files called <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
-<li><p>Clone a copy of the CRACMM repository to your work directory on atmos, or, if you already have a local version, make sure that all branches are up to date with the remote repository on GitHub.</p></li>
-<li><p>Once in the your local directory containing the CRACMM repository, enter the commands <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">CRACMMdocs</span></code> and <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">sphinx</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code>
-chmod</p></li>
 </ol>
+</section>
+<section id="sphinx-and-environment-setup">
+<h2>Sphinx and Environment setup<a class="headerlink" href="#sphinx-and-environment-setup" title="Link to this heading"></a></h2>
 </section>
 <section id="descriptions-of-important-sphinx-files">
 <h2>Descriptions of Important Sphinx Files<a class="headerlink" href="#descriptions-of-important-sphinx-files" title="Link to this heading"></a></h2>
@@ -115,23 +130,23 @@ chmod</p></li>
 <h3>sphinx/run_build.csh<a class="headerlink" href="#sphinx-run-build-csh" title="Link to this heading"></a></h3>
 <section id="rm-r-docs">
 <h4>rm -r ../docs/*<a class="headerlink" href="#rm-r-docs" title="Link to this heading"></a></h4>
-<p>cleans out the directory where HTML documentation is stored to guarantee a fresh start on the HTML every time</p>
+<p>Cleans out the directory where HTML documentation is stored to guarantee a fresh start on the HTML every time <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> is run.</p>
 </section>
 <section id="mkdir-static">
 <h4>mkdir ../_static<a class="headerlink" href="#mkdir-static" title="Link to this heading"></a></h4>
-<p>prevents a build warning related to there not being a “_static” directory when running the sphinx-build command. this does not affect the resulting HTML in any way, it simply removes the warning.</p>
+<p>Prevents a build warning related to there not being a “_static” directory when running the sphinx-build command. this does not affect the resulting HTML in any way, it simply removes the warning.</p>
 </section>
 <section id="mkdir-utilities-output">
 <h4>mkdir ../utilities/output<a class="headerlink" href="#mkdir-utilities-output" title="Link to this heading"></a></h4>
-<p>creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the sphinx-build command. The files put here are not needed and this directory is deleted after the sphinx-build command is completed.</p>
+<p>Creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the sphinx-build command. The files put here are not needed and this directory is deleted after the sphinx-build command is completed.</p>
 </section>
 <section id="python3-duplicate-index-py">
 <h4>python3 duplicate_index.py<a class="headerlink" href="#python3-duplicate-index-py" title="Link to this heading"></a></h4>
-<p>makes a duplicate of index.md called index_duplicate.md. The duplicate that is created does not contain the toctree sphinx directives that are in the original file. index_duplicate.md is included in the main toctree of index.md, allowing the user to access a copy of the landing page from the left navbar.</p>
+<p>Makes a duplicate of index.md called index_duplicate.md. The duplicate that is created does not contain the toctree sphinx directives that are in the original file. index_duplicate.md is included in the main toctree of index.md, allowing the user to access a copy of the landing page from the left navbar.</p>
 </section>
 <section id="sphinx-build-docs">
 <h4>sphinx-build .. ../docs<a class="headerlink" href="#sphinx-build-docs" title="Link to this heading"></a></h4>
-<p>builds HTML files based on markdown files</p>
+<p>Builds HTML files based on markdown files. This is where sphinx actually operates on the CRACMM repository. It takes input from the root directory of the repsoitory (hense the <code class="docutils literal notranslate"><span class="pre">..</span></code>, which is the relative path to the root directory from the sphinx directory) and produces output files in the docs directory (hense the <code class="docutils literal notranslate"><span class="pre">../docs</span></code>, which is the relative path to the docs directory from the sphinx directory).</p>
 </section>
 <section id="touch-docs-nojekyll">
 <h4>touch ../docs/.nojekyll<a class="headerlink" href="#touch-docs-nojekyll" title="Link to this heading"></a></h4>
@@ -154,6 +169,12 @@ chmod</p></li>
 </section>
 <section id="conf-py">
 <h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading"></a></h3>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Michael Pye (pye.michael@epa.gov)
+date: 2025-03-04
+</pre></div>
+</div>
+<hr class="docutils" />
 </section>
 </section>
 </section>
@@ -166,7 +187,7 @@ chmod</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2019, U.S. Federal Government.</p>
+    <p>&#169; Copyright 2025, U.S. Federal Government.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
