@@ -1,24 +1,17 @@
 # Sphinx Usage in the CRACMM Repository 
 
 ## Process to Build HTML
-When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below (skip to step 4 if you have already made changes to the repository and are ready to build HTML):  
+When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:  
 
-1. Make sure you have an environment correctly set up to run Sphinx on the CRACMM repository. If you do not or you are unsure, click [here](#sphinx-and-environment-setup) to learn how.
+1. Starting in your home directory (`~/`) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command: `source <name of environment>/bin/activate.csh`. If you do not have such environment set up, click [here](#sphinx-and-environment-setup) to learn how.  
 
-2. On Atmos, `cd` to the root directory of your local CRACMM repository.
+2. `cd` to the root directory of your local CRACMM repository.
 
-2. Before making any changes to the latest version of CRACMM, fork the USEPA/CRACMM repository, or, if you already have a fork, sync it to the USEPA version. 
+3. If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the main branch of your local repository. First, make sure you are in the `main` branch by entering the command: `git switch main`. Then, merge the changes using the command: `git merge origin main`.
 
-3. Merge USEPA/CRACMM main to to your fork main
+4. Once the main branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the CRACMMdocs branch. If 
 
-3. Make desired changes to any file(s) you want to make changes to on the main branch. You can do this either on GitHub or on a cloned version of the repository on atmos. Do not make changes to the CRACMMdocs branch.
-    * If you are making the changes directly on GitHub, continue the next steps on atmos either by running `git clone <github repository ssh link>` in your work directory on atmos, or, if you already have a CRACMM repository clone, run `git pull origin` to include the changes you have just made to your remote fork of the CRACMM repository in your local clone of the repository.  
-delete
-
-4. Next, `cd` to the root directory of the local CRACMM repository on atmos. Then, enter the commands `git switch CRACMMdocs` followed by `cd sphinx`.
-make sure to include new docs branch
-
-5. 
+4. Next, enter the commands `git switch CRACMMdocs` followed by `cd sphinx`.
 
 5. To generate the HTML, run the command `./run_build.csh`.
     * This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the `sphinx-build` command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click [here](#sphinxrun_buildcsh).
