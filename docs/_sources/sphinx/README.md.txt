@@ -1,27 +1,73 @@
-# Sphinx Usage in the CRACMM Repository 
+# Sphinx Usage in the CRACMM Repository (Only for USEPA employees)
 
 ## Process to Build HTML
-When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:  
+When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:  
 
-1. Starting in your home directory (`~/`) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command: `source <name of environment>/bin/activate.csh`. If you do not have such environment set up, click [here](#sphinx-and-environment-setup) to learn how.  
+1. Starting in your home directory (`~/`) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command:  
+    ```
+    source <name of environment>/bin/activate.csh  
+    ```
+    If you do not have such environment set up, click [here](#sphinx-and-environment-setup) to learn how.  
 
 2. `cd` to the root directory of your local CRACMM repository.
 
-3. If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the `main` branch of your local repository. First, make sure you are in the `main` branch by entering the command: `git switch main`. Then, merge the changes using the command: `git merge origin main`.
+3. If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the `main` branch of your local repository. To do this, enter the following commands:  
+    ```
+    git switch main    #if not already in main
+    git merge origin main
+    ```
+4. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the `CRACMMdocs` branch. For this to work, you need to already have the `CRACMMdocs` branch on your local repository. If you do not, follow the steps in the bullet points below: 
 
-4. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the `CRACMMdocs` branch. Enter the command: `git switch CRACMMdocs`, follwed by: `git merge main` to merge the changes from `main` into `CRACMMdocs` 
-    * If you do not have a branch called `CRACMMdocs` on your local repository, make one by entering the command `git switch -c CRACMMdocs`. You should now be in a new branch called `CRACMMdocs`. 
+    * If your remote repository does not have a `CRACMMdocs` branch yet, you will need to sync your remote repository with the USEPA/CRACMM repository.
 
-4. Next, enter the commands `git switch CRACMMdocs` followed by `cd sphinx`.
+    * If you do not have a branch called `CRACMMdocs` on your local repository, make one by entering the command:
+        ```
+        git switch -c CRACMMdocs 
+        ```
+        You should now be in a new branch called `CRACMMdocs`. Next, to retrieve the files in the remote `CRACMMdocs` branch, run the command:  
+        ```
+        git pull origin CRACMMdocs
+        ```
 
-5. Now its time to build the HTML for the website! First, enter the command `cd sphinx` (assuming you are in the root directory of the `CRACMMdocs` branch). Then, run the command `./run_build.csh`. Once the process is complete, you should have your updated HTML in the docs folder of the repository!
+    To replicate the changes made to `main` on `CRACMMdocs`, enter the commands:
+    ```
+    git switch CRACMMdocs
+    git merge main
+    ```
+  
+
+5. Next, enter the `sphinx` directory by entering the commands: `git switch CRACMMdocs` followed by `cd sphinx`.
+
+6. Now its time to build the HTML for the website! To do this, run the command: 
+    ```
+    ./run_build.csh
+    ```
+    Once the process is complete, you should have your updated HTML in the docs folder of the repository!
+
     * This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the `sphinx-build` command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click [here](#sphinxrun_buildcsh).
-    * If you have not run the `run_build.csh` script before, you may need to change the file access permissions by entering the command `chmod u+x run_build.csh` in order to run it correctly.
-    * When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-15 warnings is normal and should not mean that there is a problem. However, the number of warnings that do not indicate an issue may change as the website develops with time so always check the warnings to see whether they may represent an issue with the website. 
 
-6.   push the new version of the `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command `git push -u origin CRACMMdocs`.
+    * If you have not run the `run_build.csh` script before, you may need to change the file access permissions by entering the command:
+        ```
+        chmod u+x run_build.csh
+        ```
 
-4. In the remote USEPA/CRACMM repository on GitHub, make sure that the changes that have been made in the main branch are mirrored in the `CRACMMdocs` branch. This will result in the two branches being identical with the exception of the `CRACMMdocs` branch having additional directories called `docs` and `sphinx`, and additional files called `conf.py` and `.gitignore`.
+    * When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-20 warnings is normal and should not mean that there is a problem. Sometimes, the number of warnings can vary even if no change has been made so be aware that the warnings are not always consistant. Also, the number of warnings that can generally be considered "safe" (not indicating an issue) will likely change as the website develops with time. Therefore, always check the warnings to see whether they may represent an issue with the website. 
+
+    * You also may recieve a few warnings from the `rm` command saying that certain files or directories could not be removed. These do not indicate any issues with the build process and can be ignored.
+
+7. Commit the new HTML to the repository by running the commands:
+    ```
+    git add --all
+    git commit
+    ```
+    Then write the desired commit message.
+
+8. Once the changes have been commited, push the new version of the local `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:
+    ```
+    git push -u origin CRACMMdocs
+    ```
+
+9. Finally, go back to your remote fork of the CRACMM repository on GitHub and submit a pull request from your `CRACMMdocs` docs branch, with the new HTML, to the USEPA/CRACMM repository. Once the pull request is approved, you will have officially updated the CRACMM documentation!
 
 
 ## Sphinx and Environment setup

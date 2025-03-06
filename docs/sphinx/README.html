@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sphinx Usage in the CRACMM Repository &mdash; CRACMM 2.0 documentation</title>
+  <title>Sphinx Usage in the CRACMM Repository (Only for USEPA employees) &mdash; CRACMM 2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -87,7 +87,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Sphinx Usage in the CRACMM Repository</li>
+      <li class="breadcrumb-item active">Sphinx Usage in the CRACMM Repository (Only for USEPA employees)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/sphinx/README.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -97,30 +97,74 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="sphinx-usage-in-the-cracmm-repository">
-<h1>Sphinx Usage in the CRACMM Repository<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository" title="Link to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sphinx-usage-in-the-cracmm-repository-only-for-usepa-employees">
+<h1>Sphinx Usage in the CRACMM Repository (Only for USEPA employees)<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository-only-for-usepa-employees" title="Link to this heading"></a></h1>
 <section id="process-to-build-html">
 <h2>Process to Build HTML<a class="headerlink" href="#process-to-build-html" title="Link to this heading"></a></h2>
-<p>When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:</p>
-<ol class="arabic simple">
-<li><p>Starting in your home directory (<code class="docutils literal notranslate"><span class="pre">~/</span></code>) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;name</span> <span class="pre">of</span> <span class="pre">environment&gt;/bin/activate.csh</span></code>. If you do not have such environment set up, click <a class="reference internal" href="#sphinx-and-environment-setup">here</a> to learn how.</p></li>
+<p>When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:</p>
+<ol class="arabic">
+<li><p>Starting in your home directory (<code class="docutils literal notranslate"><span class="pre">~/</span></code>) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">environment</span><span class="o">&gt;/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span><span class="o">.</span><span class="n">csh</span>  
+</pre></div>
+</div>
+<p>If you do not have such environment set up, click <a class="reference internal" href="#sphinx-and-environment-setup">here</a> to learn how.</p>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> to the root directory of your local CRACMM repository.</p></li>
-<li><p>If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of your local repository. First, make sure you are in the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch by entering the command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">main</span></code>. Then, merge the changes using the command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">origin</span> <span class="pre">main</span></code>.</p></li>
-<li><p>Once the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch. Enter the command: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">CRACMMdocs</span></code>, follwed by: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">main</span></code> to merge the changes from <code class="docutils literal notranslate"><span class="pre">main</span></code> into <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code></p>
-<ul class="simple">
-<li><p>If you do not have a branch called <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> on your local repository, make one by entering the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">-c</span> <span class="pre">CRACMMdocs</span></code>. You should now be in a new branch called <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>.</p></li>
-</ul>
+<li><p>If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of your local repository. To do this, enter the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="n">main</span>    <span class="c1">#if not already in main</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">origin</span> <span class="n">main</span>
+</pre></div>
+</div>
 </li>
-<li><p>Next, enter the commands <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">CRACMMdocs</span></code> followed by <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">sphinx</span></code>.</p></li>
-<li><p>Now its time to build the HTML for the website! First, enter the command <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">sphinx</span></code> (assuming you are in the root directory of the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch). Then, run the command <code class="docutils literal notranslate"><span class="pre">./run_build.csh</span></code>. Once the process is complete, you should have your updated HTML in the docs folder of the repository!</p>
-<ul class="simple">
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch. For this to work, you need to already have the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch on your local repository. If you do not, follow the steps in the bullet points below:</p>
+<ul>
+<li><p>If your remote repository does not have a <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch yet, you will need to sync your remote repository with the USEPA/CRACMM repository.</p></li>
+<li><p>If you do not have a branch called <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> on your local repository, make one by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="o">-</span><span class="n">c</span> <span class="n">CRACMMdocs</span> 
+</pre></div>
+</div>
+<p>You should now be in a new branch called <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>. Next, to retrieve the files in the remote <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">CRACMMdocs</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To replicate the changes made to <code class="docutils literal notranslate"><span class="pre">main</span></code> on <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>, enter the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="n">CRACMMdocs</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">main</span>
+</pre></div>
+</div>
+</li>
+<li><p>Next, enter the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> directory by entering the commands: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">switch</span> <span class="pre">CRACMMdocs</span></code> followed by <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">sphinx</span></code>.</p></li>
+<li><p>Now its time to build the HTML for the website! To do this, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">run_build</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p>Once the process is complete, you should have your updated HTML in the docs folder of the repository!</p>
+<ul>
 <li><p>This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click <a class="reference internal" href="#sphinx-run-build-csh">here</a>.</p></li>
-<li><p>If you have not run the <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> script before, you may need to change the file access permissions by entering the command <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">u+x</span> <span class="pre">run_build.csh</span></code> in order to run it correctly.</p></li>
-<li><p>When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-15 warnings is normal and should not mean that there is a problem. However, the number of warnings that do not indicate an issue may change as the website develops with time so always check the warnings to see whether they may represent an issue with the website.</p></li>
+<li><p>If you have not run the <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> script before, you may need to change the file access permissions by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">run_build</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+</li>
+<li><p>When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-20 warnings is normal and should not mean that there is a problem. Sometimes, the number of warnings can vary even if no change has been made so be aware that the warnings are not always consistant. Also, the number of warnings that can generally be considered “safe” (not indicating an issue) will likely change as the website develops with time. Therefore, always check the warnings to see whether they may represent an issue with the website.</p></li>
+<li><p>You also may recieve a few warnings from the <code class="docutils literal notranslate"><span class="pre">rm</span></code> command saying that certain files or directories could not be removed. These do not indicate any issues with the build process and can be ignored.</p></li>
 </ul>
 </li>
-<li><p>push the new version of the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch with the updated HTML up to the remote CRACMM repository on GitHub using the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">CRACMMdocs</span></code>.</p></li>
-<li><p>In the remote USEPA/CRACMM repository on GitHub, make sure that the changes that have been made in the main branch are mirrored in the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch. This will result in the two branches being identical with the exception of the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch having additional directories called <code class="docutils literal notranslate"><span class="pre">docs</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, and additional files called <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p>Commit the new HTML to the repository by running the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">--</span><span class="nb">all</span>
+<span class="n">git</span> <span class="n">commit</span>
+</pre></div>
+</div>
+<p>Then write the desired commit message.</p>
+</li>
+<li><p>Once the changes have been commited, push the new version of the local <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">CRACMMdocs</span>
+</pre></div>
+</div>
+</li>
+<li><p>Finally, go back to your remote fork of the CRACMM repository on GitHub and submit a pull request from your <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> docs branch, with the new HTML, to the USEPA/CRACMM repository. Once the pull request is approved, you will have officially updated the CRACMM documentation!</p></li>
 </ol>
 </section>
 <section id="sphinx-and-environment-setup">

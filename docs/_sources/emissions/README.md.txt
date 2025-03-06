@@ -30,6 +30,8 @@ US EPA, 2023, "CMAQ Model Version 5.4 CRACMM Input Data -- 1/1/2018 - 12/31/2018
 
 - CMAQ-MPAS ready ([Wong, Willison, et al., 2024](https://doi.org/10.5194/gmd-17-7855-2024)) CRACMM1 emissions for 2017 over the globe: US EPA, 2024, "MPAS-CMAQ Model Version 5.5 CRACMM2 Input Data -- 1/1/2017 - 12/31/2017 120 km Global", [https://doi.org/10.15139/S3/PAHQFO](https://doi.org/10.15139/S3/PAHQFO), UNC Dataverse, V1.
 
+- EPA, U.: CMAQ Model Version 5.5 Benchmark Input and Output Data (V1), UNC Dataverse [dataset], [https://doi.org/doi:10.15139/S3/X5SZM2](doi:10.15139/S3/X5SZM2), 2024.
+
 ### SMOKE inputs
 - EPA 2022v1 Platform, [https://www.epa.gov/air-emissions-modeling/2022v1-emissions-modeling-platform](https://www.epa.gov/air-emissions-modeling/2022v1-emissions-modeling-platform), Last updated on January 31, 2025.
 - EPA 2016v3 Platform, [https://www.epa.gov/air-emissions-modeling/2016v3-platform](https://www.epa.gov/air-emissions-modeling/2016v3-platform), Last updated June 4, 2024.
@@ -95,8 +97,6 @@ CRACMM1 cannot be easily mapped to Carbon Bond. For aged air, such as regional m
 Foley, K. M., Pouliot, G. A., Eyth, A., Aldridge, M. F., Allen, C., Appel, K. W., Bash, J. O., Beardsley, M., Beidler, J., Choi, D., Farkas, C., Gilliam, R. C., Godfrey, J., Henderson, B. H., Hogrefe, C., Koplitz, S. N., Mason, R., Mathur, R., Misenis, C., Possiel, N., Pye, H. O. T., Reynolds, L., Roark, M., Roberts, S., Schwede, D. B., Seltzer, K. M., Sonntag, D., Talgo, K., Toro, C., Vukovich, J., Xing, J., and Adams, E.: 2002–2017 anthropogenic emissions data for air quality modeling over the United States, Data in Brief, 47, 109022, [https://doi.org/10.1016/j.dib.2023.109022](https://doi.org/10.1016/j.dib.2023.109022), 2023.
 
 Murphy, B. N., Nolte, C. G., Sidi, F., Bash, J. O., Appel, K. W., Jang, C., Kang, D., Kelly, J., Mathur, R., Napelenok, S., Pouliot, G., and Pye, H. O. T.: The Detailed Emissions Scaling, Isolation, and Diagnostic (DESID) module in the Community Multiscale Air Quality (CMAQ) modeling system version 5.3.2, Geosci. Model Dev., 14, 3407-3420, [https://doi.org/10.5194/gmd-14-3407-2021](https://gmd.copernicus.org/articles/14/3407/2021/), 2021.
-
-EPA, U.: CMAQ Model Version 5.5 Benchmark Input and Output Data (V1), UNC Dataverse [dataset], [https://doi.org/doi:10.15139/S3/X5SZM2](doi:10.15139/S3/X5SZM2), 2024.
 
 Wong, D. C., Willison, J., Pleim, J. E., Sarwar, G., Beidler, J., Bullock, R., Herwehe, J. A., Gilliam, R., Kang, D., Hogrefe, C., Pouliot, G., and Foroutan, H.: Development of the MPAS-CMAQ coupled system (V1.0) for multiscale global air quality modeling, Geosci. Model Dev., 17, 7855-7866, [https://doi.org/10.5194/gmd-17-7855-2024](https://gmd.copernicus.org/articles/17/7855/2024/), 2024.
 
