@@ -45,6 +45,7 @@ The official, frozen versions of CRACMM reside in CMAQ in the [US EPA Github rep
    :caption: Additional Information
    :hidden:
 
+   contribute.md
    additional_info.md
    license.md
 
