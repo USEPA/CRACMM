@@ -7,19 +7,21 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
 
 2. `cd` to the root directory of your local CRACMM repository.
 
-3. If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the main branch of your local repository. First, make sure you are in the `main` branch by entering the command: `git switch main`. Then, merge the changes using the command: `git merge origin main`.
+3. If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the `main` branch of your local repository. First, make sure you are in the `main` branch by entering the command: `git switch main`. Then, merge the changes using the command: `git merge origin main`.
 
-4. Once the main branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the CRACMMdocs branch. If 
+4. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the `CRACMMdocs` branch. Enter the command: `git switch CRACMMdocs`, follwed by: `git merge main` to merge the changes from `main` into `CRACMMdocs` 
+    * If you do not have a branch called `CRACMMdocs` on your local repository, make one by entering the command `git switch -c CRACMMdocs`. You should now be in a new branch called `CRACMMdocs`. 
 
 4. Next, enter the commands `git switch CRACMMdocs` followed by `cd sphinx`.
 
-5. To generate the HTML, run the command `./run_build.csh`.
+5. Now its time to build the HTML for the website! First, enter the command `cd sphinx` (assuming you are in the root directory of the `CRACMMdocs` branch). Then, run the command `./run_build.csh`. Once the process is complete, you should have your updated HTML in the docs folder of the repository!
     * This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the `sphinx-build` command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click [here](#sphinxrun_buildcsh).
     * If you have not run the `run_build.csh` script before, you may need to change the file access permissions by entering the command `chmod u+x run_build.csh` in order to run it correctly.
+    * When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-15 warnings is normal and should not mean that there is a problem. However, the number of warnings that do not indicate an issue may change as the website develops with time so always check the warnings to see whether they may represent an issue with the website. 
 
-6. You should now have your updated HTML in the docs folder of the repository!  push the new version of the CRACMMdocs branch with the updated HTML up to the remote CRACMM repository on GitHub using the command `git push -u origin CRACMMdocs`.
+6.   push the new version of the `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command `git push -u origin CRACMMdocs`.
 
-4. In the remote USEPA/CRACMM repository on GitHub, make sure that the changes that have been made in the main branch are mirrored in the CRACMMdocs branch. This will result in the two branches being identical with the exception of the CRACMMdocs branch having additional directories called `docs` and `sphinx`, and additional files called `conf.py` and `.gitignore`.
+4. In the remote USEPA/CRACMM repository on GitHub, make sure that the changes that have been made in the main branch are mirrored in the `CRACMMdocs` branch. This will result in the two branches being identical with the exception of the `CRACMMdocs` branch having additional directories called `docs` and `sphinx`, and additional files called `conf.py` and `.gitignore`.
 
 
 ## Sphinx and Environment setup
