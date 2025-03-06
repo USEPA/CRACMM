@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find CRACMM species based on SMILES &mdash; CRACMM 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Map SPECIATE species to CRACMM" href="SPECIATE_map2cracmm.html" />
+    <link rel="prev" title="Map BEIS and MEGAN species to CRACMM" href="BEISMEGAN_biogenicmapping2cracmm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CRACMM
+              <img src="../_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index_duplicate.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Python Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Find CRACMM species based on SMILES</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notebook-description">Notebook Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-notebook">Download Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-rdkit-if-not-already-installed">Install rdkit if not already installed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#option-1-interactively-enter-species-properties">Option 1: Interactively enter species properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#option-2-same-as-option-1-but-not-interactive">Option 2: Same as option 1 but not interactive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#option-3-run-multiple-species-in-batch">Option 3: Run multiple species in batch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-pandas-dataframe-with-species-properties">Create a pandas DataFrame with species properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-column-for-cracmm-species-from-cracmm-mapper">Add column for CRACMM species from cracmm_mapper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM" rel="noreferrer" target="_blank">CRACMM GitHub <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm" rel="noreferrer" target="_blank">EPA CRACMM Fact Sheet <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/" rel="noreferrer" target="_blank">CMAQ Documentation <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Find CRACMM species based on SMILES</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/utilities/smiles2cracmm.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="find-cracmm-species-based-on-smiles">
+<h1>Find CRACMM species based on SMILES<a class="headerlink" href="#find-cracmm-species-based-on-smiles" title="Link to this heading"></a></h1>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Nash Skipper
+date: 2024-02-14
+
+updated: Michael Pye
+date: 2025-02-27
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="notebook-description">
+<h2>Notebook Description<a class="headerlink" href="#notebook-description" title="Link to this heading"></a></h2>
+<p>This notebook provides examples of how to use the cracmm_mapper tool.</p>
+</section>
+<section id="download-notebook">
+<h2>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h2>
+<p>Click <a class="reference external" href="https://github.com/USEPA/CRACMM/blob/main/utilities/smiles2cracmm.ipynb" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> to access the Jupyter Notebook file directly in GitHub where it can be downloaded.</p>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># set location of mapper downloaded from https://github.com/USEPA/CRACMM/</span>
+<span class="c1"># import sys</span>
+<span class="c1"># utildir = &#39;/path/to/cracmm/utilities/directory&#39;   </span>
+<span class="c1"># sys.path.append(utildir)</span>
+
+<span class="c1"># Import the python utilities</span>
+<span class="kn">import</span> <span class="nn">cracmm1_mapper</span> <span class="k">as</span> <span class="nn">cracmm1</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 1)</span>
+<span class="kn">import</span> <span class="nn">cracmm2_mapper</span> <span class="k">as</span> <span class="nn">cracmm2</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="install-rdkit-if-not-already-installed">
+<h2>Install rdkit if not already installed<a class="headerlink" href="#install-rdkit-if-not-already-installed" title="Link to this heading"></a></h2>
+<p>The cracmm_mapper function depends on <a class="reference external" href="https://www.rdkit.org/" rel="noreferrer" target="_blank">rdkit <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !python -m pip install --user rdkit</span>
+
+<span class="c1"># to install in the current kernel:</span>
+<span class="c1"># %pip install rdkit</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-1-interactively-enter-species-properties">
+<h2>Option 1: Interactively enter species properties<a class="headerlink" href="#option-1-interactively-enter-species-properties" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#The current values of &quot;smiles&quot;, &quot;kOH&quot;, and &quot;log10Cstar&quot; are example user inputs.</span>
+<span class="c1">#For true interactive behavior, replace the variable values with the commented </span>
+<span class="c1">#code on the same line.</span>
+<span class="n">smiles</span> <span class="o">=</span> <span class="s1">&#39;C=CC1=CC=CC=C1&#39;</span>   <span class="c1">#str(input(&#39;enter SMILES:  &#39;))</span>
+<span class="n">kOH</span> <span class="o">=</span> <span class="mf">5.79e-11</span>  <span class="c1">#float(input(&#39;enter kOH (cm3 molecules-1 s-1):  &#39;))</span>
+<span class="n">log10Cstar</span> <span class="o">=</span> <span class="mf">7.55</span>   <span class="c1">#float(input(&#39;enter log10Cstar (Cstar in ug/m3):  &#39;))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CRACMM species:  </span><span class="si">{</span><span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span><span class="w"> </span><span class="n">kOH</span><span class="p">,</span><span class="w"> </span><span class="n">log10Cstar</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CRACMM species:  STY
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-2-same-as-option-1-but-not-interactive">
+<h2>Option 2: Same as option 1 but not interactive<a class="headerlink" href="#option-2-same-as-option-1-but-not-interactive" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smiles</span> <span class="o">=</span> <span class="s1">&#39;C=CC1=CC=CC=C1&#39;</span>
+<span class="n">kOH</span> <span class="o">=</span> <span class="mf">5.79e-11</span>      <span class="c1"># [cm3/(molecule*s)]</span>
+<span class="n">log10Cstar</span> <span class="o">=</span> <span class="mf">7.55</span>   <span class="c1"># [Cstar in ug/m3]</span>
+<span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">smiles</span><span class="p">,</span> <span class="n">kOH</span><span class="p">,</span> <span class="n">log10Cstar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;STY&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-3-run-multiple-species-in-batch">
+<h2>Option 3: Run multiple species in batch<a class="headerlink" href="#option-3-run-multiple-species-in-batch" title="Link to this heading"></a></h2>
+<section id="create-a-pandas-dataframe-with-species-properties">
+<h3>Create a pandas DataFrame with species properties<a class="headerlink" href="#create-a-pandas-dataframe-with-species-properties" title="Link to this heading"></a></h3>
+<p>This is a simple example for demonstration. A more typical application would be to have a csv or excel file containing the SMILES string, kOH, and log10(Cstar) which can be used to create the DataFrame instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;species&#39;</span><span class="p">:</span>    <span class="p">[</span><span class="s1">&#39;styrene&#39;</span><span class="p">,</span> <span class="s1">&#39;cyclohexane&#39;</span><span class="p">,</span> <span class="s1">&#39;glyoxal&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;SMILES&#39;</span><span class="p">:</span>     <span class="p">[</span><span class="s1">&#39;C=CC1=CC=CC=C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C1CCCCC1&#39;</span><span class="p">,</span> <span class="s1">&#39;O=CC=O&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;koh&#39;</span><span class="p">:</span>        <span class="p">[</span><span class="mf">5.79e-11</span><span class="p">,</span> <span class="mf">7.48e-12</span><span class="p">,</span> <span class="mf">1.14e-11</span><span class="p">],</span> <span class="c1"># [cm3/(molecule*s)]</span>
+    <span class="s1">&#39;log10cstar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">7.55</span><span class="p">,</span> <span class="mf">8.64</span><span class="p">,</span> <span class="mf">8.90</span><span class="p">]</span> <span class="c1"># [Cstar in ug/m3]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>SMILES</th>
+      <th>koh</th>
+      <th>log10cstar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>styrene</td>
+      <td>C=CC1=CC=CC=C1</td>
+      <td>5.790000e-11</td>
+      <td>7.55</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cyclohexane</td>
+      <td>C1CCCCC1</td>
+      <td>7.480000e-12</td>
+      <td>8.64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>glyoxal</td>
+      <td>O=CC=O</td>
+      <td>1.140000e-11</td>
+      <td>8.90</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="add-column-for-cracmm-species-from-cracmm-mapper">
+<h3>Add column for CRACMM species from cracmm_mapper<a class="headerlink" href="#add-column-for-cracmm-species-from-cracmm-mapper" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CRACMM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;SMILES&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;koh&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;log10cstar&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>SMILES</th>
+      <th>koh</th>
+      <th>log10cstar</th>
+      <th>CRACMM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>styrene</td>
+      <td>C=CC1=CC=CC=C1</td>
+      <td>5.790000e-11</td>
+      <td>7.55</td>
+      <td>STY</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>cyclohexane</td>
+      <td>C1CCCCC1</td>
+      <td>7.480000e-12</td>
+      <td>8.64</td>
+      <td>HC10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>glyoxal</td>
+      <td>O=CC=O</td>
+      <td>1.140000e-11</td>
+      <td>8.90</td>
+      <td>GLY</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="BEISMEGAN_biogenicmapping2cracmm.html" class="btn btn-neutral float-left" title="Map BEIS and MEGAN species to CRACMM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SPECIATE_map2cracmm.html" class="btn btn-neutral float-right" title="Map SPECIATE species to CRACMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, U.S. Federal Government.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metadata &mdash; CRACMM 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logos" href="../logos/logos.html" />
+    <link rel="prev" title="Emissions" href="../emissions/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CRACMM
+              <img src="../_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_duplicate.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#species-information">Species Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Python Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM" rel="noreferrer" target="_blank">CRACMM GitHub <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm" rel="noreferrer" target="_blank">EPA CRACMM Fact Sheet <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://jbrunto.github.io/CMAQ_Docs_v55/" rel="noreferrer" target="_blank">CMAQ Documentation <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Metadata</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/metadata/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="metadata">
+<h1>Metadata<a class="headerlink" href="#metadata" title="Link to this heading"></a></h1>
+<p>CRACMM workflows require that each species in CRACMM has a representative structure specified by a SMILES string. These structures are used to obtain metadata such as solubility (Henry’s law coefficients), volatility, and other parameters.</p>
+<section id="species-information">
+<h2>Species Information<a class="headerlink" href="#species-information" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>All files here are autogenerated by python code from CMAQ files (see the utilities folder). Each mechanism is documented in a markdown and csv file.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/metadata/cracmm1" rel="noreferrer" target="_blank">CRACMM1 <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> metadata: <a class="reference internal" href="cracmm1/cracmm1_aq_species_table.html"><span class="std std-doc">online table version</span></a> and <a class="reference download internal" download="" href="../_downloads/3048b8cd0ff5849d5c223106d06c299e/cracmm1_aq_metadata.csv"><span class="xref download myst">csv version</span></a></p></li>
+<li><p><a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/metadata/cracmm1amore" rel="noreferrer" target="_blank">CRACMM1AMORE <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> metadata: <a class="reference internal" href="cracmm1amore/cracmm1amore_aq_species_table.html"><span class="std std-doc">online table version</span></a> and <a class="reference download internal" download="" href="../_downloads/40002dbe3656480b237611b7d8632ac3/cracmm1amore_aq_metadata.csv"><span class="xref download myst">csv version</span></a></p></li>
+<li><p><a class="reference external" href="https://github.com/USEPA/CRACMM/tree/main/metadata/cracmm2" rel="noreferrer" target="_blank">CRACMM2 <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> metadata: <a class="reference internal" href="cracmm2/cracmm2_species_table.html"><span class="std std-doc">online table version</span></a> and <a class="reference download internal" download="" href="../_downloads/6d0b8f0d44d5b81e1ee062567a19adbd/cracmm2_metadata.csv"><span class="xref download myst">csv version</span></a></p></li>
+</ul>
+</li>
+<li><p>The metadata file in csv is the most complete for describing species and their properties in CMAQ. Properties include:</p>
+<ul>
+<li><p>Species name</p></li>
+<li><p>Description</p></li>
+<li><p>Phase (G=gas, P=particle, GP=gas and particle)</p></li>
+<li><p>Stable (“Yes” indicates species with sufficient lifetime to warrant transport in the host model)</p></li>
+<li><p>Molecular weight (g/mol)</p></li>
+<li><p>Representative (compound that best represents the species)</p></li>
+<li><p>SMILES (for representative compound structure)</p></li>
+<li><p>Henry’s Law Coefficient for wet removal processes (M/atm)</p></li>
+<li><p>Enthalpy of solvation used to adjust the Henry’s Law Coefficient for temperature (K)</p></li>
+<li><p>Density of species in the particulate phase (kg m<sup>-3</sup>)</p></li>
+<li><p>Hygroscopicity parameter, κ, for organic aerosol species (water uptake on inorganic species should be calculated with a thermodynamic model such as E-AIM, ISORROPIA, or similar)</p></li>
+<li><p>Saturation concentration (μg m<sup>-3</sup>)</p></li>
+<li><p>Enthalpy of vaporization used to adjust the saturation concentration for temperature (J/mol)</p></li>
+<li><p>Organic matter to organic carbon ratio for organic aerosol (g/g)</p></li>
+</ul>
+</li>
+<li><p><a class="reference download internal" download="" href="../_downloads/8cc29123a311414a435f2c85b5dc26a6/CRACMM1_2017_emiss_properties.csv"><span class="xref download myst">Properties of species emitted in CRACMM1</span></a> based on 2017 U.S. anthropogenic and biomass burning emissions as used by <a class="reference external" href="https://doi.org/10.5194/acp-23-5043-2023" rel="noreferrer" target="_blank">Pye et al. 2023 <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../emissions/README.html" class="btn btn-neutral float-left" title="Emissions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../logos/logos.html" class="btn btn-neutral float-right" title="Logos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, U.S. Federal Government.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
