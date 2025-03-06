@@ -9,4 +9,5 @@ rm -r ../jupyter_execute
 rm -r ../_static
 rm -r ../utilities/output
 rm ../index_duplicate.md
+rm ../docs/.doctrees/environment.pickle
 
