@@ -308,7 +308,7 @@
    "outputs": [],
    "source": [
     "###########################################\n",
-    "# Write out Markdown for CMAQ github\n",
+    "# Write out Markdown for CMAQ GitHub\n",
     "###########################################\n",
     "dfmarkdown = dfgc[['Species','Description','Phase','Molecular Weight (g/mol)','Explicit/Lumped','Representative','DTXSID','SMILES']].copy()\n",
     "dfmarkdown['SMILES']=dfmarkdown['SMILES'].str.replace('NA','', regex=False)\n",
