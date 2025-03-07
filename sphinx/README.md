@@ -87,7 +87,7 @@ Prevents a build warning related to there not being a "_static" directory when r
 Creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the sphinx-build command. The files put here are not needed and this directory is deleted after the sphinx-build command is completed.
 
 #### `python3 duplicate_index.py`    
-Makes a duplicate of index.md called index_duplicate.md. The duplicate that is created does not contain the toctree sphinx directives that are in the original file. index_duplicate.md is included in the main toctree of index.md, allowing the user to access a copy of the landing page from the left navbar.
+Makes a duplicate of index.md called index_duplicate.md. The duplicate that is created does not contain the toctree sphinx directives that are in the original file. index_duplicate.md is included in the main toctree of index.md, allowing the user to access a copy of the landing page from the left navbar. There may be other ways of adding the landing page to the main toctree, but this seemed like a simple solution.
 
 #### `sphinx-build .. ../docs`    
 Builds HTML files based on markdown files. This is where sphinx actually operates on the CRACMM repository. It takes input from the root directory of the repsoitory (hense the `..`, which is the relative path to the root directory from the sphinx directory) and produces output HTML (and other) files in the docs directory (hense the `../docs`, which is the relative path to the docs directory from the sphinx directory).

@@ -1,4 +1,5 @@
 # Logos
+The CRACMM logo reflects the three air quality endpoints for which CRACMM was designed: particulate matter, oxidants, and hazardous and toxic air pollutants. On the left is an isoprene epoxydiol, a major precursor to particulate matter. In the center is ozone a photochemical oxidant and regulated criteria air pollutant. On the right is formaldehyde, a carcinogen and driver of cancer risk from ambient exposure to air toxics.
 
 ![CRACMM_1](CRACMM_1.png)  
 Download this image as a [PDF](CRACMM_1.pdf) or as a [PNG](CRACMM_1.png)  

@@ -11,7 +11,7 @@ sys.path.insert(1, '/work/MOD3DEV/mpye/cracmm_sphinx')
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'CRACMM'
-copyright = '2025, U.S. Federal Government'
+copyright = 'None'
 author = 'U.S. Environmental Protection Agency'
 release = '2.0'
 
@@ -35,3 +35,4 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_logo = 'logos/CRACMM_1.png'
+html_show_copyright = False
