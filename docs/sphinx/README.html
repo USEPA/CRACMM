@@ -49,6 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../boundary_conditions.html">Boundary Conditions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Python Utilities</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
@@ -218,9 +219,16 @@
 <h4><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">../index_duplicate.md</span></code><a class="headerlink" href="#rm-index-duplicate-md" title="Link to this heading"></a></h4>
 <p>Removes the duplicate copy of <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, which is not needed for the GitHub repository, only to make the HTML page show up in the table of contents navbar on the left side of each page of the website.</p>
 </section>
+<section id="rm-docs-doctrees-environment-pickle">
+<h4><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">../docs/.doctrees/environment.pickle</span></code><a class="headerlink" href="#rm-docs-doctrees-environment-pickle" title="Link to this heading"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">environment.pickle</span></code> is created by the sphinx-build command and ends up in the docs/.doctree directory. <code class="docutils literal notranslate"><span class="pre">.pickle</span></code> files are executable code and can cause security issues when shared with others. This file is deleted to make sure it does not get shared with others. If other <code class="docutils literal notranslate"><span class="pre">.pickle</span></code> files are found, please add another line similar to this one to remove these additional files from being shared with the public.</p>
+</section>
 </section>
 <section id="conf-py">
 <h3>conf.py<a class="headerlink" href="#conf-py" title="Link to this heading"></a></h3>
+</section>
+<section id="index-md">
+<h3>index.md<a class="headerlink" href="#index-md" title="Link to this heading"></a></h3>
 <hr class="docutils" />
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Michael Pye (pye.michael@epa.gov)
 date: 2025-03-04

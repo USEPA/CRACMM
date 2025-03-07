@@ -110,8 +110,14 @@ Removes output files created by the code in the Jupyter Notebooks that are not n
 #### `rm ../index_duplicate.md`
 Removes the duplicate copy of `index.md`, which is not needed for the GitHub repository, only to make the HTML page show up in the table of contents navbar on the left side of each page of the website.
 
+#### `rm ../docs/.doctrees/environment.pickle`
+`environment.pickle` is created by the sphinx-build command and ends up in the docs/.doctree directory. `.pickle` files are executable code and can cause security issues when shared with others. This file is deleted to make sure it does not get shared with others. If other `.pickle` files are found, please add another line similar to this one to remove these additional files from being shared with the public.
+
 
 ### conf.py
+
+
+### index.md
 
 
 
