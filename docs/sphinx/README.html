@@ -170,6 +170,24 @@
 </section>
 <section id="sphinx-and-environment-setup">
 <h2>Sphinx and Environment setup<a class="headerlink" href="#sphinx-and-environment-setup" title="Link to this heading"></a></h2>
+<p>If you have never run Sphinx for CRACMM before, you are going to need to set up a new python environment to make sure everything works correctly. The following steps explain how to set up the environment correctly:</p>
+<ol class="arabic">
+<li><p>To make sure Sphinx works correctly, you need to make sure you have the correct Python version running. I reccomend using 3.11.11 because it has worked for me. To use Python 3.11.11, enter the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">python</span><span class="o">/</span><span class="mf">3.11</span>
+</pre></div>
+</div>
+<p>You can also run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>to make sure you have set the version correctly.</p>
+</li>
+<li><p>Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. Maybe, cracmm_docs_env? Run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">cracmm_docs_env</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </section>
 <section id="descriptions-of-important-sphinx-files">
 <h2>Descriptions of Important Sphinx Files<a class="headerlink" href="#descriptions-of-important-sphinx-files" title="Link to this heading"></a></h2>

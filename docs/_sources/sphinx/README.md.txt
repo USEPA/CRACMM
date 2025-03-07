@@ -71,8 +71,23 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
 
 
 ## Sphinx and Environment setup
+If you have never run Sphinx for CRACMM before, you are going to need to set up a new python environment to make sure everything works correctly. The following steps explain how to set up the environment correctly:
 
+1. To make sure Sphinx works correctly, you need to make sure you have the correct Python version running. I reccomend using 3.11.11 because it has worked for me. To use Python 3.11.11, enter the command:
+    ```
+    module load python/3.11
+    ```
 
+    You can also run:
+    ```
+    python --version
+    ```
+    to make sure you have set the version correctly.
+
+2. Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. Maybe, cracmm_docs_env? Run the following command:
+    ```
+    python -m venv ./cracmm_docs_env
+    ```
 ## Descriptions of Important Sphinx Files
 
 ### sphinx/run_build.csh

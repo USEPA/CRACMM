@@ -30,7 +30,7 @@ US EPA, 2023, "CMAQ Model Version 5.4 CRACMM Input Data -- 1/1/2018 - 12/31/2018
 
 - CMAQ-MPAS ready ([Wong, Willison, et al., 2024](https://doi.org/10.5194/gmd-17-7855-2024)) CRACMM1 emissions for 2017 over the globe: US EPA, 2024, "MPAS-CMAQ Model Version 5.5 CRACMM2 Input Data -- 1/1/2017 - 12/31/2017 120 km Global", [https://doi.org/10.15139/S3/PAHQFO](https://doi.org/10.15139/S3/PAHQFO), UNC Dataverse, V1.
 
-- EPA, U.: CMAQ Model Version 5.5 Benchmark Input and Output Data (V1), UNC Dataverse [dataset], [https://doi.org/doi:10.15139/S3/X5SZM2](doi:10.15139/S3/X5SZM2), 2024.
+- CRACMM1 emissions for 2019 over the contiguous U.S. at 12km horizontal resolution (used by Vannucci et al., 2024 ; Pye et al., 2024 ; and Skipper et al., 2024 ): US EPA, 2025, “CMAQ Model Version 5.4-5.5 CRACMM Input Data – 1/1/2019 - 12/31/2019 12km CONUS”, [https://doi.org/10.15139/S3/WZNGQB](https://doi.org/10.15139/S3/WZNGQB) , UNC Dataverse, V1.
 
 ### SMOKE inputs
 - EPA 2022v1 Platform, [https://www.epa.gov/air-emissions-modeling/2022v1-emissions-modeling-platform](https://www.epa.gov/air-emissions-modeling/2022v1-emissions-modeling-platform), Last updated on January 31, 2025.
