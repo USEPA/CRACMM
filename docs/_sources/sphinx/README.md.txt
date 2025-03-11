@@ -1,7 +1,68 @@
 # Sphinx Usage in the CRACMM Repository (Only for USEPA employees)
+[Sphinx](https://www.sphinx-doc.org/en/master/) is a software written in Python that is used to create HTML files based on already existing files. It is typically used to create websites that document software and it can be used in combination with GitHub's [Pages](https://pages.github.com/) utility to publish a website based on a GitHub repository. This page explains how Sphinx is used to create a GitHub site for the CRACMM repository using Sphinx.
+
+To view this page on on the CRACMM website instead of in raw markdown (if you're not already there), click [here](https://USEPA.github.io/CRACMM/sphinx/README.html).
+
+
+## Table of Contents
+* [Environment Setup](#environment-setup): This section provides instructions on how to create a Python environment designed to run Sphinx on the CRACMM repository.
+
+* [Process to Build HTML](#process-to-build-html): This section is for people who have a Python environment designed to run Sphinx on the CRACMM repository and provides instructions on how to update the HTML for the CRACMM GitHub pages site based on updates to the main branch.
+
+* [HTML Build Script Description](#file-description-run_buildcsh): This section describes the purpose of the `run_build.csh` file and explains what each command in the file does and why it is needed.
+
+* [Sphinx Configuration Description](#file-description-confpy): This section describes the contents of `conf.py` which provides Sphinx with a variety of user option that define how the HTML is produced.
+
+* [Website Landing Page Description](#file-description-indexmd): This section describes the contents of `index.md` which serves as the website landing page. The primary focus is on the table of contents tree (often refered to as "toctree" among Sphinx users) at the bottom of the page which arranges the left navbar on every page of the website.
+
+* [Helpful Resources](#helpful-resources): This section provides links to other websites that have good instructions and tips on how to set up and improve a GitHub Pages site using Sphinx. Many of these websites are also linked in other locations around the page in addition to in the Helpful Resources section.
+
+## Environment setup
+If you have never run Sphinx for CRACMM before, you are going to need to set up a new python environment to make sure everything works correctly. The following steps explain how to set up the environment correctly:
+
+1. To make sure Sphinx works correctly, you need to make sure you have the correct Python version running. Version 3.11.11 is suggested for this task because it works with all packages that will need to be installed. It is likely that other versions will work as well but some may cause compataibility issues with the required packages. To use Python 3.11.11, enter the command:
+    ```
+    module load python/3.11
+    ```
+    To make sure the version is set correctly, you can check your current version by running:
+    ```
+    python --version
+    ```
+
+2. Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. Maybe, cracmm_docs_env? Run the following command:
+    ```
+    python -m venv ./cracmm_docs_env
+    ```
+    Then, to activate the environment, enter the command:
+    ```
+    source cracmm_docs_env/bin/activate.csh
+    ```
+    You should now see `(cracmm_docs_env)` appear to the left of your LAN ID on the command line. This indicates that the environment has been activated. If you ever need to deactivate the enviroment, enter:
+    ```
+    deactivate cracmm_docs_env
+    ```
+
+3.  Next, some Python packages need to be installed so that HTML for the CRACMM website can be produced correctly. Enter the following series of commands to install all necessary packages (the version number of each package used at time of writing are included in the comments after each line):
+    ```
+    pip install --upgrade pip           #25.0.1
+    pip install sphinx                  #8.2.3
+    pip install sphinx_rtd_theme        #3.0.2
+    pip install myst_nb                 #1.2.0
+    pip install sphinx-new-tab-link     #0.7.0
+    ```
+    Description of each installed package:
+    * [sphinx](https://www.sphinx-doc.org/en/master/) is the software needed to generate the HTML from the files already existing in the CRACMM repository.
+
+    * [sphinx_rtd_theme](https://pypi.org/project/sphinx-rtd-theme/) is a package that acts as a Sphinx extension responsible for the overall website design. Other theme extensions could be downloaded to change website appearance. Some theme extensions come pre-installed with Sphinx.
+
+    * [myst_nb](https://myst-nb.readthedocs.io/en/latest/) is a package that acts as a sphinx extenion. It is based on [myst_parser](https://myst-parser.readthedocs.io/en/latest/) and allows markdown and Jupyter Notebook files to be interpreted by Sphinx so that HTML can be generated based on these files.
+
+    * [sphinx-new-tab-link](https://github.com/ftnext/sphinx-new-tab-link/tree/main) is a package that acts as a Sphinx extension. It allows all external links within Sphinx docuentation to open in a new tab instead of overwriting the current tab.
+    
+    Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! To build the HTML for the CRACMM website, continue to the [next section](#process-to-build-html).
 
 ## Process to Build HTML
-When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see. The steps for generating the new HTML and making them live on the CRACMM GitHub Pages website are listed below:  
+When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see. The steps to produce HTML for the CRACMM GitHub Pages site are explained here:
 
 1. Starting in your home directory (`~/`) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command:  
     ```
@@ -34,11 +95,19 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
     git switch CRACMMdocs
     git merge main
     ```
-  
 
-5. Next, enter the `sphinx` directory by entering the commands: `git switch CRACMMdocs` followed by `cd sphinx`.
+5. Before HTML can be built properly using Sphinx, it is important that the Sphinx working path is set correctly. To do this, open up the file `conf.py`. In the top section of the file, right before the "Project inormation" section, there should be a line that looks somthing like this:
+    ```
+    sys.path.insert(1, '<path to a directory>')
+    ```
+    Replace the path included in the parentheses with the absolute path of the root directory of your local CRACMM repository. Then, save the file and return to the command line. For more information on the purpose of this line, click [here](#path-setting).
 
-6. Now its time to build the HTML for the website! To do this, run the command: 
+6. Next, enter the `sphinx` directory by entering the command: 
+    ```
+    cd sphinx
+    ```
+
+7. Now its time to build the HTML for the website! To do this, run the command: 
     ```
     ./run_build.csh
     ```
@@ -55,14 +124,14 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
 
     * You also may recieve a few warnings from the `rm` command saying that certain files or directories could not be removed. These do not indicate any issues with the build process and can be ignored.
 
-7. Commit the new HTML to the repository by running the commands:
+8. Commit the new HTML to the repository by running the commands:
     ```
     git add --all
     git commit
     ```
     Then write the desired commit message.
 
-8. Once the changes have been commited, push the new version of the local `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:
+9. Once the changes have been commited, push the new version of the local `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:
     ```
     git push -u origin CRACMMdocs
     ```
@@ -70,70 +139,140 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
 9. Finally, go back to your remote fork of the CRACMM repository on GitHub and submit a pull request from your `CRACMMdocs` docs branch, with the new HTML, to the USEPA/CRACMM repository. Once the pull request is approved, you will have officially updated the CRACMM documentation!
 
 
-## Sphinx and Environment setup
-If you have never run Sphinx for CRACMM before, you are going to need to set up a new python environment to make sure everything works correctly. The following steps explain how to set up the environment correctly:
+## File Description: run_build.csh
+When building HTML using Sphinx for the CRACMM repository, there are commands that are desireable to run before and after the `sphinx-build` command (the command that actually generates HTML) every time HTML is built. To save the user time, this c-shell script has been created to run the entire list of commands necessary to accurately produce HTML for the CRACMM repository and minimize sphinx-build warnings. A description of the purpose of each line is included below. It is also important to note that this file should always be run from the `sphinx` directory, otherwise it will not function correctly and HTML might not be produced.
 
-1. To make sure Sphinx works correctly, you need to make sure you have the correct Python version running. I reccomend using 3.11.11 because it has worked for me. To use Python 3.11.11, enter the command:
-    ```
-    module load python/3.11
-    ```
-
-    You can also run:
-    ```
-    python --version
-    ```
-    to make sure you have set the version correctly.
-
-2. Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. Maybe, cracmm_docs_env? Run the following command:
-    ```
-    python -m venv ./cracmm_docs_env
-    ```
-## Descriptions of Important Sphinx Files
-
-### sphinx/run_build.csh
-
-#### `rm -r ../docs/*`
+### `rm -r ../docs/*`
 Cleans out the directory where HTML documentation is stored to guarantee a fresh start on the HTML every time `run_build.csh` is run.
 
-#### `mkdir ../_static`
+### `mkdir ../_static`
 Prevents a build warning related to there not being a "_static" directory when running the sphinx-build command. this does not affect the resulting HTML in any way, it simply removes the warning.
 
-#### `mkdir ../utilities/output`
+### `mkdir ../utilities/output`
 Creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the sphinx-build command. The files put here are not needed and this directory is deleted after the sphinx-build command is completed.
 
-#### `python3 duplicate_index.py`    
+### `python3 duplicate_index.py`    
 Makes a duplicate of index.md called index_duplicate.md. The duplicate that is created does not contain the toctree sphinx directives that are in the original file. index_duplicate.md is included in the main toctree of index.md, allowing the user to access a copy of the landing page from the left navbar. There may be other ways of adding the landing page to the main toctree, but this seemed like a simple solution.
 
-#### `sphinx-build .. ../docs`    
+### `sphinx-build .. ../docs`    
 Builds HTML files based on markdown files. This is where sphinx actually operates on the CRACMM repository. It takes input from the root directory of the repsoitory (hense the `..`, which is the relative path to the root directory from the sphinx directory) and produces output HTML (and other) files in the docs directory (hense the `../docs`, which is the relative path to the docs directory from the sphinx directory).
 
-#### `touch ../docs/.nojekyll`
+### `touch ../docs/.nojekyll`
 Creates a `.nojekyll` file in the docs directory. This is an empty file that tells GitHub Pages that all the HTML styling has been done already and it does not need to go through extra steps to format to jekyll style. If this file is not added to the docs directory, the website styling created by Sphinx will not function. 
 
-#### `rm -r  jupyter_execute`
+### `rm -r  jupyter_execute`
 Removes files created when running the Jupyter Notebooks that are not necessary. This line may cause an error related to there being no file or directory called `jupyter_execute`.
 
-#### `rm -r ../jupyter_execute`
+### `rm -r ../jupyter_execute`
 Removes files created when running the Jupyter Notebooks that are not necessary. This line may cause an error related to there being no file or directory called `../jupyter_execute`.
 
-#### `rm -r ../_static`
+### `rm -r ../_static`
 Removes the `../_static` folder which is not needed in the final output. Click [here](#mkdir-_static) for more details on the purpose of this directory.
 
-#### `rm -r ../utilities/output`
+### `rm -r ../utilities/output`
 Removes output files created by the code in the Jupyter Notebooks that are not necessary. Click [here](#mkdir-utilitiesoutput) for more details on the purpose of this directory.
 
-#### `rm ../index_duplicate.md`
+### `rm ../index_duplicate.md`
 Removes the duplicate copy of `index.md`, which is not needed for the GitHub repository, only to make the HTML page show up in the table of contents navbar on the left side of each page of the website.
 
-#### `rm ../docs/.doctrees/environment.pickle`
+### `rm ../docs/.doctrees/environment.pickle`
 `environment.pickle` is created by the sphinx-build command and ends up in the docs/.doctree directory. `.pickle` files are executable code and can cause security issues when shared with others. This file is deleted to make sure it does not get shared with others. If other `.pickle` files are found, please add another line similar to this one to remove these additional files from being shared with the public.
 
 
-### conf.py
+## File Description: conf.py
+`conf.py` is a Sphinx generated file produced by the `sphinx-quickstart` command which initializes a Sphinx project (click [here](https://youtu.be/nZttMg_n_s0?si=WYa8G39MyPvoh20w&t=219) to learn more about what the `sphinx-quickstart` does). The file is responsible for providing Sphinx with important information about how to configure and create your HTML. The file has four different sections, each serving a diferent purpose. For additional information about `conf.py` and all the variables that could be added to it, click [here](https://www.sphinx-doc.org/en/master/usage/configuration.html).
+
+### Path Setting
+The first section is not titled and comes before the section titled "Project information". At the bottom of this section (right above the Project Information section), there are two lines of python code. These lines are:
+```    
+import sys
+sys.path.insert(1, '/work/MOD3DEV/mpye/cracmm_sphinx')
+``` 
+The purpose of these lines is to include the path of the Sphinx project in the Python system path. This allows Sphinx to use this path as a base to generate the website from. In other words, Sphinx will only make HTML based on files within this directory and the files in its sub-directories. Make sure this path is set correctly, otherwise you may come across several issues. 
+
+### Project Information
+In the Project information section, there are four string variables. These are all based on the `sphinx-quickstart` prompt inputs. If necessary, these can be changed to update responses to the prompts and the results of those changes will carry forward throughout the project. At the time of writing, these lines looked like this:
+```
+project = 'CRACMM'
+copyright = 'CRACMM does not have copyright'
+author = 'U.S. Environmental Protection Agency'
+release = '2.0'
+```
+In this case, the `copyright` variable is set to `'CRACMM does not have copyright'` because the US government cannot copyright any of its products. Although this should not change anything on the page, it acts as a placeholder to make it clear that there is no copyright in case a copyright message accidentally shows up somewhere.
+
+### General Configuration
+The General configuration section is an important part of `conf.py`. By default, after running `sphinx-quickstart`, the section looks like this:
+```
+extensions = []
+
+templates_path = ['_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+```
+The extensions list is where all the Sphinx extensions are added to the project so that the resulting HTML can be produced in the desired way. For example, if you would like to make HTML files from markdown files, you will need to add an extension. There are many extension options across the internet and some that are built in when Sphinx is downloaded. For the state of the CRACMM website at the time of writing, there are only two extensions needed and thus the list looks like this: 
+```
+extensions = ['myst_nb', 'sphinx_new_tab_link']
+```
+None of the other default lines in this section were altered from their original state (the `templates_path` and `exclude_patterns` variables). However, three new lines were added to the section:
+```
+myst_enable_extensions = ['dollarmath']
+myst_heading_anchors = 4    
+new_tab_link_show_external_link_icon = True
+```
+* The first variable that was added, `myst_enable_extensions`, allows extensions to be added to the `myst_nb` extension. In this case, the `dollarmath` extension was added, allowing LaTeX code in markdown and Jupyter Notebook files to format correctly when the HTML is produced.
+
+* The `myst_heading_anchors` variable resolves build warnings regarding myst not finding target ID when linking to markdown heading. The value of the variable indicates the lowest level heading that Sphinx will link to. However, even if a link is made to a lower level heading that what is indicated by `myst_heading_anchors`, the link should still work, but it may cause a build warning.
+
+* Finally, the variable `new_tab_link_show_external_link_icon` is a part of the `sphinx-new-tab-link` extension. When set to true (as it currently is) It tells Sphinx to add an icon at the end of every external link across the website.
+
+There are many other variables that can be added to this section that are built-in with Sphinx and many more that are connected to the Sphinx extensions that can be installed by adding them to the `extensions` list. As the website develops further, remember that there are many possibilities here.
 
 
-### index.md
+### Options for HTML Output
+The last section of `conf.py` is the "Options for HTML Output" section. This section contains a few variables that influence the appearance of the HTML that is produced by Sphinx. By when produced by `sphinx-quickstart` at project initalization, the section looks like this:
+```
+html_theme = 'alabaster'
+html_static_path = ['_static']
+```
+* The `html_theme` variable tells Sphinx how to arrange the website HTML. It governs the overall appearance of the site. There are several built in themes that come with Sphinx and others that can be installed in your Python environment.
 
+* The `html_static_path` variable does some sort of path setting where it tells Sphinx where to look for static images. However, this variable was left alone and, for that reason, it is a little unclear exactly how it functions.
+
+After making some changes to this section for the CRACMM repository, the Options for HTML Output section now looks like this:
+```
+html_theme = 'sphinx_rtd_theme'
+html_static_path = ['_static']
+html_logo = 'logos/CRACMM_1.png'
+html_show_copyright = False
+```
+* The `html_theme` variable has been changed from `'alabaster'` to `'sphinx_rtd_theme'`. The "rtd" stands for "Read the Docs", which is another software documentation website hosting service similar to GitHub Pages. This theme is the theme is the theme used by all Read the Docs pages.
+
+* As stated previously, the `html_static_path` variable remains unchanged from its default state.
+
+* The `html_logo` variable is an added variable that is built-in with Sphinx and it sets the path to an image that is included in the upper left corner of the website above the site's search bar. Here is adds the CRACMM logo to the page.
+
+* Lastly, the `html_show_copyright` variable tells Sphinx whether or not to put copyright information at the bottom of the page. When set to `True` (the default setting), the copyright information appears on the footter of every page. when set to `False`, like it is now for CRACMM, this information does not appear. The reason for adding this variable is because the US Government cannot copyright any of its products, so having copyright information here would not be accurate.
+
+Just like with the General Configuration section, there are many other variables that can be added to the Options for HTML Output section that are built-in with Sphinx and many more that are connected to the Sphinx extensions that can be installed by adding them to the `extensions` list. As the website develops further, remember that there are many possibilities here.
+
+## File Description: index.md
+
+
+## Helpful Resources
+### Software Documentation 
+* [Sphinx](https://www.sphinx-doc.org/en/master/): Homepage for Sphinx. Lots of useful deatils across the website describing how to use various Sphinx features.
+
+* [GitHub Pages](https://pages.github.com/): Main page for GitHub Pages help. Gives some simple tutorials on how to get a Pages website up and running and has a "Pages Help" button in the upper right corner for more specific issues. 
+
+* [MyST Parser](https://myst-parser.readthedocs.io/en/latest/): Homepage for MyST Parser. Covers all sorts of functionality of the software throughout the website.
+
+* [MyST NB](https://myst-nb.readthedocs.io/en/latest/): Homepage for MyST NB. Discusses the extra functionality of the Sphinx extension that is not included in the MyST Parser extension.
+
+### Resources for Specific Tasks and Issues
+* [Sphinx Directives](https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html): Sphinx functionality that exists beyond the ability of markdown files' syntax uses a series of "directives". Normally these would be contained within the comments of a ReStructured Text (rst) file, the native file format of Sphinx. This page details the directive options available if additional directives are desired with development of the website after the time of writing.
+
+* [Publishing to GitHub Pages](https://youtu.be/zSZpCrwgVOM?si=XS-v_kxJ4FwPHfOi&t=440): If the website has not yet been published, this YouTube tutorial does a great job explaining how to publish your Sphinx generated HTML using GitHub Pages.
+
+* [Staring Fresh with Sphinx](https://www.youtube.com/watch?v=nZttMg_n_s0): Since the Sphinx project for CRACMM has already been set up, this will not likely be useful. However, understaning the basics of how to start a Sphinx project might be useful to some people, especially in the case that a new sphinx project needs to be created. 
 
 
 ---
