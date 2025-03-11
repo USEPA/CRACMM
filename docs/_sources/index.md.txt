@@ -30,7 +30,6 @@ See also the [CRACMM reference list](../additional_info.md#references).
 
 ```{eval-rst}
 .. toctree::
-   :maxdepth: 2
    :caption: Contents
    :hidden:
 
@@ -43,17 +42,15 @@ See also the [CRACMM reference list](../additional_info.md#references).
    utilities/README.md
 
 .. toctree::
-   :maxdepth: 2
    :caption: Tutorials
    :hidden:
 
-   utilities/markdown_metadata
-   utilities/BEISMEGAN_biogenicmapping2cracmm
-   utilities/smiles2cracmm
-   utilities/SPECIATE_map2cracmm
+   utilities/markdown_metadata.ipynb
+   utilities/BEISMEGAN_biogenicmapping2cracmm.ipynb
+   utilities/smiles2cracmm.ipynb
+   utilities/SPECIATE_map2cracmm.ipynb
 
 .. toctree::
-   :maxdepth: 2
    :caption: Additional Information
    :hidden:
 
@@ -62,12 +59,11 @@ See also the [CRACMM reference list](../additional_info.md#references).
    license.md
 
 .. toctree::
-   :maxdepth: 1
    :caption: External Resources
    :hidden:
 
    CRACMM GitHub <https://github.com/USEPA/CRACMM>
    EPA CRACMM Description <https://www.epa.gov/cmaq/cracmm>
-   CMAQ Documentation <https://jbrunto.github.io/CMAQ_Docs_v55/>
+   CMAQ Documentation <https://usepa.github.io/CMAQ/>
 
    ```

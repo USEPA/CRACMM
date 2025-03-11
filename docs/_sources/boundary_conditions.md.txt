@@ -1,4 +1,5 @@
 # Boundary Conditions
+Regional CRACMM simulations require chemical boundary and initial conditions. Several tools are available to assist with this process:
 
 ## General Process
 
@@ -7,8 +8,6 @@
 2. Extract and map the species to the regional CRACMM domain. 
 
 ## Tools 
-Regional CRACMM simulations require chemical boundary and initial conditions. Several tools are available to assist with this process:
-
 * [BCON](https://github.com/USEPA/CMAQ/tree/main/PREP/bcon). BCON prepares chemical boundary conditions for CMAQ. Files specifying how CB6r5 species map to CRACMM are available [here](https://github.com/USEPA/CMAQ/tree/main/PREP/bcon/map2mech). BCON (and ICON) include a profile that can be used.
 
 * [ICON](https://github.com/USEPA/CMAQ/blob/main/PREP/icon/README.md). ICON prepares initial conditions. The effect of initial conditions can be removed through proper spin-up, generally at least one month. See [Hogrefe et al. (2017)](https://doi.org/10.1016/j.atmosenv.2017.04.009) for information on spin-up times.  
