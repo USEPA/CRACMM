@@ -28,6 +28,14 @@ See also the [CRACMM reference list](../additional_info.md#references).
 
 
 
+
+
+
+
+
+
+
+
 ```{eval-rst}
 .. toctree::
    :caption: Contents
@@ -63,7 +71,7 @@ See also the [CRACMM reference list](../additional_info.md#references).
    :hidden:
 
    CRACMM GitHub <https://github.com/USEPA/CRACMM>
-   EPA CRACMM Description <https://www.epa.gov/cmaq/cracmm>
+   EPA CRACMM White Paper <https://www.epa.gov/cmaq/cracmm>
    CMAQ Documentation <https://usepa.github.io/CMAQ/>
 
    ```

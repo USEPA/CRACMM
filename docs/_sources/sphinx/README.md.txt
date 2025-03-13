@@ -7,6 +7,8 @@ To view this page on on the CRACMM website instead of in raw markdown (if you're
 ## Table of Contents
 * [Environment Setup](#environment-setup): This section provides instructions on how to create a Python environment designed to run Sphinx on the CRACMM repository.
 
+* [Repository Setup](#repository-setup): This section provides instructions on how to get your personal fork of the CRACMM repository ready to build HTML for the CRACMM website, even if you dont have a fork yet!
+
 * [Process to Build HTML](#process-to-build-html): This section is for people who have a Python environment designed to run Sphinx on the CRACMM repository and provides instructions on how to update the HTML for the CRACMM GitHub pages site based on updates to the main branch.
 
 * [HTML Build Script Description](#file-description-run_buildcsh): This section describes the purpose of the `run_build.csh` file and explains what each command in the file does and why it is needed.
@@ -16,6 +18,7 @@ To view this page on on the CRACMM website instead of in raw markdown (if you're
 * [Website Landing Page Description](#file-description-indexmd): This section describes the contents of `index.md` which serves as the website landing page. The primary focus is on the table of contents tree (often refered to as "toctree" among Sphinx users) at the bottom of the page which arranges the left navbar on every page of the website.
 
 * [Helpful Resources](#helpful-resources): This section provides links to other websites that have good instructions and tips on how to set up and improve a GitHub Pages site using Sphinx. Many of these websites are also linked in other locations around the page in addition to in the Helpful Resources section.
+
 
 ## Environment setup
 If you have never run Sphinx for CRACMM before, you are going to need to set up a new python environment to make sure everything works correctly. The following steps explain how to set up the environment:
@@ -29,7 +32,7 @@ If you have never run Sphinx for CRACMM before, you are going to need to set up 
     python --version
     ```
 
-2. Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. Maybe, cracmm_docs_env? Run the following command:
+2. Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. For example: `cracmm_docs_env`. Run the following command:
     ```
     python -m venv ./cracmm_docs_env
     ```
@@ -59,12 +62,50 @@ If you have never run Sphinx for CRACMM before, you are going to need to set up 
 
     * [sphinx-new-tab-link](https://github.com/ftnext/sphinx-new-tab-link/tree/main) is a package that acts as a Sphinx extension. It allows all external links within Sphinx docuentation to open in a new tab instead of overwriting the current tab.
     
-    Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! To build the HTML for the CRACMM website, continue to the [next section](#process-to-build-html).
+    Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the [next section](#repository-setup) before learning how to build HTML. If you are ready to build HTML, click [here](#process-to-build-html) to learn how.
 
     To return to the Table of Contents, click [here](#table-of-contents).
 
+
+## Repository Setup
+If you do not have a fully updated fork of the USEPA/CRACMM repository with all the latest changes, and you would like to update one or more of the HTML pages on the CRACMM website, follow the steps below.
+
+1. In the case that you do not have a personal fork of the repository at all, make a fork on GitHub now. Then, clone your fork of the GitHub repository to Atmos using the following commands:
+    ```
+    cd <path of directory for repository storage>
+    git clone <repository SSH key>
+    cd <name of repository>
+    ```
+    You should now be in the root directory of your remote fork of the CRACMM repository.
+
+2. Next, once you are in your repository on Atmos, you need to make sure that all branches are up to date, not just `main`. To do this, enter the following commands:
+    ```
+    git remote add epacracmm_repo git@github.com:USEPA/CRACMM.git
+    git fetch epacracmm_repo
+    git switch main
+    git merge epacracmm_repo/main
+    git switch CRACMMdocs
+    #if there is no branch called "CRACMMdocs" yet, try this:
+    git switch -c CRACMMdocs
+    git merge epacracmm_repo/CRACMMdocs
+    ```
+    Your main and CRACMMdocs branches should now be identical to that of USEPA/CRACMM.
+
+3. If you have made additional changes on your remote CRACMM repository beyond where USEPA/CRACMM's current version that you just merged, merge the changes into the `main` branch of your local repository. To do this, enter the following commands:  
+    ```
+    git switch main
+    git merge origin main
+    ```
+
+4. If you would like to add any additional changes to the repository, now is the time to make those changes on Atmos.
+
+If you still would like to update the CRACMM website's HTML and you already have a Python environment set up to run Sphinx, click [here](#process-to-build-html) to continue. Otherwise, click continue to the [next section](#environment-setup) to prepare your Python environment.
+
+
 ## Process to Build HTML
-When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see. The steps to produce HTML for the CRACMM GitHub Pages site are explained here:
+The steps to produce HTML for the CRACMM GitHub Pages site are explained below. These instructions assume that you already have a personal fork of the CRACMM repository that is up to date with the lastest version of all files within the repository. If you do not, click [here](#repository-setup). 
+
+When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see.   
 
 1. Starting in your home directory (`~/`) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command:  
     ```
@@ -72,14 +113,9 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
     ```
     If you do not have such environment set up, click [here](#environment-setup) to learn how to set one up.  
 
-2. `cd` to the root directory of your local CRACMM repository.
+2. `cd` to the root directory of your local fork of the CRACMM repository. It is important that you use your personal fork of the repository instead of the USEPA/CRACMM repository. Because the remainder of this tutorial will be discusing actions on your fork, any use of `origin` will be in reference to your remote fork of the CRACMM repository on GitHub, not USEPA/CRACMM.
 
-3. If you have made changes on your remote CRACMM repository and your local repository is not up to date, merge the changes into the `main` branch of your local repository. To do this, enter the following commands:  
-    ```
-    git switch main
-    git merge origin main
-    ```
-4. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the `CRACMMdocs` branch. For this to work, you need to already have the `CRACMMdocs` branch on your local repository. If you do not, follow the steps in the bullet points below: 
+3. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the `CRACMMdocs` branch. For this to work, you need to already have the `CRACMMdocs` branch on your local repository. If you do not, follow the steps in the bullet points below: 
 
     * If your remote repository does not have a `CRACMMdocs` branch yet, you will need to sync your remote repository with the USEPA/CRACMM repository.
 
@@ -98,18 +134,18 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
     git merge main
     ```
 
-5. Before HTML can be built properly using Sphinx, it is important that the Sphinx working path is set correctly. To do this, open up the file `conf.py`. In the top section of the file, right before the "Project inormation" section, there should be a line that looks somthing like this:
+4. Before HTML can be built properly using Sphinx, it is important that the Sphinx working path is set correctly. To do this, open up the file `conf.py`. In the top section of the file, right before the "Project inormation" section, there should be a line that looks somthing like this:
     ```
     sys.path.insert(1, '<path to a directory>')
     ```
     Replace the path included in the parentheses with the absolute path of the root directory of your local CRACMM repository. Then, save the file and return to the command line. For more information on the purpose of this line, click [here](#path-setting).
 
-6. Next, enter the `sphinx` directory by entering the command: 
+5. Next, enter the `sphinx` directory by entering the command: 
     ```
     cd sphinx
     ```
 
-7. Now its time to build the HTML for the website! To do this, run the command: 
+6. Now its time to build the HTML for the website! To do this, run the command: 
     ```
     ./run_build.csh
     ```
@@ -135,16 +171,16 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
         chmod u+x run_build.csh
         ```
 
-    * Sometimes, if you have not closed your session on atmos since installing Sphinx in your Python environment, there is a possibility you will need to restart your session for the `sphinx-build` command to work. This should only be an issue the first time a Sphinx command is run within a Python environment.
+    * Sometimes, if you have not closed your session on Atmos since installing Sphinx in your Python environment, there is a possibility you will need to restart your session for the `sphinx-build` command to work. This should only be an issue the first time a Sphinx command is run within a Python environment.
 
-8. Commit the new HTML to the repository by running the commands:
+7. Commit the new HTML to the repository by running the commands:
     ```
     git add --all
     git commit
     ```
     Then write the desired commit message.
 
-9. Once the changes have been commited, push the new version of the local `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:
+8. Once the changes have been commited, push the new version of the local `CRACMMdocs` branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:
     ```
     git push -u origin CRACMMdocs
     ```
@@ -197,7 +233,7 @@ To return to the Table of Contents, click [here](#table-of-contents).
 
 
 ## File Description: conf.py
-`conf.py` is a Sphinx generated file produced by the `sphinx-quickstart` command which initializes a Sphinx project (click [here](https://youtu.be/nZttMg_n_s0?si=WYa8G39MyPvoh20w&t=219) to watch a video about what the `sphinx-quickstart` does). The file is responsible for providing Sphinx with important information about how to configure and create your HTML. The file has four different sections, each serving a diferent purpose. For additional information about `conf.py` and all the variables that could be added to it, click [here](https://www.sphinx-doc.org/en/master/usage/configuration.html).
+`conf.py` is a Sphinx generated file produced by the `sphinx-quickstart` command which initializes a Sphinx project (click [here](https://youtu.be/nZttMg_n_s0?si=WYa8G39MyPvoh20w&t=219) to watch a video about what the `sphinx-quickstart` command does). The file is responsible for providing Sphinx with important information about how to configure and create your HTML. The file has four different sections, each serving a diferent purpose. For additional information about `conf.py` and all the variables that could be added to it, click [here](https://www.sphinx-doc.org/en/master/usage/configuration.html).
 
 It should also be noted that the file location of `conf.py` is extremely important. Make sure to keep it in the root directory of the repository. Otherwise, it will interfere with the commands set up in [run_build.csh](#file-description-run_buildcsh).  
 
