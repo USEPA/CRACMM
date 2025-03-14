@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sphinx Usage in the CRACMM Repository (Only for USEPA employees) &mdash; CRACMM 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CRACMM
+              <img src="../_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index_duplicate.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/README.html">Python Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">How to Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM" rel="noreferrer" target="_blank">CRACMM GitHub <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm" rel="noreferrer" target="_blank">EPA CRACMM White Paper <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://usepa.github.io/CMAQ/" rel="noreferrer" target="_blank">CMAQ Documentation <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sphinx Usage in the CRACMM Repository (Only for USEPA employees)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sphinx/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="sphinx-usage-in-the-cracmm-repository-only-for-usepa-employees">
+<h1>Sphinx Usage in the CRACMM Repository (Only for USEPA employees)<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository-only-for-usepa-employees" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/" rel="noreferrer" target="_blank">Sphinx <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is a software written in Python that is used to create HTML files based on already existing files. It is typically used to create websites that document software and it can be used in combination with GitHub’s <a class="reference external" href="https://pages.github.com/" rel="noreferrer" target="_blank">Pages <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> utility to publish a website based on a GitHub repository. This page explains how Sphinx is used to create a GitHub site for the CRACMM repository using Sphinx.</p>
+<p>To view this page on on the CRACMM website instead of in raw markdown (if you’re not already there), click <a class="reference external" href="https://USEPA.github.io/CRACMM/sphinx/README.html" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#environment-setup">Environment Setup</a>: This section provides instructions on how to create a Python environment designed to run Sphinx on the CRACMM repository.</p></li>
+<li><p><a class="reference internal" href="#repository-setup">Repository Setup</a>: This section provides instructions on how to get your personal fork of the CRACMM repository ready to build HTML for the CRACMM website, even if you dont have a fork yet!</p></li>
+<li><p><a class="reference internal" href="#process-to-build-html">Process to Build HTML</a>: This section is for people who have a Python environment designed to run Sphinx on the CRACMM repository and provides instructions on how to update the HTML for the CRACMM GitHub pages site based on updates to the main branch.</p></li>
+<li><p><a class="reference internal" href="#file-description-run-build-csh">HTML Build Script Description</a>: This section describes the purpose of the <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> file and explains what each command in the file does and why it is needed.</p></li>
+<li><p><a class="reference internal" href="#file-description-conf-py">Sphinx Configuration Description</a>: This section describes the contents of <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> which provides Sphinx with a variety of user option that define how the HTML is produced.</p></li>
+<li><p><a class="reference internal" href="#file-description-index-md">Website Landing Page Description</a>: This section describes the contents of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> which serves as the website landing page. The primary focus is on the table of contents tree (often refered to as “toctree” among Sphinx users) at the bottom of the page which arranges the left navbar on every page of the website.</p></li>
+<li><p><a class="reference internal" href="#helpful-resources">Helpful Resources</a>: This section provides links to other websites that have good instructions and tips on how to set up and improve a GitHub Pages site using Sphinx. Many of these websites are also linked in other locations around the page in addition to in the Helpful Resources section.</p></li>
+</ul>
+</section>
+<section id="environment-setup">
+<h2>Environment setup<a class="headerlink" href="#environment-setup" title="Link to this heading"></a></h2>
+<p>If you have never run Sphinx for CRACMM before, you are going to need to set up a new python environment to make sure everything works correctly. The following steps explain how to set up the environment:</p>
+<ol class="arabic">
+<li><p>To make sure Sphinx works properly, you need to make sure you have the correct Python version running. Version 3.11.11 is suggested for this task because it works with all packages that will need to be installed. It is likely that other versions will work as well but some may cause compataibility issues with the required packages. To use Python 3.11.11, enter the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">python</span><span class="o">/</span><span class="mf">3.11</span>
+</pre></div>
+</div>
+<p>To make sure the version is set correctly, you can check your current version by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</li>
+<li><p>Once the Python version has been set, it is time to create the new environment. You can give the environment any name you like. For example: <code class="docutils literal notranslate"><span class="pre">cracmm_docs_env</span></code>. Run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">./</span><span class="n">cracmm_docs_env</span>
+</pre></div>
+</div>
+<p>Then, to activate the environment, enter the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">cracmm_docs_env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p>You should now see <code class="docutils literal notranslate"><span class="pre">(cracmm_docs_env)</span></code> appear to the left of your LAN ID on the command line. This indicates that the environment has been activated. If you ever need to deactivate the enviroment, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span> <span class="n">cracmm_docs_env</span>
+</pre></div>
+</div>
+</li>
+<li><p>Next, some Python packages need to be installed so that HTML for the CRACMM website can be produced correctly. Enter the following series of commands to install all necessary packages (the version number of each package used at time of writing is included in the comments after each line):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span>           <span class="c1">#25.0.1</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span>                  <span class="c1">#8.2.3</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx_rtd_theme</span>        <span class="c1">#3.0.2</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">myst_nb</span>                 <span class="c1">#1.2.0</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">tab</span><span class="o">-</span><span class="n">link</span>     <span class="c1">#0.7.0</span>
+</pre></div>
+</div>
+<p>Description of each installed package:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/" rel="noreferrer" target="_blank">sphinx <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is the software needed to generate the HTML from the files already existing in the CRACMM repository.</p></li>
+<li><p><a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/stable/" rel="noreferrer" target="_blank">sphinx_rtd_theme <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is a package that acts as a Sphinx extension responsible for the overall website design. Other theme extensions could be downloaded to change website appearance. Some theme extensions come pre-installed with Sphinx.</p></li>
+<li><p><a class="reference external" href="https://myst-nb.readthedocs.io/en/latest/" rel="noreferrer" target="_blank">myst_nb <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is a package that acts as a Sphinx extenion. It is based on <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/" rel="noreferrer" target="_blank">myst_parser <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> and allows markdown and Jupyter Notebook files to be interpreted by Sphinx so that HTML can be generated based on these files.</p></li>
+<li><p><a class="reference external" href="https://github.com/ftnext/sphinx-new-tab-link/tree/main" rel="noreferrer" target="_blank">sphinx-new-tab-link <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is a package that acts as a Sphinx extension. It allows all external links within Sphinx docuentation to open in a new tab instead of overwriting the current tab.</p></li>
+</ul>
+<p>Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the <a class="reference internal" href="#repository-setup">next section</a> before learning how to build HTML. If you are ready to build HTML, click <a class="reference internal" href="#process-to-build-html">here</a> to learn how.</p>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
+</li>
+</ol>
+</section>
+<section id="repository-setup">
+<h2>Repository Setup<a class="headerlink" href="#repository-setup" title="Link to this heading"></a></h2>
+<p>If you do not have a fully updated fork of the USEPA/CRACMM repository with all the latest changes, and you would like to update one or more of the HTML pages on the CRACMM website, follow the steps below.</p>
+<ol class="arabic">
+<li><p>In the case that you do not have a personal fork of the repository at all, make a fork on GitHub now. Then, clone your fork of the GitHub repository to Atmos using the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">of</span> <span class="n">directory</span> <span class="k">for</span> <span class="n">repository</span> <span class="n">storage</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o">&lt;</span><span class="n">repository</span> <span class="n">SSH</span> <span class="n">key</span><span class="o">&gt;</span>
+<span class="n">cd</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">repository</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You should now be in the root directory of your remote fork of the CRACMM repository.</p>
+</li>
+<li><p>Next, once you are in your repository on Atmos, you need to make sure that all branches are up to date, not just <code class="docutils literal notranslate"><span class="pre">main</span></code>. To do this, enter the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">epacracmm_repo</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">USEPA</span><span class="o">/</span><span class="n">CRACMM</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">fetch</span> <span class="n">epacracmm_repo</span>
+<span class="n">git</span> <span class="n">switch</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">epacracmm_repo</span><span class="o">/</span><span class="n">main</span>
+<span class="n">git</span> <span class="n">switch</span> <span class="n">CRACMMdocs</span>
+<span class="c1">#if there is no branch called &quot;CRACMMdocs&quot; yet, try this:</span>
+<span class="n">git</span> <span class="n">switch</span> <span class="o">-</span><span class="n">c</span> <span class="n">CRACMMdocs</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">epacracmm_repo</span><span class="o">/</span><span class="n">CRACMMdocs</span>
+</pre></div>
+</div>
+<p>Your main and CRACMMdocs branches should now be identical to that of USEPA/CRACMM.</p>
+</li>
+<li><p>If you have made additional changes on your remote CRACMM repository beyond where USEPA/CRACMM’s current version that you just merged, merge the changes into the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of your local repository. To do this, enter the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">origin</span> <span class="n">main</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you would like to add any additional changes to the repository, now is the time to make those changes on Atmos.</p></li>
+</ol>
+<p>If you still would like to update the CRACMM website’s HTML and you already have a Python environment set up to run Sphinx, click <a class="reference internal" href="#process-to-build-html">here</a> to continue. Otherwise, click continue to the <a class="reference internal" href="#environment-setup">next section</a> to prepare your Python environment.</p>
+</section>
+<section id="process-to-build-html">
+<h2>Process to Build HTML<a class="headerlink" href="#process-to-build-html" title="Link to this heading"></a></h2>
+<p>The steps to produce HTML for the CRACMM GitHub Pages site are explained below. These instructions assume that you already have a personal fork of the CRACMM repository that is up to date with the lastest version of all files within the repository. If you do not, click <a class="reference internal" href="#repository-setup">here</a>.</p>
+<p>When changes are made to the main branch of the CRACMM repository, new HTML will need to be generated in order to stay up to date with the latest version. This is true regardless of whether the changes are made to markdown files used for documentation, or any file that could be downloaded directly via link anywhere on the website. In other words, HTML should ALWAYS be rebuilt every time a change is made to a file within the repository, regardless of how small of a change it is. Of course, this is only true of when you would would like the changes to propgate to the website for the user to see.</p>
+<ol class="arabic">
+<li><p>Starting in your home directory (<code class="docutils literal notranslate"><span class="pre">~/</span></code>) on Atmos, activate your environment for running Sphinx on the CRACMM repository by using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">&lt;</span><span class="n">name</span> <span class="n">of</span> <span class="n">environment</span><span class="o">&gt;/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span><span class="o">.</span><span class="n">csh</span>  
+</pre></div>
+</div>
+<p>If you do not have such environment set up, click <a class="reference internal" href="#environment-setup">here</a> to learn how to set one up.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span></code> to the root directory of your local fork of the CRACMM repository. It is important that you use your personal fork of the repository instead of the USEPA/CRACMM repository. Because the remainder of this tutorial will be discusing actions on your fork, any use of <code class="docutils literal notranslate"><span class="pre">origin</span></code> will be in reference to your remote fork of the CRACMM repository on GitHub, not USEPA/CRACMM.</p></li>
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch. For this to work, you need to already have the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch on your local repository. If you do not, follow the steps in the bullet points below:</p>
+<ul>
+<li><p>If your remote repository does not have a <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch yet, you will need to sync your remote repository with the USEPA/CRACMM repository.</p></li>
+<li><p>If you do not have a branch called <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> on your local repository, make one by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="o">-</span><span class="n">c</span> <span class="n">CRACMMdocs</span> 
+</pre></div>
+</div>
+<p>You should now be in a new branch called <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>. Next, to retrieve the files in the remote <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">CRACMMdocs</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>To replicate the changes made to <code class="docutils literal notranslate"><span class="pre">main</span></code> on <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>, enter the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="n">CRACMMdocs</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">main</span>
+</pre></div>
+</div>
+</li>
+<li><p>Before HTML can be built properly using Sphinx, it is important that the Sphinx working path is set correctly. To do this, open up the file <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>. In the top section of the file, right before the “Project inormation” section, there should be a line that looks somthing like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;&lt;path to a directory&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Replace the path included in the parentheses with the absolute path of the root directory of your local CRACMM repository. Then, save the file and return to the command line. For more information on the purpose of this line, click <a class="reference internal" href="#path-setting">here</a>.</p>
+</li>
+<li><p>Next, enter the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> directory by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sphinx</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now its time to build the HTML for the website! To do this, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">run_build</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+<p>Once the process is complete, you should have your updated HTML in the docs folder of the repository!</p>
+<ul>
+<li><p>This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click <a class="reference internal" href="#file-description-run-build-csh">here</a>.</p></li>
+<li><p>When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-20 build warnings is normal and should not mean that there is a problem. Sometimes, the number of warnings can vary even if no change has been made, so be aware that the warnings are not always consistant. Also, the number of warnings that can generally be considered “safe” (not indicating an issue) will likely change as the website develops with time. Therefore, always check the warnings to see whether they may represent an issue with the website. At the time of writing, there are typically several types of build warnings that cause no issue for the website. These are:</p>
+<ul class="simple">
+<li><p>“ERROR: Document may not begin with a transition. [docutils]”</p></li>
+<li><p>“ERROR: Document may not end with a transition. [docutils]”</p></li>
+<li><p>“WARNING: document isn’t included in any toctree [toc.not_included]”</p></li>
+<li><p>“WARNING: ‘myst’ cross-reference target not found: ‘’ [myst.xref_missing]”</p></li>
+</ul>
+<p>Although these warnings appear muiltiple times each during the build process, none are a sign of a real issue in the website.</p>
+</li>
+<li><p>You also may recieve a few warnings from the <code class="docutils literal notranslate"><span class="pre">rm</span></code> command saying that certain files or directories could not be removed. These do not indicate any issues with the build process and can be ignored.</p></li>
+<li><p>If you have not run the <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> script before, you may need to change the file access permissions by entering the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">run_build</span><span class="o">.</span><span class="n">csh</span>
+</pre></div>
+</div>
+</li>
+<li><p>Sometimes, if you have not closed your session on Atmos since installing Sphinx in your Python environment, there is a possibility you will need to restart your session for the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command to work. This should only be an issue the first time a Sphinx command is run within a Python environment.</p></li>
+</ul>
+</li>
+<li><p>Commit the new HTML to the repository by running the commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">--</span><span class="nb">all</span>
+<span class="n">git</span> <span class="n">commit</span>
+</pre></div>
+</div>
+<p>Then write the desired commit message.</p>
+</li>
+<li><p>Once the changes have been commited, push the new version of the local <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch with the updated HTML up to the remote CRACMM repository on GitHub using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">CRACMMdocs</span>
+</pre></div>
+</div>
+</li>
+<li><p>Finally, go back to your remote fork of the CRACMM repository on GitHub and submit a pull request from your <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> docs branch, with the new HTML, to the USEPA/CRACMM repository. Once the pull request is approved, you will have officially updated the CRACMM documentation!</p></li>
+</ol>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
+</section>
+<section id="file-description-run-build-csh">
+<h2>File Description: run_build.csh<a class="headerlink" href="#file-description-run-build-csh" title="Link to this heading"></a></h2>
+<p>When building HTML using Sphinx for the CRACMM repository, there are commands that are desireable to run before and after the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command (the command that actually generates HTML) every time HTML is built. To save the user time, this c-shell script has been created to run the entire list of commands necessary to accurately produce HTML for the CRACMM repository and minimize sphinx-build warnings. A description of the purpose of each line is included below. It is also important to note that this file should always be run from the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> directory, otherwise it will not function correctly and HTML might not be produced.</p>
+<section id="rm-r-docs">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">../docs/*</span></code><a class="headerlink" href="#rm-r-docs" title="Link to this heading"></a></h3>
+<p>Cleans out the directory where HTML documentation is stored to guarantee a fresh start on the HTML every time <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> is run.</p>
+</section>
+<section id="mkdir-static">
+<h3><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">../_static</span></code><a class="headerlink" href="#mkdir-static" title="Link to this heading"></a></h3>
+<p>Prevents a build warning related to there not being a <code class="docutils literal notranslate"><span class="pre">_static</span></code> directory when running the sphinx-build command. this does not affect the resulting HTML in any way, it simply removes the warning.</p>
+</section>
+<section id="mkdir-utilities-output">
+<h3><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">../utilities/output</span></code><a class="headerlink" href="#mkdir-utilities-output" title="Link to this heading"></a></h3>
+<p>Creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command. The files put here are not needed and this directory is deleted after the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command is completed.</p>
+</section>
+<section id="python3-duplicate-index-py">
+<h3><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">duplicate_index.py</span></code><a class="headerlink" href="#python3-duplicate-index-py" title="Link to this heading"></a></h3>
+<p>Makes a duplicate of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> called <code class="docutils literal notranslate"><span class="pre">index_duplicate.md</span></code>. The duplicate that is created does not contain the Sphinx <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directives that are in the original file. <code class="docutils literal notranslate"><span class="pre">index_duplicate.md</span></code> is included in the main <code class="docutils literal notranslate"><span class="pre">toctree</span></code> of <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, allowing the user to access a copy of the landing page from the left navbar. There may be other ways of adding the landing page to the main <code class="docutils literal notranslate"><span class="pre">toctree</span></code>, but this seemed like a simple solution.</p>
+</section>
+<section id="sphinx-build-docs">
+<h3><code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">..</span> <span class="pre">../docs</span></code><a class="headerlink" href="#sphinx-build-docs" title="Link to this heading"></a></h3>
+<p>Builds HTML files based on markdown files. This is where Sphinx actually operates on the CRACMM repository. It takes input from the root directory of the repsoitory (hense the <code class="docutils literal notranslate"><span class="pre">..</span></code>, which is the relative path to the root directory from the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> directory) and produces output HTML files in the docs directory (hense the <code class="docutils literal notranslate"><span class="pre">../docs</span></code>, which is the relative path to the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory from the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> directory). For more information on the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command, click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html#running-the-build" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
+</section>
+<section id="touch-docs-nojekyll">
+<h3><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">../docs/.nojekyll</span></code><a class="headerlink" href="#touch-docs-nojekyll" title="Link to this heading"></a></h3>
+<p>Creates a <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> file in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory. This is an empty file that tells GitHub Pages that all the HTML styling has been done already and it does not need to go through extra steps to format to jekyll style. If this file is not added to the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory, the website styling created by Sphinx will not function.</p>
+</section>
+<section id="rm-r-jupyter-execute">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span>&#160; <span class="pre">jupyter_execute</span></code><a class="headerlink" href="#rm-r-jupyter-execute" title="Link to this heading"></a></h3>
+<p>Removes files created when running the Jupyter Notebooks that are not necessary. This line may cause an error related to there being no file or directory called <code class="docutils literal notranslate"><span class="pre">jupyter_execute</span></code>, this error can be ignored.</p>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">../jupyter_execute</span></code><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Removes files created when running the Jupyter Notebooks that are not necessary. This line may cause an error related to there being no file or directory called <code class="docutils literal notranslate"><span class="pre">../jupyter_execute</span></code>, this error can be ignored.</p>
+</section>
+<section id="rm-r-static">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">../_static</span></code><a class="headerlink" href="#rm-r-static" title="Link to this heading"></a></h3>
+<p>Removes the <code class="docutils literal notranslate"><span class="pre">../_static</span></code> folder which is not needed in the final output. Click <a class="reference internal" href="#mkdir-static">here</a> for more details on the purpose of this directory.</p>
+</section>
+<section id="rm-r-utilities-output">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">../utilities/output</span></code><a class="headerlink" href="#rm-r-utilities-output" title="Link to this heading"></a></h3>
+<p>Removes output files created by the code in the Jupyter Notebooks that are not necessary. Click <a class="reference internal" href="#mkdir-utilities-output">here</a> for more details on the purpose of this directory.</p>
+</section>
+<section id="rm-index-duplicate-md">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">../index_duplicate.md</span></code><a class="headerlink" href="#rm-index-duplicate-md" title="Link to this heading"></a></h3>
+<p>Removes the duplicate copy of <code class="docutils literal notranslate"><span class="pre">index.md</span></code>, which is not needed for the GitHub repository. Click <a class="reference internal" href="#python3-duplicate-index-py">here</a> for more details on the purpose of this file.</p>
+</section>
+<section id="rm-docs-doctrees-environment-pickle">
+<h3><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">../docs/.doctrees/environment.pickle</span></code><a class="headerlink" href="#rm-docs-doctrees-environment-pickle" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">environment.pickle</span></code> is created by the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command and ends up in the <code class="docutils literal notranslate"><span class="pre">docs/.doctree</span></code> directory. <code class="docutils literal notranslate"><span class="pre">.pickle</span></code> files are executable code and can cause security issues when shared with others. This file is deleted to make sure it does not get shared with others. If other <code class="docutils literal notranslate"><span class="pre">.pickle</span></code> files are found, please add another line similar to this one to prevent these additional files from being shared with the public.</p>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
+</section>
+</section>
+<section id="file-description-conf-py">
+<h2>File Description: conf.py<a class="headerlink" href="#file-description-conf-py" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is a Sphinx generated file produced by the <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> command which initializes a Sphinx project (click <a class="reference external" href="https://youtu.be/nZttMg_n_s0?si=WYa8G39MyPvoh20w&amp;amp;t=219" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> to watch a video about what the <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> command does). The file is responsible for providing Sphinx with important information about how to configure and create your HTML. The file has four different sections, each serving a diferent purpose. For additional information about <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> and all the variables that could be added to it, click <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
+<p>It should also be noted that the file location of <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is extremely important. Make sure to keep it in the root directory of the repository. Otherwise, it will interfere with the commands set up in <a class="reference internal" href="#file-description-run-build-csh">run_build.csh</a>.</p>
+<section id="path-setting">
+<h3>Path Setting<a class="headerlink" href="#path-setting" title="Link to this heading"></a></h3>
+<p>The first section is not titled and comes before the section titled “Project Information”. At the bottom of this section (right above the Project Information section), there are two lines of Python code. These lines are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;/path/to/local/CRACMM/repository&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The purpose of these lines is to include the path of the root directory of your local CRACMM repository in the Python system path. This allows Sphinx to use this path as a base to generate the website from. In other words, Sphinx will only make HTML based on files within this directory and the files in its sub-directories. Make sure this path is set correctly, otherwise you may come across several issues.</p>
+</section>
+<section id="project-information">
+<h3>Project Information<a class="headerlink" href="#project-information" title="Link to this heading"></a></h3>
+<p>In the Project Information section, there are four string variables. These are all based on the <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> prompt inputs. If necessary, these can be changed to update responses to the prompts and the results of those changes will carry forward throughout the project. At the time of writing, these lines looked like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="s1">&#39;CRACMM&#39;</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s1">&#39;CRACMM does not have copyright&#39;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s1">&#39;U.S. Environmental Protection Agency&#39;</span>
+<span class="n">release</span> <span class="o">=</span> <span class="s1">&#39;2.0&#39;</span>
+</pre></div>
+</div>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">copyright</span></code> variable is set to <code class="docutils literal notranslate"><span class="pre">'CRACMM</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">have</span> <span class="pre">copyright'</span></code> because the US government cannot copyright any of its products. Although this should not change anything on the page, it acts as a placeholder to make it clear that there is no copyright in case a copyright message accidentally shows up somewhere.</p>
+</section>
+<section id="general-configuration">
+<h3>General Configuration<a class="headerlink" href="#general-configuration" title="Link to this heading"></a></h3>
+<p>The General configuration section is an important part of <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>. By default, after running <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code>, the section looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_templates&#39;</span><span class="p">]</span>
+<span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_build&#39;</span><span class="p">,</span> <span class="s1">&#39;Thumbs.db&#39;</span><span class="p">,</span> <span class="s1">&#39;.DS_Store&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The extensions list is where all the Sphinx extensions are added to the project so that the resulting HTML can be produced in the desired way. For example, if you would like to make HTML files from markdown files, you will need to add an extension. There are many extension options across the internet and some that are built-in when Sphinx is downloaded. For the state of the CRACMM website at the time of writing, there are only two extensions needed and, thus, the list looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;myst_nb&#39;</span><span class="p">,</span> <span class="s1">&#39;sphinx_new_tab_link&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>None of the other default lines in this section were altered from their original state (the <code class="docutils literal notranslate"><span class="pre">templates_path</span></code> and <code class="docutils literal notranslate"><span class="pre">exclude_patterns</span></code> variables). However, three new lines were added to the section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myst_enable_extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dollarmath&#39;</span><span class="p">]</span>
+<span class="n">myst_heading_anchors</span> <span class="o">=</span> <span class="mi">4</span>    
+<span class="n">new_tab_link_show_external_link_icon</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The first variable that was added, <code class="docutils literal notranslate"><span class="pre">myst_enable_extensions</span></code>, allows extensions to be added to the <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> extension. In this case, the <code class="docutils literal notranslate"><span class="pre">dollarmath</span></code> extension was added, allowing LaTeX code in markdown and Jupyter Notebook files to format correctly when the HTML is produced.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">myst_heading_anchors</span></code> variable resolves build warnings regarding myst not finding target IDs when linking to markdown headings. The value of the variable indicates the lowest level heading that Sphinx will link to. However, even if a link is made to a lower level heading that what is indicated by <code class="docutils literal notranslate"><span class="pre">myst_heading_anchors</span></code>, the link should still work, but it may cause a build warning.</p></li>
+<li><p>Finally, the variable <code class="docutils literal notranslate"><span class="pre">new_tab_link_show_external_link_icon</span></code> is a part of the <code class="docutils literal notranslate"><span class="pre">sphinx-new-tab-link</span></code> extension. When set to true (as it currently is) It tells Sphinx to add an icon at the end of every external link across the website.</p></li>
+</ul>
+<p>There are many other variables that can be added to this section that are built-in with Sphinx and many more that are connected to the Sphinx extensions that can be installed by adding them to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> list. As the website develops further, remember that there are many possibilities here.</p>
+</section>
+<section id="options-for-html-output">
+<h3>Options for HTML Output<a class="headerlink" href="#options-for-html-output" title="Link to this heading"></a></h3>
+<p>The last section of <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is the “Options for HTML Output” section. This section contains a few variables that influence the appearance of the HTML that is produced by Sphinx. When produced by <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> at project initalization, the section looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;alabaster&#39;</span>
+<span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> variable tells Sphinx how to arrange the website HTML. It governs the overall appearance of the site. There are several built-in themes that come with Sphinx and others that can be installed in your Python environment.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">html_static_path</span></code> variable does some sort of path setting where it tells Sphinx where to look for static images. However, this variable was left alone and, for that reason, it is a little unclear exactly how it functions.</p></li>
+</ul>
+<p>After making some changes to this section for the CRACMM repository, the Options for HTML Output section now looked like this at the time of writing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s1">&#39;sphinx_rtd_theme&#39;</span>
+<span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+<span class="n">html_logo</span> <span class="o">=</span> <span class="s1">&#39;logos/CRACMM_1.png&#39;</span>
+<span class="n">html_show_copyright</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">html_theme</span></code> variable has been changed from <code class="docutils literal notranslate"><span class="pre">'alabaster'</span></code> to <code class="docutils literal notranslate"><span class="pre">'sphinx_rtd_theme'</span></code>. The “rtd” stands for “Read the Docs”, which is another software documentation website hosting service similar to GitHub Pages. This theme is the theme used by all Read the Docs pages.</p></li>
+<li><p>As stated previously, the <code class="docutils literal notranslate"><span class="pre">html_static_path</span></code> variable remains unchanged from its default state.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">html_logo</span></code> variable is an added variable that is built-in with Sphinx and it sets the path to an image that is included in the upper left corner of the website above the site’s search bar. in this case, it adds the CRACMM logo to the page.</p></li>
+<li><p>Lastly, the <code class="docutils literal notranslate"><span class="pre">html_show_copyright</span></code> variable tells Sphinx whether or not to put copyright information at the bottom of the page. When set to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default setting), the copyright information appears on the footter of every page. when set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, like it is now for CRACMM, this information does not appear. The reason for adding this variable is because the US Government cannot copyright any of its products, so having copyright information here would not be accurate.</p></li>
+</ul>
+<p>Just like with the General Configuration section, there are many other variables that can be added to the Options for HTML Output section that are built-in with Sphinx and many more that are connected to the Sphinx extensions that can be installed by adding them to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> list. As the website develops further, remember that there are many possibilities here.</p>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
+</section>
+</section>
+<section id="file-description-index-md">
+<h2>File Description: index.md<a class="headerlink" href="#file-description-index-md" title="Link to this heading"></a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">index.md</span></code> organizes the landing page of the website. When Sphinx is run, it takes <code class="docutils literal notranslate"><span class="pre">index.md</span></code> and uses it to create a file in the docs directory called <code class="docutils literal notranslate"><span class="pre">index.html</span></code>. When Github Pages sees the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file, it automatically recognizes the name and sets it to be the landing page for the website. Therefore, it is extremely important that the name of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> does not change. This is also true of the file location, it needs to stay in the root directory of the repository for GitHub Pages to find <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p>
+<p>Most of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> is normal markdown text that is arranged to set up the landing page display. However, <code class="docutils literal notranslate"><span class="pre">index.md</span></code> is also responsible for organizing the global table of contents tree (often refered to as “toctree” among Sphinx users) for the website. The contents of the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directives at the bottom of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> become the contents of the navbar on the left side of the screen when on the website. Below the main contents of the landing page, there is a section that starts with the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{eval-rst}
+</pre></div>
+</div>
+<p>This indicates to Sphinx that what is below it is ReStrctured Text and not markdown. ReStructured Text is the native text language of Sphinx. This allows Sphinx directives to be included in this part of the markdown file.</p>
+<p>Next is a series of <code class="docutils literal notranslate"><span class="pre">toctree</span></code> Sphinx directives. Each one creates a new section of the website navbar. An example of one of these sections is the “Contents” section, which looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">Contents</span>
+   <span class="p">:</span><span class="n">hidden</span><span class="p">:</span>
+
+   <span class="n">index_duplicate</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">chemistry</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">emissions</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">metadata</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">logos</span><span class="o">/</span><span class="n">logos</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">boundary_conditions</span><span class="o">.</span><span class="n">md</span>
+   <span class="n">utilities</span><span class="o">/</span><span class="n">README</span><span class="o">.</span><span class="n">md</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The first line includes “..” which starts a comment in a ReStrctured Text file. Everything that is indented to the same level as the first “t” in <code class="docutils literal notranslate"><span class="pre">toctree</span></code> is included in the comment until text stops sharing that indent level. In this case, since <code class="docutils literal notranslate"><span class="pre">toctree</span></code> is a Sphinx directive, all lines of the code above are part of this particular directive because it is all part of the same comment.</p></li>
+<li><p>The next line, <code class="docutils literal notranslate"><span class="pre">:caption:</span> <span class="pre">Contents</span></code>, is an option of the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive. It simply gives a name to the following list of links to help group navbar items. In this case, the group of links is named “Contents”.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">:hidden:</span></code> option prevents the toctree from being visible at the bottom of the page. That way you dont get a second version of the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> in bullet point format when the HTML is built.</p></li>
+<li><p>Afterwards is a blank line follwed by a series of links to other documents. The blank line indicates to Sphinx that there are no more <code class="docutils literal notranslate"><span class="pre">toctree</span></code> options being specified, and the links allow the website user to easily navigate the website.</p></li>
+</ul>
+<p>You can add new links to any of the listed toctrees by adding a relative link to a markdown or Jupyter Notebook file. When adding links to a <code class="docutils literal notranslate"><span class="pre">toctree</span></code>, make sure to set the links relative to <code class="docutils literal notranslate"><span class="pre">index.md</span></code> and not <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code>, even though Sphinx is ultimately run from <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code>.</p>
+<p>You can also add external links to the contents of a <code class="docutils literal notranslate"><span class="pre">toctree</span></code>. To do this, in a new line of the <code class="docutils literal notranslate"><span class="pre">toctree</span></code>, write the text you would like to appear on the navbar, and then in angle brackets, write the link. An example from <code class="docutils literal notranslate"><span class="pre">index.md</span></code> at the time of writing looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CMAQ</span> <span class="n">Documentation</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">usepa</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">CMAQ</span><span class="o">/&gt;</span>
+</pre></div>
+</div>
+<p>On the navbar, only “CMAQ Documentation” is visible. When you click on “CMAQ Documentation” in the navbar, it takes you to <a class="reference external" href="https://usepa.github.io/CMAQ/" rel="noreferrer" target="_blank">https://usepa.github.io/CMAQ/ <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
+</section>
+<section id="helpful-resources">
+<h2>Helpful Resources<a class="headerlink" href="#helpful-resources" title="Link to this heading"></a></h2>
+<section id="general-software-documentation">
+<h3>General Software Documentation<a class="headerlink" href="#general-software-documentation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/" rel="noreferrer" target="_blank">Sphinx <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: Homepage for Sphinx. Lots of useful deatils across the website describing how to use various Sphinx features.</p></li>
+<li><p><a class="reference external" href="https://pages.github.com/" rel="noreferrer" target="_blank">GitHub Pages <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: Main page for GitHub Pages help. Gives some simple tutorials on how to get a Pages website up and running and has a “Pages Help” button in the upper right corner for more specific issues.</p></li>
+<li><p><a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/" rel="noreferrer" target="_blank">MyST Parser <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: Homepage for MyST Parser. Covers all sorts of functionality of the software throughout the website.</p></li>
+<li><p><a class="reference external" href="https://myst-nb.readthedocs.io/en/latest/" rel="noreferrer" target="_blank">MyST NB <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: Homepage for MyST NB. Discusses the extra functionality of the Sphinx extension that is not included in the MyST Parser extension.</p></li>
+<li><p><a class="reference external" href="https://github.com/ftnext/sphinx-new-tab-link/tree/main" rel="noreferrer" target="_blank">Sphinx New Tab Link <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: GitHub page for the <code class="docutils literal notranslate"><span class="pre">sphinx-new-tab-link</span></code> extention. The readme in the root directory is helpful for explaining how to use the extension.</p></li>
+<li><p><a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/stable/" rel="noreferrer" target="_blank">Sphinx Read the Docs Theme <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: Homepage for details about the <code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code>. HTML customization options and other things related to the theme can be found here.</p></li>
+</ul>
+</section>
+<section id="task-specific-documentation-and-tutorials">
+<h3>Task Specific Documentation and tutorials<a class="headerlink" href="#task-specific-documentation-and-tutorials" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://youtu.be/zSZpCrwgVOM?si=XS-v_kxJ4FwPHfOi&amp;amp;t=440" rel="noreferrer" target="_blank">Publishing to GitHub Pages <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: If the website has not yet been published, this YouTube tutorial does a great job explaining how to publish your Sphinx generated HTML using GitHub Pages.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html" rel="noreferrer" target="_blank">Sphinx Directives <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: Sphinx functionality that exists beyond the ability of markdown files’ syntax uses a series of “directives”. Normally these would be contained within the comments of a ReStructured Text (rst) file, the native file format of Sphinx. This page details the directive options available if additional directives are desired with development of the website after the time of writing.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/index.html" rel="noreferrer" target="_blank">Built-in Sphinx Extensions <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>: This page provides a list of all built-in Sphinx extensions and allows you to navigate to the description of each one. It also describes how ot find other extensions.</p></li>
+<li><p>Staring Fresh with Sphinx: Since the Sphinx project for CRACMM has already been set up, the links below will not likely be useful. However, understaning the basics of how to start a Sphinx project might become handy to some people, especially in the case that a new sphinx project needs to be created.</p>
+<ul>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html" rel="noreferrer" target="_blank">Sphinx Getting Started Tutorial <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=nZttMg_n_s0" rel="noreferrer" target="_blank">YouTube Sphinx Tutorial <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p></li>
+</ul>
+</li>
+</ul>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Michael Pye (pye.michael@epa.gov)
+date: 2025-03-04
+</pre></div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

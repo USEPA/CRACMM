@@ -1,0 +1,209 @@
+Species,Description,Phase,Stable,Molecular Weight (g/mol),Explicit/Lumped,Representative,SMILES,H Law (M/atm),Enthalpy of solution (K),Aerosol density (kg/m3),Kappa_org,C* (microg/m3),Enthalpy of vaporization (J/mol),OM to OC (g/g)
+AAL,Aluminum ion,P,Yes,27.0,E,Aluminum ion,[Al+3],NA,NA,2200.0,NA,NA,NA,NA
+ACA,Calcium ion,P,Yes,40.1,E,Calcium ion,[Ca++],NA,NA,2200.0,NA,NA,NA,NA
+ACD,Acetaldehyde ,G,Yes,44.0,E,Acetaldehyde,CC=O,14.0,5600.0,NA,NA,NA,NA,NA
+ACE,Acetylene ,G,Yes,26.0,E,Acetylene,C#C,0.041,1800.0,NA,NA,NA,NA,NA
+ACL,Chloride ion,P,Yes,35.5,E,Chloride ion,[Cl-],NA,NA,2200.0,NA,NA,NA,NA
+ACO3,Acetyl peroxy radicals,G,No,75.0,E,Acetylperoxy,CC(=O)O[O],NA,NA,NA,NA,NA,NA,NA
+ACORS,Primary unspeciated coarse PM,P,Yes,100.0,L,Coarse PM,NA,NA,NA,2200.0,NA,NA,NA,NA
+ACRO,Acrolein,G,Yes,56.1,E,Acrolein,C=CC=O,8.28,0.0,NA,NA,NA,NA,NA
+ACT,Acetone,G,Yes,58.0,E,Acetone,CC(C)=O,30.0,4600.0,NA,NA,NA,NA,NA
+ACTP,Peroxy radicals formed from ACT,G,No,89.0,E,(2-oxopropyl)peroxy,CC(=O)CO[O],NA,NA,NA,NA,NA,NA,NA
+ADCN,Aromatic-NO3 adduct from PHEN,G,No,155.0,L,4-oxocyclohex-2-en-1-yl nitrate,OC1=C[C]C(O[N+]([O-])=O)C=C1,NA,NA,NA,NA,NA,NA,NA
+ADDC,Aromatic-HO adduct from CSL,G,No,125.0,L,3-methyl-5-oxocyclohex-3-en-1-yloxidanyl,CC1=CC(O)=CC([O])C1,NA,NA,NA,NA,NA,NA,NA
+AEC,Elemental carbon,P,Yes,12.0,L,Carbon,[C],NA,NA,2200.0,NA,NA,NA,NA
+AFE,Iron ion,P,Yes,55.8,E,Iron ion,[Fe++],NA,NA,2200.0,NA,NA,NA,NA
+AGLY,SOA from reactive uptake of glyoxal on particles,P,Yes,66.4,L,2-(4;5-dihydroxy-1;3-dioxolan-2-yl)-1;3-dioxolane-4;5-diol,OC2OC(C1OC(O)C(O)O1)OC2O,NA,NA,1400.0,0.13,1e-10,1.0,2.13
+AH2O,Water associated with particulate inorganic compounds,P,Yes,18.0,E,Water,O,NA,NA,1000.0,NA,NA,NA,NA
+AH3OP,Hydronium ion tracer,P,Yes,19.0,E,Hydronium ion,[OH3+],NA,NA,1000.0,NA,NA,NA,NA
+AISO3NOS,Non-sulfated SOA from IEPOX uptake,P,Yes,136.2,L,2-methylbutane-1;2;3;4-tetrol,C(O)C(O)(C)C(O)CO,NA,NA,1400.0,0.15,1e-10,1.0,2.27
+AISO3OS,Organosulfate SOA from IEPOX uptake,P,Yes,216.2,L,(1;3;4-trihydroxy-2-methylbutan-2-yl)oxysulfonic acid,C(O)C(OS(O)(=O)(=O))(C)C(O)CO,NA,NA,1400.0,0.3,1e-10,1.0,3.6
+AK,Potassium ion,P,Yes,39.1,E,Potassium ion,[K+],NA,NA,2200.0,NA,NA,NA,NA
+ALD,C3 and higher aldehydes,G,Yes,58.0,L,Propanal,CCC=O,4200.0,0.0,NA,NA,NA,NA,NA
+AMG,Magnesium ion,P,Yes,24.3,E,Magnesium ion,[Mg++],NA,NA,2200.0,NA,NA,NA,NA
+AMN,Manganese ion,P,Yes,54.9,L,Manganese ions,[Mn++],NA,NA,2200.0,NA,NA,NA,NA
+ANA,Sodium ion,P,Yes,23.0,E,Sodium ion,[Na+],NA,NA,2200.0,NA,NA,NA,NA
+ANH4,Ammonium ion,P,Yes,18.0,E,Ammonium ion,[NH4+],NA,NA,1800.0,NA,NA,NA,NA
+ANO3,Nitrate ion,P,Yes,62.0,E,Nitrate ion,[N+](=O)([O-])[O-],NA,NA,1800.0,NA,NA,NA,NA
+AORGC,SOA from cloud processing of GLY and MGLY,P,Yes,177.0,L,2-(4;5-dihydroxy-1;3-dioxolan-2-yl)-1;3-dioxolane-4;5-diol,OC2OC(C1OC(O)C(O)O1)OC2O,NA,NA,1400.0,0.12,1e-10,1.0,2.0
+AORGH2O,Water associated with particulate organic compounds,P,Yes,18.0,E,Water,O,NA,NA,1000.0,NA,NA,NA,NA
+AOTHR,Primary unspeciated fine PM,P,Yes,200.0,L,Unspeciated PM,NA,NA,NA,2200.0,NA,NA,NA,NA
+API,Alpha-pinenes and other cyclic terpenes with one double bond,G,Yes,136.4,L,alpha-pinene,CC1=CCC2CC1C2(C)C,0.00749,0.0,NA,NA,NA,NA,NA
+APINP1,Peroxy radicals from API+NO3 that do not undergo autoxidation,G,No,230.0,L,[2;6;6-trimethyl-3-(nitrooxy)bicyclo[3.1.1]heptan-2-yl]peroxy,[O]OC1(C)C(ON(=O)=O)CC2CC1C2(C)C,NA,NA,NA,NA,NA,NA,NA
+APINP2,Peroxy radicals from API+NO3 that undergo autoxidation,G,No,230.0,L,[2;6;6-trimethyl-3-(nitrooxy)bicyclo[3.1.1]heptan-2-yl]peroxy,[O]OC1(C)C(ON(=O)=O)CC2CC1C2(C)C,NA,NA,NA,NA,NA,NA,NA
+APIP1,Peroxy radicals from API+OH that do not undergo autoxidation,G,No,185.0,L,{3-hydroxy-2;6;6-trimethylbicyclo[3.1.1]heptan-2-yl}peroxy,[O]OC1(C)C(O)CC2CC1C2(C)C,NA,NA,NA,NA,NA,NA,NA
+APIP2,Peroxy radicals from API+OH that undergo autoxidation,G,No,185.0,L,{3-hydroxy-2;6;6-trimethylbicyclo[3.1.1]heptan-2-yl}peroxy,[O]OC1(C)C(O)CC2CC1C2(C)C,NA,NA,NA,NA,NA,NA,NA
+APNCOM,Primary non-carbon organic matter (legacy),P,Yes,220.0,L,Non-carbon organic matter,NA,NA,NA,1400.0,NA,1e-10,1.0,-1.0
+APOC,Primary organic carbon (legacy),P,Yes,220.0,L,Organic carbon,NA,NA,NA,1400.0,NA,1e-10,1.0,1.0
+ASEACAT,Sea spray cations,P,Yes,23.75,L,Coarse sea spray cations,NA,NA,NA,2200.0,NA,NA,NA,NA
+ASI,Silicon,P,Yes,28.1,E,Total Silicon,[Si],NA,NA,2200.0,NA,NA,NA,NA
+ASO4,Total sulfur IV as sulfate,P,Yes,96.0,L,Sulfate ion,[O-]S(=O)(=O)[O-],NA,NA,1800.0,NA,NA,NA,NA
+ASOAT,An empirical SOA,P,Yes,200.0,L,3;4;5;6;7-Pentahydroxyheptan-2-one,CC(=O)C(C(C(C(CO)O)O)O)O,NA,NA,1400.0,0.13,1e-10,1.0,2.31
+ASOIL,Lumped crustal species,P,Yes,100.0,L,Crustal species,NA,NA,NA,2600.0,NA,NA,NA,NA
+ATI,Titanium,P,Yes,47.9,E,Total Titanium,[Ti],NA,NA,2200.0,NA,NA,NA,NA
+BAL1,Peroxy radicals formed from BALD ,G,No,123.0,L,(4-methylphenyl)peroxy,[O]OC1=CC=C(C)C=C1,NA,NA,NA,NA,NA,NA,NA
+BAL2,Peroxy radicals formed from BALD ,G,No,109.0,L,phenylperoxy,[O]OC1=CC=CC=C1,NA,NA,NA,NA,NA,NA,NA
+BALD,Benzaldehyde and other aromatic aldehydes,G,Yes,106.0,L,Benzaldehyde,O=CC1=CC=CC=C1,39.0,4800.0,NA,NA,NA,NA,NA
+BALP,Peroxy radicals formed from BALD ,G,No,137.0,L,benzoylperoxy,O=C(O[O])C1=CC=CC=C1,NA,NA,NA,NA,NA,NA,NA
+BDE13,1;3-butadiene,G,Yes,54.1,E,1;3-Butadiene,C=CC=C,0.0242,0.0,NA,NA,NA,NA,NA
+BDE13P,Peroxy radicals from BDE13,G,No,103.0,L,(1-hydroxybut-3-en-2-yl)peroxy,C=CC(O[O])CO,NA,NA,NA,NA,NA,NA,NA
+BEN,Benzene,G,Yes,78.11,E,Benzene,C1=CC=CC=C1,0.18,0.0,NA,NA,NA,NA,NA
+BENP,Peroxy radicals formed from benzene,G,No,159.12,L,{8-hydroxy-6;7-dioxabicyclo[3.2.1]oct-3-en-2-yl}peroxy,[O]OC1C=CC2OOC1C2O,NA,NA,NA,NA,NA,NA,NA
+CHO,Phenoxy radical formed from CSL,G,No,139.0,L,4-hydroxy-3;5-dimethylcyclohexa-2;5-dien-1-yloxidanyl,[O]C1C=C(C)C(O)C(=C1)C,NA,NA,NA,NA,NA,NA,NA
+CO,Carbon monoxide,G,Yes,28.0,E,Carbon monoxide,[C-]#[O+],0.00099,1300.0,NA,NA,NA,NA,NA
+CSL,Cresol and other hydroxy substituted aromatics ,G,Yes,136.2,L,2-Phenylpropan-2-ol,CC(C)(O)C1=CC=CC=C1,1420.0,0.0,NA,NA,NA,NA,NA
+DCB1,Unsaturated dicarbonyls,G,Yes,98.0,L,2-methylbut-2-enedial,O=CC=C(C)C=O,6.5,0.0,NA,NA,NA,NA,NA
+DCB2,Unsaturated dicarbonyls,G,Yes,112.1,L,2-methyl-4-oxopent-2-enal,O=CC(=CC(=O)C)C,6.5,0.0,NA,NA,NA,NA,NA
+DCB3,Unsaturated dicarbonyls,G,Yes,84.0,L,but-2-enedial,O=CC=CC=O,6.5,0.0,NA,NA,NA,NA,NA
+ELHOM,Extremely-low volatility highly oxygenated molecules from terpenes,GP,Yes,402.0,L,6-hydroperoxy-7-({3-hydroxy-2;6;6-trimethylbicyclo[3.1.1]heptan-2-yl}peroxy)-3;3;6-trimethyl-tetrahydro-3aH-1;2-benzodioxol-5-ol,OC1CC2C(OOC2(C)C)C(OOC3(C)C4C(C)(C)C(C4)CC3O)C1(C)OO,NA,NA,1400.0,0.09,1e-05,160000.0,1.67
+EOH,Ethanol,G,Yes,46.1,E,Ethanol,CCO,190.0,6600.0,NA,NA,NA,NA,NA
+ETE,ethene ,G,Yes,28.1,E,Ethylene,C=C,0.0047,0.0,NA,NA,NA,NA,NA
+ETEG,Ethylene glycol,G,Yes,62.1,E,Ethylene glycol,OCCO,4000000.0,0.0,NA,NA,NA,NA,NA
+ETEP,Peroxy radicals formed from ETE,G,No,77.0,E,(2-hydroxyethyl)peroxy,OCCO[O],NA,NA,NA,NA,NA,NA,NA
+ETH,ethane ,G,Yes,30.1,E,Ethane,CC,0.0019,2300.0,NA,NA,NA,NA,NA
+ETHP,Peroxy radicals formed from ethane and other species ,G,No,61.0,L,Ethylperoxy,CCO[O],NA,NA,NA,NA,NA,NA,NA
+FURAN,Furans and other dienes,G,Yes,96.1,L,Furfural,O=CC1=CC=CO1,5110.0,0.0,NA,NA,NA,NA,NA
+FURANO2,Peroxy radicals from FURAN oxidation,G,No,145.1,L,(2-formyl-5-hydroxy-5H-furan-2-yl)peroxy,OC1C=CC(O1)(O[O])(C=O),NA,NA,NA,NA,NA,NA,NA
+FURANONE,Ring-retaining ketone product from FURAN oxidation,G,Yes,100.1,L,2-hydroxy-2H-furan-5-one,C1=CC(=O)OC1O,78700.0,0.0,NA,NA,NA,NA,NA
+GLY,Glyoxal and glycoaldehydes ,G,Yes,58.0,L,Glyoxal,O=CC=O,360000.0,0.0,NA,NA,NA,NA,NA
+H2O2,Hydrogen peroxide,G,Yes,34.0,E,Hydrogen peroxide,OO,110000.0,7400.0,NA,NA,NA,NA,NA
+HC10,Alkanes and other species with HO rate constant greater than 6.8x10-12 cm3 s-1,G,Yes,142.28,L,Decane,CCCCCCCCCC,0.00652,0.0,NA,NA,NA,NA,NA
+HC10P,Peroxy radicals formed from HC10 ,G,No,173.27,L,Decan-3-ylperoxy,CCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+HC10P2,Hydroxy peroxy radicals from HC10P alkoxy product,G,No,189.27,L,(8-hydroxydecan-5-yl)peroxy,CCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+HC3,Alkanes and other species with HO rate constant less than 3.4x10-12 cm3 s-1 ,G,Yes,44.1,L,Propane,CCC,0.00255,0.0,NA,NA,NA,NA,NA
+HC3P,Peroxy radicals formed from HC3,G,No,75.0,L,Isopropyl peroxy,CC(C)O[O],NA,NA,NA,NA,NA,NA,NA
+HC5,Alkanes and other species with HO rate constant between 3.4x10-12 and 6.8x10-12 cm3 s-1 ,G,Yes,72.1,L,Pentane,CCCCC,0.000804,0.0,NA,NA,NA,NA,NA
+HC5P,Peroxy radicals formed from HC5,G,No,103.0,L,Pentan-3-ylperoxy,CCC(O[O])CC,NA,NA,NA,NA,NA,NA,NA
+HCHO,Formaldehyde ,G,Yes,30.0,E,Formaldehyde,C=O,3200.0,6800.0,NA,NA,NA,NA,NA
+HCL,Hydrochloric acid,G,Yes,36.0,E,Hydrochloric acid,Cl,19.0,600.0,NA,NA,NA,NA,NA
+HKET,Hydroxy ketone ,G,Yes,74.0,L,Hydroxy acetone,CC(=O)CO,20000.0,0.0,NA,NA,NA,NA,NA
+HNO3,Nitric acid,G,Yes,63.0,E,Nitric acid,[N+](=O)(O)[O-],210000.0,8700.0,NA,NA,NA,NA,NA
+HNO4,Pernitric acid ,G,Yes,79.0,E,Hydroxy nitrate,[N+](=O)([O-])OO,12000.0,6900.0,NA,NA,NA,NA,NA
+HO,Hydroxy radical,G,No,17.0,E,Hydroxyl radical,[OH],NA,NA,NA,NA,NA,NA,NA
+HO2,Hydroperoxy radical,G,No,33.0,E,Hydroperoxy,O[O-],NA,NA,NA,NA,NA,NA,NA
+HOM,Highly oxygenated molecules from terpenes,GP,Yes,250.0,L,6;7-dihydroperoxy-3;3;6-trimethyl-tetrahydro-3aH-1;2-benzodioxol-5-ol,OC1CC2C(OOC2(C)C)C(OO)C1(C)OO,NA,NA,1400.0,0.13,0.0063,130000.0,2.08
+HONO,Nitrous acid ,G,Yes,47.0,E,Nitrous acid,N(=O)O,50.0,4900.0,NA,NA,NA,NA,NA
+IEPOX,isoprene epoxydiols ,G,Yes,118.1,E,Isoprene epoxydiol,OCC1OC1(C)CO,83000.0,7400.0,NA,NA,NA,NA,NA
+IEPOXP,IEPOX intermediate (tracking species),G,No,118.1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+ISHP,Beta-hydroxy hydroperoxides from ISOP+HO2,G,Yes,118.0,L,2-hydroperoxy-2-methylbut-3-en-1-ol,C=CC(OO)(CO)C,6.5,0.0,NA,NA,NA,NA,NA
+ISO,Isoprene ,G,Yes,68.1,E,Isoprene,CC(=C)C=C,0.0186,0.0,NA,NA,NA,NA,NA
+ISON,Beta-hydroxyalkylnitrates from ISOP+NO alkylnitrates from ISO+NO3,G,Yes,147.0,L,2-methyl-2-(nitrooxy)but-3-en-1-ol,OCC(C)(C=C)ON(=O)=O,6300.0,9600.0,NA,NA,NA,NA,NA
+ISOP,Peroxy radicals formed from ISO+HO ,G,No,117.0,L,(1-hydroxy-3-methylbut-3-en-2-yl)peroxy,OCC(O[O])C(C)=C,NA,NA,NA,NA,NA,NA,NA
+KET,ketones,G,Yes,86.0,L,Diethylketone,CCC(=O)CC,20.0,9200.0,NA,NA,NA,NA,NA
+KETP,Peroxy radicals formed from KET,G,No,117.0,L,(3-oxopentan-2-yl)peroxy,CCC(C(C)O[O])=O,NA,NA,NA,NA,NA,NA,NA
+LIM,d-limonene and other cyclic diene-terpenes ,G,Yes,136.3,L,D-Limonene,CC(=C)[C@@H]1CCC(C)=CC1,0.0444,0.0,NA,NA,NA,NA,NA
+LIMAL,Limonene aldehyde and similar LIM-derived aldehydes,G,Yes,168.0,L,Limonaldehyde,O=CCC(CCC(=O)C)C(=C)C,44.0,0.0,NA,NA,NA,NA,NA
+LIMALP,Peroxy radicals from LIMAL,G,No,217.0,L,[1-hydroxy-2-methyl-5-oxo-3-(3-oxobutyl)pentan-2-yl]peroxy,O=CCC(CCC(=O)C)C(C)(CO)O[O],NA,NA,NA,NA,NA,NA,NA
+LIMNP1,Peroxy radicals from LIM+NO3 that do not undergo autoxidation,G,No,230.0,L,[1-methyl-2-(nitrooxy)-4-(prop-1-en-2-yl)cyclohexyl]peroxy,[O-][N+](=O)OC1CC(CCC1(C)O[O])C(=C)C,NA,NA,NA,NA,NA,NA,NA
+LIMNP2,Peroxy radicals from LIM+NO3 that undergo autoxidation,G,No,230.0,L,[1-methyl-2-(nitrooxy)-4-(prop-1-en-2-yl)cyclohexyl]peroxy,[O-][N+](=O)OC1CC(CCC1(C)O[O])C(=C)C,NA,NA,NA,NA,NA,NA,NA
+LIMP1,Peroxy radicals from LIM+OH that do not undergo autoxidation,G,No,185.0,L,[2-hydroxy-1-methyl-4-(prop-1-en-2-yl)cyclohexyl]peroxy,[O]OC1(C)CCC(CC1O)C(=C)C,NA,NA,NA,NA,NA,NA,NA
+LIMP2,Peroxy radicals from LIM+OH that undergo autoxidation,G,No,185.0,L,[2-hydroxy-1-methyl-4-(prop-1-en-2-yl)cyclohexyl]peroxy,[O]OC1(C)CCC(CC1O)C(=C)C,NA,NA,NA,NA,NA,NA,NA
+MACP,Peroxy radicals formed from MACR+HO,G,No,101.0,L,(2-methylprop-2-enoyl)peroxy,CC(=C)C(=O)O[O],NA,NA,NA,NA,NA,NA,NA
+MACR,methacrolein and other C4 aldehydes ,G,Yes,70.0,L,Methacrolein,CC(=C)C=O,6.5,0.0,NA,NA,NA,NA,NA
+MAHP,Hydroperoxides from MACP+HO2 ,G,Yes,102.0,L,2-methylprop-2-eneperoxoic acid,C=C(C)C(OO)=O,6.5,0.0,NA,NA,NA,NA,NA
+MCP,Peroxy radical formed from MACR + HO which does not form MPAN,G,No,119.0,L,(1-hydroxy-2-methyl-3-oxopropan-2-yl)peroxy,OCC(C)(O[O])C=O,NA,NA,NA,NA,NA,NA,NA
+MCT,Methyl catechol,G,Yes,124.1,L,4-Methylcatechol,CC1=CC(O)=C(O)C=C1,5800.0,0.0,NA,NA,NA,NA,NA
+MCTO,Alkoxy radical formed from MCT+HO and MCT+NO3,G,No,123.0,L,3-hydroxy-5-methylphenyloxidanyl,CC1=CC(O)=CC([O])=C1,NA,NA,NA,NA,NA,NA,NA
+MCTP,Radical formed fro MCT+O3 reaction ,G,No,172.0,L,C7H8O5 Biradical,CC(/C=C\[C](O[O])O)=C/C(O)=O,NA,NA,NA,NA,NA,NA,NA
+MEK,Methyl ethyl ketone,G,Yes,72.1,E,Methyl ethyl ketone,CCC(C)=O,20.0,5000.0,NA,NA,NA,NA,NA
+MEKP,Peroxy radicals formed from MEK,G,No,103.0,L,(3-oxobutyl)peroxy,[O]OCCC(=O)C,NA,NA,NA,NA,NA,NA,NA
+MGLY,Methylglyoxal and other alpha-carbonyl aldehydes ,G,Yes,72.0,L,Methyl glyoxal,CC(=O)C=O,32000.0,0.0,NA,NA,NA,NA,NA
+MO2,Methyl peroxy radical,G,No,47.0,E,Methylperoxy,CO[O],NA,NA,NA,NA,NA,NA,NA
+MOH,Methanol ,G,Yes,32.0,E,Methanol,CO,220.0,5200.0,NA,NA,NA,NA,NA
+MPAN,Peroxymethacryloylnitrate and other higher peroxyacylnitrates from isoprene oxidation,G,Yes,147.1,L,Peroxymethacryloyl nitrate,O=N(=O)OOC(=O)C(=C)C,1.7,0.0,NA,NA,NA,NA,NA
+MVK,Methyl vinyl ketone,G,Yes,70.1,E,Methyl vinyl ketone,CC(=O)C=C,41.0,0.0,NA,NA,NA,NA,NA
+MVKP,Peroxy radicals formed from MVK,G,No,119.0,L,(2-hydroxy-3-oxobutyl)peroxy,CC(=O)C(O)CO[O],NA,NA,NA,NA,NA,NA,NA
+N2O5,Dinitrogen pentoxide ,G,Yes,108.0,E,Dinitrogen pentoxide,[N+](=O)([O-])O[N+](=O)[O-],1e+30,0.0,NA,NA,NA,NA,NA
+NALD,Nitrooxyacetaldehyde ,G,Yes,105.0,E,1-(nitrooxy)acetaldehyde,O=CCON(=O)=O,6300.0,9600.0,NA,NA,NA,NA,NA
+NAPH,Naphthalene and other PAHs,G,Yes,128.17,L,Naphthalene,C1=CC2=CC=CC=C2C=C1,2.28,0.0,NA,NA,NA,NA,NA
+NAPHP,Peroxy radicals from NAPH oxidation,G,No,209.17,L,{8-hydroxy-10;11-dioxatricyclo[7.2.1.0^{2;7}]dodeca-2;4;6-trien-12-yl}peroxy,C12=CC=CC=C1C3OOC(C3O[O])C2(O),NA,NA,NA,NA,NA,NA,NA
+NH3,Ammonia,G,Yes,17.0,E,Ammonia,N,61.0,4200.0,NA,NA,NA,NA,NA
+NO,Nitric oxide ,G,Yes,30.0,E,Nitric oxide,[N]=O,0.0019,1400.0,NA,NA,NA,NA,NA
+NO2,Nitrogen dioxide ,G,Yes,46.0,E,Nitrogen dioxide,N(=O)[O],0.012,2500.0,NA,NA,NA,NA,NA
+NO3,Nitrogen trioxide,G,Yes,62.0,E,Nitrate radical,[O]N(=O)=O,0.6,0.0,NA,NA,NA,NA,NA
+NUM,Number of particles,P,Yes,1.0,L,Number of particles,NA,NA,NA,NA,NA,NA,NA,NA
+O1D,Excited state oxygen atom; O(1D) ,G,No,16.0,E,Excited oxygen,[O],NA,NA,NA,NA,NA,NA,NA
+O3,Ozone,G,Yes,48.0,E,Ozone,[O-][O+]=O,0.0114,2300.0,NA,NA,NA,NA,NA
+O3P,Ground state oxygen atom; O(3P),G,No,16.0,E,Ground state oxygen,[O],NA,NA,NA,NA,NA,NA,NA
+OLI,Internal alkenes ,G,Yes,70.1,L,2-Methyl-2-butene,CC=C(C)C,0.00485,0.0,NA,NA,NA,NA,NA
+OLIP,Peroxy radicals formed from OLI,G,No,119.0,L,(3-hydroxy-2-methylbutan-2-yl)peroxy,[O]OC(C)(C)C(C)O,NA,NA,NA,NA,NA,NA,NA
+OLND,NO3-alkene adduct reacting via decomposition ,G,No,136.0,L,[1-(nitrooxy)propan-2-yl]peroxy,CC(O[O])CO[N+]([O-])=O,NA,NA,NA,NA,NA,NA,NA
+OLNN,NO3-alkene adduct reacting to form carbonitrates + HO2 ,G,No,136.0,L,[1-(nitrooxy)propan-2-yl]peroxy,CC(O[O])CO[N+]([O-])=O,NA,NA,NA,NA,NA,NA,NA
+OLT,Terminal alkenes ,G,Yes,42.0,L,1-Propene,CC=C,0.00509,0.0,NA,NA,NA,NA,NA
+OLTP,Peroxy radicals formed from OLT,G,No,91.0,L,(1-hydroxypropan-2-yl)peroxy,CC(CO)O[O],NA,NA,NA,NA,NA,NA,NA
+ONIT,Organic nitrates,G,Yes,119.0,L,Butan-2-yl nitrate,CCC(C)O[N+](=O)[O-],1.7,0.0,NA,NA,NA,NA,NA
+OP1,Methyl hydrogen peroxide ,G,Yes,48.0,E,Methyl hydroperoxide,COO,310.0,5200.0,NA,NA,NA,NA,NA
+OP2,Higher organic peroxides ,G,Yes,62.0,L,Ethyl hydroperoxide,CCOO,310.0,5200.0,NA,NA,NA,NA,NA
+OP3,Semivolatile organic peroxide,GP,Yes,176.2,L,5-hydroperoxy-6-hydroxyoctan-3-one,CCC(=O)CC(OO)C(O)CC,310.0,5200.0,1400.0,0.05,10.0,81000.0,1.92
+OPB,Terpene-derived peroxides,G,Yes,186.2,L,2-hydroperoxy-2;6;6-trimethylbicyclo[3.1.1]heptan-3-ol,OOC1(C)C(O)CC2CC1C2(C)C,310.0,5200.0,NA,NA,NA,NA,NA
+ORA1,Formic acid,G,Yes,46.0,E,Formic acid,OC=O,5950.0,0.0,NA,NA,NA,NA,NA
+ORA2,Acetic acid and higher acids ,G,Yes,60.2,L,Acetic acid,CC(O)=O,9950.0,0.0,NA,NA,NA,NA,NA
+ORAP,Peroxy radical formed from ORA2 + HO reaction,G,No,91.0,L,(carboxymethyl)peroxy,[O]OCC(=O)O,NA,NA,NA,NA,NA,NA,NA
+PAA,Peroxyacetic acids and higher analogs,G,Yes,76.0,L,Peroxyacetic acid,CC(=O)OO,840.0,5300.0,NA,NA,NA,NA,NA
+PAN,Peroxyacetyl nitrate and higher saturated PANs ,G,Yes,121.0,L,Peroxyacetyl nitrate,CC(=O)OON(=O)=O,2.8,6500.0,NA,NA,NA,NA,NA
+PHEN,phenol and benzene diols,G,Yes,110.1,L,Resorcinol,OC1=CC(O)=CC=C1,18300.0,0.0,NA,NA,NA,NA,NA
+PINAL,Pinonaldehyde and similar APIN-derived aldehydes,G,Yes,168.0,L,Pinonaldehyde,O=CCC1CC(C(=O)C)C1(C)C,4200.0,0.0,NA,NA,NA,NA,NA
+PINALP,Peroxy radicals from PINAL oxidation,G,No,199.0,L,[3-acetyl-2;2-dimethyl-1-(2-oxoethyl)cyclobutyl]peroxy,O=CCC1(O[O])CC(C(=O)C)C1(C)C,NA,NA,NA,NA,NA,NA,NA
+PPN,Peroxypropionyl nitrate,G,Yes,135.0,E,Peroxypopionyl nitrate,CCC(=O)OO[N+](=O)[O-],2.9,0.0,NA,NA,NA,NA,NA
+PROG,Propylene glyocol and other 3 carbon dialcohols,G,Yes,76.1,E,1;2-Propylene glycol,CC(O)CO,16500.0,0.0,NA,NA,NA,NA,NA
+RCO3,Higher saturated acyl peroxy radicals,G,No,89.0,L,Propanoylperoxy,CCC(=O)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCIOXY,Intermediate volatility oxygenated ROC species (directly emitted),G,Yes,247.0,L,Decamethylcyclopentasiloxane,C[Si]1(C)O[Si](C)(C)O[Si](C)(C)O[Si](C)(C)O[Si](C)(C)O1,8.12,0.0,NA,NA,NA,NA,NA
+ROCN1ALK,Alkane-like ROC species with C* of 10-1 ug/m3,GP,Yes,408.8,L,5;9-Dimethylheptacosane,CCCCCCCCCCCCCCCCCCC(C)CCCC(C)CCCC,1340.0,0.0,1400.0,0.05,0.1,96000.0,1.32
+ROCN1OXY1,Oxygenated ROC species with C* of 10-1 ug/m3 and O:C of 0.1,GP,Yes,312.5,L,Arachidic Acid,CCCCCCCCCCCCCCCCCCCC(=O)O,21400.0,0.0,1400.0,0.13,0.1,89000.0,1.29
+ROCN1OXY3,Oxygenated ROC species with C* of 10-1 ug/m3 and O:C of 0.3,GP,Yes,230.3,L,DODECANEDIOIC ACID,C(CCCCCC(=O)O)CCCCC(=O)O,2870000.0,0.0,1400.0,0.13,0.1,89000.0,1.54
+ROCN1OXY6,Oxygenated ROC species with C* of 10-1 ug/m3 and O:C of 0.6,GP,Yes,190.2,L,2-hydroxy-octanedioic acid,C(CCC(C(=O)O)O)CCC(=O)O,1010000.0,0.0,1400.0,0.13,0.1,89000.0,1.92
+ROCN2ALK,Alkane-like ROC species with C* of 10-2 ug/m3,GP,Yes,422.83,L,Triacontane,CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC,1340.0,0.0,1400.0,0.05,0.01,104000.0,1.39
+ROCN2OXY2,Oxygenated ROC species with C* of 10-1 ug/m3 and O:C of 0.2,GP,Yes,282.4,L,12(S)-hydroxy-16-Heptadecynoic Acid,C#CCCC[C@H](CCCCCCCCCCC(=O)O)O,115000.0,0.0,1400.0,0.15,0.01,93000.0,1.42
+ROCN2OXY4,Oxygenated ROC species with C* of 10-2 ug/m3 and O:C of 0.4,GP,Yes,232.3,L,2-HYDROXYUNDECANEDIOIC ACID,C(CCCCC(=O)O)CCCC(C(=O)O)O,971000.0,0.0,1400.0,0.15,0.01,93000.0,1.67
+ROCN2OXY8,Oxygenated ROC species with C* of 10-2 ug/m3 and O:C of 0.8,GP,Yes,194.2,L,3;4;5;6;7-Pentahydroxyheptan-2-one,CC(=O)C(C(C(C(CO)O)O)O)O,3800000.0,0.0,1400.0,0.15,0.01,93000.0,2.17
+ROCP0ALK,Alkane-like ROC species with C* of 1 ug/m3,GP,Yes,394.77,L,11-Methylheptacosane,CCCCCCCCCCCCCCCCC(C)CCCCCCCCCC,1330.0,0.0,1400.0,0.04,1.0,85000.0,1.17
+ROCP0OXY2,Oxygenated ROC species with C* of 1 ug/m3 and O:C of 0.2,GP,Yes,242.4,L,3-oxotetradecanoic acid,CCCCCCCCCCCC(=O)CC(=O)O,403000.0,0.0,1400.0,0.11,1.0,85000.0,1.42
+ROCP0OXY4,Oxygenated ROC species with C* of 1 ug/m3 and O:C of 0.4,GP,Yes,202.3,L,DECANEDIOIC ACID,C(CCCCC(=O)O)CCCC(=O)O,855000.0,0.0,1400.0,0.11,1.0,85000.0,1.67
+ROCP1ALK,Alkane-like ROC species with C* of 10 ug/m3,GP,Yes,380.75,L,Heptacosane,CCCCCCCCCCCCCCCCCCCCCCCCCCC,1330.0,0.0,1400.0,0.03,10.0,81000.0,1.17
+ROCP1ALKP,Peroxy radicals from ROCP1ALK oxidation,G,No,411.74,L,heptacosan-3-ylperoxy,CCCCCCCCCCCCCCCCCCCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCP1ALKP2,Hydroxy peroxy radicals from ROCP1ALK alkoxy product,G,No,427.73,L,(3-hydroxyheptacosan-6-yl)peroxy,CCCCCCCCCCCCCCCCCCCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+ROCP1OXY1,Oxygenated ROC species with C* of 10 ug/m3 and O:C of 0.1,GP,Yes,270.5,L,HEPTADECANOIC ACID,CCCCCCCCCCCCCCCCC(=O)O,45200.0,0.0,1400.0,0.09,10.0,81000.0,1.29
+ROCP1OXY3,Oxygenated ROC species with C* of 10 ug/m3 and O:C of 0.3,GP,Yes,202.3,L,11-hydroxyundecanoic acid,C(CCCCCO)CCCCC(=O)O,10200.0,0.0,1400.0,0.09,10.0,81000.0,1.54
+ROCP2ALK,Alkane-like ROC species with C* of 10+2 ug/m3,GP,Yes,338.66,L,Tetracosane,CCCCCCCCCCCCCCCCCCCCCCCC,1170.0,0.0,1400.0,0.03,100.0,77000.0,1.17
+ROCP2ALKP,Peroxy radicals from ROCP2ALK oxidation,G,No,369.65,L,tetracosan-3-ylperoxy,CCCCCCCCCCCCCCCCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCP2ALKP2,Hydroxy peroxy radicals from ROCP2ALK alkoxy product,G,No,385.65,L,(3-hydroxytetracosan-6-yl)peroxy,CCCCCCCCCCCCCCCCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+ROCP2OXY2,Oxygenated ROC species with C* of 10+2 ug/m3 and O:C of 0.2,GP,Yes,200.3,L,Dodecanoic Acid,CCCCCCCCCCCC(=O)O,4930.0,0.0,1400.0,0.08,100.0,77000.0,1.42
+ROCP3ALK,Alkane-like ROC species with C* of 10+3 ug/m3,GP,Yes,296.58,L,Heneicosane,CCCCCCCCCCCCCCCCCCCCC,610.0,0.0,1400.0,0.03,1000.0,73000.0,1.17
+ROCP3ALKP,Peroxy radicals from ROCP3ALK oxidation,G,No,327.57,L,henicosan-3-ylperoxy,CCCCCCCCCCCCCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCP3ALKP2,Hydroxy peroxy radicals from ROCP3ALK alkoxy product,G,No,343.57,L,(3-hydroxyhenicosan-6-yl)peroxy,CCCCCCCCCCCCCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+ROCP3OXY2,Oxygenated ROC species with C* of 10+3 ug/m3 and O:C of 0.2,GP,Yes,186.3,L,11-hydroxyundecanal,C(CCCCCO)CCCCC=O,110.0,0.0,1400.0,0.08,1000.0,73000.0,1.42
+ROCP4ALK,Alkane-like ROC species with C* of 10+4 ug/m3,G,Yes,254.5,L,Octadecane,CCCCCCCCCCCCCCCCCC,29.4,0.0,NA,NA,NA,NA,NA
+ROCP4ALKP,Peroxy radicals from ROCP4ALK oxidation,G,No,285.49,L,octadecan-3-ylperoxy,CCCCCCCCCCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCP4ALKP2,Hydroxy peroxy radicals from ROCP4ALK alkoxy product,G,No,301.49,L,(3-hydroxyoctadecan-6-yl)peroxy,CCCCCCCCCCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+ROCP4OXY2,Oxygenated ROC species with C* of 10+4 ug/m3 and O:C of 0.2,G,Yes,158.2,L,2-Ethylheptanoic Acid,CCCCCC(CC)C(=O)O,645.0,0.0,NA,NA,NA,NA,NA
+ROCP5ALK,Alkane-like ROC species with C* of 10+5 ug/m3,G,Yes,198.39,L,Tetradecane,CCCCCCCCCCCCCC,0.0541,0.0,NA,NA,NA,NA,NA
+ROCP5ALKP,Peroxy radicals from ROCP5ALK oxidation,G,No,229.38,L,tetradecan-3-ylperoxy,CCCCCCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCP5ALKP2,Hydroxy peroxy radicals from ROCP5ALK alkoxy product,G,No,245.38,L,(3-hydroxytetradecan-6-yl)peroxy,CCCCCCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+ROCP5ARO,Aromatic ROC species with C* of 10+5 ug/m3,G,Yes,190.33,L,Benzene; octyl-,CCCCCCCCC1=CC=CC=C1,0.415,0.0,NA,NA,NA,NA,NA
+ROCP5AROP,Peroxy radicals from ROCP5ARO oxidation,G,No,271.33,L,{8-hydroxy-5-octyl-6;7-dioxabicyclo[3.2.1]oct-3-en-2-yl}peroxy,CCCCCCCCC1(OO2)C=CC(O[O])C2C1O,NA,NA,NA,NA,NA,NA,NA
+ROCP5OXY1,Oxygenated ROC species with C* of 10+5 ug/m3 and O:C of 0.1,G,Yes,170.3,L,Undecanal,CCCCCCCCCCC=O,1.57,0.0,NA,NA,NA,NA,NA
+ROCP6ALK,Alkane-like ROC species with C* of 10+6 ug/m3,G,Yes,184.37,L,Tridecane,CCCCCCCCCCCCC,0.0069,0.0,NA,NA,NA,NA,NA
+ROCP6ALKP,Peroxy radicals from ROCP6ALK oxidation,G,No,215.36,L,tridecan-3-ylperoxy,CCCCCCCCCCC(CC)O[O],NA,NA,NA,NA,NA,NA,NA
+ROCP6ALKP2,Hydroxy peroxy radicals from ROCP6ALK alkoxy product,G,No,231.36,L,(3-hydroxytridecan-6-yl)peroxy,CCCCCCCC(O[O])CCC(O)CC,NA,NA,NA,NA,NA,NA,NA
+ROCP6ARO,Aromatic ROC species with C* of 10+6 ug/m3,G,Yes,176.3,L,1-Hexyl-4-methylbenzene,CCCCCCC1=CC=C(C)C=C1,0.187,0.0,NA,NA,NA,NA,NA
+ROCP6AROP,Peroxy radicals from ROCP6ARO oxidation,G,No,257.3,L,{2-hexyl-8-hydroxy-5-methyl-6;7-dioxabicyclo[3.2.1]oct-3-en-2-yl}peroxy,OC1C2C(CCCCCC)(O[O])C=CC1(C)OO2,NA,NA,NA,NA,NA,NA,NA
+ROCP6OXY1,Oxygenated ROC species with C* of 10+6 ug/m3 and O:C of 0.1,G,Yes,142.2,L,Nonanal,CCCCCCCCC=O,1.37,0.0,NA,NA,NA,NA,NA
+ROH,C3 and higher alcohols ,G,Yes,60.0,L,Propanol,CCCO,110.0,0.0,NA,NA,NA,NA,NA
+SESQ,Sesquiterpenes ,G,Yes,204.4,L,b-caryophyllene,C/C1=C/CCC(=C)C2CC(C)(C)C2CC\1,0.107,0.0,NA,NA,NA,NA,NA
+SESQNRO2,Peroxy radicals from SESQ reaction with nitrate radicals,G,No,298.4,L,[4;11;11-trimethyl-8-methylidene-5-(nitrooxy)bicyclo[7.2.0]undecan-4-yl]peroxy,[O]OC1(C)CCC2C(CC2(C)C)C(=C)CCC1O[N+](=O)[O-],NA,NA,NA,NA,NA,NA,NA
+SESQRO2,Peroxy radicals from SESQ reaction with OH,G,No,253.4,L,{5-hydroxy-4;11;11-trimethyl-8-methylidenebicyclo[7.2.0]undecan-4-yl}peroxy,[O]OC1(C)CCC2C(CC2(C)C)C(=C)CCC1O,NA,NA,NA,NA,NA,NA,NA
+SLOWROC,Slowly reacting ROC with kOH< 3.5x10-13 cm3 s-1 ,G,Yes,75.4,L,Hydrogen cyanide,C#N,1.95,0.0,NA,NA,NA,NA,NA
+SO2,Sulfur dioxide ,G,Yes,64.0,E,Sulfur dioxide,O=S=O,1.4,2900.0,NA,NA,NA,NA,NA
+SRF,Surface area of particles,P,Yes,1.0,L,Surface area of particles,NA,NA,NA,NA,NA,NA,NA,NA
+SULF,Sulfuric acid,G,Yes,98.0,E,Sulfuric acid,OS(=O)(=O)O,1e+30,0.0,NA,NA,NA,NA,NA
+SULRXN,Precursor of Aerosol Sulfate (tracking species) ,G,No,98.0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+TOL,Toluene ,G,Yes,92.14,E,Toluene,CC1=CC=CC=C1,0.15,0.0,NA,NA,NA,NA,NA
+TOLP,Peroxy radicals formed from TOL,G,No,173.14,L,{8-hydroxy-5-methyl-6;7-dioxabicyclo[3.2.1]oct-3-en-2-yl}peroxy,[O]OC1C=CC2(C)OOC1C2O,NA,NA,NA,NA,NA,NA,NA
+TRPN,Terpene nitrates,G,Yes,215.0,L,3-hydroxy-2;6;6-trimethylbicyclo[3.1.1]heptan-2-yl nitrate,O=N(=O)OC1(C)C(O)CC2CC1C2(C)C,6300.0,9600.0,NA,NA,NA,NA,NA
+UALD,Unsaturated aldehydes,G,Yes,84.1,L,2-Methylbut-2-enal,CC=C(C)C=O,44.0,0.0,NA,NA,NA,NA,NA
+UALP,Peroxy radicals formed from UALD ,G,No,133.0,L,(3-hydroxy-3-methyl-4-oxobutan-2-yl)peroxy,CC(O[O])C(C)(O)C=O,NA,NA,NA,NA,NA,NA,NA
+XO2,Accounts for addition NO to NO2 conversions (tracking species),G,No,1.0,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+XYE,O- and p-xylene and other less reactive volatile aromatics with kOH < 1.46x10-11 cm3 s-1 ,G,Yes,106.2,L,Ethylbenzene,CCC1=CC=CC=C1,0.127,4000.0,NA,NA,NA,NA,NA
+XYEP,Peroxy radicals formed from XYE,G,No,187.17,L,{5-ethyl-8-hydroxy-6;7-dioxabicyclo[3.2.1]oct-3-en-2-yl}peroxy,[O]OC1C=CC2(CC)OOC1C2O,NA,NA,NA,NA,NA,NA,NA
+XYM,M-xylene and other more reactive volatile aromatics with kOH > 1.46x10-11 cm3 s-1 ,G,Yes,106.2,L,m-Xylene,CC1=CC(C)=CC=C1,0.14,0.0,NA,NA,NA,NA,NA
+XYMP,Peroxy radicals formed from XYM,G,No,187.17,L,{8-hydroxy-1;5-dimethyl-6;7-dioxabicyclo[3.2.1]oct-3-en-2-yl}peroxy,[O]OC1C=CC2(C)OOC1(C)C2O,NA,NA,NA,NA,NA,NA,NA
