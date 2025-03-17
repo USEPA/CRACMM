@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sphinx Usage in the CRACMM Repository (Only for USEPA employees) &mdash; CRACMM 2.0 documentation</title>
+  <title>Sphinx Usage in the CRACMM Repository &mdash; CRACMM 2.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -88,7 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Sphinx Usage in the CRACMM Repository (Only for USEPA employees)</li>
+      <li class="breadcrumb-item active">Sphinx Usage in the CRACMM Repository</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/sphinx/README.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,22 +98,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="sphinx-usage-in-the-cracmm-repository-only-for-usepa-employees">
-<h1>Sphinx Usage in the CRACMM Repository (Only for USEPA employees)<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository-only-for-usepa-employees" title="Link to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sphinx-usage-in-the-cracmm-repository">
+<h1>Sphinx Usage in the CRACMM Repository<a class="headerlink" href="#sphinx-usage-in-the-cracmm-repository" title="Link to this heading"></a></h1>
+<p>This page provides documentation for the process of using Sphinx to build HTML for the CRACMM website. It is primarily intended for CRACMM developers at the EPA. Others may or may not find the information presented here useful.</p>
 <p><a class="reference external" href="https://www.sphinx-doc.org/en/master/" rel="noreferrer" target="_blank">Sphinx <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is a software written in Python that is used to create HTML files based on already existing files. It is typically used to create websites that document software and it can be used in combination with GitHub’s <a class="reference external" href="https://pages.github.com/" rel="noreferrer" target="_blank">Pages <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> utility to publish a website based on a GitHub repository. This page explains how Sphinx is used to create a GitHub site for the CRACMM repository using Sphinx.</p>
 <p>To view this page on on the CRACMM website instead of in raw markdown (if you’re not already there), click <a class="reference external" href="https://USEPA.github.io/CRACMM/sphinx/README.html" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
 <section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
 <ul class="simple">
+<li><p><a class="reference internal" href="#git-workflow-summary">Git Workflow Summary</a>: This section goes over the basic git workflow for updating HTML on the CRACMM GitHub Pages website. If you are looking for detailed instructions on this process, this is not the tutorial you are looking for. Use the “Repository Setup” and “Process to Build HTML” tutorials instead.</p></li>
 <li><p><a class="reference internal" href="#environment-setup">Environment Setup</a>: This section provides instructions on how to create a Python environment designed to run Sphinx on the CRACMM repository.</p></li>
 <li><p><a class="reference internal" href="#repository-setup">Repository Setup</a>: This section provides instructions on how to get your personal fork of the CRACMM repository ready to build HTML for the CRACMM website, even if you dont have a fork yet!</p></li>
 <li><p><a class="reference internal" href="#process-to-build-html">Process to Build HTML</a>: This section is for people who have a Python environment designed to run Sphinx on the CRACMM repository and provides instructions on how to update the HTML for the CRACMM GitHub pages site based on updates to the main branch.</p></li>
 <li><p><a class="reference internal" href="#file-description-run-build-csh">HTML Build Script Description</a>: This section describes the purpose of the <code class="docutils literal notranslate"><span class="pre">run_build.csh</span></code> file and explains what each command in the file does and why it is needed.</p></li>
 <li><p><a class="reference internal" href="#file-description-conf-py">Sphinx Configuration Description</a>: This section describes the contents of <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> which provides Sphinx with a variety of user option that define how the HTML is produced.</p></li>
-<li><p><a class="reference internal" href="#file-description-index-md">Website Landing Page Description</a>: This section describes the contents of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> which serves as the website landing page and described how to maintain it so that it always functions as a landing page.</p></li>
+<li><p><a class="reference internal" href="#file-description-index-md">Website Landing Page Description</a>: This section describes the contents of <code class="docutils literal notranslate"><span class="pre">index.md</span></code> which serves as the website landing page and describes how to maintain it so that it always functions as a landing page.</p></li>
 <li><p><a class="reference internal" href="#file-description-toctree-txt">Website Global Navbar File</a>: This file stores the table of contents tree (often refered to as “toctree” among Sphinx users), which arranges the left navbar on every page of the website.</p></li>
 <li><p><a class="reference internal" href="#helpful-resources">Helpful Resources</a>: This section provides links to other websites that have good instructions and tips on how to set up and improve a GitHub Pages site using Sphinx. Many of these websites are also linked in other locations around the page in addition to in the Helpful Resources section.</p></li>
 </ul>
+</section>
+<section id="git-workflow-summary">
+<h2>Git Workflow Summary<a class="headerlink" href="#git-workflow-summary" title="Link to this heading"></a></h2>
+<p><img alt="Git Workflow Schematic" src="../_images/Git_Workflow_Figure.png" /></p>
+<ol class="arabic simple">
+<li><p>On Atmos, fetch and then merge the latest version of USEPA/CRACMM/CRACMMdocs into your local user/CRACMM/CRACMMdocs branch. Then perform the same set of actions for the user/CRACMM/main branch.</p></li>
+<li><p>On your local CRACMM repository on Atmos, merge the main branch into the CRACMMdocs branch.</p></li>
+<li><p>Build new HTML using Sphinx in the CRACMMdocs branch.</p></li>
+<li><p>Push the new version of the CRACMMdocs branch (with the new HTML) from your local CRACMM repository on Atmos to your remote repository on GitHub. Make sure to push to user/CRACMM/CRACMMdocs.</p></li>
+<li><p>Submit a pull request on GitHub from user/CRACMM/CRACMMdocs, which contains the new HTML, to USEPA/CRACMM/CRACMMdocs.</p></li>
+</ol>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
 </section>
 <section id="environment-setup">
 <h2>Environment setup<a class="headerlink" href="#environment-setup" title="Link to this heading"></a></h2>
@@ -157,9 +171,9 @@
 <li><p><a class="reference external" href="https://github.com/ftnext/sphinx-new-tab-link/tree/main" rel="noreferrer" target="_blank">sphinx-new-tab-link <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> is a package that acts as a Sphinx extension. It allows all external links within Sphinx docuentation to open in a new tab instead of overwriting the current tab.</p></li>
 </ul>
 <p>Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the <a class="reference internal" href="#repository-setup">next section</a> before learning how to build HTML. If you are ready to build HTML, click <a class="reference internal" href="#process-to-build-html">here</a> to learn how.</p>
-<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
 </li>
 </ol>
+<p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>
 </section>
 <section id="repository-setup">
 <h2>Repository Setup<a class="headerlink" href="#repository-setup" title="Link to this heading"></a></h2>
@@ -186,15 +200,15 @@
 </div>
 <p>Your main and CRACMMdocs branches should now be identical to that of USEPA/CRACMM.</p>
 </li>
-<li><p>If you would like to add any additional changes to the repository, now is the time to make those changes on Atmos. Feel free to make changes to any file on either <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>. However, for files that are on both branches, DO NOT make changes to the version of the file on <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>. ONLY make changes to these files on <code class="docutils literal notranslate"><span class="pre">main</span></code>, otherwise merge conflicts may arise later. If any changes are made to files on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch, you may need to update somthing somewhere in this readme file. Please make the necessary updates if there are any relavent changes.</p></li>
-<li><p>If you made any changes to <code class="docutils literal notranslate"><span class="pre">main</span></code>, make sure to <code class="docutils literal notranslate"><span class="pre">commit</span></code> those changes before moving on to the next step by running the commands:</p>
+<li><p>(Optional step. Skip to the next step if you are not making changes to the repository other than the HTML update.) Feel free to make changes to any file on either <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>. However, for files that are on both branches, DO NOT make changes to the version of the file on <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>. ONLY make changes to these files on <code class="docutils literal notranslate"><span class="pre">main</span></code>, otherwise merge conflicts may arise later.  make sure to <code class="docutils literal notranslate"><span class="pre">commit</span></code> those changes before moving on to the next step by running the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">--</span><span class="nb">all</span>
 <span class="n">git</span> <span class="n">commit</span>
 </pre></div>
 </div>
-<p>Then add the desired commit message. Changes to <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> can be commited after the HTML is built.</p>
+<p>Then add the desired commit message.</p>
+<p>If any changes are made to files on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch, you may need to update somthing somewhere in this readme file. Please make the necessary updates if there are any relavent changes. Changes to <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> can be commited after the HTML is built.</p>
 </li>
-<li><p>Once the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch. To replicate the changes made to <code class="docutils literal notranslate"><span class="pre">main</span></code> on <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>, enter the commands:</p>
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the repository is up to date with all the changes you would like to include on the website, you also need to make the updates appear on the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch. To replicate the changes made to <code class="docutils literal notranslate"><span class="pre">main</span></code> on <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code>, enter the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="n">CRACMMdocs</span>
 <span class="n">git</span> <span class="n">merge</span> <span class="n">main</span>
 </pre></div>
@@ -267,15 +281,15 @@
 </pre></div>
 </div>
 <p>Note that the use of <code class="docutils literal notranslate"><span class="pre">origin</span></code> here should be a reference to your personal fork of the CRACMM repository on GitHub beacuse all of this work should be done on your fork of the repository.</p>
-<p>Then, make sure to <code class="docutils literal notranslate"><span class="pre">push</span></code> the new version of <code class="docutils literal notranslate"><span class="pre">main</span></code> to GitHub as well. Run the commands:</p>
+<p>Then, if you made changes to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, make sure to <code class="docutils literal notranslate"><span class="pre">push</span></code> the new version of <code class="docutils literal notranslate"><span class="pre">main</span></code> to GitHub as well. Run the commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">switch</span> <span class="n">main</span>
 <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">main</span>
 </pre></div>
 </div>
 </li>
 <li><p>Finally, go back to your remote fork of the CRACMM repository on GitHub. It should now look identical to your local fork on Atmos with all changes included.</p>
-<p>First, submit a pull request from your <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, with your changes, to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the USEPA/CRACMM repository.</p>
-<p>Then, submit another pull request from your <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch, with the updated HTML, to the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch of the USEPA/CRACMM repository. Once this pull request is approved, you will have officially updated the CRACMM documentation!</p>
+<p>First, submit a pull request from your <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch, with the updated HTML, to the <code class="docutils literal notranslate"><span class="pre">CRACMMdocs</span></code> branch of the USEPA/CRACMM repository. Once this pull request is approved, you will have officially updated the CRACMM documentation!</p>
+<p>Then, if you made updates to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, submit a pull request from your <code class="docutils literal notranslate"><span class="pre">main</span></code> branch, with your changes, to the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of the USEPA/CRACMM repository.</p>
 </li>
 </ol>
 <p>To return to the Table of Contents, click <a class="reference internal" href="#table-of-contents">here</a>.</p>

@@ -1,10 +1,14 @@
-# Sphinx Usage in the CRACMM Repository (Only for USEPA employees)
+# Sphinx Usage in the CRACMM Repository
+This page provides documentation for the process of using Sphinx to build HTML for the CRACMM website. It is primarily intended for CRACMM developers at the EPA. Others may or may not find the information presented here useful.
+
 [Sphinx](https://www.sphinx-doc.org/en/master/) is a software written in Python that is used to create HTML files based on already existing files. It is typically used to create websites that document software and it can be used in combination with GitHub's [Pages](https://pages.github.com/) utility to publish a website based on a GitHub repository. This page explains how Sphinx is used to create a GitHub site for the CRACMM repository using Sphinx.
 
 To view this page on on the CRACMM website instead of in raw markdown (if you're not already there), click [here](https://USEPA.github.io/CRACMM/sphinx/README.html).
 
 
 ## Table of Contents
+* [Git Workflow Summary](#git-workflow-summary): This section goes over the basic git workflow for updating HTML on the CRACMM GitHub Pages website. If you are looking for detailed instructions on this process, this is not the tutorial you are looking for. Use the "Repository Setup" and "Process to Build HTML" tutorials instead.
+
 * [Environment Setup](#environment-setup): This section provides instructions on how to create a Python environment designed to run Sphinx on the CRACMM repository.
 
 * [Repository Setup](#repository-setup): This section provides instructions on how to get your personal fork of the CRACMM repository ready to build HTML for the CRACMM website, even if you dont have a fork yet!
@@ -15,11 +19,27 @@ To view this page on on the CRACMM website instead of in raw markdown (if you're
 
 * [Sphinx Configuration Description](#file-description-confpy): This section describes the contents of `conf.py` which provides Sphinx with a variety of user option that define how the HTML is produced.
 
-* [Website Landing Page Description](#file-description-indexmd): This section describes the contents of `index.md` which serves as the website landing page and described how to maintain it so that it always functions as a landing page.
+* [Website Landing Page Description](#file-description-indexmd): This section describes the contents of `index.md` which serves as the website landing page and describes how to maintain it so that it always functions as a landing page.
 
 * [Website Global Navbar File](#file-description-toctreetxt): This file stores the table of contents tree (often refered to as "toctree" among Sphinx users), which arranges the left navbar on every page of the website.
 
 * [Helpful Resources](#helpful-resources): This section provides links to other websites that have good instructions and tips on how to set up and improve a GitHub Pages site using Sphinx. Many of these websites are also linked in other locations around the page in addition to in the Helpful Resources section.
+
+
+## Git Workflow Summary
+![Git Workflow Schematic](Git_Workflow_Figure.png)
+
+1. On Atmos, fetch and then merge the latest version of USEPA/CRACMM/CRACMMdocs into your local user/CRACMM/CRACMMdocs branch. Then perform the same set of actions for the user/CRACMM/main branch. 
+
+2. On your local CRACMM repository on Atmos, merge the main branch into the CRACMMdocs branch.
+
+3. Build new HTML using Sphinx in the CRACMMdocs branch.
+
+4. Push the new version of the CRACMMdocs branch (with the new HTML) from your local CRACMM repository on Atmos to your remote repository on GitHub. Make sure to push to user/CRACMM/CRACMMdocs.
+
+5. Submit a pull request on GitHub from user/CRACMM/CRACMMdocs, which contains the new HTML, to USEPA/CRACMM/CRACMMdocs.
+
+To return to the Table of Contents, click [here](#table-of-contents).
 
 
 ## Environment setup
@@ -66,7 +86,7 @@ If you have never run Sphinx for CRACMM before, you are going to need to set up 
     
     Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the [next section](#repository-setup) before learning how to build HTML. If you are ready to build HTML, click [here](#process-to-build-html) to learn how.
 
-    To return to the Table of Contents, click [here](#table-of-contents).
+To return to the Table of Contents, click [here](#table-of-contents).
 
 
 ## Repository Setup
@@ -93,16 +113,16 @@ If you do not have a fully updated fork of the USEPA/CRACMM repository with all 
     ```
     Your main and CRACMMdocs branches should now be identical to that of USEPA/CRACMM.
 
-3. If you would like to add any additional changes to the repository, now is the time to make those changes on Atmos. Feel free to make changes to any file on either `main` or `CRACMMdocs`. However, for files that are on both branches, DO NOT make changes to the version of the file on `CRACMMdocs`. ONLY make changes to these files on `main`, otherwise merge conflicts may arise later. If any changes are made to files on the `CRACMMdocs` branch, you may need to update somthing somewhere in this readme file. Please make the necessary updates if there are any relavent changes.
-
-4. If you made any changes to `main`, make sure to `commit` those changes before moving on to the next step by running the commands:
+3. (Optional step. Skip to the next step if you are not making changes to the repository other than the HTML update.) Feel free to make changes to any file on either `main` or `CRACMMdocs`. However, for files that are on both branches, DO NOT make changes to the version of the file on `CRACMMdocs`. ONLY make changes to these files on `main`, otherwise merge conflicts may arise later.  make sure to `commit` those changes before moving on to the next step by running the commands:
     ```
     git add --all
     git commit
     ```
-    Then add the desired commit message. Changes to `CRACMMdocs` can be commited after the HTML is built.
+    Then add the desired commit message. 
+    
+    If any changes are made to files on the `CRACMMdocs` branch, you may need to update somthing somewhere in this readme file. Please make the necessary updates if there are any relavent changes. Changes to `CRACMMdocs` can be commited after the HTML is built.
 
-5. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make those changes appear on the `CRACMMdocs` branch. To replicate the changes made to `main` on `CRACMMdocs`, enter the commands:
+4. Once the `main` branch of the repository is up to date with all the changes you would like to include on the website, you also need to make the updates appear on the `CRACMMdocs` branch. To replicate the changes made to `main` on `CRACMMdocs`, enter the commands:
     ```
     git switch CRACMMdocs
     git merge main
@@ -179,17 +199,17 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
     ```
     Note that the use of `origin` here should be a reference to your personal fork of the CRACMM repository on GitHub beacuse all of this work should be done on your fork of the repository. 
     
-    Then, make sure to `push` the new version of `main` to GitHub as well. Run the commands:
+    Then, if you made changes to the `main` branch, make sure to `push` the new version of `main` to GitHub as well. Run the commands:
     ```
     git switch main
     git push -u origin main
     ```
 
-8. Finally, go back to your remote fork of the CRACMM repository on GitHub. It should now look identical to your local fork on Atmos with all changes included. 
-
-    First, submit a pull request from your `main` branch, with your changes, to the `main` branch of the USEPA/CRACMM repository. 
+8. Finally, go back to your remote fork of the CRACMM repository on GitHub. It should now look identical to your local fork on Atmos with all changes included.  
     
-    Then, submit another pull request from your `CRACMMdocs` branch, with the updated HTML, to the `CRACMMdocs` branch of the USEPA/CRACMM repository. Once this pull request is approved, you will have officially updated the CRACMM documentation!
+    First, submit a pull request from your `CRACMMdocs` branch, with the updated HTML, to the `CRACMMdocs` branch of the USEPA/CRACMM repository. Once this pull request is approved, you will have officially updated the CRACMM documentation!
+
+    Then, if you made updates to the `main` branch, submit a pull request from your `main` branch, with your changes, to the `main` branch of the USEPA/CRACMM repository.
 
 To return to the Table of Contents, click [here](#table-of-contents).
 
