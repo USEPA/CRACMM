@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map BEIS and MEGAN species to CRACMM &mdash; CRACMM 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Find CRACMM species based on SMILES" href="smiles2cracmm.html" />
+    <link rel="prev" title="Assemble CRACMM species metadata from CMAQ" href="markdown_metadata.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CRACMM
+              <img src="../_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index_duplicate.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../emissions/README.html">Emissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metadata/README.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Python Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Map BEIS and MEGAN species to CRACMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notebook-description">Notebook Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-notebook">Download Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beis">BEIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#megan">MEGAN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">How to Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html">Version history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_info.html#epa-disclaimer">EPA Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM" rel="noreferrer" target="_blank">CRACMM GitHub <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm" rel="noreferrer" target="_blank">EPA CRACMM White Paper <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://usepa.github.io/CMAQ/" rel="noreferrer" target="_blank">CMAQ Documentation <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Map BEIS and MEGAN species to CRACMM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/utilities/BEISMEGAN_biogenicmapping2cracmm.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="map-beis-and-megan-species-to-cracmm">
+<h1>Map BEIS and MEGAN species to CRACMM<a class="headerlink" href="#map-beis-and-megan-species-to-cracmm" title="Link to this heading"></a></h1>
+<hr class="docutils" />
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>author: Havala Pye
+date: 2024-08-08
+
+updated: Nash Skipper
+date: 2024-08-09
+
+updated: Michael Pye
+date: 2025-02-27
+</pre></div>
+</div>
+<hr class="docutils" />
+<section id="notebook-description">
+<h2>Notebook Description<a class="headerlink" href="#notebook-description" title="Link to this heading"></a></h2>
+<p>This Notebook identifies the CRACMM species for each BEIS/MEGAN species using the mapper. The cracmm_mapper function depends on <a class="reference external" href="https://www.rdkit.org/" rel="noreferrer" target="_blank">rdkit <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a>.</p>
+</section>
+<section id="download-notebook">
+<h2>Download Notebook<a class="headerlink" href="#download-notebook" title="Link to this heading"></a></h2>
+<p>Click <a class="reference external" href="https://github.com/USEPA/CRACMM/blob/main/utilities/BEISMEGAN_biogenicmapping2cracmm.ipynb" rel="noreferrer" target="_blank">here <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a> to access the Jupyter Notebook file directly in GitHub where it can be downloaded.</p>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Install rdkit if not already installed</span>
+
+<span class="c1"># !python -m pip install --user rdkit</span>
+
+<span class="c1"># to install in the current kernel:</span>
+<span class="c1"># %pip install rdkit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set location of mapper downloaded from https://github.com/USEPA/CRACMM/</span>
+<span class="c1"># import sys</span>
+<span class="c1"># utildir = &#39;/path/to/cracmm/utilities/directory&#39;   </span>
+<span class="c1"># sys.path.append(utildir)</span>
+
+<span class="c1"># Import the python utilities</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cracmm1_mapper</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cracmm1</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 1)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cracmm2_mapper</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cracmm2</span>   <span class="c1"># includes: get_cracmm_roc(smiles,koh,log10cstar) (Version 2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datadir</span> <span class="o">=</span> <span class="s1">&#39;../emissions/BiogenicMappings/&#39;</span>    <span class="c1"># data files of mappings</span>
+<span class="n">outputdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;output/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">copy_on_write</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">csvout_kw</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="beis">
+<h2>BEIS<a class="headerlink" href="#beis" title="Link to this heading"></a></h2>
+<p>input beis mapping from https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span> 
+<span class="n">dfbeis</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c1"># for checking if any species mapping changed</span>
+<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM1&#39;</span> <span class="c1"># an existing version in file to compare to, options: CRACMM1, CRACMM2</span>
+<span class="n">dfbeis</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMMorig</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
+
+<span class="c1"># run cracmm2 mapper</span>
+<span class="n">smiles_k</span> <span class="o">=</span> <span class="s1">&#39;SMILES&#39;</span>
+<span class="n">koh_k</span>    <span class="o">=</span> <span class="s1">&#39;ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA_PRED&#39;</span>
+<span class="n">cstar_k</span>  <span class="o">=</span> <span class="s1">&#39;log10Cstar_ugm3&#39;</span>
+<span class="n">dfbeis</span><span class="p">[</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># check if any species mappings changed</span>
+<span class="n">dfbeis_checkmatch</span> <span class="o">=</span> <span class="n">dfbeis</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMMnew&#39;</span><span class="p">)</span>
+<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SPECIES_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfbeis_checkmatch</span><span class="p">[</span><span class="n">dfbeis_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the species mappings below changed from </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">dfbeis_checkmatch</span><span class="p">[</span><span class="n">show_cols</span><span class="p">][</span><span class="n">dfbeis_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;all species matched </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1"> mapping&#39;</span><span class="p">)</span>
+
+<span class="c1"># save output</span>
+<span class="c1">#dfbeis = dfbeis.drop(columns=orig_map_colname)</span>
+<span class="n">dfbeis</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputdir</span><span class="o">+</span><span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">csvout_kw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
+  warnings.warn(unkcracmm_msg)
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
+  warnings.warn(unkcracmm_msg)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SPECIES_NAME</th>
+      <th>CRACMM1</th>
+      <th>CRACMMnew</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>nitric oxide</td>
+      <td>UNKKOH</td>
+      <td>UNKCRACMM</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>para-cymene</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>carbon monoxide</td>
+      <td>SLOWROC</td>
+      <td>UNKCRACMM</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="megan">
+<h2>MEGAN<a class="headerlink" href="#megan" title="Link to this heading"></a></h2>
+<p>input megan mapping from https://github.com/USEPA/CRACMM/tree/main/emissions/BiogenicMappings</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">datadir</span> <span class="o">+</span> <span class="s1">&#39;bvoc_megan_tocracmm.csv&#39;</span>
+<span class="n">dfmegan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c1"># for checking if any species mapping changed</span>
+<span class="n">orig_map_colname</span> <span class="o">=</span> <span class="s1">&#39;CRACMM1&#39;</span> <span class="c1"># an existing version in file to compare to, options: CRACMM1, CRACMM2</span>
+<span class="n">dfmegan</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">CRACMMorig</span><span class="o">=</span><span class="n">orig_map_colname</span><span class="p">))</span>
+
+<span class="c1"># run cracmm2 mapper</span>
+<span class="n">smiles_k</span> <span class="o">=</span> <span class="s1">&#39;SMILES&#39;</span>
+<span class="n">koh_k</span>    <span class="o">=</span> <span class="s1">&#39;ATMOSPHERIC_HYDROXYLATION_RATE_(AOH)_CM3/MOLECULE*SEC_OPERA_PRED&#39;</span>
+<span class="n">cstar_k</span>  <span class="o">=</span> <span class="s1">&#39;log10Cstar_ugm3&#39;</span>
+<span class="n">dfmegan</span><span class="p">[</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cracmm2</span><span class="o">.</span><span class="n">get_cracmm_roc</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">smiles_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">koh_k</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="n">cstar_k</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># check if any species mappings changed</span>
+<span class="n">dfmegan_checkmatch</span> <span class="o">=</span> <span class="n">dfmegan</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;match = </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">==CRACMMnew&#39;</span><span class="p">)</span>
+<span class="n">show_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;REPRESENTATIVE_COMPOUND_NAME&#39;</span><span class="p">,</span><span class="n">orig_map_colname</span><span class="p">,</span><span class="s1">&#39;CRACMMnew&#39;</span><span class="p">]</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dfmegan_checkmatch</span><span class="p">[</span><span class="n">dfmegan_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;the species mappings below changed from </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">dfmegan_checkmatch</span><span class="p">[</span><span class="n">show_cols</span><span class="p">][</span><span class="n">dfmegan_checkmatch</span><span class="o">.</span><span class="n">match</span><span class="o">==</span><span class="kc">False</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;all species matched </span><span class="si">{</span><span class="n">orig_map_colname</span><span class="si">}</span><span class="s1"> mapping&#39;</span><span class="p">)</span>
+
+<span class="c1"># save output</span>
+<span class="c1">#dfmegan = dfmegan.drop(columns=orig_map_colname)</span>
+<span class="n">dfmegan</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outputdir</span><span class="o">+</span><span class="s1">&#39;bvoc_beis_tocracmm.csv&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">csvout_kw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the species mappings below changed from CRACMM1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES S is unknown in CRACMM and has been mapped to UNKCRACMM.
+  warnings.warn(unkcracmm_msg)
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [C-]#[O+] is unknown in CRACMM and has been mapped to UNKCRACMM.
+  warnings.warn(unkcracmm_msg)
+/work/MOD3DEV/mpye/cracmm_sphinx/utilities/cracmm2_mapper.py:284: UserWarning: Species with SMILES [N]=O is unknown in CRACMM and has been mapped to UNKCRACMM.
+  warnings.warn(unkcracmm_msg)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>REPRESENTATIVE_COMPOUND_NAME</th>
+      <th>CRACMM1</th>
+      <th>CRACMMnew</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23</th>
+      <td>1-Isopropyl-2-methylbenzene</td>
+      <td>XYE</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>p-Cymene</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>m-Cymene</td>
+      <td>XYE</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1-Methyl-4-(prop-1-en-2-yl)benzene</td>
+      <td>XYM</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>dl-Borneol</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Bornyl acetate</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Estragole</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>beta-Ionone</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>6,6-Dimethylbicyclo[3.1.1]heptane-2-carbaldehyde</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>1-Octanol</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>1-Octen-3-ol</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Farnesol</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>cis-Nerolidol</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>trans-Nerolidol</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>2-Ethylhexyl salicylate</td>
+      <td>ROCP2ALK</td>
+      <td>VROCP2OXY2</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>(-)-alpha-Cadinol</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>(+)-Cedrol</td>
+      <td>ROCP5ALK</td>
+      <td>VROCP5OXY1</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>3,3,5-Trimethylcyclohexyl salicylate</td>
+      <td>ROCP1ALK</td>
+      <td>VROCP1OXY1</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>(-)-Kaur-16-ene</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>(+)-Longicyclene</td>
+      <td>ROCP4ALK</td>
+      <td>VROCP4ALK</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Decanal</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>(E)-6,10-Dimethylundeca-5,9-dien-2-one</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>(E)-6,10-Dimethylundeca-5,9-dien-2-one</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>6,10-Dimethyl-5,9-undecadiene-2-one</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>Nonanal</td>
+      <td>ROCIOXY</td>
+      <td>VROCIOXY</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>2-Nonenal</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>7-heptadecene</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>Acetophenone</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>Anisole</td>
+      <td>XYM</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>Benzyl benzoate</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>Benzyl acetate</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>Cinnamic acid</td>
+      <td>ROCP2ALK</td>
+      <td>VROCP2OXY2</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>Coniferyl alcohol</td>
+      <td>ROCP1ALK</td>
+      <td>VROCP1OXY3</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>Ethyl cinnamate</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>Jasmone</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>Linalool oxide pyranoid, cis-(+-)-</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>Linalool oxide pyranoid, cis-(+-)-</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>Methyl benzoate</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>Methyl jasmonate</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>(2E)-3-(4-Hydroxyphenyl)-2-propenoic acid</td>
+      <td>ROCP1ALK</td>
+      <td>VROCP1OXY3</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>Safrole</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>m-Xylene</td>
+      <td>XYM</td>
+      <td>XYL</td>
+    </tr>
+    <tr>
+      <th>181</th>
+      <td>(Z)-Hex-3-enyl butyrate</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>187</th>
+      <td>Diallyl disulfide</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>190</th>
+      <td>1-Dodecene</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>Hydrogen sulfide</td>
+      <td>UNKKOH</td>
+      <td>UNKCRACMM</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>Indole</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>3-Methylbut-3-en-1-ol</td>
+      <td>OLI</td>
+      <td>OLT</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>Allyl propyl disulfide</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>3-Methylindole</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>alpha-Terpinyl acetate</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>alpha-Terpinyl acetate</td>
+      <td>ROCP6ARO</td>
+      <td>VROCP6ARO</td>
+    </tr>
+    <tr>
+      <th>212</th>
+      <td>1-Tetradecene</td>
+      <td>ROCP5ARO</td>
+      <td>VROCP5ARO</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>Carbon monoxide</td>
+      <td>SLOWROC</td>
+      <td>UNKCRACMM</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>Nitric oxide</td>
+      <td>UNKKOH</td>
+      <td>UNKCRACMM</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="markdown_metadata.html" class="btn btn-neutral float-left" title="Assemble CRACMM species metadata from CMAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smiles2cracmm.html" class="btn btn-neutral float-right" title="Find CRACMM species based on SMILES" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

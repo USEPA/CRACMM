@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version history &mdash; CRACMM 2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=60dbed4a"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MIT License" href="license.html" />
+    <link rel="prev" title="How to Contribute" href="contribute.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CRACMM
+              <img src="_static/CRACMM_1.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index_duplicate.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chemistry/README.html">Chemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="emissions/README.html">Emissions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata/README.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logos/logos.html">Logos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundary_conditions.html">Boundary Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities/README.html">Python Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="utilities/markdown_metadata.html">Assemble CRACMM species metadata from CMAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities/BEISMEGAN_biogenicmapping2cracmm.html">Map BEIS and MEGAN species to CRACMM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities/smiles2cracmm.html">Find CRACMM species based on SMILES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities/SPECIATE_map2cracmm.html">Map SPECIATE species to CRACMM</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to Contribute</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Version history</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-0-october-2024">Version 2.0 (October 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-0-alpha-in-progress-february-2024">Version 2.0-alpha (in progress February 2024)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-0-october-2022">Version 1.0 (October 2022)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-3">Version 0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-24">Version 0.24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skip-v0-23">Skip v0.23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-22">Version: 0.22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-21">Version: 0.21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-2">Version: 0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-11">Version 0.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-1">Version 0.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#references">References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-2-development-and-application">Version 2 Development and Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1-development-and-application">Version 1 Development and Application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#epa-disclaimer">EPA Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">MIT License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">External Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/USEPA/CRACMM" rel="noreferrer" target="_blank">CRACMM GitHub <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.epa.gov/cmaq/cracmm" rel="noreferrer" target="_blank">EPA CRACMM White Paper <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://usepa.github.io/CMAQ/" rel="noreferrer" target="_blank">CMAQ Documentation <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CRACMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Version history</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/additional_info.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="version-history">
+<h1>Version history<a class="headerlink" href="#version-history" title="Link to this heading"></a></h1>
+<section id="version-2-0-october-2024">
+<h2>Version 2.0 (October 2024)<a class="headerlink" href="#version-2-0-october-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>CRACMM2 released in CMAQv5.5</p></li>
+</ul>
+</section>
+<section id="version-2-0-alpha-in-progress-february-2024">
+<h2>Version 2.0-alpha (in progress February 2024)<a class="headerlink" href="#version-2-0-alpha-in-progress-february-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Collecting updates leading to CRACMM2</p></li>
+</ul>
+</section>
+<section id="version-1-0-october-2022">
+<h2>Version 1.0 (October 2022)<a class="headerlink" href="#version-1-0-october-2022" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Final version for release in CMAQv5.4</p></li>
+<li><p>ROCALK names updated</p></li>
+</ul>
+</section>
+<section id="version-0-3">
+<h2>Version 0.3<a class="headerlink" href="#version-0-3" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Renamed HC8 to HC10</p></li>
+<li><p>Renamed ROCN/P series to ROCN/PALK</p></li>
+<li><p>Synced with latest CMAQ version of chemistry and metadata</p></li>
+</ul>
+</section>
+<section id="version-0-24">
+<h2>Version 0.24<a class="headerlink" href="#version-0-24" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Renamed toluene surrogate (explicit) to TOL</p></li>
+<li><p>Added flowchart</p></li>
+</ul>
+</section>
+<section id="skip-v0-23">
+<h2>Skip v0.23<a class="headerlink" href="#skip-v0-23" title="Link to this heading"></a></h2>
+</section>
+<section id="version-0-22">
+<h2>Version: 0.22<a class="headerlink" href="#version-0-22" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Renamed XYOP to XYE to avoid overlap with name of existing peroxy radical.</p></li>
+</ul>
+</section>
+<section id="version-0-21">
+<h2>Version: 0.21<a class="headerlink" href="#version-0-21" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This version used to create initial SMOKE inputs.</p></li>
+<li><p>Known issues:</p>
+<ul>
+<li><p>XYOP emitted species name overlaps with a peroxy radical in RACM2. XYOP renamed to XYE (major contributors are o-xylene and ethylbenzene).</p></li>
+<li><p>TOLUENE named to TOL in later versions.</p></li>
+</ul>
+</li>
+<li><p>Date: 20210812. Updated carbons (Speciation Tool input) for missing species.</p></li>
+<li><p>Date: 20210806. Updated Misc Silanes surrogate and removed non-ROC species from mech4import.</p></li>
+<li><p>Date: 20210805. Mineral oil surrogate changed from decane to linoleic acid (mapping changed from HC8 to ROCP1). 8 new SPECIATE species added.</p></li>
+</ul>
+</section>
+<section id="version-0-2">
+<h2>Version: 0.2<a class="headerlink" href="#version-0-2" title="Link to this heading"></a></h2>
+<p>Date: 20210716</p>
+<ul class="simple">
+<li><p>PAH eliminated. The most abundant species that was in PAH fit better in the existing oxygenated aromatics. When PAHs were defined with O:C=0, very little mass was left.</p></li>
+<li><p>NAPH includes small amounts of O:C=0 PAHs.</p></li>
+<li><p>Propylene glycol (and potential one other species) is now explicit as PROG.</p></li>
+<li><p>FURAN has been fully implemented as a species.</p></li>
+<li><p>S/IVOCs are now called ROC species. IVOCOXY is now ROCIOXY.</p></li>
+<li><p>SVOC ROC binning now occurs before single-ring aromatic mapping.</p></li>
+<li><p>ROCP4ARO was eliminated due to lack of significant emissions and OA potential.</p></li>
+<li><p>Glycoaldehyde was moved from ALD to GLY to better represent its solubility.</p></li>
+<li><p>Silanes and siloxanes of any volatility are ROCIOXY.</p></li>
+<li><p>UNKCRACMM is now used for non-carbon-containing species and elemental carbon (and TC).</p></li>
+<li><p>DIEN has been deleted. Small amount of anthropogenic dienes appear in FURAN. BDE13 is the major anthropogenic diene and already explicit.</p></li>
+<li><p>Some representative compounds (SPECIATE) have been updated: OC, NCOM, POC, PNCOM.</p></li>
+</ul>
+</section>
+<section id="version-0-11">
+<h2>Version 0.11<a class="headerlink" href="#version-0-11" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Date: 20210702. Added IVOCOXY to mapper; updated representative compounds for IVOCP6ARO, SVOCN1, and SVOCP0 in SPECIATE.</p></li>
+</ul>
+</section>
+<section id="version-0-1">
+<h2>Version 0.1<a class="headerlink" href="#version-0-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Date: 20210621. initial mapper and species properties for CRACMM.</p></li>
+</ul>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
+<section id="version-2-development-and-application">
+<h2>Version 2 Development and Application<a class="headerlink" href="#version-2-development-and-application" title="Link to this heading"></a></h2>
+<p>Skipper, T. N., D’Ambro, E. L., Wiser, F. C., McNeill, V. F., Schwantes, R. H., Henderson, B. H., Piletic, I. R., Baublitz, C. B., Bash, J. O., Whitehill, A. R., Valin, L. C., Mouat, A. P., Kaiser, J., Wolfe, G. M., St. Clair, J. M., Hanisco, T. F., Fried, A., Place, B. K., and Pye, H. O. T.: Role of chemical production and depositional losses on formaldehyde in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM), Atmos. Chem. Phys., 24, 12903–12924, https://doi.org/10.5194/acp-24-12903-2024, 2024.</p>
+</section>
+<section id="version-1-development-and-application">
+<h2>Version 1 Development and Application<a class="headerlink" href="#version-1-development-and-application" title="Link to this heading"></a></h2>
+<p>Place, B. K., Hutzell, W. T., Appel, K. W., Farrell, S., Valin, L., Murphy, B. N., Seltzer, K. M., Sarwar, G., Allen, C., Piletic, I. R., D’Ambro, E. L., Saunders, E., Simon, H., Torres-Vasquez, A., Pleim, J., Schwantes, R. H., Coggon, M. M., Xu, L., Stockwell, W. R., and Pye, H. O. T.: Sensitivity of northeastern US surface ozone predictions to the representation of atmospheric chemistry in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMMv1.0), Atmos. Chem. Phys., 23, 9173-9190, https://doi.org/10.5194/acp-23-9173-2023, 2023.</p>
+<p>Pye, H. O. T., Place, B. K., Murphy, B. N., Seltzer, K. M., D’Ambro, E. L., Allen, C., Piletic, I. R., Farrell, S., Schwantes, R. H., Coggon, M. M., Saunders, E., Xu, L., Sarwar, G., Hutzell, W. T., Foley, K. M., Pouliot, G., Bash, J., and Stockwell, W. R.: Linking gas, particulate, and toxic endpoints to air emissions in the Community Regional Atmospheric Chemistry Multiphase Mechanism (CRACMM), Atmos. Chem. Phys., 23, 5043-5099, https://doi.org/10.5194/acp-23-5043-2023, 2023.</p>
+<p>Pye, H. O. T., Schwantes, R.H., Barsanti, K.C., McNeill, V.F., and Wolfe, G.M.: Leveraging Scientific Community Knowledge for Air Quality Model Chemistry Parameterizations, EM Magazine, January 2024. <a class="reference external" href="https://www.epa.gov/system/files/documents/2024-05/cmaq_pye_em-magazine_original_508-compliant.pdf" rel="noreferrer" target="_blank">Link to article <svg version="1.1" width="1.0em" height="1.0em" viewBox="0 0 16 16" aria-hidden="true" style="display: inline-block; vertical-align: middle; fill: currentColor;"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1Z"></path></svg></a></p>
+<p>Pye, H. O. T., Xu, L., Henderson, B. H., Pagonis, D., Campuzano-Jost, P., Guo, H., Jimenez, J. L., Allen, C., Skipper, T. N., Halliday, H. S., Murphy, B. N., D’Ambro, E. L., Wennberg, P. O., Place, B. K., Wiser, F. C., McNeill, V. F., Apel, E. C., Blake, D. R., Coggon, M. M., Crounse, J. D., Gilman, J. B., Gkatzelis, G. I., Hanisco, T. F., Huey, L. G., Katich, J. M., Lamplugh, A., Lindaas, J., Peischl, J., St Clair, J. M., Warneke, C., Wolfe, G. M., and Womack, C.: Evolution of Reactive Organic Compounds and Their Potential Health Risk in Wildfire Smoke, Environmental Science &amp; Technology, 58, 19785-19796, https://doi.org/10.1021/acs.est.4c06187, 2024.</p>
+<p>Seltzer, K. M., Rao, V., Pye, H. O. T., Murphy, B. N., Place, B. K., Khare, P., Gentner, D. R., Allen, C., Cooley, D., Mason, R., and Houyoux, M.: Anthropogenic Secondary Organic Aerosol and Ozone Production from Asphalt-Related Emissions, Environ Sci Atmos, 3, 1221-1230, https://doi.org/10.1039/d3ea00066d, 2023.</p>
+<p>Vannucci, P. F., Foley, K., Murphy, B. N., Hogrefe, C., Cohen, R. C., and Pye, H. O. T.: Temperature-dependent composition of summertime PM<sub>2.5</sub> in observations and model predictions across the Eastern U.S, ACS Earth Space Chem, 8, 381-392, https://doi.org/10.1021/acsearthspacechem.3c00333, 2024.</p>
+<p>Wiser, F., Place, B. K., Sen, S., Pye, H. O. T., Yang, B., Westervelt, D. M., Henze, D. K., Fiore, A. M., and McNeill, V. F.: AMORE-Isoprene v1.0: a new reduced mechanism for gas-phase isoprene oxidation, Geosci. Model Dev., 16, 1801-1821, https://doi.org/10.5194/gmd-16-1801-2023, 2023.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="epa-disclaimer">
+<h1>EPA Disclaimer<a class="headerlink" href="#epa-disclaimer" title="Link to this heading"></a></h1>
+<p>The United States Environmental Protection Agency (EPA) GitHub project code is provided on an “as is” basis and the user assumes responsibility for its use. EPA has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by EPA. The EPA seal and logo shall not be used in any manner to imply endorsement of any commercial product or activity by EPA or the United States Government.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contribute.html" class="btn btn-neutral float-left" title="How to Contribute" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="MIT License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
