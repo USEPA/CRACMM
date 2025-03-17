@@ -19,12 +19,16 @@ The official, frozen versions of CRACMM reside in CMAQ in the [US EPA GitHub rep
 * [Open source license](license.md)
 
 **References**  
-Goliff, W. S., Stockwell, W. R., and Lawson, C. V.: The regional atmospheric chemistry mechanism, version 2, Atmospheric Environment, 68, 174-185, [https://doi.org/10.1016/j.atmosenv.2012.11.038](https://doi.org/10.1016/j.atmosenv.2012.11.038), 2013.
+Goliff, W. S., Stockwell, W. R., and Lawson, C. V.: The regional atmospheric chemistry mechanism, version 2, Atmospheric Environment, 68, 174-185, https://doi.org/10.1016/j.atmosenv.2012.11.038, 2013.
 
-Stockwell, W. R., Kirchner, F., Kuhn, M., and Seefeld, S.: A new mechanism for regional atmospheric chemistry modeling, Journal of Geophysical Research: Atmospheres, 102, 25847-25879, [https://doi.org/10.1029/97JD00849](https://doi.org/10.1029/97JD0084), 1997.
+Stockwell, W. R., Kirchner, F., Kuhn, M., and Seefeld, S.: A new mechanism for regional atmospheric chemistry modeling, Journal of Geophysical Research: Atmospheres, 102, 25847-25879, https://doi.org/10.1029/97JD00849, 1997.
 
 
-See also the [CRACMM reference list](../additional_info.md#references).
+See also the [CRACMM reference list](additional_info.md#references).
+
+
+
+
 
 
 
