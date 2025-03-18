@@ -15,5 +15,5 @@ Regional CRACMM simulations require chemical boundary and initial conditions. Se
 * [AQMBC](https://barronh.github.io/aqmbc/). AQMBC currently supports mapping of GEOSCF to CRACMM2 for creating initial and boundary conditions. 
 
 **Reference**  
-Hogrefe, C., Roselle, S. J., and Bash, J. O.: Persistence of initial conditions in continental scale air quality simulations, Atmos Environ (1994), 160, 36-45, [10.1016/j.atmosenv.2017.04.009](https://doi.org/10.1016/j.atmosenv.2017.04.009), 2017.
+Hogrefe, C., Roselle, S. J., and Bash, J. O.: Persistence of initial conditions in continental scale air quality simulations, Atmos Environ (1994), 160, 36-45, [https://doi.org/10.1016/j.atmosenv.2017.04.009](https://doi.org/10.1016/j.atmosenv.2017.04.009), 2017.
  

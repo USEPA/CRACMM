@@ -67,15 +67,17 @@ If you have never run Sphinx for CRACMM before, you are going to need to set up 
     deactivate cracmm_docs_env
     ```
 
-3.  Next, some Python packages need to be installed so that HTML for the CRACMM website can be produced correctly. Enter the following series of commands to install all necessary packages (the version number of each package used at time of writing is included in the comments after each line):
+3.  Next, some Python packages need to be installed so that HTML for the CRACMM website can be produced correctly. Some of these packages are specific to Sphinx processes for building the website, others are for running Python code in Jupyter Notebook files within the repository (these files are executed by Sphinx to build the HTML for the notebooks). Enter the following series of commands to install all necessary packages (the version number of each package used at time of writing is included in the comments after each line):
     ```
     pip install --upgrade pip           #25.0.1
     pip install sphinx                  #8.2.3
     pip install sphinx_rtd_theme        #3.0.2
     pip install myst_nb                 #1.2.0
     pip install sphinx-new-tab-link     #0.7.0
+    pip install pandas                  #2.2.3
+    pip install rdkit                   #2.2.4
     ```
-    Description of each installed package:
+    Description of each installed package related to Sphinx:
     * [sphinx](https://www.sphinx-doc.org/en/master/) is the software needed to generate the HTML from the files already existing in the CRACMM repository.
 
     * [sphinx_rtd_theme](https://sphinx-rtd-theme.readthedocs.io/en/stable/) is a package that acts as a Sphinx extension responsible for the overall website design. Other theme extensions could be downloaded to change website appearance. Some theme extensions come pre-installed with Sphinx.
@@ -84,7 +86,11 @@ If you have never run Sphinx for CRACMM before, you are going to need to set up 
 
     * [sphinx-new-tab-link](https://github.com/ftnext/sphinx-new-tab-link/tree/main) is a package that acts as a Sphinx extension. It allows all external links within Sphinx docuentation to open in a new tab instead of overwriting the current tab.
     
-    Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository! If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the [next section](#repository-setup) before learning how to build HTML. If you are ready to build HTML, click [here](#process-to-build-html) to learn how.
+    Once these installations are complete, your Python environment should now be set up to run Sphinx correctly on the CRACMM repository!
+    
+    Note: if any new Python package is imported into a Jupyter Notebook anywhere within the CRACMM repository, it will need to be installed in the environment designed to run Sphinx. If a new package installation is neccessary, make sure to add it to the list of `pip` installations above. 
+    
+    If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the [next section](#repository-setup) before learning how to build HTML. If you are ready to build HTML, click [here](#process-to-build-html) to learn how.
 
 To return to the Table of Contents, click [here](#table-of-contents).
 
@@ -166,7 +172,7 @@ When changes are made to the main branch of the CRACMM repository, new HTML will
 
     * This c-shell script runs a series of commands that prepares the repository for the HTML building, builds the HTML using the `sphinx-build` command, and runs another series of commands that cleans up the repository after the build process is complete. For more information on each command within the script, click [here](#file-description-run_buildcsh).
 
-    * When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, 5-20 build warnings is normal and should not mean that there is a problem. Sometimes, the number of warnings can vary even if no change has been made, so be aware that the warnings are not always consistant. Also, the number of warnings that can generally be considered "safe" (not indicating an issue) will likely change as the website develops with time. Therefore, always check the warnings to see whether they may represent an issue with the website. At the time of writing, there are typically several types of build warnings that cause no issue for the website. These are:
+    * When running this script, be aware that you may recieve several build warnings from Sphinx. Hopefully, none of them will indicate an issue with the website, but depending on the nature of the updates that were made, these may indicate a problem. With the state of the website at the time of writing, approximately 5-20 build warnings is normal and should not mean that there is a problem. Sometimes, the number of warnings can vary even if no change has been made, so be aware that the warnings are not always consistant. Also, the number of warnings that can generally be considered "safe" (not indicating an issue) will likely change as the website develops with time. Therefore, always check the warnings to see whether they may represent an issue with the website. At the time of writing, there are typically several types of build warnings that cause no issue for the website. These are:
         * "ERROR: Document may not begin with a transition. [docutils]"
 
         * "ERROR: Document may not end with a transition. [docutils]"
