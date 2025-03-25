@@ -228,9 +228,6 @@ To view `run_build.csh` on GitHub, click [here](https://github.com/USEPA/CRACMM/
 ### `rm -r ../docs/*`
 Cleans out the directory where HTML documentation is stored to guarantee a fresh start on the HTML every time `run_build.csh` is run.
 
-### `mkdir ../_static`
-Prevents a build warning related to there not being a `_static` directory when running the sphinx-build command. this does not affect the resulting HTML in any way, it simply removes the warning.
-
 ### `mkdir ../utilities/output`
 Creates a directory for Jupyter Notebook output files to be temporarily stored while the notebooks are executed during the `sphinx-build` command. The files put here are not needed and this directory is deleted after the `sphinx-build` command is completed.
 
@@ -254,9 +251,6 @@ Removes files created when running the Jupyter Notebooks that are not necessary.
 
 ### `rm -r ../jupyter_execute`
 Removes files created when running the Jupyter Notebooks that are not necessary. This line may cause an error related to there being no file or directory called `../jupyter_execute`, this error can be ignored.
-
-### `rm -r ../_static`
-Removes the `../_static` folder which is not needed in the final output. Click [here](#mkdir-_static) for more details on the purpose of this directory.
 
 ### `rm -r ../utilities/output`
 Removes output files created by the code in the Jupyter Notebooks that are not necessary. Click [here](#mkdir-utilitiesoutput) for more details on the purpose of this directory.
@@ -329,18 +323,21 @@ html_static_path = ['_static']
 ```
 * The `html_theme` variable tells Sphinx how to arrange the website HTML. It governs the overall appearance of the site. There are several built-in themes that come with Sphinx and others that can be installed in your Python environment.
 
-* The `html_static_path` variable does some sort of path setting where it tells Sphinx where to look for static images. However, this variable was left alone and, for that reason, it is a little unclear exactly how it functions.
+* The `html_static_path` variable does some sort of path setting where it tells Sphinx where to look for certain files. However, this variable was left alone and, for that reason, it is a little unclear exactly how it functions.
 
 After making some changes to this section for the CRACMM repository, the Options for HTML Output section now looked like this at the time of writing:
 ```
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = ["custom.css"]
 html_logo = 'logos/CRACMM_1.png'
 html_show_copyright = False
 ```
 * The `html_theme` variable has been changed from `'alabaster'` to `'sphinx_rtd_theme'`. The "rtd" stands for "Read the Docs", which is another software documentation website hosting service similar to GitHub Pages. This theme is the theme used by all Read the Docs pages.
 
-* As stated previously, the `html_static_path` variable remains unchanged from its default state.
+* As stated previously, the `html_static_path` variable remains unchanged from its default state. A directory called `_static` (the default directory name stored within the `html_static_path` list) was added to the root directory of the repository and it contains a file called `custom.css`. 
+
+* The `html_css_files` allows the user to load in `.css` files that add extra styling preferences to the HTML pages. In this case, a file called `custom.css` was added to the `html_css_files` list. This file contains a line of CSS code that reduces the width of tables that appear on the HTML by allowing for text wrapping withing table cells. This means that for wide tables, much more of the table is visible without needing to use the scroll bar at the bottom of the table. To view `custom.css` on GitHub, click [here](https://github.com/USEPA/CRACMM/blob/CRACMMdocs/_static/custom.css).
 
 * The `html_logo` variable is an added variable that is built-in with Sphinx and it sets the path to an image that is included in the upper left corner of the website above the site's search bar. in this case, it adds the CRACMM logo to the page.
 
