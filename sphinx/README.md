@@ -5,6 +5,8 @@ This page provides documentation for the process of using Sphinx to build HTML f
 
 To view this page on on the CRACMM website instead of in raw markdown (if you're not already there), click [here](https://USEPA.github.io/CRACMM/sphinx/README.html).
 
+Note: Since this tutorial exists as a page on the CRACMM GitHub Pages site, make sure to regenerate the HTML for the webite after making any changes to this tutorial before making a pull request to the USEPA/CRACMM repository.
+
 
 ## Table of Contents
 * [Git Workflow Summary](#git-workflow-summary): This section goes over the basic git workflow for updating HTML on the CRACMM GitHub Pages website. If you are looking for detailed instructions on this process, this is not the tutorial you are looking for. Use the "Repository Setup" and "Process to Build HTML" tutorials instead.
@@ -92,6 +94,13 @@ If you have never run Sphinx for CRACMM before, you are going to need to set up 
     
     If your fork of the CRACMM repository on Atmos is not up to date with the latest version, continue to the [next section](#repository-setup) before learning how to build HTML. If you are ready to build HTML, click [here](#process-to-build-html) to learn how.
 
+4. Since Jupyter Notebook files are included on the GitHub Pages site, additional steps will need to be taken to make sure the HTML for these files gets generated correctly. When Sphinx builds HTML for Jupyter Notebook files, the notebooks get directly executed. This means that a kernel needs to be installed in the environment for this process to work since Jupyter Notebook files need kernels to run correctly. There are at least two kernels that need to be installed in your Python environment: `xarray_env` and `xarray_env_kernel`. To install them, run the following commands:
+    ```
+    python -m ipykernel install --user --name=xarray_env
+    python -m ipykernel install --user --name=xarray_env_kernel
+    ```
+    Later, when you go to create the HTML for the website, if an error message arises with a notice about a kernel being missing, just add a new kernel to the environment using a similar command to the ones above. Make sure to use the kernel name provided in the error message in order to resolve the error. It would also be helpful to update this tutorial by including the kernel installation command to the list above so that future useres know to include it in their environment.
+
 To return to the Table of Contents, click [here](#table-of-contents).
 
 
@@ -106,7 +115,7 @@ If you do not have a fully updated fork of the USEPA/CRACMM repository with all 
     ```
     You should now be in the root directory of your remote fork of the CRACMM repository.
 
-2. Next, once you are in your repository on Atmos, you need to make sure that all branches are up to date, not just `main`. To do this, enter the following commands:
+2. Once you are in your repository on Atmos, you need to make sure that all branches are up to date, not just `main`. To do this, enter the following commands:
     ```
     git remote add epacracmm_repo git@github.com:USEPA/CRACMM.git
     git fetch epacracmm_repo
