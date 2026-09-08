@@ -18,7 +18,7 @@ Box model inputs are provided for the F0AM model ([Wolfe et al., 2016](https://d
 
 ## CRACMM3HAPs mechanism
    * CRACMM3HAPs includes additional hazardous air pollutants (HAPs). The additional HAPs are implemented as tracers with removal and/or reactive decay where applicable. The additional tracer HAPs do not affect the radical budget nor ozone or PM mass. 
-   * For more information, see the work of Pye et al. (2025) and previous HAP implementations (Luecken et al., 2019) in the [CMAQ Repo](https://github.com/USEPA/CMAQ).
+   * For more information, see the work of Pye et al. (2026) and previous HAP implementations (Luecken et al., 2019) in the [CMAQ Repo](https://github.com/USEPA/CMAQ).
    * The CRACMM3HAPs radical budget and chemistry is the same as CRACMM3, so mechanism files are not separately provided.
 
 ## CRACMM2.001 mechanism
