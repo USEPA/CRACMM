@@ -9,8 +9,8 @@ Havala Pye, pye.havala@epa.gov
 
 ## Purpose and Organization of the CRACMM GitHub Repository
 
-The official, frozen versions of CRACMM reside in CMAQ in the [US EPA GitHub repository](https://github.com/USEPA/CMAQ). Here, we bring together CRACMM metadata from across CMAQ and provide additional information such as how to map emissions to the mechanism. This information is intended to support CMAQ users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
-* [Chemistry](chemistry/README.md): The mechanism in CMAQ-ready format, F0AM box model format, and markdown format
+Here, we bring together CRACMM metadata and provide additional information such as how to map emissions to the mechanism. This information is intended to support CRACMM users and provide the atmospheric chemistry community with information about CRACMM. This repository is organized as follows:
+* [Chemistry](chemistry/README.md): The mechanism in CMAQ format, F0AM box model format, and markdown format
 * [Emissions](emissions/README.md): Descriptions of tools and methods to perform mapping of individual species to CRACMM.
 * [Metadata](metadata/README.md): Information about CRACMM species (molecular weights, volatility, solubility, representative structures, etc.)
 * [Logos](logos/logos.md): CRACMM logos in PNG and PDF formats

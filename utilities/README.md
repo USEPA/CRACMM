@@ -14,7 +14,7 @@ Performs a screening level estimation of the ozone formation potential (Maximum 
 
  ## Tutorials (Jupyter Notebooks)
 
- * [Assemble CRACMM Species Metadata from CMAQ](markdown_metadata.ipynb): Creates species markdown files from CMAQ. Requires as input the CMAQ-ready species namelists, species description file, AERO_DATA.F, SOA_DEFN.F, and hlconst.F.
+ * [Assemble CRACMM Species Metadata from CMAQ](markdown_metadata.ipynb): Creates species markdown files from CMAQ. Requires as input the CMAQ-ready species namelists, species description file, AERO_DATA.F, ORG_DEFN.F, and hlconst.F.
 
  * [Map BEIS and MEGAN species to CRACMM](BEISMEGAN_biogenicmapping2cracmm.ipynb): Maps individual ROC species from biogenic sources to CRACMM mechanism species.
 
