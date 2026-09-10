@@ -25,9 +25,13 @@ The following contain species mapped to CRACMM1 and CRACMM2:
 EPA's SPECIATE to SMOKE Tool, [S2S-Tool](https://github.com/USEPA/S2S-Tool), supports CRACMM speciation and can generate SMOKE-ready speciation files (gspro files). When running CMAQ, the user is encouraged to check the main log file and the log file from one individual processor for diagnostic information from DESID ([Murphy et al., 2021](https://doi.org/10.5194/gmd-14-3407-2021)) that could indicate any mismatches in species naming conventions. In most cases, an older set of CRACMM emissions can be used in a newer version with minor adjustment (see the version compatability section).
 
 ### CMAQ-ready emissions
+- CRACMM2 emissions for 2025 over the contiguous U.S. at 12km horizontal resolution: US EPA, 2026, "CMAQ Model Version 5.5 CRACMM2 CAP-HAP Input Data – 12/01/2024 - 12/31/2025 12km CONUS", [https://doi.org/10.15139/S3/JYXFZY](https://doi.org/10.15139/S3/JYXFZY), UNC Dataverse, V1.
+
 - CRACMM2 emissions for 2023 over the contiguous U.S. and Canada at 12km horizontal resolution (used by [Pye et al., 2026](https://doi.org/10.1021/acs.estlett.5c01181)): US EPA, 2025, "CMAQ Model Version 5.5 CRACMM2 Input Data -- 12/01/2022 - 12/31/2013 12km CONUS + Canada", [https://doi.org/10.15139/S3/GL41QC](https://doi.org/10.15139/S3/GL41QC), UNC Dataverse, V1. 
 
 - CRACMM2 emissions for 2022 over the contiguous U.S. at 12km horizontal resolution: US EPA, 2025, "CMAQ Model Version 5.5 CRACMM2 Input Data (2022r1) - 12/22/2021 - 12/31/2022 12km CONUS", [https://doi.org/10.15139/S3/BDLBTW](https://doi.org/10.15139/S3/BDLBTW), UNC Dataverse, V1
+
+- CRACMM1 emissions for 2020 over the contiguous U.S. at 12km horizontal resolution: US EPA, 2026, "CMAQ Model Version 5.5 CRACMM1-2 Input Data - 12/22/2019 - 12/31/2020 12km CONUS", [https://doi.org/10.15139/S3/BYFKMI](https://doi.org/10.15139/S3/BYFKMI), UNC Dataverse, V1.
 
 - CRACMM1 emissions for 2019 over the contiguous U.S. at 12km horizontal resolution (used by [Vannucci et al., 2024](https://doi.org/10.1021/acsearthspacechem.3c00333); [Pye et al., 2024](https://doi.org/10.1021/acs.est.4c06187); and [Skipper et al., 2024](https://doi.org/10.5194/acp-24-12903-2024)): US EPA, 2025, "CMAQ Model Version 5.4-5.5 CRACMM Input Data -- 1/1/2019 - 12/31/2019 12km CONUS", [https://doi.org/10.15139/S3/WZNGQB](https://doi.org/10.15139/S3/WZNGQB), UNC Dataverse, V1. 
 
