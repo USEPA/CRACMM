@@ -8,13 +8,15 @@ Box model inputs are provided for the F0AM model ([Wolfe et al., 2016](https://d
    * CRACMM3 is the latest base mechanism.
    * [CRACMM3 mechanism table](cracmm3/mech_cracmm3.md)
    * CMAQ-ready [CRACMM3 mechanism definition file](cracmm3/mech_cracmm3.def)
-   * [F0AM chemistry files](https://github.com/USEPA/CRACMM/tree/main/chemistry/cracmm3/F0AM) for CRACMM3 mechanism. 
+   * [F0AM chemistry files](https://github.com/USEPA/CRACMM/tree/main/chemistry/cracmm3/F0AM) for CRACMM3 mechanism.
+   * [Documentation by reaction](cracmm3/cracmm3_rxn_metadata.csv) 
 
 ## CRACMM3M mechanism
    * CRACMM3M is consistent with CRACMM3 but replaces the condensed halogen reaction in CRACMM3 with additional detailed halogen and chlorine reactions as described by Sarwar et al. (2025).
    * [CRACMM3M mechanism table](cracmm3m/mech_cracmm3m.md)
    * CMAQ-ready [CRACMM3M mechanism definition file](cracmm3m/mech_cracmm3m.def)
    * [F0AM chemistry files](https://github.com/USEPA/CRACMM/tree/main/chemistry/cracmm3m/F0AM) for CRACMM3M mechanism. Note that some photolysis rates in CRACMM3M do not have direct analogs in MCM. The user will need to decide how to parameterize those rates.
+   * [Documentation by reaction](cracmm3m/cracmm3m_rxn_metadata.csv) 
 
 ## CRACMM3HAPs mechanism
    * CRACMM3HAPs includes additional hazardous air pollutants (HAPs). The additional HAPs are implemented as tracers with removal and/or reactive decay where applicable. The additional tracer HAPs do not affect the radical budget nor ozone or PM mass. 
@@ -26,6 +28,7 @@ Box model inputs are provided for the F0AM model ([Wolfe et al., 2016](https://d
    * [CRACMM2.001 mechanism table](cracmm2.001/mech_cracmm2.md)
    * CMAQ-ready [CRACMM2.001 mechanism definition file](cracmm2.001/mech_cracmm2.def)
    * [F0AM chemistry files](https://github.com/USEPA/CRACMM/tree/main/chemistry/cracmm2.001/F0AM) for CRACMM2.001 mechanism which is the same as work by [Skipper et al. (2024)](https://doi.org/10.5194/acp-24-12903-2024) with minor changes.
+   * [Documentation by reaction](cracmm2.001/cracmm2_rxn_metadata.csv) 
 
 ## CRACMM2 mechanism
    * [CRACMM2 mechanism table](cracmm2/mech_cracmm2.md)
