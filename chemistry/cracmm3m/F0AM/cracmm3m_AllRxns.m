@@ -1,7 +1,7 @@
 %Foam Reactions File based on the mech.def file for the cracmm3m mechanism.
-% # of species   =  248
+% # of species   =  249
 % # of reactions =  921
-% file created by Havala Pye
+% file created by Nash Skipper
 
 % Set constant species by scaling to air number density
 N2  =  0.780800000.*M;
@@ -62,7 +62,7 @@ SpeciesToAdd = {...
 'I2O4'; 'BRCL'; 'ICL'; 'IBR'; 'CH2IBR'; ...
 'CH2ICL'; 'CHBR2CL'; 'CHBRCL2'; 'CH2BRCL'; 'NO2PIJ'; ...
 'NO2PK'; 'ACLI'; 'ACLJ'; 'ACLK'; 'ABRJ'; ...
-'AFEJ'; 'AMNJ'; 'AHMSJ'; 'CH4'; };
+'SO4HRXN'; 'AFEJ'; 'AMNJ'; 'AHMSJ'; 'CH4'; };
 
 
 AddSpecies
@@ -7473,51 +7473,51 @@ fI2O4(i)=fI2O4(i)-1.0;
 
 % 912, <HET_SO2_H2O2>
 i=i+1;
-Rnames{ 912} = 'SO2 + H2O2 = ASO4J ';
+Rnames{ 912} = 'SO2 + H2O2 = ASO4J + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2H ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='H2O2';
 fSO2(i)=fSO2(i)-1.0;fH2O2(i)=fH2O2(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 913, <HET_SO2_O3>
 i=i+1;
-Rnames{ 913} = 'SO2 + O3 = ASO4J ';
+Rnames{ 913} = 'SO2 + O3 = ASO4J + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2O ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='O3';
 fSO2(i)=fSO2(i)-1.0;fO3(i)=fO3(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 914, <HET_SO2_MEPX>
 i=i+1;
-Rnames{ 914} = 'SO2 + OP1 = ASO4J + MOH ';
+Rnames{ 914} = 'SO2 + OP1 = ASO4J + MOH + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2M ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='OP1';
 fSO2(i)=fSO2(i)-1.0;fOP1(i)=fOP1(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fMOH(i)=fMOH(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fMOH(i)=fMOH(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 915, <HET_SO2_PACD>
 i=i+1;
-Rnames{ 915} = 'SO2 + PAA = ASO4J + ORA2 ';
+Rnames{ 915} = 'SO2 + PAA = ASO4J + ORA2 + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2P ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='PAA';
 fSO2(i)=fSO2(i)-1.0;fPAA(i)=fPAA(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fORA2(i)=fORA2(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fORA2(i)=fORA2(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 916, <HET_SO2_NO2>
 i=i+1;
-Rnames{ 916} = 'SO2 + NO2 = ASO4J + HONO ';
+Rnames{ 916} = 'SO2 + NO2 = ASO4J + HONO + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2N ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='NO2';
 fSO2(i)=fSO2(i)-1.0;fNO2(i)=fNO2(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fHONO(i)=fHONO(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fHONO(i)=fHONO(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 917, <HET_SO2_TMI>
 i=i+1;
-Rnames{ 917} = 'SO2 + AFEJ + AMNJ = ASO4J + AFEJ + AMNJ ';
+Rnames{ 917} = 'SO2 + AFEJ + AMNJ = ASO4J + AFEJ + AMNJ + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2T ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='AFEJ';Gstr{i,   3}='AMNJ';
 fSO2(i)=fSO2(i)-1.0;fAFEJ(i)=fAFEJ(i)-1.0;fAMNJ(i)=fAMNJ(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fAFEJ(i)=fAFEJ(i)+  1.0000;fAMNJ(i)=fAMNJ(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fAFEJ(i)=fAFEJ(i)+  1.0000;fAMNJ(i)=fAMNJ(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 918, <HET_SO2_HCHO>
 i=i+1;
@@ -7529,16 +7529,16 @@ fAHMSJ(i)=fAHMSJ(i)+  1.0000;
 
 % 919, <HET_SO2_HNO4>
 i=i+1;
-Rnames{ 919} = 'SO2 + HNO4 = ASO4J + ANO3J ';
-k(:,i) = (K_HETERO_HMSP ); 
+Rnames{ 919} = 'SO2 + HNO4 = ASO4J + ANO3J + SO4HRXN ';
+k(:,i) = (K_HETERO_HNO4 ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='HNO4';
 fSO2(i)=fSO2(i)-1.0;fHNO4(i)=fHNO4(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fANO3J(i)=fANO3J(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fANO3J(i)=fANO3J(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 920, <HET_HMS_L1>
 i=i+1;
 Rnames{ 920} = 'AHMSJ + HO = HO2 + SO2 + ORA1 ';
-k(:,i) = (K_HETERO_HMSP ); 
+k(:,i) = (K_HETERO_HMSL1 ); 
 Gstr{i,   1}='AHMSJ';Gstr{i,   2}='HO';
 fAHMSJ(i)=fAHMSJ(i)-1.0;fHO(i)=fHO(i)-1.0;
 fHO2(i)=fHO2(i)+  1.0000;fSO2(i)=fSO2(i)+  1.0000;fORA1(i)=fORA1(i)+  1.0000;
@@ -7546,7 +7546,7 @@ fHO2(i)=fHO2(i)+  1.0000;fSO2(i)=fSO2(i)+  1.0000;fORA1(i)=fORA1(i)+  1.0000;
 % 921, <HET_HMS_L2>
 i=i+1;
 Rnames{ 921} = 'AHMSJ = SO2 + HCHO ';
-k(:,i) = (K_HETERO_HMSP ); 
+k(:,i) = (K_HETERO_HMSL2 ); 
 Gstr{i,   1}='AHMSJ';
 fAHMSJ(i)=fAHMSJ(i)-1.0;
 fSO2(i)=fSO2(i)+  1.0000;fHCHO(i)=fHCHO(i)+  1.0000;
