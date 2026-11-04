@@ -1,7 +1,7 @@
 %Foam Reactions File based on the mech.def file for the cracmm3 mechanism.
-% # of species   =  212
+% # of species   =  213
 % # of reactions =  614
-% file created by Havala Pye
+% file created by Nash Skipper
 
 % Set constant species by scaling to air number density
 N2  =  0.780800000.*M;
@@ -54,8 +54,8 @@ SpeciesToAdd = {...
 'ANO3I'; 'ANO3J'; 'CL2'; 'CL'; 'CLO'; ...
 'OCLO'; 'CL2O2'; 'CLOO'; 'HOCL'; 'CLNO'; ...
 'CLNO2'; 'CLNO3'; 'HCL'; 'NO2PIJ'; 'NO2PK'; ...
-'ACLI'; 'ACLJ'; 'ACLK'; 'AMTN1J'; 'AFEJ'; ...
-'AMNJ'; 'AHMSJ'; 'CH4'; };
+'ACLI'; 'ACLJ'; 'ACLK'; 'AMTN1J'; 'SO4HRXN'; ...
+'AFEJ'; 'AMNJ'; 'AHMSJ'; 'CH4'; };
 
 
 AddSpecies
@@ -4995,51 +4995,51 @@ fAMTN1J(i)=fAMTN1J(i)+  0.8000;fORA1(i)=fORA1(i)+  0.2000;
 
 % 605, <HET_SO2_H2O2>
 i=i+1;
-Rnames{ 605} = 'SO2 + H2O2 = ASO4J ';
+Rnames{ 605} = 'SO2 + H2O2 = ASO4J + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2H ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='H2O2';
 fSO2(i)=fSO2(i)-1.0;fH2O2(i)=fH2O2(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 606, <HET_SO2_O3>
 i=i+1;
-Rnames{ 606} = 'SO2 + O3 = ASO4J ';
+Rnames{ 606} = 'SO2 + O3 = ASO4J + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2O ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='O3';
 fSO2(i)=fSO2(i)-1.0;fO3(i)=fO3(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 607, <HET_SO2_MEPX>
 i=i+1;
-Rnames{ 607} = 'SO2 + OP1 = ASO4J + MOH ';
+Rnames{ 607} = 'SO2 + OP1 = ASO4J + MOH + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2M ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='OP1';
 fSO2(i)=fSO2(i)-1.0;fOP1(i)=fOP1(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fMOH(i)=fMOH(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fMOH(i)=fMOH(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 608, <HET_SO2_PACD>
 i=i+1;
-Rnames{ 608} = 'SO2 + PAA = ASO4J + ORA2 ';
+Rnames{ 608} = 'SO2 + PAA = ASO4J + ORA2 + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2P ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='PAA';
 fSO2(i)=fSO2(i)-1.0;fPAA(i)=fPAA(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fORA2(i)=fORA2(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fORA2(i)=fORA2(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 609, <HET_SO2_NO2>
 i=i+1;
-Rnames{ 609} = 'SO2 + NO2 = ASO4J + HONO ';
+Rnames{ 609} = 'SO2 + NO2 = ASO4J + HONO + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2N ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='NO2';
 fSO2(i)=fSO2(i)-1.0;fNO2(i)=fNO2(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fHONO(i)=fHONO(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fHONO(i)=fHONO(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 610, <HET_SO2_TMI>
 i=i+1;
-Rnames{ 610} = 'SO2 + AFEJ + AMNJ = ASO4J + AFEJ + AMNJ ';
+Rnames{ 610} = 'SO2 + AFEJ + AMNJ = ASO4J + AFEJ + AMNJ + SO4HRXN ';
 k(:,i) = (K_HETERO_SO2T ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='AFEJ';Gstr{i,   3}='AMNJ';
 fSO2(i)=fSO2(i)-1.0;fAFEJ(i)=fAFEJ(i)-1.0;fAMNJ(i)=fAMNJ(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fAFEJ(i)=fAFEJ(i)+  1.0000;fAMNJ(i)=fAMNJ(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fAFEJ(i)=fAFEJ(i)+  1.0000;fAMNJ(i)=fAMNJ(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 611, <HET_SO2_HCHO>
 i=i+1;
@@ -5051,16 +5051,16 @@ fAHMSJ(i)=fAHMSJ(i)+  1.0000;
 
 % 612, <HET_SO2_HNO4>
 i=i+1;
-Rnames{ 612} = 'SO2 + HNO4 = ASO4J + ANO3J ';
-k(:,i) = (K_HETERO_HMSP ); 
+Rnames{ 612} = 'SO2 + HNO4 = ASO4J + ANO3J + SO4HRXN ';
+k(:,i) = (K_HETERO_HNO4 ); 
 Gstr{i,   1}='SO2';Gstr{i,   2}='HNO4';
 fSO2(i)=fSO2(i)-1.0;fHNO4(i)=fHNO4(i)-1.0;
-fASO4J(i)=fASO4J(i)+  1.0000;fANO3J(i)=fANO3J(i)+  1.0000;
+fASO4J(i)=fASO4J(i)+  1.0000;fANO3J(i)=fANO3J(i)+  1.0000;fSO4HRXN(i)=fSO4HRXN(i)+  1.0000;
 
 % 613, <HET_HMS_L1>
 i=i+1;
 Rnames{ 613} = 'AHMSJ + HO = HO2 + SO2 + ORA1 ';
-k(:,i) = (K_HETERO_HMSP ); 
+k(:,i) = (K_HETERO_HMSL1 ); 
 Gstr{i,   1}='AHMSJ';Gstr{i,   2}='HO';
 fAHMSJ(i)=fAHMSJ(i)-1.0;fHO(i)=fHO(i)-1.0;
 fHO2(i)=fHO2(i)+  1.0000;fSO2(i)=fSO2(i)+  1.0000;fORA1(i)=fORA1(i)+  1.0000;
@@ -5068,7 +5068,7 @@ fHO2(i)=fHO2(i)+  1.0000;fSO2(i)=fSO2(i)+  1.0000;fORA1(i)=fORA1(i)+  1.0000;
 % 614, <HET_HMS_L2>
 i=i+1;
 Rnames{ 614} = 'AHMSJ = SO2 + HCHO ';
-k(:,i) = (K_HETERO_HMSP ); 
+k(:,i) = (K_HETERO_HMSL2 ); 
 Gstr{i,   1}='AHMSJ';
 fAHMSJ(i)=fAHMSJ(i)-1.0;
 fSO2(i)=fSO2(i)+  1.0000;fHCHO(i)=fHCHO(i)+  1.0000;
